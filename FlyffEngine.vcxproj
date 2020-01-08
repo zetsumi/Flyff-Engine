@@ -21,12 +21,14 @@
   <ItemGroup>
     <ClCompile Include="source\dllmain.cpp" />
     <ClCompile Include="source\pch.cpp" />
+    <ClCompile Include="source\property\property_manager.cpp" />
     <ClCompile Include="source\third_party\xml\pugixml.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\framework.h" />
     <ClInclude Include="source\pch.h" />
-    <ClInclude Include="source\property\property.h" />
+    <ClInclude Include="source\property\property.hpp" />
+    <ClInclude Include="source\property\property_manager.hpp" />
     <ClInclude Include="source\third_party\json\picojson.h" />
     <ClInclude Include="source\third_party\xml\pugiconfig.h" />
     <ClInclude Include="source\third_party\xml\pugixml.h" />

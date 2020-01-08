@@ -36,6 +36,9 @@
     <ClCompile Include="source\third_party\xml\pugixml.cpp">
       <Filter>Fichiers sources\thrid_party\xml</Filter>
     </ClCompile>
+    <ClCompile Include="source\property\property_manager.cpp">
+      <Filter>Fichiers sources\property</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\framework.h">
@@ -53,7 +56,10 @@
     <ClInclude Include="source\third_party\xml\pugixml.h">
       <Filter>Fichiers sources\thrid_party\xml</Filter>
     </ClInclude>
-    <ClInclude Include="source\property\property.h">
+    <ClInclude Include="source\property\property.hpp">
+      <Filter>Fichiers sources\property</Filter>
+    </ClInclude>
+    <ClInclude Include="source\property\property_manager.hpp">
       <Filter>Fichiers sources\property</Filter>
     </ClInclude>
   </ItemGroup>
