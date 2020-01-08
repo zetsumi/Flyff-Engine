@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Fichiers sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Fichiers de ressources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Fichiers sources\thrid_party">
+      <UniqueIdentifier>{34a4583e-a488-4927-8403-4476794a4572}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\thrid_party\json">
+      <UniqueIdentifier>{dd4cc574-c2b8-4c6f-bd4d-8ff9744361cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\thrid_party\xml">
+      <UniqueIdentifier>{6c52b32b-ac5a-4bb7-a4d4-501e1001c577}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\dllmain.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="source\pch.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="source\third_party\xml\pugixml.cpp">
+      <Filter>Fichiers sources\thrid_party\xml</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\framework.h">
+      <Filter>Fichiers sources</Filter>
+    </ClInclude>
+    <ClInclude Include="source\pch.h">
+      <Filter>Fichiers sources</Filter>
+    </ClInclude>
+    <ClInclude Include="source\third_party\json\picojson.h">
+      <Filter>Fichiers sources\thrid_party\json</Filter>
+    </ClInclude>
+    <ClInclude Include="source\third_party\xml\pugiconfig.h">
+      <Filter>Fichiers sources\thrid_party\xml</Filter>
+    </ClInclude>
+    <ClInclude Include="source\third_party\xml\pugixml.h">
+      <Filter>Fichiers sources\thrid_party\xml</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
