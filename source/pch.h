@@ -13,5 +13,7 @@
 #include "third_party/json/picojson.h"
 #include "third_party/xml/pugixml.h"
 
+#include "property/property_manager.hpp"
+
 
 #endif //PCH_H

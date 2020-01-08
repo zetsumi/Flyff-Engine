@@ -26,6 +26,7 @@
   <ItemGroup>
     <ClInclude Include="source\framework.h" />
     <ClInclude Include="source\pch.h" />
+    <ClInclude Include="source\property\property.h" />
     <ClInclude Include="source\third_party\json\picojson.h" />
     <ClInclude Include="source\third_party\xml\pugiconfig.h" />
     <ClInclude Include="source\third_party\xml\pugixml.h" />

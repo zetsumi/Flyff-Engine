@@ -22,6 +22,9 @@
     <Filter Include="Fichiers sources\thrid_party\xml">
       <UniqueIdentifier>{6c52b32b-ac5a-4bb7-a4d4-501e1001c577}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\property">
+      <UniqueIdentifier>{a4328eda-47d0-49ec-ae47-7b08b4a507d2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\dllmain.cpp">
@@ -49,6 +52,9 @@
     </ClInclude>
     <ClInclude Include="source\third_party\xml\pugixml.h">
       <Filter>Fichiers sources\thrid_party\xml</Filter>
+    </ClInclude>
+    <ClInclude Include="source\property\property.h">
+      <Filter>Fichiers sources\property</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
