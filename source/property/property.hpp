@@ -17,5 +17,7 @@ namespace fe
         virtual ~PropertyContainer()
         {
         }
+
+        virtual bool    load(const std::string& fileName) = 0;
     };
 }

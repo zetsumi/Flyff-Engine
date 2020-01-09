@@ -180,5 +180,12 @@ namespace fe
 		{}
 
 		~PropMover() {}
+
+		bool    load(const std::string& fileName) override
+		{
+			return true;
+		}
+
+
 	};
 }

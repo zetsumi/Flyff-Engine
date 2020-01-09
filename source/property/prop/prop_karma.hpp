@@ -47,6 +47,14 @@ namespace fe
             statLimitRate(0),
             comment()
         {}
+
         ~PropKarma() {}
+
+        bool    load(const std::string& fileName) override
+        {
+            return true;
+        }
+
+
     };
 }

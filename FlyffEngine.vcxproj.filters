@@ -28,6 +28,9 @@
     <Filter Include="Fichiers sources\property\prop">
       <UniqueIdentifier>{a9a3ce84-32b0-4fe7-8488-10f3bb4eefe3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\io">
+      <UniqueIdentifier>{26054f39-e6c4-4f1e-9da0-a4ccba6fca35}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\dllmain.cpp">
@@ -44,6 +47,9 @@
     </ClCompile>
     <ClCompile Include="source\property\property_project.cpp">
       <Filter>Fichiers sources\property</Filter>
+    </ClCompile>
+    <ClCompile Include="source\io\file\lexer_parser.cpp">
+      <Filter>Fichiers sources\io</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -82,6 +88,12 @@
     </ClInclude>
     <ClInclude Include="source\property\prop\prop_mover.hpp">
       <Filter>Fichiers sources\property\prop</Filter>
+    </ClInclude>
+    <ClInclude Include="source\property\prop\prop_skill.hpp">
+      <Filter>Fichiers sources\property\prop</Filter>
+    </ClInclude>
+    <ClInclude Include="source\io\file\lexer_parser.hpp">
+      <Filter>Fichiers sources\io</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

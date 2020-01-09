@@ -28,5 +28,11 @@ namespace fe
         {}
 
         ~PropCtrl() {}
+
+        bool    load(const std::string& fileName) override
+        {
+            return true;
+        }
+
     };
 }

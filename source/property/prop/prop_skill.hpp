@@ -262,5 +262,11 @@ namespace fe
 
         ~PropSkill()
         {}
+
+        bool    load(const std::string& fileName) override
+        {
+            return true;
+        }
+
     };
 }

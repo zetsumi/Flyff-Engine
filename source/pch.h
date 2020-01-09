@@ -10,5 +10,7 @@
 #include "third_party/json/picojson.h"
 #include "third_party/xml/pugixml.h"
 
+#include "lexer_parser.hpp"
+
 #include "prop_item.hpp"
 #include "prop_ctrl.hpp"
