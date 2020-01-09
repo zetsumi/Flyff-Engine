@@ -42,6 +42,9 @@
     <ClCompile Include="source\property\property_manager.cpp">
       <Filter>Fichiers sources\property</Filter>
     </ClCompile>
+    <ClCompile Include="source\property\property_project.cpp">
+      <Filter>Fichiers sources\property</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\framework.h">
@@ -67,6 +70,9 @@
     </ClInclude>
     <ClInclude Include="source\property\prop\prop_item.hpp">
       <Filter>Fichiers sources\property\prop</Filter>
+    </ClInclude>
+    <ClInclude Include="source\property\property_project.hpp">
+      <Filter>Fichiers sources\property</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

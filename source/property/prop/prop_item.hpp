@@ -5,7 +5,7 @@
 
 namespace fe
 {
-    enum class PROPTYPE : unsigned __int64
+    enum class PROP_ITEM_ELEMENT : unsigned __int64
     {
         NO_PROP = 0, FIRE, WATER, ELECTRICITY, WIND, EARTH, END_PROP
     };
@@ -44,7 +44,7 @@ namespace fe
         unsigned __int64    linkKind;
         unsigned __int64    abilityMin;
         unsigned __int64    abilityMax;
-        PROPTYPE            itemType;
+        PROP_ITEM_ELEMENT            itemType;
         short               itemEAtk;
         unsigned __int64    parry;
         unsigned __int64    blockRating;
@@ -170,7 +170,7 @@ namespace fe
             linkKind(0),
             abilityMin(0),
             abilityMax(0),
-            itemType(PROPTYPE::NO_PROP),
+            itemType(PROP_ITEM_ELEMENT::NO_PROP),
             itemEAtk(0),
             parry(0),
             blockRating(0),
