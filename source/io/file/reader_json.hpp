@@ -17,7 +17,8 @@ namespace fe
         ReaderJson();
         ~ReaderJson();
 
-        bool    loadJson(picojson::value& v, const std::string& szFileJson) noexcept;
+        bool    loadJson(const std::string& szFileJson) noexcept;
+        bool    writeJson(const std::string& szFileName) noexcept;
         bool    writeJson(picojson::value& v, const std::string& szFileName) noexcept;
     };
 

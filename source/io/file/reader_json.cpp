@@ -11,29 +11,61 @@ fe::ReaderJson::~ReaderJson()
 }
 
 
-bool fe::ReaderJson::loadJson(picojson::value& v, const std::string& szFileJson) noexcept
+bool fe::ReaderJson::loadJson(const std::string& szFileJson) noexcept
 {
-    std::stringstream ss;
-    std::ifstream f;
-    f.open(szFileJson);
-    if (!f.is_open())
+    try
+    {
+        std::stringstream ss;
+        std::ifstream f;
+        f.open(szFileJson);
+        if (!f.is_open())
+            return false;
+        ss << f.rdbuf();
+        f.close();
+        ss >> root;
+        if (!picojson::get_last_error().empty())
+            return false;
+    }
+    catch (const std::exception&)
+    {
         return false;
-    ss << f.rdbuf();
-    f.close();
-    ss >> v;
-    if (!picojson::get_last_error().empty())
-        return false;
+    }
     return true;
 }
 
 
 bool    fe::ReaderJson::writeJson(picojson::value& v, const std::string& szFileName) noexcept
 {
-    std::ofstream myfile;
-    myfile.open(szFileName);
-    if (!myfile.is_open())
+    try
+    {
+        std::ofstream myfile;
+        myfile.open(szFileName);
+        if (!myfile.is_open())
+            return false;
+        myfile << picojson::value(v).serialize(true);
+        myfile.close();
+    }
+    catch (const std::exception&)
+    {
         return false;
-    myfile << picojson::value(v).serialize(true);
-    myfile.close();
+    }
+    return true;
+}
+
+bool    fe::ReaderJson::writeJson(const std::string& szFileName) noexcept
+{
+    try
+    {
+        std::ofstream myfile;
+        myfile.open(szFileName);
+        if (!myfile.is_open())
+            return false;
+        myfile << picojson::value(root).serialize(true);
+        myfile.close();
+    }
+    catch (const std::exception&)
+    {
+        return false;
+    }
     return true;
 }
