@@ -50,11 +50,6 @@ namespace fe
 
         ~PropKarma() {}
 
-        bool    load(const std::string& fileName) override
-        {
-            return true;
-        }
-
 
     };
 }

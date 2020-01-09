@@ -262,11 +262,6 @@ namespace fe
 
         ~PropItem() {}
 
-        bool    load(const std::string& fileName) override
-        {
-            return true;
-        }
-
 
     };
 }

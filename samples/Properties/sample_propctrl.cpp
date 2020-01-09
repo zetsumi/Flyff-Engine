@@ -4,7 +4,6 @@
 #include "framework.h"
 #include "prop_ctrl.hpp"
 #include "property_manager.hpp"
-#include "property_project.hpp"
 
 template<class C>
 static C* create()
@@ -42,10 +41,4 @@ void    propctrl_without_project()
         else
             std::cerr << "item " << id << " not found" << std::endl;
     }
-}
-
-
-void    propctrl_with_project()
-{
-
 }

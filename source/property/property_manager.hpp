@@ -1,6 +1,8 @@
 #pragma once
 
+#include <algorithm>
 #include <unordered_map>
+
 #include "framework.h"
 #include "property.hpp"
 

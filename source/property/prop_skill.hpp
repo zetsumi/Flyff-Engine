@@ -136,7 +136,7 @@ namespace fe
         PropSkill() :
             version(0),
             id(0),
-            name(0),
+            name(""),
             num(0),
             packMax(0),
             itemKind1(0),
@@ -262,11 +262,6 @@ namespace fe
 
         ~PropSkill()
         {}
-
-        bool    load(const std::string& fileName) override
-        {
-            return true;
-        }
 
     };
 }

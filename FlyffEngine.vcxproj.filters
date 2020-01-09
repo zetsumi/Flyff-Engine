@@ -25,11 +25,11 @@
     <Filter Include="Fichiers sources\property">
       <UniqueIdentifier>{a4328eda-47d0-49ec-ae47-7b08b4a507d2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\property\prop">
-      <UniqueIdentifier>{a9a3ce84-32b0-4fe7-8488-10f3bb4eefe3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers sources\io">
       <UniqueIdentifier>{26054f39-e6c4-4f1e-9da0-a4ccba6fca35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\io\file">
+      <UniqueIdentifier>{beea03a5-cda6-4331-8ea9-7f3a279388bd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -45,11 +45,11 @@
     <ClCompile Include="source\property\property_manager.cpp">
       <Filter>Fichiers sources\property</Filter>
     </ClCompile>
-    <ClCompile Include="source\property\property_project.cpp">
-      <Filter>Fichiers sources\property</Filter>
+    <ClCompile Include="source\io\file\reader_json.cpp">
+      <Filter>Fichiers sources\io\file</Filter>
     </ClCompile>
-    <ClCompile Include="source\io\file\lexer_parser.cpp">
-      <Filter>Fichiers sources\io</Filter>
+    <ClCompile Include="source\io\file\reader_header.cpp">
+      <Filter>Fichiers sources\io\file</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -74,26 +74,26 @@
     <ClInclude Include="source\property\property_manager.hpp">
       <Filter>Fichiers sources\property</Filter>
     </ClInclude>
-    <ClInclude Include="source\property\prop\prop_item.hpp">
-      <Filter>Fichiers sources\property\prop</Filter>
-    </ClInclude>
-    <ClInclude Include="source\property\property_project.hpp">
+    <ClInclude Include="source\property\prop_karma.hpp">
       <Filter>Fichiers sources\property</Filter>
     </ClInclude>
-    <ClInclude Include="source\property\prop\prop_ctrl.hpp">
-      <Filter>Fichiers sources\property\prop</Filter>
+    <ClInclude Include="source\property\prop_mover.hpp">
+      <Filter>Fichiers sources\property</Filter>
     </ClInclude>
-    <ClInclude Include="source\property\prop\prop_karma.hpp">
-      <Filter>Fichiers sources\property\prop</Filter>
+    <ClInclude Include="source\property\prop_skill.hpp">
+      <Filter>Fichiers sources\property</Filter>
     </ClInclude>
-    <ClInclude Include="source\property\prop\prop_mover.hpp">
-      <Filter>Fichiers sources\property\prop</Filter>
+    <ClInclude Include="source\property\prop_ctrl.hpp">
+      <Filter>Fichiers sources\property</Filter>
     </ClInclude>
-    <ClInclude Include="source\property\prop\prop_skill.hpp">
-      <Filter>Fichiers sources\property\prop</Filter>
+    <ClInclude Include="source\property\prop_item.hpp">
+      <Filter>Fichiers sources\property</Filter>
     </ClInclude>
-    <ClInclude Include="source\io\file\lexer_parser.hpp">
-      <Filter>Fichiers sources\io</Filter>
+    <ClInclude Include="source\io\file\reader_json.hpp">
+      <Filter>Fichiers sources\io\file</Filter>
+    </ClInclude>
+    <ClInclude Include="source\io\file\reader_header.hpp">
+      <Filter>Fichiers sources\io\file</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

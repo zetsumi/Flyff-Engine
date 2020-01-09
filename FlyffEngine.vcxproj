@@ -20,24 +20,24 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\dllmain.cpp" />
-    <ClCompile Include="source\io\file\lexer_parser.cpp" />
+    <ClCompile Include="source\io\file\reader_header.cpp" />
+    <ClCompile Include="source\io\file\reader_json.cpp" />
     <ClCompile Include="source\pch.cpp" />
     <ClCompile Include="source\property\property_manager.cpp" />
-    <ClCompile Include="source\property\property_project.cpp" />
     <ClCompile Include="source\third_party\xml\pugixml.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\framework.h" />
-    <ClInclude Include="source\io\file\lexer_parser.hpp" />
+    <ClInclude Include="source\io\file\reader_header.hpp" />
+    <ClInclude Include="source\io\file\reader_json.hpp" />
     <ClInclude Include="source\pch.h" />
     <ClInclude Include="source\property\property.hpp" />
     <ClInclude Include="source\property\property_manager.hpp" />
-    <ClInclude Include="source\property\property_project.hpp" />
-    <ClInclude Include="source\property\prop\prop_ctrl.hpp" />
-    <ClInclude Include="source\property\prop\prop_item.hpp" />
-    <ClInclude Include="source\property\prop\prop_karma.hpp" />
-    <ClInclude Include="source\property\prop\prop_mover.hpp" />
-    <ClInclude Include="source\property\prop\prop_skill.hpp" />
+    <ClInclude Include="source\property\prop_ctrl.hpp" />
+    <ClInclude Include="source\property\prop_item.hpp" />
+    <ClInclude Include="source\property\prop_karma.hpp" />
+    <ClInclude Include="source\property\prop_mover.hpp" />
+    <ClInclude Include="source\property\prop_skill.hpp" />
     <ClInclude Include="source\third_party\json\picojson.h" />
     <ClInclude Include="source\third_party\xml\pugiconfig.h" />
     <ClInclude Include="source\third_party\xml\pugixml.h" />
@@ -129,7 +129,7 @@
       <PreprocessorDefinitions>_DEBUG;FLYFFENGINE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>source/;source/property/;source/property/prop/;source/io/file/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>source/;source/property/;source/io/file/</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp14</LanguageStandard>
       <EnableModules>true</EnableModules>
     </ClCompile>
@@ -168,7 +168,7 @@
       <PreprocessorDefinitions>NDEBUG;FLYFFENGINE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>source/;source/property/;source/property/prop/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>source/;source/property/;</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>

@@ -1,5 +1,14 @@
-// pch.cpp : fichier source correspondant à l'en-tête précompilé
-
 #include "pch.h"
 
-// Quand vous utilisez des en-têtes précompilés, ce fichier source est nécessaire pour la réussite de la compilation.
+// Properties
+#include "property.hpp"
+#include "prop_ctrl.hpp"
+#include "prop_item.hpp"
+#include "prop_karma.hpp"
+#include "prop_mover.hpp"
+#include "prop_skill.hpp"
+#include "property_manager.hpp"
+
+// Reader
+#include "reader_header.hpp"
+#include "reader_json.hpp"
