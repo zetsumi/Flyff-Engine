@@ -25,6 +25,9 @@
     <Filter Include="Fichiers sources\property">
       <UniqueIdentifier>{a4328eda-47d0-49ec-ae47-7b08b4a507d2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\property\prop">
+      <UniqueIdentifier>{a9a3ce84-32b0-4fe7-8488-10f3bb4eefe3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\dllmain.cpp">
@@ -61,6 +64,9 @@
     </ClInclude>
     <ClInclude Include="source\property\property_manager.hpp">
       <Filter>Fichiers sources\property</Filter>
+    </ClInclude>
+    <ClInclude Include="source\property\prop\prop_item.hpp">
+      <Filter>Fichiers sources\property\prop</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

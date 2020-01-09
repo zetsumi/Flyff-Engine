@@ -1,22 +1,41 @@
 #include "pch.h"
 #include "property_manager.hpp"
 
-constexpr void fe::PropertyManager::push(unsigned __int64 id, fe::PropertyContainer* property)
+fe::PropertyManager::PropertyManager() :
+    properties()
 {
-    if (!property)
+}
+
+fe::PropertyManager::~PropertyManager()
+{
+    auto purge = [](std::pair<unsigned __int64, fe::PropertyContainer*>&& it)
+    {
+        if (it.second != nullptr)
+        {
+            delete it.second;
+            it.second = nullptr;
+        }
+    };
+    std::for_each(properties.begin(), properties.end(), purge);
+    properties.clear();
+}
+
+void fe::PropertyManager::push(unsigned __int64 id, fe::PropertyContainer* prop) noexcept
+{
+    if (prop == nullptr)
         return;
     if (properties.find(id) == properties.end())
     {
-        auto data = std::make_pair(id, property);
+        auto data = std::make_pair(id, prop);
         properties.insert(data);
     }
     else
     {
-        properties.at(id) = property;
+        properties.at(id) = prop;
     }
 }
 
-constexpr fe::PropertyContainer* fe::PropertyManager::get(unsigned __int64 id)
+fe::PropertyContainer* fe::PropertyManager::get(unsigned __int64 id) noexcept
 {
     auto it = properties.find(id);
     if (it == properties.end())
@@ -24,35 +43,15 @@ constexpr fe::PropertyContainer* fe::PropertyManager::get(unsigned __int64 id)
     return it->second;
 }
 
-constexpr fe::PropertyContainer* fe::PropertyManager::remove(unsigned __int64 id)
+void fe::PropertyManager::remove(unsigned __int64 id) noexcept
 {
-    auto property = get(id);
-    if (property)
+    auto prop = get(id);
+    if (prop)
     {
-        delete property;
-        property = nullptr;
+        properties.erase(id);
+        delete prop;
+        prop = nullptr;
     }
 }
-
-#undef FE_PROPERTY_CLASSNAME
-#define FE_PROPERTY_CLASSNAME Test
-
-FE_PROPERTY_CLASS_BEGIN
-
-FE_PROPERTY_VAR(int, toto)
-FE_PROPERTY_VAR(int, tata)
-FE_PROPERTY_VAR(char*, title)
-
-FE_PROPERTY_INITIALIZE_BEGIN
-FE_PROPERTY_INITIALIZE_VAR(toto, 0)
-FE_PROPERTY_INITIALIZE_VAR(tata, 0)
-FE_PROPERTY_INITIALIZE_VAR(title, new char[2]())
-FE_PROPERTY_INITIALIZE_END
-
-FE_PROPERTY_DESTROY_DEGIN
-FE_PROPERTRY_DESTROY_VAR(title, delete)
-FE_PROPERTY_DESTROY_END
-
-FE_PROPERTY_CLASS_END
 
 
