@@ -8,7 +8,13 @@ namespace fe
 {
 	enum class PROPERTY_TYPE : unsigned __int64
 	{
-		PropItem
+		PropItem = 0,
+		PropMover,
+		PropCtrl,
+		PropSkill,
+		PropSkillTroupe,
+		PropKarma,
+		PropMax
 	};
 	class API_DECLSPEC PropertyProject
 	{
