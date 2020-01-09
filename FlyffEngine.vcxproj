@@ -31,7 +31,10 @@
     <ClInclude Include="source\property\property.hpp" />
     <ClInclude Include="source\property\property_manager.hpp" />
     <ClInclude Include="source\property\property_project.hpp" />
+    <ClInclude Include="source\property\prop\prop_ctrl.hpp" />
     <ClInclude Include="source\property\prop\prop_item.hpp" />
+    <ClInclude Include="source\property\prop\prop_karma.hpp" />
+    <ClInclude Include="source\property\prop\prop_mover.hpp" />
     <ClInclude Include="source\third_party\json\picojson.h" />
     <ClInclude Include="source\third_party\xml\pugiconfig.h" />
     <ClInclude Include="source\third_party\xml\pugixml.h" />

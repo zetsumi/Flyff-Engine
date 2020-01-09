@@ -11,3 +11,4 @@
 #include "third_party/xml/pugixml.h"
 
 #include "prop_item.hpp"
+#include "prop_ctrl.hpp"

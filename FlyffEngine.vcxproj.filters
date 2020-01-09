@@ -74,5 +74,14 @@
     <ClInclude Include="source\property\property_project.hpp">
       <Filter>Fichiers sources\property</Filter>
     </ClInclude>
+    <ClInclude Include="source\property\prop\prop_ctrl.hpp">
+      <Filter>Fichiers sources\property\prop</Filter>
+    </ClInclude>
+    <ClInclude Include="source\property\prop\prop_karma.hpp">
+      <Filter>Fichiers sources\property\prop</Filter>
+    </ClInclude>
+    <ClInclude Include="source\property\prop\prop_mover.hpp">
+      <Filter>Fichiers sources\property\prop</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

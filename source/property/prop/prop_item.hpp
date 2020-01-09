@@ -1,15 +1,11 @@
 #pragma once
 
+#include <string>
 #include "framework.h"
 #include "property.hpp"
 
 namespace fe
 {
-    enum class PROP_ITEM_ELEMENT : unsigned __int64
-    {
-        NO_PROP = 0, FIRE, WATER, ELECTRICITY, WIND, EARTH, END_PROP
-    };
-
     struct API_DECLSPEC PropItem : public PropertyContainer
     {
         unsigned __int64    version;

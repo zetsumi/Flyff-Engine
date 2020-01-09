@@ -24,7 +24,7 @@ namespace fe
 		template<class C>
 		C get(PROPERTY_TYPE typeProperty, unsigned __int64 id) noexcept
 		{
-			fe::PropertyContainer* container = get(id);
+			fe::PropertyContainer* container = get(typeProperty, id);
 			if (container == nullptr)
 				return nullptr;
 			return dynamic_cast<C>(container);

@@ -141,6 +141,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="sample_propctrl.cpp" />
+    <ClCompile Include="sample_propitem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\FlyffEngine.vcxproj">
