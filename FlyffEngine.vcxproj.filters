@@ -31,6 +31,12 @@
     <Filter Include="Fichiers sources\io\file">
       <UniqueIdentifier>{beea03a5-cda6-4331-8ea9-7f3a279388bd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\project">
+      <UniqueIdentifier>{b8383ae4-4921-4091-96f6-4bd349873fd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\project\loader">
+      <UniqueIdentifier>{d59c0789-514b-4e78-a4fb-6b18e12380d0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\dllmain.cpp">
@@ -50,6 +56,12 @@
     </ClCompile>
     <ClCompile Include="source\io\file\reader_header.cpp">
       <Filter>Fichiers sources\io\file</Filter>
+    </ClCompile>
+    <ClCompile Include="source\project\project_manager.cpp">
+      <Filter>Fichiers sources\project</Filter>
+    </ClCompile>
+    <ClCompile Include="source\project\loader\project_manager_loader_prop_item.cpp">
+      <Filter>Fichiers sources\project\loader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -94,6 +106,9 @@
     </ClInclude>
     <ClInclude Include="source\io\file\reader_header.hpp">
       <Filter>Fichiers sources\io\file</Filter>
+    </ClInclude>
+    <ClInclude Include="source\project\project_manager.hpp">
+      <Filter>Fichiers sources\project</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
