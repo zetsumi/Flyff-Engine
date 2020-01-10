@@ -18,11 +18,11 @@ fe::ProjectManager::~ProjectManager()
 {
 }
 
-bool    fe::ProjectManager::loadHeader(const std::string& fileName) noexcept
+bool    fe::ProjectManager::loadHeader(const std::string& fileName, LOADER_MODE mode) noexcept
 {
     try
     {
-        return header.loadHeader(fileName);
+        return header.load(fileName, mode);
     }
     catch (const std::exception&)
     {

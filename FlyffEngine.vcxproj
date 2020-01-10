@@ -30,6 +30,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\framework.h" />
+    <ClInclude Include="source\io\file\reader.hpp" />
     <ClInclude Include="source\io\file\reader_header.hpp" />
     <ClInclude Include="source\io\file\reader_json.hpp" />
     <ClInclude Include="source\pch.h" />
@@ -40,6 +41,7 @@
     <ClInclude Include="source\property\prop_item.hpp" />
     <ClInclude Include="source\property\prop_karma.hpp" />
     <ClInclude Include="source\property\prop_mover.hpp" />
+    <ClInclude Include="source\property\prop_mover_ex.hpp" />
     <ClInclude Include="source\property\prop_skill.hpp" />
     <ClInclude Include="source\third_party\json\picojson.h" />
     <ClInclude Include="source\third_party\xml\pugiconfig.h" />

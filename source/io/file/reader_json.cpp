@@ -11,7 +11,7 @@ fe::ReaderJson::~ReaderJson()
 }
 
 
-bool fe::ReaderJson::loadJson(const std::string& szFileJson) noexcept
+bool fe::ReaderJson::load(const std::string& szFileJson) noexcept
 {
     try
     {
@@ -34,7 +34,7 @@ bool fe::ReaderJson::loadJson(const std::string& szFileJson) noexcept
 }
 
 
-bool    fe::ReaderJson::writeJson(picojson::value& v, const std::string& szFileName) noexcept
+bool    fe::ReaderJson::write(picojson::value& v, const std::string& szFileName) noexcept
 {
     try
     {
@@ -52,7 +52,7 @@ bool    fe::ReaderJson::writeJson(picojson::value& v, const std::string& szFileN
     return true;
 }
 
-bool    fe::ReaderJson::writeJson(const std::string& szFileName) noexcept
+bool    fe::ReaderJson::write(const std::string& szFileName) noexcept
 {
     try
     {

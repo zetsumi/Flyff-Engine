@@ -7,12 +7,6 @@
 
 namespace fe
 {
-	enum class LOADER_MODE : short
-	{
-		JSON,
-		XML
-	};
-
 	class API_DECLSPEC ProjectManager
 	{
 		ReaderHeader	header;
@@ -29,7 +23,8 @@ namespace fe
 		ProjectManager();
 		~ProjectManager();
 
-		bool	loadHeader(const std::string& fileName) noexcept;
+		bool	loadHeader(const std::string& fileName, LOADER_MODE mode) noexcept;
 		bool	loadPropItem(const std::string& fileName, LOADER_MODE mode) noexcept;
+		const ReaderHeader& getHeader() const;
 	};
 }

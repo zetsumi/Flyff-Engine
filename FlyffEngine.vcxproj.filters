@@ -110,5 +110,11 @@
     <ClInclude Include="source\project\project_manager.hpp">
       <Filter>Fichiers sources\project</Filter>
     </ClInclude>
+    <ClInclude Include="source\property\prop_mover_ex.hpp">
+      <Filter>Fichiers sources\property</Filter>
+    </ClInclude>
+    <ClInclude Include="source\io\file\reader.hpp">
+      <Filter>Fichiers sources\io\file</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -4,7 +4,9 @@
 #include <fstream>
 #include <string>
 #include <algorithm>
+
 #include "framework.h"
+#include "reader.hpp"
 #include "third_party/json/picojson.h"
 
 namespace fe
@@ -17,9 +19,9 @@ namespace fe
         ReaderJson();
         ~ReaderJson();
 
-        bool    loadJson(const std::string& szFileJson) noexcept;
-        bool    writeJson(const std::string& szFileName) noexcept;
-        bool    writeJson(picojson::value& v, const std::string& szFileName) noexcept;
+        bool    load(const std::string& szFileJson) noexcept;
+        bool    write(const std::string& szFileName) noexcept;
+        bool    write(picojson::value& v, const std::string& szFileName) noexcept;
     };
 
 }
