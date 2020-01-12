@@ -9,6 +9,7 @@
 
 #include "framework.h"
 #include "reader.hpp"
+#include "reader_json.hpp"
 
 namespace fe
 {

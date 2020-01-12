@@ -7,6 +7,7 @@ namespace fe
 	enum class LOADER_MODE : short
 	{
 		JSON,
-		XML
+		XML,
+		CSV
 	};
 }

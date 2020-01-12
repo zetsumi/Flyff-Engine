@@ -3,6 +3,7 @@
 #include "framework.h"
 #include "property_manager.hpp"
 #include "reader_header.hpp"
+#include "prop_item.hpp"
 
 
 namespace fe

@@ -3,7 +3,7 @@
 
 namespace fe
 {
-    enum class PROP_ITEM_ELEMENT : unsigned __int64
+    enum class PROP_ITEM_ELEMENT : fe::type::_uint
     {
         NO_PROP = 0,
         FIRE,

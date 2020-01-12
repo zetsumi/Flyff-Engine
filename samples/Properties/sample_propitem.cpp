@@ -45,7 +45,7 @@ void propitem_without_project()
 }
 
 
-bool    propitem_load_from_file(const std::string& fileName)
+bool    propitem_load_from_file()
 {
     fe::ProjectManager project;
 
@@ -70,10 +70,11 @@ bool    propitem_load_from_file(const std::string& fileName)
     if (project.loadHeader("../../ressource/json/header/header_world.json", fe::LOADER_MODE::JSON) == false)
         return false;
 
-    std::cout << project.getHeader().get("CHS_DARK") << std::endl;
-    std::cout << project.getHeader().get("JOB_ALL") << std::endl;
+    std::cout << "CHS_DARK : " << project.getHeader().get("CHS_DARK") << std::endl;
+    std::cout << "JOB_ALL : " << project.getHeader().get("JOB_ALL") << std::endl;
+    std::cout << "DEFINE_UNKNOW : " << project.getHeader().get("DEFINE_UNKNOW") << std::endl;
 
-    //if (project.loadPropItem(fileName, fe::LOADER_MODE::JSON) == false)
-    //    return false;
+    if (project.loadPropItem("../../ressource/json/prop/propItem.json", fe::LOADER_MODE::JSON) == false)
+        return false;
     return true;
 }
