@@ -107,7 +107,6 @@ bool fe::ProjectManager::loadPropItemJson(const std::string& fileName) noexcept
         propitem.chgParamVal1 = reader.getNumber<type::_uint, fe::json_value>(item["dwChgParamVal1"]);
         propitem.chgParamVal2 = reader.getNumber<type::_uint, fe::json_value>(item["dwChgParamVal2"]);
         propitem.chgParamVal3 = reader.getNumber<type::_uint, fe::json_value>(item["dwChgParamVal3"]);
-
         propitem.destData1 = reader.getNumber<type::_uint, fe::json_value>(item["dwdestData1"]);
         propitem.destData2 = reader.getNumber<type::_uint, fe::json_value>(item["dwdestData2"]);
         propitem.destData3 = reader.getNumber<type::_uint, fe::json_value>(item["dwdestData3"]);
@@ -126,51 +125,50 @@ bool fe::ProjectManager::loadPropItemJson(const std::string& fileName) noexcept
         propitem.skillRange = reader.getNumber<type::_uint, fe::json_value>(item["dwSkillRange"]);
         propitem.sfxElemental = reader.getNumber<type::_uint, fe::json_value>(item["dwSfxElemental"]);
         propitem.sfxObj = reader.getNumber<type::_uint, fe::json_value>(item["dwSfxObj"]);
-
-        //"dwSfxObj2"
-        //"dwSfxObj3"
-        //"dwSfxObj4"
-        //"dwSfxObj5"
-        //"dwUseMotion"
-        //"dwCircleTime"
-        //"dwSkillTime"
-        //"dwExeTarget"
-        //"dwUseChance"
-        //"dwSpellRegion"
-        //"dwSpellType"
-        //"dwReferStat1"
-        //"dwReferStat2"
-        //"dwReferTarget1"
-        //"dwReferTarget2"
-        //"dwReferValue1"
-        //"dwReferValue2"
-        //"dwSkillType"
-        //"fItemResistElecricity"
-        //"fItemResistFire"
-        //"fItemResistWind"
-        //"fItemResistWater"
-        //"fItemResistEarth"
-        //"nEvildoing"
-        //"dwExpertLV"
-        //"ExpertMax"
-        //"dwSubDefine"
-        //"dwExp"
-        //"dwComboStyle"
-        //"fFlightSpeed"
-        //"fFlightLRAngle"
-        //"fFlightTBAngle"
-        //"dwFlightLimit"
-        //"dwFFuelReMax"
-        //"dwAFuelReMax"
-        //"dwFuelRe"
-        //"dwLimitLevel1"
-        //"dwReflect"
-        //"dwSndAttack1"
-        //"dwSndAttack2"
-        //"szIcon"
-        //"dwQuestID"
-        //"szTextFile"
-        //"szComment"
+        propitem.sfxObj2 = reader.getNumber<type::_uint, fe::json_value>(item["dwSfxObj2"]);
+        propitem.sfxObj3 = reader.getNumber<type::_uint, fe::json_value>(item["dwSfxObj3"]);
+        propitem.sfxObj4 = reader.getNumber<type::_uint, fe::json_value>(item["dwSfxObj4"]);
+        propitem.sfxObj5 = reader.getNumber<type::_uint, fe::json_value>(item["dwSfxObj5"]);
+        propitem.useMotion = reader.getNumber<type::_uint, fe::json_value>(item["dwUseMotion"]);
+        propitem.circleTime = reader.getNumber<type::_uint, fe::json_value>(item["dwCircleTime"]);
+        propitem.skillTime = reader.getNumber<type::_uint, fe::json_value>(item["dwSkillTime"]);
+        propitem.exeTarget = reader.getNumber<type::_uint, fe::json_value>(item["dwExeTarget"]);
+        propitem.useChance = reader.getNumber<type::_uint, fe::json_value>(item["dwUseChance"]);
+        propitem.spellRegion = reader.getNumber<type::_uint, fe::json_value>(item["dwSpellRegion"]);
+        propitem.spellType = reader.getNumber<type::_uint, fe::json_value>(item["dwSpellType"]);
+        propitem.referStat1 = reader.getNumber<type::_uint, fe::json_value>(item["dwReferStat1"]);
+        propitem.referStat2 = reader.getNumber<type::_uint, fe::json_value>(item["dwReferStat2"]);
+        propitem.referTarget1 = reader.getNumber<type::_uint, fe::json_value>(item["dwReferTarget1"]);
+        propitem.referTarget2 = reader.getNumber<type::_uint, fe::json_value>(item["dwReferTarget2"]);
+        propitem.referValue1 = reader.getNumber<type::_uint, fe::json_value>(item["dwReferValue1"]);
+        propitem.referValue2 = reader.getNumber<type::_uint, fe::json_value>(item["dwReferValue2"]);
+        propitem.skillType = reader.getNumber<type::_uint, fe::json_value>(item["dwSkillType"]);
+        propitem.itemResistElecricity = reader.getNumber<float, fe::json_value>(item["fItemResistElecricity"]);
+        propitem.itemResistFire = reader.getNumber<float, fe::json_value>(item["fItemResistFire"]);
+        propitem.itemResistWind = reader.getNumber<float, fe::json_value>(item["fItemResistWind"]);
+        propitem.itemResistWater = reader.getNumber<float, fe::json_value>(item["fItemResistWater"]);
+        propitem.itemResistEarth = reader.getNumber<float, fe::json_value>(item["fItemResistEarth"]);
+        propitem.evildoing = reader.getNumber<type::_int, fe::json_value>(item["nEvildoing"]);
+        propitem.expertLV = reader.getNumber<type::_int, fe::json_value>(item["dwExpertLV"]);
+        propitem.expertMax = reader.getNumber<type::_int, fe::json_value>(item["ExpertMax"]);
+        propitem.subDefine = reader.getNumber<type::_int, fe::json_value>(item["dwSubDefine"]);
+        propitem.exp = reader.getNumber<type::_uint, fe::json_value>(item["dwExp"]);
+        propitem.comboStyle = reader.getNumber<type::_uint, fe::json_value>(item["dwComboStyle"]);
+        propitem.flightSpeed = reader.getNumber<float, fe::json_value>(item["fFlightSpeed"]);
+        propitem.flightLRAngle = reader.getNumber<float, fe::json_value>(item["fFlightLRAngle"]);
+        propitem.flightTBAngle = reader.getNumber<float, fe::json_value>(item["fFlightTBAngle"]);
+        propitem.flightLimit = reader.getNumber<float, fe::json_value>(item["dwFlightLimit"]);
+        propitem.fFuelReMax = reader.getNumber<float, fe::json_value>(item["dwFFuelReMax"]);
+        propitem.aFuelReMax = reader.getNumber<type::_uint, fe::json_value>(item["dwAFuelReMax"]);
+        propitem.fuelRe = reader.getNumber<type::_uint, fe::json_value>(item["dwFuelRe"]);
+        propitem.limitLevel1 = reader.getNumber<type::_uint, fe::json_value>(item["dwLimitLevel1"]);
+        propitem.reflect = reader.getNumber<type::_uint, fe::json_value>(item["dwReflect"]);
+        propitem.sndAttack1 = reader.getNumber<type::_uint, fe::json_value>(item["dwSndAttack1"]);
+        propitem.sndAttack2 = reader.getNumber<type::_uint, fe::json_value>(item["dwSndAttack2"]);
+        propitem.icon = reader.get<std::string>(item["szIcon"]);
+        propitem.questID = reader.getNumber<type::_uint, fe::json_value>(item["dwQuestID"]);
+        propitem.textFile = reader.get<std::string>(item["szTextFile"]);
+        propitem.comment = reader.get<std::string>(item["szComment"]);
     }
 
     return true;
