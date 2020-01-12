@@ -12,23 +12,23 @@ namespace fe
 {
     class API_DECLSPEC PropertyManager
     {
-        std::unordered_map<unsigned __int64, fe::PropertyContainer*>    properties;
+        std::unordered_map<fe::type::_uint, fe::PropertyContainer*>    properties;
     public:
 
         PropertyManager();
         ~PropertyManager();
 
-        void    push(unsigned __int64 id, fe::PropertyContainer* prop) noexcept;
-        fe::PropertyContainer*  get(unsigned __int64 id) noexcept;
+        void    push(fe::type::_uint id, fe::PropertyContainer* prop) noexcept;
+        fe::PropertyContainer*  get(fe::type::_uint id) noexcept;
         template<class C>
-        C get(unsigned __int64 id) noexcept
+        C get(fe::type::_uint id) noexcept
         {
             auto val = get(id);
             if (val != nullptr)
                 return dynamic_cast<C>(val);
             return nullptr;
         }
-        void    remove(unsigned __int64 id) noexcept;
+        void    remove(fe::type::_uint id) noexcept;
     };
 }
 

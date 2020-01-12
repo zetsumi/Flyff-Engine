@@ -24,6 +24,7 @@ namespace fe
     {
     public:
         json_value root;
+        ReaderHeader* header;
 
         ReaderJson();
         ~ReaderJson();
@@ -83,7 +84,9 @@ namespace fe
 #else
                     return 0;
 #endif
-                    if (str == "=")
+                    if (header->has(str))
+                        return header->get(str);
+                    else if (str == "=")
                         return 0;
                     else if (str.find("0x") != std::string::npos)
                     {

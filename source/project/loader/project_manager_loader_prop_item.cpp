@@ -36,6 +36,7 @@ const fe::ReaderHeader& fe::ProjectManager::getHeader() const
 bool fe::ProjectManager::loadPropItemJson(const std::string& fileName) noexcept
 {
     ReaderJson  reader;
+    reader.header = &header;
 
     if (reader.load(fileName) == false)
         return false;

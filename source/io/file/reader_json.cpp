@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "reader_header.hpp"
 #include "reader_json.hpp"
 
 fe::ReaderJson::ReaderJson() :

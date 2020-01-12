@@ -9,7 +9,6 @@
 
 #include "framework.h"
 #include "reader.hpp"
-#include "reader_json.hpp"
 
 namespace fe
 {
@@ -29,6 +28,7 @@ namespace fe
         bool                load(const std::string& fileName, LOADER_MODE mode) noexcept;
         void                write() const noexcept;
         unsigned __int64    get(const std::string& header) const noexcept;
+        bool                has(const std::string& key) const;
     };
 }
 

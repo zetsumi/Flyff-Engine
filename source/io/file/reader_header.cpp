@@ -171,6 +171,11 @@ unsigned __int64    fe::ReaderHeader::get(const std::string& header) const noexc
     return 0;
 }
 
+bool fe::ReaderHeader::has(const std::string& key) const
+{
+    return defines.find(key) != defines.end();
+}
+
 void fe::ReaderHeader::write() const noexcept
 {
     ReaderJson json;
