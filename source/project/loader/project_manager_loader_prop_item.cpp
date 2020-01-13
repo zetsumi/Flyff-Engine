@@ -158,8 +158,8 @@ bool fe::ProjectManager::loadPropItemJson(const std::string& fileName) noexcept
         prop->flightSpeed = reader.getNumber<float, fe::json_value>(item["fFlightSpeed"]);
         prop->flightLRAngle = reader.getNumber<float, fe::json_value>(item["fFlightLRAngle"]);
         prop->flightTBAngle = reader.getNumber<float, fe::json_value>(item["fFlightTBAngle"]);
-        prop->flightLimit = reader.getNumber<float, fe::json_value>(item["dwFlightLimit"]);
-        prop->fFuelReMax = reader.getNumber<float, fe::json_value>(item["dwFFuelReMax"]);
+        prop->flightLimit = reader.getNumber<type::_uint, fe::json_value>(item["dwFlightLimit"]);
+        prop->fFuelReMax = reader.getNumber<type::_uint, fe::json_value>(item["dwFFuelReMax"]);
         prop->aFuelReMax = reader.getNumber<type::_uint, fe::json_value>(item["dwAFuelReMax"]);
         prop->fuelRe = reader.getNumber<type::_uint, fe::json_value>(item["dwFuelRe"]);
         prop->limitLevel1 = reader.getNumber<type::_uint, fe::json_value>(item["dwLimitLevel1"]);

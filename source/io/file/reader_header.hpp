@@ -14,7 +14,7 @@ namespace fe
 {
     class API_DECLSPEC ReaderHeader
     {
-        std::unordered_map<std::string, unsigned __int64>    defines;
+        std::unordered_map<std::string, fe::type::_uint>    defines;
 
         bool    isValidLineHeader(const std::string& line) const noexcept;
         void    removeEmpty(std::string& line) const noexcept;

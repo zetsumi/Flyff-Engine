@@ -51,54 +51,37 @@ namespace fe
                 return container.get<bool>();
             else if (container.is<double>())
                 return static_cast<bool>(container.get<double>());
-            std::string& str = container.get<std::string>();
-            if (str == "true" || str == "True" || str == "TRUE")
-                return true;
-            if (str == "false" || str == "False" || str == "FALSE" || str == "=")
-                return false;
-            throw std::exception("error");
+            if (container.is<std::string>() == true)
+            {
+                std::string& str = container.get<std::string>();
+                if (header && header->has(str))
+                    return static_cast<bool>(header->get(str));
+            }
 #else
 #endif
+			throw std::exception("value is not a boolean");
         }
 
         template<typename T, typename U>
         constexpr T getNumber(U& container)
         {
-            try
-            {
+
 #if defined(FLYFFENGINE_JSON_PICOJSON)
-                if (std::is_same<T, double>::value && container.is<double>())
-                    return container.get<double>();
-                T value = static_cast<T>(container.get<double>());
-                return value;
-#else
-                return 0;
-#endif
-            }
-            catch (const std::exception&)
+            if (std::is_same<T, double>::value&& container.is<double>())
+                return container.get<double>();
+            else if (container.is<std::string>() == true)
             {
-                try
-                {
-#if defined(FLYFFENGINE_JSON_PICOJSON)
-                    std::string& str = container.get<std::string>();
-#else
-                    return 0;
-#endif
-                    if (header->has(str))
-                        return header->get(str);
-                    else if (str == "=")
-                        return 0;
-                    else if (str.find("0x") != std::string::npos)
-                    {
-                        long long hexa = std::stoll(str.c_str(), nullptr, 16);
-                        return static_cast<T>(hexa);
-                    }
-                }
-                catch (const std::exception&)
-                {
-                    return 0;
-                }
+                std::string& str = container.get<std::string>();
+                if (header && header->has(str))
+                    return static_cast<T>(header->get(str));
+                else if (str == "=")
+                    return static_cast<T>(0);
+                else if (str.find("0x") != std::string::npos)
+                    return static_cast<T>(std::stoll(str.c_str(), nullptr, 16));
             }
+            return static_cast<T>(container.get<double>());
+#else
+#endif
         }
     };
 }
