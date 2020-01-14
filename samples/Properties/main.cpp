@@ -7,6 +7,7 @@ void propitem_without_project();
 bool propitem_load_from_file();
 
 void propctrl_without_project();
+bool propctrl_load_from_file();
 
 bool propskill_load_from_file();
 
@@ -19,8 +20,9 @@ int main()
 
 
     //propctrl_without_project();
+    propctrl_load_from_file();
 
-    propskill_load_from_file();
+    //propskill_load_from_file();
 
     return 0;
 }

@@ -72,6 +72,9 @@
     <ClCompile Include="source\project\loader\project_manager_loader_prop_skill.cpp">
       <Filter>Fichiers sources\project\loader</Filter>
     </ClCompile>
+    <ClCompile Include="source\project\loader\project_manager_loader_prop_ctr.cpp">
+      <Filter>Fichiers sources\project\loader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\framework.h">
