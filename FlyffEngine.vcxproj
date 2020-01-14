@@ -47,6 +47,13 @@
     <ClInclude Include="source\third_party\xml\pugiconfig.h" />
     <ClInclude Include="source\third_party\xml\pugixml.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ressource\json\prop\propItem.json" />
+    <None Include="ressource\json\prop\propMoverEx.json" />
+    <None Include="ressource\json\prop\propMoverExAI.json" />
+    <None Include="ressource\json\prop\propQuest.json" />
+    <None Include="ressource\json\prop\randomEventMonster.json" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{8A745F1A-17FB-48A8-B9FB-B7B286B8AEFC}</ProjectGuid>

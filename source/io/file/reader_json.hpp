@@ -47,19 +47,9 @@ namespace fe
         constexpr bool getBoolean(T& container)
         {
 #if defined(FLYFFENGINE_JSON_PICOJSON)
-            if (container.is<bool>())
-                return container.get<bool>();
-            else if (container.is<double>())
-                return static_cast<bool>(container.get<double>());
-            if (container.is<std::string>() == true)
-            {
-                std::string& str = container.get<std::string>();
-                if (header && header->has(str))
-                    return static_cast<bool>(header->get(str));
-            }
+            return container.evaluate_as_boolean();
 #else
 #endif
-			throw std::exception("value is not a boolean");
         }
 
         template<typename T, typename U>
@@ -72,12 +62,9 @@ namespace fe
             else if (container.is<std::string>() == true)
             {
                 std::string& str = container.get<std::string>();
-                if (header && header->has(str))
-                    return static_cast<T>(header->get(str));
-                else if (str == "=")
-                    return static_cast<T>(0);
-                else if (str.find("0x") != std::string::npos)
+                if (str.find("0x") != std::string::npos)
                     return static_cast<T>(std::stoll(str.c_str(), nullptr, 16));
+                return static_cast<T>(header->get(str));
             }
             return static_cast<T>(container.get<double>());
 #else

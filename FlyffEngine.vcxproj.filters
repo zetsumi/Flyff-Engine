@@ -37,6 +37,12 @@
     <Filter Include="Fichiers sources\project\loader">
       <UniqueIdentifier>{d59c0789-514b-4e78-a4fb-6b18e12380d0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers de ressources\json">
+      <UniqueIdentifier>{1eda1789-b468-45b2-b3cf-bfb518cfa349}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers de ressources\json\prop">
+      <UniqueIdentifier>{a77d6f9f-7ee6-444a-913d-61832d81fe67}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\dllmain.cpp">
@@ -116,5 +122,22 @@
     <ClInclude Include="source\io\file\reader.hpp">
       <Filter>Fichiers sources\io\file</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ressource\json\prop\propItem.json">
+      <Filter>Fichiers de ressources\json\prop</Filter>
+    </None>
+    <None Include="ressource\json\prop\propMoverEx.json">
+      <Filter>Fichiers de ressources\json\prop</Filter>
+    </None>
+    <None Include="ressource\json\prop\propMoverExAI.json">
+      <Filter>Fichiers de ressources\json\prop</Filter>
+    </None>
+    <None Include="ressource\json\prop\propQuest.json">
+      <Filter>Fichiers de ressources\json\prop</Filter>
+    </None>
+    <None Include="ressource\json\prop\randomEventMonster.json">
+      <Filter>Fichiers de ressources\json\prop</Filter>
+    </None>
   </ItemGroup>
 </Project>

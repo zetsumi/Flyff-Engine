@@ -5,25 +5,18 @@
 
 bool    fe::ProjectManager::loadPropItem(const std::string& fileName, LOADER_MODE mode) noexcept
 {
-    try
-    {
-        if (fileName.empty())
-            return false;
-
-        switch (mode)
-        {
-            case fe::LOADER_MODE::JSON:
-                loadPropItemJson(fileName);
-                break;
-            case fe::LOADER_MODE::XML:
-                break;
-            default:
-                return false;
-        }
-    }
-    catch (const std::exception&)
-    {
+    if (fileName.empty())
         return false;
+
+    switch (mode)
+    {
+        case fe::LOADER_MODE::JSON:
+            loadPropItemJson(fileName);
+            break;
+        case fe::LOADER_MODE::XML:
+            break;
+        default:
+            return false;
     }
     return true;
 }
@@ -173,6 +166,5 @@ bool fe::ProjectManager::loadPropItemJson(const std::string& fileName) noexcept
 
         propitem.push(prop->id, prop);
     }
-
     return true;
 }
