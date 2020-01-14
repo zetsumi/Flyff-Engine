@@ -24,6 +24,7 @@
     <ClCompile Include="source\io\file\reader_json.cpp" />
     <ClCompile Include="source\pch.cpp" />
     <ClCompile Include="source\project\loader\project_manager_loader_prop_item.cpp" />
+    <ClCompile Include="source\project\loader\project_manager_loader_prop_skill.cpp" />
     <ClCompile Include="source\project\project_manager.cpp" />
     <ClCompile Include="source\property\property_manager.cpp" />
     <ClCompile Include="source\third_party\xml\pugixml.cpp" />

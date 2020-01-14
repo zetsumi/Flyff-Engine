@@ -75,7 +75,6 @@ bool    propitem_load_from_file()
     std::cout << "DEFINE_UNKNOW : " << project.getHeader().get("DEFINE_UNKNOW") << std::endl;
     std::cout << "DST_ADJDEF : " << project.getHeader().get("DST_ADJDEF") << std::endl;
 
-    
 
     if (project.loadPropItem("../../ressource/json/prop/propItem.json", fe::LOADER_MODE::JSON) == false)
         return false;

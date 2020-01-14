@@ -1,39 +1,38 @@
 #include "pch.h"
 #include "project_manager.hpp"
 #include "reader_json.hpp"
-#include "prop_item.hpp"
+#include "prop_skill.hpp"
 
-
-bool    fe::ProjectManager::loadPropItem(const std::string& fileName, LOADER_MODE mode) noexcept
+bool fe::ProjectManager::loadPropSkill(const std::string& fileName, LOADER_MODE mode) noexcept
 {
-    if (fileName.empty())
+    if (fileName.empty() == true)
         return false;
-
     switch (mode)
     {
-        case fe::LOADER_MODE::JSON:
-            loadPropItemJson(fileName);
-            break;
-        case fe::LOADER_MODE::XML:
-            break;
-        default:
-            return false;
+    case fe::LOADER_MODE::JSON:
+        loadPropSkillJson(fileName);
+        break;
+    case fe::LOADER_MODE::XML:
+        break;
+    default:
+        return false;
     }
-    return true;
 }
 
-bool fe::ProjectManager::loadPropItemJson(const std::string& fileName) noexcept
+
+bool fe::ProjectManager::loadPropSkillJson(const std::string& fileName) noexcept
 {
     ReaderJson  reader;
     reader.header = &header;
 
     if (reader.load(fileName) == false)
         return false;
+ 
     fe::json_object& datas = reader.get<json_object>(reader.root);
     for (auto& it : datas)
     {
         fe::json_object& item = reader.get<fe::json_object>(it.second);
-        fe::PropItem* prop = new fe::PropItem();
+        fe::PropSkill* prop = new fe::PropSkill();
 
         prop->version = reader.getNumber<type::_uint, fe::json_value>(item["version"]);
         prop->id = reader.getNumber<type::_uint, fe::json_value>(item["dwID"]);
@@ -50,9 +49,9 @@ bool fe::ProjectManager::loadPropItemJson(const std::string& fileName) noexcept
         prop->cost = reader.getNumber<type::_uint, fe::json_value>(item["dwCost"]);
         prop->endurance = reader.getNumber<type::_uint, fe::json_value>(item["dwEndurance"]);
         prop->abrasion = reader.getNumber<type::_int, fe::json_value>(item["nAbrasion"]);
-        prop->maxRepair = reader.getNumber<type::_int, fe::json_value>(item["nMaxRepair"]);
+        prop->hardness = reader.getNumber<type::_int, fe::json_value>(item["nHardness"]);
         prop->handed = reader.getNumber<type::_uint, fe::json_value>(item["dwHanded"]);
-        prop->flag = reader.getNumber<type::_uint, fe::json_value>(item["dwFlag"]);
+        prop->heelH = reader.getNumber<type::_uint, fe::json_value>(item["dwHeelH"]);
         prop->parts = reader.getNumber<type::_uint, fe::json_value>(item["dwParts"]);
         prop->partsub = reader.getNumber<type::_uint, fe::json_value>(item["dwPartsub"]);
         prop->partFile = reader.getBoolean(item["bPartFile"]);
@@ -146,7 +145,7 @@ bool fe::ProjectManager::loadPropItemJson(const std::string& fileName) noexcept
         prop->comboStyle = reader.getNumber<type::_uint, fe::json_value>(item["dwComboStyle"]);
         prop->flightSpeed = reader.getNumber<float, fe::json_value>(item["fFlightSpeed"]);
         prop->flightLRAngle = reader.getNumber<float, fe::json_value>(item["fFlightLRAngle"]);
-        prop->flightTBAngle = reader.getNumber<float, fe::json_value>(item["fFlightTBAngle"]);
+        prop->FlightTBAngle = reader.getNumber<float, fe::json_value>(item["fFlightTBAngle"]);
         prop->flightLimit = reader.getNumber<type::_uint, fe::json_value>(item["dwFlightLimit"]);
         prop->fFuelReMax = reader.getNumber<type::_uint, fe::json_value>(item["dwFFuelReMax"]);
         prop->aFuelReMax = reader.getNumber<type::_uint, fe::json_value>(item["dwAFuelReMax"]);
@@ -159,8 +158,7 @@ bool fe::ProjectManager::loadPropItemJson(const std::string& fileName) noexcept
         prop->questID = reader.getNumber<type::_uint, fe::json_value>(item["dwQuestID"]);
         prop->textFile = reader.get<std::string>(item["szTextFile"]);
         prop->comment = reader.get<std::string>(item["szComment"]);
-
-        propitem.push(prop->id, prop);
+        propskill.push(prop->id, prop);
     }
     return true;
 }
