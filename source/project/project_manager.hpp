@@ -20,6 +20,7 @@ namespace fe
 		bool	loadPropItemJson(const std::string& fileName) noexcept;
 		bool	loadPropSkillJson(const std::string& fileName) noexcept;
 		bool	loadPropCtrlJson(const std::string& fileName) noexcept;
+		bool	loadPropKarmaJson(const std::string& fileName) noexcept;
 
 
 	public:
@@ -30,6 +31,7 @@ namespace fe
 		bool	loadPropItem(const std::string& fileName, LOADER_MODE mode) noexcept;
 		bool	loadPropSkill(const std::string& fileName, LOADER_MODE mode) noexcept;
 		bool	loadPropCtrl(const std::string& fileName, LOADER_MODE mode) noexcept;
+		bool	loadPropKarma(const std::string& fileName, LOADER_MODE mode) noexcept;
 		const ReaderHeader& getHeader() const;
 	};
 }

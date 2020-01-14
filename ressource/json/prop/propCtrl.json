@@ -1,0 +1,752 @@
+{
+    "CI_CHEST01": {
+        "dwID": "CI_CHEST01",
+        "szName": "IDS_PROPCTRL_TXT_000000",
+        "dwCtrlKind1": "CK1_CHEST",
+        "dwCtrlKind2": "CK2_FADE",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000001"
+    },
+    "CI_CHEST02": {
+        "dwID": "CI_CHEST02",
+        "szName": "IDS_PROPCTRL_TXT_000002",
+        "dwCtrlKind1": "CK1_CHEST",
+        "dwCtrlKind2": "CK2_FADE",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000003"
+    },
+    "CI_LEVER01": {
+        "dwID": "CI_LEVER01",
+        "szName": "IDS_PROPCTRL_TXT_000004",
+        "dwCtrlKind1": "CK1_TRIGGER",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000005"
+    },
+    "CI_FLMARSEDOOR": {
+        "dwID": "CI_FLMARSEDOOR",
+        "szName": "IDS_PROPCTRL_TXT_000006",
+        "dwCtrlKind1": "CK1_DOOR",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_HALF",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000007"
+    },
+    "CI_DUDKKIPRISON": {
+        "dwID": "CI_DUDKKIPRISON",
+        "szName": "IDS_PROPCTRL_TXT_000008",
+        "dwCtrlKind1": "CK1_DOOR",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_HALF",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000009"
+    },
+    "CI_DUDKROPRISON1": {
+        "dwID": "CI_DUDKROPRISON1",
+        "szName": "IDS_PROPCTRL_TXT_000010",
+        "dwCtrlKind1": "CK1_DOOR",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_HALF",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000011"
+    },
+    "CI_DUDKROPRISON2": {
+        "dwID": "CI_DUDKROPRISON2",
+        "szName": "IDS_PROPCTRL_TXT_000012",
+        "dwCtrlKind1": "CK1_DOOR",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_HALF",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000013"
+    },
+    "CI_DUDKROEGG1": {
+        "dwID": "CI_DUDKROEGG1",
+        "szName": "IDS_PROPCTRL_TXT_000014",
+        "dwCtrlKind1": "CK1_CHEST",
+        "dwCtrlKind2": "CK2_FADE",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": "XI_CTR_EGGEFFECT2",
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000015"
+    },
+    "CI_DUDKROEGG2": {
+        "dwID": "CI_DUDKROEGG2",
+        "szName": "IDS_PROPCTRL_TXT_000016",
+        "dwCtrlKind1": "CK1_CHEST",
+        "dwCtrlKind2": "CK2_FADE",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": "XI_CTR_EGGEFFECT4",
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000017"
+    },
+    "CI_DUDKROEGG3": {
+        "dwID": "CI_DUDKROEGG3",
+        "szName": "IDS_PROPCTRL_TXT_000026",
+        "dwCtrlKind1": "CK1_CHEST",
+        "dwCtrlKind2": "CK2_FADE",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": "XI_CTR_EGGEFFECT7",
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000027"
+    },
+    "CI_DUDKROEGG4": {
+        "dwID": "CI_DUDKROEGG4",
+        "szName": "IDS_PROPCTRL_TXT_000020",
+        "dwCtrlKind1": "CK1_CHEST",
+        "dwCtrlKind2": "CK2_FADE",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": "XI_CTR_EGGEFFECT3",
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000021"
+    },
+    "CI_DUDKTREGG1": {
+        "dwID": "CI_DUDKTREGG1",
+        "szName": "IDS_PROPCTRL_TXT_000022",
+        "dwCtrlKind1": "CK1_CHEST",
+        "dwCtrlKind2": "CK2_FADE",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": "XI_CTR_EGGEFFECT5",
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000023"
+    },
+    "CI_DUDKTREGG2": {
+        "dwID": "CI_DUDKTREGG2",
+        "szName": "IDS_PROPCTRL_TXT_000024",
+        "dwCtrlKind1": "CK1_CHEST",
+        "dwCtrlKind2": "CK2_FADE",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": "XI_CTR_EGGEFFECT6",
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000025"
+    },
+    "CI_DUDKWARP1": {
+        "dwID": "CI_DUDKWARP1",
+        "szName": "IDS_PROPCTRL_TXT_000028",
+        "dwCtrlKind1": "CK1_TRIGGER",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000029"
+    },
+    "CI_DUDKWARP2": {
+        "dwID": "CI_DUDKWARP2",
+        "szName": "IDS_PROPCTRL_TXT_000030",
+        "dwCtrlKind1": "CK1_TRIGGER",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000031"
+    },
+    "CI_DUDKWARP3": {
+        "dwID": "CI_DUDKWARP3",
+        "szName": "IDS_PROPCTRL_TXT_000032",
+        "dwCtrlKind1": "CK1_TRIGGER",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000033"
+    },
+    "CI_DUDKWARP4": {
+        "dwID": "CI_DUDKWARP4",
+        "szName": "IDS_PROPCTRL_TXT_000034",
+        "dwCtrlKind1": "CK1_TRIGGER",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000035"
+    },
+    "CI_EXPBOX": {
+        "dwID": "CI_EXPBOX",
+        "szName": "IDS_PROPCTRL_TXT_000036",
+        "dwCtrlKind1": "CK1_TRIGGER",
+        "dwCtrlKind2": "CK2_FADE",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000037"
+    },
+    "CI_HOU_FUR_BED_BASIC01": {
+        "dwID": "CI_HOU_FUR_BED_BASIC01",
+        "szName": "IDS_PROPCTRL_TXT_000038",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000039"
+    },
+    "CI_HOU_FUR_CAB_BASIC01": {
+        "dwID": "CI_HOU_FUR_CAB_BASIC01",
+        "szName": "IDS_PROPCTRL_TXT_000040",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000041"
+    },
+    "CI_HOU_FUR_CLO_BASIC01": {
+        "dwID": "CI_HOU_FUR_CLO_BASIC01",
+        "szName": "IDS_PROPCTRL_TXT_000042",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000043"
+    },
+    "CI_HOU_FUR_SOF_BASIC01": {
+        "dwID": "CI_HOU_FUR_SOF_BASIC01",
+        "szName": "IDS_PROPCTRL_TXT_000044",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000045"
+    },
+    "CI_HOU_FUR_TAB_BASIC01": {
+        "dwID": "CI_HOU_FUR_TAB_BASIC01",
+        "szName": "IDS_PROPCTRL_TXT_000046",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000047"
+    },
+    "CI_HOU_FUR_WAR_BASIC01": {
+        "dwID": "CI_HOU_FUR_WAR_BASIC01",
+        "szName": "IDS_PROPCTRL_TXT_000048",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000049"
+    },
+    "CI_HOU_FUR_BED_BASIC02": {
+        "dwID": "CI_HOU_FUR_BED_BASIC02",
+        "szName": "IDS_PROPCTRL_TXT_000050",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000051"
+    },
+    "CI_HOU_FUR_CAB_BASIC02": {
+        "dwID": "CI_HOU_FUR_CAB_BASIC02",
+        "szName": "IDS_PROPCTRL_TXT_000052",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000053"
+    },
+    "CI_HOU_FUR_CLO_BASIC02": {
+        "dwID": "CI_HOU_FUR_CLO_BASIC02",
+        "szName": "IDS_PROPCTRL_TXT_000054",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000055"
+    },
+    "CI_HOU_FUR_SOF_BASIC02": {
+        "dwID": "CI_HOU_FUR_SOF_BASIC02",
+        "szName": "IDS_PROPCTRL_TXT_000056",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000057"
+    },
+    "CI_HOU_FUR_TAB_BASIC02": {
+        "dwID": "CI_HOU_FUR_TAB_BASIC02",
+        "szName": "IDS_PROPCTRL_TXT_000058",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000059"
+    },
+    "CI_HOU_FUR_WAR_BASIC02": {
+        "dwID": "CI_HOU_FUR_WAR_BASIC02",
+        "szName": "IDS_PROPCTRL_TXT_000060",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000061"
+    },
+    "CI_HOU_FUR_BED_BASIC03": {
+        "dwID": "CI_HOU_FUR_BED_BASIC03",
+        "szName": "IDS_PROPCTRL_TXT_000062",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000063"
+    },
+    "CI_HOU_FUR_CAB_BASIC03": {
+        "dwID": "CI_HOU_FUR_CAB_BASIC03",
+        "szName": "IDS_PROPCTRL_TXT_000064",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000065"
+    },
+    "CI_HOU_FUR_CLO_BASIC03": {
+        "dwID": "CI_HOU_FUR_CLO_BASIC03",
+        "szName": "IDS_PROPCTRL_TXT_000066",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000067"
+    },
+    "CI_HOU_FUR_SOF_BASIC03": {
+        "dwID": "CI_HOU_FUR_SOF_BASIC03",
+        "szName": "IDS_PROPCTRL_TXT_000068",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000069"
+    },
+    "CI_HOU_FUR_TAB_BASIC03": {
+        "dwID": "CI_HOU_FUR_TAB_BASIC03",
+        "szName": "IDS_PROPCTRL_TXT_000070",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000071"
+    },
+    "CI_HOU_FUR_WAR_BASIC03": {
+        "dwID": "CI_HOU_FUR_WAR_BASIC03",
+        "szName": "IDS_PROPCTRL_TXT_000072",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000073"
+    },
+    "CI_HOU_FUR_BED_MODERN01": {
+        "dwID": "CI_HOU_FUR_BED_MODERN01",
+        "szName": "IDS_PROPCTRL_TXT_000074",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000075"
+    },
+    "CI_HOU_FUR_CAB_MODERN01": {
+        "dwID": "CI_HOU_FUR_CAB_MODERN01",
+        "szName": "IDS_PROPCTRL_TXT_000076",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000077"
+    },
+    "CI_HOU_FUR_CLO_MODERN01": {
+        "dwID": "CI_HOU_FUR_CLO_MODERN01",
+        "szName": "IDS_PROPCTRL_TXT_000078",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000079"
+    },
+    "CI_HOU_FUR_SOF_MODERN01": {
+        "dwID": "CI_HOU_FUR_SOF_MODERN01",
+        "szName": "IDS_PROPCTRL_TXT_000080",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000081"
+    },
+    "CI_HOU_FUR_TAB_MODERN01": {
+        "dwID": "CI_HOU_FUR_TAB_MODERN01",
+        "szName": "IDS_PROPCTRL_TXT_000082",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000083"
+    },
+    "CI_HOU_FUR_WAR_MODERN01": {
+        "dwID": "CI_HOU_FUR_WAR_MODERN01",
+        "szName": "IDS_PROPCTRL_TXT_000084",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000085"
+    },
+    "CI_HOU_FUR_BED_MUSIC01": {
+        "dwID": "CI_HOU_FUR_BED_MUSIC01",
+        "szName": "IDS_PROPCTRL_TXT_000086",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000087"
+    },
+    "CI_HOU_FUR_CAB_MUSIC01": {
+        "dwID": "CI_HOU_FUR_CAB_MUSIC01",
+        "szName": "IDS_PROPCTRL_TXT_000088",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000089"
+    },
+    "CI_HOU_FUR_CLO_MUSIC01": {
+        "dwID": "CI_HOU_FUR_CLO_MUSIC01",
+        "szName": "IDS_PROPCTRL_TXT_000090",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000091"
+    },
+    "CI_HOU_FUR_SOF_MUSIC01": {
+        "dwID": "CI_HOU_FUR_SOF_MUSIC01",
+        "szName": "IDS_PROPCTRL_TXT_000092",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000093"
+    },
+    "CI_HOU_FUR_TAB_MUSIC01": {
+        "dwID": "CI_HOU_FUR_TAB_MUSIC01",
+        "szName": "IDS_PROPCTRL_TXT_000094",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000095"
+    },
+    "CI_HOU_FUR_WAR_MUSIC01": {
+        "dwID": "CI_HOU_FUR_WAR_MUSIC01",
+        "szName": "IDS_PROPCTRL_TXT_000096",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000097"
+    },
+    "CI_HOU_FUR_BED_WOOD01": {
+        "dwID": "CI_HOU_FUR_BED_WOOD01",
+        "szName": "IDS_PROPCTRL_TXT_000098",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000099"
+    },
+    "CI_HOU_FUR_CAB_WOOD01": {
+        "dwID": "CI_HOU_FUR_CAB_WOOD01",
+        "szName": "IDS_PROPCTRL_TXT_000100",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000101"
+    },
+    "CI_HOU_FUR_CLO_WOOD01": {
+        "dwID": "CI_HOU_FUR_CLO_WOOD01",
+        "szName": "IDS_PROPCTRL_TXT_000102",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000103"
+    },
+    "CI_HOU_FUR_SOF_WOOD01": {
+        "dwID": "CI_HOU_FUR_SOF_WOOD01",
+        "szName": "IDS_PROPCTRL_TXT_000122",
+        "dwCtrlKind1": "CK1_GUILD_HOUSE",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000123"
+    },
+    "CI_HOU_FUR_TAB_WOOD01": {
+        "dwID": "CI_HOU_FUR_TAB_WOOD01",
+        "szName": "IDS_PROPCTRL_TXT_000124",
+        "dwCtrlKind1": "CK1_GUILD_HOUSE",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000125"
+    },
+    "CI_HOU_FUR_WAR_WOOD01": {
+        "dwID": "CI_HOU_FUR_WAR_WOOD01",
+        "szName": "IDS_PROPCTRL_TXT_000108",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000109"
+    },
+    "CI_HOU_FUR_BED_HEART01": {
+        "dwID": "CI_HOU_FUR_BED_HEART01",
+        "szName": "IDS_PROPCTRL_TXT_000110",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000111"
+    },
+    "CI_HOU_FUR_CAB_HEART01": {
+        "dwID": "CI_HOU_FUR_CAB_HEART01",
+        "szName": "IDS_PROPCTRL_TXT_000112",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000113"
+    },
+    "CI_HOU_FUR_CLO_HEART01": {
+        "dwID": "CI_HOU_FUR_CLO_HEART01",
+        "szName": "IDS_PROPCTRL_TXT_000114",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000115"
+    },
+    "CI_HOU_FUR_SOF_HEART01": {
+        "dwID": "CI_HOU_FUR_SOF_HEART01",
+        "szName": "IDS_PROPCTRL_TXT_000116",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000117"
+    },
+    "CI_HOU_FUR_TAB_HEART01": {
+        "dwID": "CI_HOU_FUR_TAB_HEART01",
+        "szName": "IDS_PROPCTRL_TXT_000118",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000119"
+    },
+    "CI_HOU_FUR_WAR_HEART01": {
+        "dwID": "CI_HOU_FUR_WAR_HEART01",
+        "szName": "IDS_PROPCTRL_TXT_000120",
+        "dwCtrlKind1": "CK1_HOUSING",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000121"
+    },
+    "CI_GHOU_FUR_SOF_MODERN01": {
+        "dwID": "CI_GHOU_FUR_SOF_MODERN01",
+        "szName": "IDS_PROPCTRL_TXT_000126",
+        "dwCtrlKind1": "CK1_GUILD_HOUSE",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000127"
+    },
+    "CI_GHOU_FUR_WAR_MODERN01": {
+        "dwID": "CI_GHOU_FUR_WAR_MODERN01",
+        "szName": "IDS_PROPCTRL_TXT_000128",
+        "dwCtrlKind1": "CK1_GUILD_HOUSE",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000129"
+    },
+    "CI_GHOU_FUR_DRA_MODERN01": {
+        "dwID": "CI_GHOU_FUR_DRA_MODERN01",
+        "szName": "IDS_PROPCTRL_TXT_000130",
+        "dwCtrlKind1": "CK1_GUILD_HOUSE",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000131"
+    },
+    "CI_GHOU_FUR_CHA_MODERN01": {
+        "dwID": "CI_GHOU_FUR_CHA_MODERN01",
+        "szName": "IDS_PROPCTRL_TXT_000132",
+        "dwCtrlKind1": "CK1_GUILD_HOUSE",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000133"
+    },
+    "CI_GHOU_FUR_TAB_MODERN01": {
+        "dwID": "CI_GHOU_FUR_TAB_MODERN01",
+        "szName": "IDS_PROPCTRL_TXT_000134",
+        "dwCtrlKind1": "CK1_GUILD_HOUSE",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000135"
+    },
+    "CI_GHOU_FUR_FLO_MODERN01": {
+        "dwID": "CI_GHOU_FUR_FLO_MODERN01",
+        "szName": "IDS_PROPCTRL_TXT_000136",
+        "dwCtrlKind1": "CK1_GUILD_HOUSE",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000137"
+    },
+    "CI_GHOU_FUR_WAL_MODERN01": {
+        "dwID": "CI_GHOU_FUR_WAL_MODERN01",
+        "szName": "IDS_PROPCTRL_TXT_000138",
+        "dwCtrlKind1": "CK1_GUILD_HOUSE",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000139"
+    },
+    "CI_GHOU_FUR_SOF_BASIC01": {
+        "dwID": "CI_GHOU_FUR_SOF_BASIC01",
+        "szName": "IDS_PROPCTRL_TXT_000140",
+        "dwCtrlKind1": "CK1_GUILD_HOUSE",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000141"
+    },
+    "CI_GHOU_FUR_WAR_BASIC01": {
+        "dwID": "CI_GHOU_FUR_WAR_BASIC01",
+        "szName": "IDS_PROPCTRL_TXT_000142",
+        "dwCtrlKind1": "CK1_GUILD_HOUSE",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000143"
+    },
+    "CI_GHOU_FUR_DRA_BASIC01": {
+        "dwID": "CI_GHOU_FUR_DRA_BASIC01",
+        "szName": "IDS_PROPCTRL_TXT_000144",
+        "dwCtrlKind1": "CK1_GUILD_HOUSE",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000145"
+    },
+    "CI_GHOU_FUR_CHA_BASIC01": {
+        "dwID": "CI_GHOU_FUR_CHA_BASIC01",
+        "szName": "IDS_PROPCTRL_TXT_000146",
+        "dwCtrlKind1": "CK1_GUILD_HOUSE",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000147"
+    },
+    "CI_GHOU_FUR_TAB_BASIC01": {
+        "dwID": "CI_GHOU_FUR_TAB_BASIC01",
+        "szName": "IDS_PROPCTRL_TXT_000148",
+        "dwCtrlKind1": "CK1_GUILD_HOUSE",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000149"
+    },
+    "CI_GHOU_FUR_FLO_BASIC01": {
+        "dwID": "CI_GHOU_FUR_FLO_BASIC01",
+        "szName": "IDS_PROPCTRL_TXT_000150",
+        "dwCtrlKind1": "CK1_GUILD_HOUSE",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000151"
+    },
+    "CI_GHOU_FUR_WAL_BASIC01": {
+        "dwID": "CI_GHOU_FUR_WAL_BASIC01",
+        "szName": "IDS_PROPCTRL_TXT_000152",
+        "dwCtrlKind1": "CK1_GUILD_HOUSE",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000153"
+    },
+    "CI_CRYSTAL_REST01": {
+        "dwID": "CI_CRYSTAL_REST01",
+        "szName": "IDS_PROPCTRL_TXT_000154",
+        "dwCtrlKind1": "CK1_GUILD_HOUSE",
+        "dwCtrlKind2": "CK2_KEEP",
+        "dwCtrlKind3": "CK3_FULL",
+        "dwSfxCtrl": 0,
+        "dwSndDamage": 0,
+        "szComment": "IDS_PROPCTRL_TXT_000155"
+    }
+}

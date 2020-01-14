@@ -11,6 +11,8 @@ bool propctrl_load_from_file();
 
 bool propskill_load_from_file();
 
+bool propkarma_load_from_file();
+
 int main()
 {
     std::srand(std::time(nullptr));
@@ -20,9 +22,11 @@ int main()
 
 
     //propctrl_without_project();
-    propctrl_load_from_file();
+    //propctrl_load_from_file();
 
     //propskill_load_from_file();
+
+    propkarma_load_from_file();
 
     return 0;
 }

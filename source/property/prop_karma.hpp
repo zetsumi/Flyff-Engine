@@ -10,14 +10,14 @@ namespace fe
     {
         __int64                 id;
         std::string             name;
-        unsigned __int64        karmaPoint;
+        fe::type::_int          karmaPoint;
         unsigned __int64        grade;
         unsigned __int64        color;
         unsigned __int64        karmaRecoverPoint;
         unsigned __int64        discountRate;
         unsigned __int64        sellPenaltyRate;
         unsigned __int64        guardReaction;
-        unsigned __int64        subtractExpRate;
+        fe::type::_int          subtractExpRate;
         __int64                 dropGoldPercent;
         __int64                 dropItem;
         __int64                 dropPercent;

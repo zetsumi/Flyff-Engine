@@ -57,14 +57,17 @@ namespace fe
         {
 
 #if defined(FLYFFENGINE_JSON_PICOJSON)
-            if (std::is_same<T, double>::value&& container.is<double>())
-                return container.get<double>();
-            else if (container.is<std::string>() == true)
+            if (container.is<std::string>() == true)
             {
                 std::string& str = container.get<std::string>();
                 if (str.find("0x") != std::string::npos)
                     return static_cast<T>(std::stoll(str.c_str(), nullptr, 16));
-                return static_cast<T>(header->get(str));
+                if (header->has(str) == true)
+                    return static_cast<T>(header->get(str));
+                if (std::is_same<type::_int, T>::value)
+                    return std::atoi(str.c_str());
+                if (std::is_same<type::_uint, T>::value)
+                    return static_cast<T>(std::stoll(str.c_str(), nullptr, 10));
             }
             return static_cast<T>(container.get<double>());
 #else
