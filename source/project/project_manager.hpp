@@ -22,6 +22,8 @@ namespace fe
 		bool	loadPropCtrlJson(const std::string& fileName) noexcept;
 		bool	loadPropKarmaJson(const std::string& fileName) noexcept;
 
+		bool	loadPropCtrlXml(const std::string& fileName) noexcept;
+
 
 	public:
 		ProjectManager();

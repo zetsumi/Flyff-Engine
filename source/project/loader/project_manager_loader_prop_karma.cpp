@@ -24,7 +24,7 @@ bool fe::ProjectManager::loadPropKarma(const std::string& fileName, LOADER_MODE 
 bool fe::ProjectManager::loadPropKarmaJson(const std::string& fileName) noexcept
 {
     ReaderJson  reader;
-    reader.header = &header;
+    reader.header = std::forward<ReaderHeader>(header);
 
     if (reader.load(fileName) == false)
         return false;

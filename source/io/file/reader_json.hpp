@@ -23,8 +23,8 @@ namespace fe
     class API_DECLSPEC ReaderJson
     {
     public:
-        json_value root;
-        ReaderHeader* header;
+        json_value  root;
+        ReaderHeader header;
 
         ReaderJson();
         ~ReaderJson();
@@ -62,8 +62,8 @@ namespace fe
                 std::string& str = container.get<std::string>();
                 if (str.find("0x") != std::string::npos)
                     return static_cast<T>(std::stoll(str.c_str(), nullptr, 16));
-                if (header->has(str) == true)
-                    return static_cast<T>(header->get(str));
+                if (header.has(str) == true)
+                    return static_cast<T>(header.get(str));
                 if (std::is_same<type::_int, T>::value)
                     return std::atoi(str.c_str());
                 if (std::is_same<type::_uint, T>::value)

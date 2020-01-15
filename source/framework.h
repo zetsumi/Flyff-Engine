@@ -7,6 +7,7 @@
 #endif
 
 #define FLYFFENGINE_JSON_PICOJSON
+#define FLYFFENGINE_XML_PUGIXML
 
 namespace fe
 {

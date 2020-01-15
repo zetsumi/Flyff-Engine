@@ -31,7 +31,7 @@ bool    propkarma_load_from_file()
     if (project.loadHeader("../../ressource/json/header/header_world.json", fe::LOADER_MODE::JSON) == false)
         return false;
 
-    if (project.loadPropKarma("../../ressource/json/prop/propKarma.json", fe::LOADER_MODE::JSON) == false)
+    if (project.loadPropKarma("../../ressource/xml/prop/propKarma.xml", fe::LOADER_MODE::XML) == false)
         return false;
     return true;
 }

@@ -3,7 +3,8 @@
 #include "reader_json.hpp"
 
 fe::ReaderJson::ReaderJson() :
-    root()
+    root(),
+    header()
 {
 
 }

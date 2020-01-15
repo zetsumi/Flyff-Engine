@@ -43,6 +43,12 @@
     <Filter Include="Fichiers de ressources\json\prop">
       <UniqueIdentifier>{a77d6f9f-7ee6-444a-913d-61832d81fe67}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers de ressources\xml">
+      <UniqueIdentifier>{e070d398-2787-417d-ad00-847049e68fd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers de ressources\xml\prop">
+      <UniqueIdentifier>{99de84b1-3553-4937-bf84-81311b77cf28}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\dllmain.cpp">
@@ -72,11 +78,14 @@
     <ClCompile Include="source\project\loader\project_manager_loader_prop_skill.cpp">
       <Filter>Fichiers sources\project\loader</Filter>
     </ClCompile>
-    <ClCompile Include="source\project\loader\project_manager_loader_prop_ctr.cpp">
-      <Filter>Fichiers sources\project\loader</Filter>
-    </ClCompile>
     <ClCompile Include="source\project\loader\project_manager_loader_prop_karma.cpp">
       <Filter>Fichiers sources\project\loader</Filter>
+    </ClCompile>
+    <ClCompile Include="source\project\loader\project_manager_loader_prop_ctrl.cpp">
+      <Filter>Fichiers sources\project\loader</Filter>
+    </ClCompile>
+    <ClCompile Include="source\io\file\reader_xml.cpp">
+      <Filter>Fichiers sources\io\file</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +138,9 @@
       <Filter>Fichiers sources\property</Filter>
     </ClInclude>
     <ClInclude Include="source\io\file\reader.hpp">
+      <Filter>Fichiers sources\io\file</Filter>
+    </ClInclude>
+    <ClInclude Include="source\io\file\reader_xml.hpp">
       <Filter>Fichiers sources\io\file</Filter>
     </ClInclude>
   </ItemGroup>

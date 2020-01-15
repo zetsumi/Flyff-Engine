@@ -25,7 +25,7 @@ bool    fe::ProjectManager::loadPropItem(const std::string& fileName, LOADER_MOD
 bool fe::ProjectManager::loadPropItemJson(const std::string& fileName) noexcept
 {
     ReaderJson  reader;
-    reader.header = &header;
+    reader.header = std::forward<ReaderHeader>(header);
 
     if (reader.load(fileName) == false)
         return false;
