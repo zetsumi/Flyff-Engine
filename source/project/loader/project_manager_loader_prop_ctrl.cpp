@@ -60,7 +60,6 @@ bool fe::ProjectManager::loadPropCtrlXml(const std::string& fileName) noexcept
     xml::node head = reader.document.child("ctrls");
     for (xml::node& group : head)
     {
-        std::cout << "group: " << group.name() << std::endl;
         for (xml::node& ctrl : group)
         {
             fe::PropCtrl* prop = new fe::PropCtrl();
