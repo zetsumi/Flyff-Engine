@@ -6,7 +6,7 @@
 #include "property_manager.hpp"
 #include "project/project_manager.hpp"
 
-bool    propkarma_load_from_file()
+bool    propkarma_load_from_file(fe::LOADER_MODE mode)
 {
     fe::ProjectManager project;
 
@@ -31,7 +31,22 @@ bool    propkarma_load_from_file()
     if (project.loadHeader("../../ressource/json/header/header_world.json", fe::LOADER_MODE::JSON) == false)
         return false;
 
-    if (project.loadPropKarma("../../ressource/xml/prop/propKarma.xml", fe::LOADER_MODE::XML) == false)
+    std::string extension;
+    switch (mode)
+    {
+    case fe::LOADER_MODE::JSON:
+        extension = "json";
+        break;
+    case fe::LOADER_MODE::XML:
+        extension = "xml";
+        break;
+    case fe::LOADER_MODE::CSV:
+        extension = "csv";
+        break;
+    default:
+        break;
+    }
+    if (project.loadPropKarma("../../ressource/"+extension+"/prop/propKarma."+extension, mode) == false)
         return false;
     return true;
 }

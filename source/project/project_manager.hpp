@@ -23,6 +23,7 @@ namespace fe
 		bool	loadPropKarmaJson(const std::string& fileName) noexcept;
 
 		bool	loadPropCtrlXml(const std::string& fileName) noexcept;
+		bool	loadPropKarmaXml(const std::string& fileName) noexcept;
 
 
 	public:

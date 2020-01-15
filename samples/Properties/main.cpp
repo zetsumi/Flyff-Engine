@@ -12,7 +12,7 @@ bool propctrl_load_from_file(fe::LOADER_MODE mode);
 
 bool propskill_load_from_file();
 
-bool propkarma_load_from_file();
+bool propkarma_load_from_file(fe::LOADER_MODE mode);
 
 int main()
 {
@@ -24,11 +24,12 @@ int main()
 
     //propctrl_without_project();
     //propctrl_load_from_file(fe::LOADER_MODE::JSON);
-    propctrl_load_from_file(fe::LOADER_MODE::XML);
+    //propctrl_load_from_file(fe::LOADER_MODE::XML);
 
     //propskill_load_from_file();
 
-    //propkarma_load_from_file();
+    propkarma_load_from_file(fe::LOADER_MODE::XML);
+    //propkarma_load_from_file(fe::LOADER_MODE::JSON);
 
     return 0;
 }

@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "project_manager.hpp"
 #include "reader_json.hpp"
+#include "reader_xml.hpp"
 #include "prop_karma.hpp"
 
 
@@ -14,6 +15,7 @@ bool fe::ProjectManager::loadPropKarma(const std::string& fileName, LOADER_MODE 
             loadPropKarmaJson(fileName);
             break;
         case fe::LOADER_MODE::XML:
+            loadPropKarmaXml(fileName);
             break;
         default:
             return false;
@@ -61,3 +63,38 @@ bool fe::ProjectManager::loadPropKarmaJson(const std::string& fileName) noexcept
     return true;
 }
 
+bool fe::ProjectManager::loadPropKarmaXml(const std::string& fileName) noexcept
+{
+    ReaderXml reader;
+    reader.header = std::forward<ReaderHeader>(header);
+
+    if (reader.load(fileName) == false)
+        return false;
+    xml::node head = reader.document.child("karmas");
+    for (xml::node& karma : head)
+    {
+        fe::PropKarma* prop = new fe::PropKarma();
+        prop->id = reader.getNumber<type::_int>(karma, "nGrade");
+        prop->name = reader.getString(karma, "szName");
+        prop->karmaPoint = reader.getNumber<type::_uint>(karma, "dwKarmaPoint");
+        prop->grade = reader.getNumber<type::_uint>(karma, "dwGrade");
+        prop->color = reader.getNumber<type::_uint>(karma, "dwColor");
+        prop->karmaRecoverPoint = reader.getNumber<type::_uint>(karma, "dwKarmaRecoverPoint");
+        prop->discountRate = reader.getNumber<type::_uint>(karma, "dwDiscountRate");
+        prop->sellPenaltyRate = reader.getNumber<type::_uint>(karma, "dwSellPenaltyRate");
+        prop->guardReaction = reader.getNumber<type::_uint>(karma, "dwGuardReaction");
+        prop->subtractExpRate = reader.getNumber<fe::type::_int>(karma, "SubtractExpRate");
+        prop->dropGoldPercent = reader.getNumber<fe::type::_int>(karma, "nDropGoldPercent");
+        prop->dropItem = reader.getNumber<fe::type::_int>(karma, "nDropItem");
+        prop->dropPercent = reader.getNumber<fe::type::_int>(karma, "nDropPercent");
+        prop->karmaRecoverNum = reader.getNumber<type::_uint>(karma, "dwKarmaRecoverNum");
+        prop->statLimitTime = reader.getNumber<type::_uint>(karma, "dwStatLimitTime");
+        prop->statLimitNum = reader.getNumber<type::_uint>(karma, "dwStatLimitNum");
+        prop->statLimitRate = reader.getNumber<type::_uint>(karma, "dwStatLimitRate");
+        prop->comment = reader.getString(karma, "szComment");
+
+        prop->id += 6;
+        propkarma.push(prop->id, prop);
+    }
+    return true;
+}
