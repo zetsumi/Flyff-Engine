@@ -4,6 +4,8 @@
 #include "framework.h"
 #include "property.hpp"
 
+#pragma warning( disable : 4251 )
+
 namespace fe
 {
     struct API_DECLSPEC PropKarma : PropertyContainer
@@ -53,3 +55,5 @@ namespace fe
 
     };
 }
+
+#pragma warning( default : 4251 )

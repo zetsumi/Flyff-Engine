@@ -12,6 +12,7 @@
 #else
 #endif
 
+#pragma warning( disable : 4251 )
 namespace fe
 {
 #if defined(FLYFFENGINE_JSON_PICOJSON)
@@ -65,7 +66,7 @@ namespace fe
                 if (header.has(str) == true)
                     return static_cast<T>(header.get(str));
                 if (std::is_same<type::_int, T>::value)
-                    return std::atoi(str.c_str());
+                    return static_cast<T>(std::atoll(str.c_str()));
                 if (std::is_same<type::_uint, T>::value)
                     return static_cast<T>(std::stoll(str.c_str(), nullptr, 10));
             }
@@ -75,3 +76,5 @@ namespace fe
         }
     };
 }
+
+#pragma warning( default: 4251 )

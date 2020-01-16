@@ -13,6 +13,8 @@
 
 #include <iostream>
 
+#pragma warning( disable : 4251 )
+
 namespace fe
 {
     namespace xml
@@ -52,3 +54,5 @@ namespace fe
         bool    load(const std::string& fileName) noexcept;
     };
 }
+
+#pragma warning( default: 4251 )

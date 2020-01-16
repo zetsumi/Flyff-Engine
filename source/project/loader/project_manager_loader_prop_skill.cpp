@@ -11,10 +11,10 @@ bool fe::ProjectManager::loadPropSkill(const std::string& fileName, LOADER_MODE 
     switch (mode)
     {
     case fe::LOADER_MODE::JSON:
-        loadPropSkillJson(fileName);
+        return loadPropSkillJson(fileName);
         break;
     case fe::LOADER_MODE::XML:
-        loadPropSkillXml(fileName);
+        return loadPropSkillXml(fileName);
         break;
     default:
         return false;

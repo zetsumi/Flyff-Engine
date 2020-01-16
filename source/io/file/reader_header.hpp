@@ -10,6 +10,8 @@
 #include "framework.h"
 #include "reader.hpp"
 
+#pragma warning( disable: 4251 )
+
 namespace fe
 {
     class API_DECLSPEC ReaderHeader
@@ -32,3 +34,4 @@ namespace fe
     };
 }
 
+#pragma warning( default: 4251 )

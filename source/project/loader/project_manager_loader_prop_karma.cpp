@@ -12,10 +12,10 @@ bool fe::ProjectManager::loadPropKarma(const std::string& fileName, LOADER_MODE 
     switch (mode)
     {
         case fe::LOADER_MODE::JSON:
-            loadPropKarmaJson(fileName);
+            return loadPropKarmaJson(fileName);
             break;
         case fe::LOADER_MODE::XML:
-            loadPropKarmaXml(fileName);
+            return loadPropKarmaXml(fileName);
             break;
         default:
             return false;

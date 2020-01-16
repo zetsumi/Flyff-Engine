@@ -49,6 +49,12 @@
     <Filter Include="Fichiers de ressources\xml\prop">
       <UniqueIdentifier>{99de84b1-3553-4937-bf84-81311b77cf28}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers de ressources\json\header">
+      <UniqueIdentifier>{ab3bb201-ddfb-41bd-abc7-940b08be76b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers de ressources\json\text">
+      <UniqueIdentifier>{f062f0aa-043c-48ab-86bc-0b9bf6f960ff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\dllmain.cpp">
@@ -162,6 +168,57 @@
     </None>
     <None Include="ressource\json\prop\propSkill.json">
       <Filter>Fichiers de ressources\json\prop</Filter>
+    </None>
+    <None Include="ressource\json\prop\propCtrl.json">
+      <Filter>Fichiers de ressources\json\prop</Filter>
+    </None>
+    <None Include="ressource\json\prop\propKarma.json">
+      <Filter>Fichiers de ressources\json\prop</Filter>
+    </None>
+    <None Include="ressource\json\header\header_attribute.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\header\header_define.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\header\header_item.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\header\header_itemkind.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\header\header_job.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\header\header_neuz.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\header\header_obj.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\header\header_skill.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\header\header_sound.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\header\header_world.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\text\text_ctrl.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_item.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_karma.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_mover.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_troupeskill.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

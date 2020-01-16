@@ -11,10 +11,10 @@ bool    fe::ProjectManager::loadPropCtrl(const std::string& fileName, LOADER_MOD
     switch (mode)
     {
         case fe::LOADER_MODE::JSON:
-            loadPropCtrlJson(fileName);
+            return loadPropCtrlJson(fileName);
             break;
         case fe::LOADER_MODE::XML:
-            loadPropCtrlXml(fileName);
+            return loadPropCtrlXml(fileName);
             break;
         default:
             return false;
