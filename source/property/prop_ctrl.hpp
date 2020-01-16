@@ -10,13 +10,13 @@ namespace fe
 {
     struct API_DECLSPEC PropCtrl : PropertyContainer
     {
-        unsigned __int64    id;
+        fe::type::_uint     id;
         std::string         name;
-        unsigned __int64    ctrlKind1;
-        unsigned __int64    ctrlKind2;
-        unsigned __int64    ctrlKind3;
-        unsigned __int64    sfxCtrl;
-        unsigned __int64    soundDamage;
+        fe::type::_uint     ctrlKind1;
+        fe::type::_uint     ctrlKind2;
+        fe::type::_uint     ctrlKind3;
+        fe::type::_uint     sfxCtrl;
+        fe::type::_uint     soundDamage;
         std::string         comment;
 
         PropCtrl() :
@@ -27,7 +27,30 @@ namespace fe
             sfxCtrl(0),
             soundDamage(0),
             comment()
-        {}
+        {
+        }
+
+        PropCtrl(PropCtrl* o) :
+            id(o->id),
+            ctrlKind1(o->ctrlKind1),
+            ctrlKind2(o->ctrlKind2),
+            ctrlKind3(o->ctrlKind3),
+            sfxCtrl(o->sfxCtrl),
+            soundDamage(o->soundDamage),
+            comment(o->comment)
+        {
+        }
+
+        PropCtrl(PropCtrl& o) :
+            id(o.id),
+            ctrlKind1(o.ctrlKind1),
+            ctrlKind2(o.ctrlKind2),
+            ctrlKind3(o.ctrlKind3),
+            sfxCtrl(o.sfxCtrl),
+            soundDamage(o.soundDamage),
+            comment(o.comment)
+        {
+        }
 
         ~PropCtrl() {}
 

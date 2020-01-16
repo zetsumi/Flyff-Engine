@@ -50,34 +50,74 @@ namespace fe
 			return std::ref(header);
 		};
 
-		inline PropItem* GetItem(fe::type::_uint id) noexcept
+		inline PropItem* getItem(fe::type::_uint id) noexcept
 		{
 			return dynamic_cast<PropItem*>(propitem.get(id));
 		};
-		inline PropSkill* GetSkill(fe::type::_uint id) noexcept
+		inline PropSkill* getSkill(fe::type::_uint id) noexcept
 		{
 			return dynamic_cast<PropSkill*>(propskill.get(id));
 		};
-		inline PropCtrl* GetCtrl(fe::type::_uint id) noexcept
+		inline PropCtrl* getCtrl(fe::type::_uint id) noexcept
 		{
 			return dynamic_cast<PropCtrl*>(propctrl.get(id));
 		};
-		inline PropKarma* GetKarma(fe::type::_uint id) noexcept
+		inline PropKarma* getKarma(fe::type::_uint id) noexcept
 		{
 			return dynamic_cast<PropKarma*>(propkarma.get(id));
 		};
-		inline PropMover* GetMover(fe::type::_uint id) noexcept
+		inline PropMover* getMover(fe::type::_uint id) noexcept
 		{
 			return dynamic_cast<PropMover*>(propmover.get(id));
 		};
-		inline PropSkill* GetSkillTroupe(fe::type::_uint id) noexcept
+		inline PropSkill* getSkillTroupe(fe::type::_uint id) noexcept
 		{
 			return dynamic_cast<PropSkill*>(propskilltroupe.get(id));
 		};
 
-		inline PropSkill* CreateSkill(fe::type::_uint id) noexcept
+		inline PropItem* createItem(fe::type::_uint id) noexcept
 		{
-			PropSkill* src = GetSkill(id);
+			PropItem* src = getItem(id);
+			if (src == nullptr)
+				return nullptr;
+			PropItem* copy = new PropItem(src);
+			return copy;
+		}
+		inline PropSkill* createSkill(fe::type::_uint id) noexcept
+		{
+			PropSkill* src = getSkill(id);
+			if (src == nullptr)
+				return nullptr;
+			PropSkill* copy = new PropSkill(src);
+			return copy;
+		}
+		inline PropCtrl* createCtrl(fe::type::_uint id) noexcept
+		{
+			PropCtrl* src = getCtrl(id);
+			if (src == nullptr)
+				return nullptr;
+			PropCtrl* copy = new PropCtrl(src);
+			return copy;
+		}
+		inline PropKarma* createKarma(fe::type::_uint id) noexcept
+		{
+			PropKarma* src = getKarma(id);
+			if (src == nullptr)
+				return nullptr;
+			PropKarma* copy = new PropKarma(src);
+			return copy;
+		}
+		inline PropMover* createMover(fe::type::_uint id) noexcept
+		{
+			PropMover* src = getMover(id);
+			if (src == nullptr)
+				return nullptr;
+			PropMover* copy = new PropMover(src);
+			return copy;
+		}
+		inline PropSkill* createSkillTroupe(fe::type::_uint id) noexcept
+		{
+			PropSkill* src = getSkillTroupe(id);
 			if (src == nullptr)
 				return nullptr;
 			PropSkill* copy = new PropSkill(src);

@@ -49,7 +49,48 @@ namespace fe
             statLimitRate(0),
             comment()
         {}
-
+        PropKarma(PropKarma* o) :
+            id(o->id),
+            name(o->name),
+            karmaPoint(o->karmaPoint),
+            grade(o->grade),
+            color(o->color),
+            karmaRecoverPoint(o->karmaRecoverPoint),
+            discountRate(o->discountRate),
+            sellPenaltyRate(o->sellPenaltyRate),
+            guardReaction(o->guardReaction),
+            subtractExpRate(o->subtractExpRate),
+            dropGoldPercent(o->dropGoldPercent),
+            dropItem(o->dropItem),
+            dropPercent(o->dropPercent),
+            karmaRecoverNum(o->karmaRecoverNum),
+            statLimitTime(o->statLimitTime),
+            statLimitNum(o->statLimitNum),
+            statLimitRate(o->statLimitRate),
+            comment(o->comment)
+        {
+        }
+        PropKarma(PropKarma& o) :
+            id(o.id),
+            name(o.name),
+            karmaPoint(o.karmaPoint),
+            grade(o.grade),
+            color(o.color),
+            karmaRecoverPoint(o.karmaRecoverPoint),
+            discountRate(o.discountRate),
+            sellPenaltyRate(o.sellPenaltyRate),
+            guardReaction(o.guardReaction),
+            subtractExpRate(o.subtractExpRate),
+            dropGoldPercent(o.dropGoldPercent),
+            dropItem(o.dropItem),
+            dropPercent(o.dropPercent),
+            karmaRecoverNum(o.karmaRecoverNum),
+            statLimitTime(o.statLimitTime),
+            statLimitNum(o.statLimitNum),
+            statLimitRate(o.statLimitRate),
+            comment(o.comment)
+        {
+        }
         ~PropKarma() {}
 
 
