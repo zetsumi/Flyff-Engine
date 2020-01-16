@@ -10,24 +10,24 @@ namespace fe
 {
     struct API_DECLSPEC PropKarma : PropertyContainer
     {
-        __int64                 id;
-        std::string             name;
-        fe::type::_int          karmaPoint;
-        unsigned __int64        grade;
-        unsigned __int64        color;
-        unsigned __int64        karmaRecoverPoint;
-        unsigned __int64        discountRate;
-        unsigned __int64        sellPenaltyRate;
-        unsigned __int64        guardReaction;
-        fe::type::_int          subtractExpRate;
-        __int64                 dropGoldPercent;
-        __int64                 dropItem;
-        __int64                 dropPercent;
-        unsigned __int64        karmaRecoverNum;
-        unsigned __int64        statLimitTime;
-        unsigned __int64        statLimitNum;
-        unsigned __int64        statLimitRate;
-        std::string             comment;
+        fe::type::_int  id;
+        std::string     name;
+        fe::type::_int  karmaPoint;
+        fe::type::_uint grade;
+        fe::type::_uint color;
+        fe::type::_uint karmaRecoverPoint;
+        fe::type::_uint discountRate;
+        fe::type::_uint sellPenaltyRate;
+        fe::type::_uint guardReaction;
+        fe::type::_int  subtractExpRate;
+        fe::type::_int  dropGoldPercent;
+        fe::type::_int  dropItem;
+        fe::type::_int  dropPercent;
+        fe::type::_uint karmaRecoverNum;
+        fe::type::_uint statLimitTime;
+        fe::type::_uint statLimitNum;
+        fe::type::_uint statLimitRate;
+        std::string     comment;
 
         PropKarma() :
             id(0),
@@ -70,6 +70,7 @@ namespace fe
             comment(o->comment)
         {
         }
+
         PropKarma(PropKarma& o) :
             id(o.id),
             name(o.name),
