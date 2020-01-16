@@ -148,7 +148,7 @@
     <ClCompile Include="sample_propskill.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\FlyffEngine.vcxproj">
+    <ProjectReference Include="..\..\FlyffRessource.vcxproj">
       <Project>{8a745f1a-17fb-48a8-b9fb-b7b286b8aefc}</Project>
     </ProjectReference>
   </ItemGroup>

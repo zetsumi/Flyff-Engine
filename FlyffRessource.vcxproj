@@ -91,8 +91,9 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{8A745F1A-17FB-48A8-B9FB-B7B286B8AEFC}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>FlyffEngine</RootNamespace>
+    <RootNamespace></RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>FlyffRessource</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -175,7 +176,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>source/;source/property/;source/project/;source/io/file/</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp14</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
       <EnableModules>true</EnableModules>
     </ClCompile>
     <Link>
