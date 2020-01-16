@@ -161,4 +161,30 @@
       <Filter>Fichiers de ressources\json\prop</Filter>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Xml Include="ressource\xml\prop\mdlobj.xml">
+      <Filter>Fichiers de ressources\xml\prop</Filter>
+    </Xml>
+    <Xml Include="ressource\xml\prop\propCtrl.xml">
+      <Filter>Fichiers de ressources\xml\prop</Filter>
+    </Xml>
+    <Xml Include="ressource\xml\prop\propItem.xml">
+      <Filter>Fichiers de ressources\xml\prop</Filter>
+    </Xml>
+    <Xml Include="ressource\xml\prop\propKarma.xml">
+      <Filter>Fichiers de ressources\xml\prop</Filter>
+    </Xml>
+    <Xml Include="ressource\xml\prop\propMover.xml">
+      <Filter>Fichiers de ressources\xml\prop</Filter>
+    </Xml>
+    <Xml Include="ressource\xml\prop\propMoverExtend.xml">
+      <Filter>Fichiers de ressources\xml\prop</Filter>
+    </Xml>
+    <Xml Include="ressource\xml\prop\propQuest.xml">
+      <Filter>Fichiers de ressources\xml\prop</Filter>
+    </Xml>
+    <Xml Include="ressource\xml\prop\propSkill.xml">
+      <Filter>Fichiers de ressources\xml\prop</Filter>
+    </Xml>
+  </ItemGroup>
 </Project>

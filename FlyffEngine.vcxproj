@@ -59,6 +59,16 @@
     <None Include="ressource\json\prop\propQuest.json" />
     <None Include="ressource\json\prop\randomEventMonster.json" />
   </ItemGroup>
+  <ItemGroup>
+    <Xml Include="ressource\xml\prop\mdlobj.xml" />
+    <Xml Include="ressource\xml\prop\propCtrl.xml" />
+    <Xml Include="ressource\xml\prop\propItem.xml" />
+    <Xml Include="ressource\xml\prop\propKarma.xml" />
+    <Xml Include="ressource\xml\prop\propMover.xml" />
+    <Xml Include="ressource\xml\prop\propMoverExtend.xml" />
+    <Xml Include="ressource\xml\prop\propQuest.xml" />
+    <Xml Include="ressource\xml\prop\propSkill.xml" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{8A745F1A-17FB-48A8-B9FB-B7B286B8AEFC}</ProjectGuid>

@@ -37,3 +37,19 @@ bool fe::ReaderXml::load(const std::string& fileName) noexcept
 	}
     return true;
 }
+
+std::string fe::ReaderXml::getString(fe::xml::node& node, const std::string& nameAttribute) noexcept
+{
+	fe::xml::attribute attr = node.attribute(nameAttribute.c_str());
+	if (attr.empty() == true)
+		return std::string();
+	return attr.as_string();
+}
+
+bool fe::ReaderXml::getBoolean(fe::xml::node& node, const std::string& nameAttribute) noexcept
+{
+	fe::xml::attribute attr = node.attribute(nameAttribute.c_str());
+	if (attr.empty() == true)
+		return false;
+	return attr.as_bool();
+}

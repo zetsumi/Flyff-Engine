@@ -5,7 +5,7 @@
 #pragma warning( disable: 4251 )
 
 void propitem_without_project();
-bool propitem_load_from_file();
+bool propitem_load_from_file(fe::LOADER_MODE mode);
 
 void propctrl_without_project();
 bool propctrl_load_from_file(fe::LOADER_MODE mode);
@@ -19,7 +19,8 @@ int main()
     std::srand(std::time(nullptr));
     
     //propitem_without_project();
-    //propitem_load_from_file();
+    //propitem_load_from_file(fe::LOADER_MODE::JSON);
+    //propitem_load_from_file(fe::LOADER_MODE::XML);
 
 
     //propctrl_without_project();
@@ -28,7 +29,7 @@ int main()
 
     //propskill_load_from_file();
 
-    propkarma_load_from_file(fe::LOADER_MODE::XML);
+    //propkarma_load_from_file(fe::LOADER_MODE::XML);
     //propkarma_load_from_file(fe::LOADER_MODE::JSON);
 
     return 0;

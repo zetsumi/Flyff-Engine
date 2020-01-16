@@ -35,13 +35,8 @@ namespace fe
         ReaderXml();
         ~ReaderXml();
 
-        std::string getString(xml::node& node, const std::string& nameAttribute) noexcept
-        {
-            xml::attribute attr = node.attribute(nameAttribute.c_str());
-            if (attr.empty() == true)
-                return std::string();
-            return attr.as_string();
-        }
+        std::string getString(xml::node& node, const std::string& nameAttribute) noexcept;
+        bool    getBoolean(xml::node& node, const std::string& nameAttribute) noexcept;
 
         template<typename T>
         T getNumber(xml::node& node, const std::string& nameAttribute) noexcept

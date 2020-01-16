@@ -45,7 +45,7 @@ void propitem_without_project()
 }
 
 
-bool    propitem_load_from_file()
+bool    propitem_load_from_file(fe::LOADER_MODE mode)
 {
     fe::ProjectManager project;
 
@@ -75,8 +75,23 @@ bool    propitem_load_from_file()
     std::cout << "DEFINE_UNKNOW : " << project.getHeader().get("DEFINE_UNKNOW") << std::endl;
     std::cout << "DST_ADJDEF : " << project.getHeader().get("DST_ADJDEF") << std::endl;
 
+    std::string extension;
+    switch (mode)
+    {
+        case fe::LOADER_MODE::JSON:
+            extension = "json";
+            break;
+        case fe::LOADER_MODE::XML:
+            extension = "xml";
+            break;
+        case fe::LOADER_MODE::CSV:
+            extension = "csv";
+            break;
+        default:
+            break;
+    }
 
-    if (project.loadPropItem("../../ressource/json/prop/propItem.json", fe::LOADER_MODE::JSON) == false)
+    if (project.loadPropItem("../../ressource/"+extension+"/prop/propItem."+extension, mode) == false)
         return false;
     return true;
 }
