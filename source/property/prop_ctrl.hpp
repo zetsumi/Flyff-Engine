@@ -10,49 +10,24 @@ namespace fe
 {
     struct API_DECLSPEC PropCtrl : PropertyContainer
     {
-        fe::type::_uint     id;
-        std::string         name;
-        fe::type::_uint     ctrlKind1;
-        fe::type::_uint     ctrlKind2;
-        fe::type::_uint     ctrlKind3;
-        fe::type::_uint     sfxCtrl;
-        fe::type::_uint     soundDamage;
-        std::string         comment;
+        fe::type::_uint     id = 0;
+        std::string         name = "";
+        fe::type::_uint     ctrlKind1 = 0;
+        fe::type::_uint     ctrlKind2 = 0;
+        fe::type::_uint     ctrlKind3 = 0;
+        fe::type::_uint     sfxCtrl = 0;
+        fe::type::_uint     soundDamage = 0;
+        std::string         comment = "";
 
-        PropCtrl() :
-            id(0),
-            ctrlKind1(0),
-            ctrlKind2(0),
-            ctrlKind3(0),
-            sfxCtrl(0),
-            soundDamage(0),
-            comment()
+        PropCtrl(const PropCtrl* o) : PropCtrl(*o)
         {
         }
-
-        PropCtrl(PropCtrl* o) :
-            id(o->id),
-            ctrlKind1(o->ctrlKind1),
-            ctrlKind2(o->ctrlKind2),
-            ctrlKind3(o->ctrlKind3),
-            sfxCtrl(o->sfxCtrl),
-            soundDamage(o->soundDamage),
-            comment(o->comment)
-        {
-        }
-
-        PropCtrl(PropCtrl& o) :
-            id(o.id),
-            ctrlKind1(o.ctrlKind1),
-            ctrlKind2(o.ctrlKind2),
-            ctrlKind3(o.ctrlKind3),
-            sfxCtrl(o.sfxCtrl),
-            soundDamage(o.soundDamage),
-            comment(o.comment)
-        {
-        }
-
-        ~PropCtrl() {}
+        PropCtrl() = default;
+        PropCtrl(const PropCtrl&) = default;
+        PropCtrl(PropCtrl&&) = default;
+        PropCtrl& operator=(const PropCtrl&) = default;
+        PropCtrl& operator=(PropCtrl&&) = default;
+        ~PropCtrl() = default;
 
     };
 }
