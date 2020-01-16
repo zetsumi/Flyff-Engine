@@ -57,6 +57,7 @@
     <None Include="ressource\json\prop\propMoverEx.json" />
     <None Include="ressource\json\prop\propMoverExAI.json" />
     <None Include="ressource\json\prop\propQuest.json" />
+    <None Include="ressource\json\prop\propSkill.json" />
     <None Include="ressource\json\prop\randomEventMonster.json" />
   </ItemGroup>
   <ItemGroup>

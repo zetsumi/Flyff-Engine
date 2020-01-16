@@ -5,13 +5,11 @@
 #pragma warning( disable: 4251 )
 
 void propitem_without_project();
-bool propitem_load_from_file(fe::LOADER_MODE mode);
-
 void propctrl_without_project();
+
+bool propitem_load_from_file(fe::LOADER_MODE mode);
 bool propctrl_load_from_file(fe::LOADER_MODE mode);
-
-bool propskill_load_from_file();
-
+bool propskill_load_from_file(fe::LOADER_MODE mode);
 bool propkarma_load_from_file(fe::LOADER_MODE mode);
 
 int main()
@@ -27,7 +25,8 @@ int main()
     //propctrl_load_from_file(fe::LOADER_MODE::JSON);
     //propctrl_load_from_file(fe::LOADER_MODE::XML);
 
-    //propskill_load_from_file();
+    propskill_load_from_file(fe::LOADER_MODE::XML);
+    propskill_load_from_file(fe::LOADER_MODE::JSON);
 
     //propkarma_load_from_file(fe::LOADER_MODE::XML);
     //propkarma_load_from_file(fe::LOADER_MODE::JSON);

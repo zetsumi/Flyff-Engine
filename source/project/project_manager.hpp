@@ -25,6 +25,7 @@ namespace fe
 		bool	loadPropItemXml(const std::string& fileName) noexcept;
 		bool	loadPropCtrlXml(const std::string& fileName) noexcept;
 		bool	loadPropKarmaXml(const std::string& fileName) noexcept;
+		bool	loadPropSkillXml(const std::string& fileName) noexcept;
 
 
 	public:

@@ -98,3 +98,4 @@ bool fe::ProjectManager::loadPropKarmaXml(const std::string& fileName) noexcept
     }
     return true;
 }
+

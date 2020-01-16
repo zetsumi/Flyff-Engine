@@ -7,7 +7,7 @@
 #include "project/project_manager.hpp"
 
 
-bool    propskill_load_from_file()
+bool    propskill_load_from_file(fe::LOADER_MODE mode)
 {
     fe::ProjectManager project;
 
@@ -32,7 +32,22 @@ bool    propskill_load_from_file()
     if (project.loadHeader("../../ressource/json/header/header_world.json", fe::LOADER_MODE::JSON) == false)
         return false;
 
-    if (project.loadPropSkill("../../ressource/json/prop/propSkill.json", fe::LOADER_MODE::JSON) == false)
+    std::string extension;
+    switch (mode)
+    {
+        case fe::LOADER_MODE::JSON:
+            extension = "json";
+            break;
+        case fe::LOADER_MODE::XML:
+            extension = "xml";
+            break;
+        case fe::LOADER_MODE::CSV:
+            extension = "csv";
+            break;
+        default:
+            break;
+    }
+    if (project.loadPropSkill("../../ressource/" + extension + "/prop/propSkill." + extension, mode) == false)
         return false;
     return true;
 }

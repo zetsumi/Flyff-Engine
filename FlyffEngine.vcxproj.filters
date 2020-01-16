@@ -160,6 +160,9 @@
     <None Include="ressource\json\prop\randomEventMonster.json">
       <Filter>Fichiers de ressources\json\prop</Filter>
     </None>
+    <None Include="ressource\json\prop\propSkill.json">
+      <Filter>Fichiers de ressources\json\prop</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="ressource\xml\prop\mdlobj.xml">
