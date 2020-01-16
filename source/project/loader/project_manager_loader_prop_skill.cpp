@@ -304,7 +304,6 @@ bool fe::ProjectManager::loadPropSkillXml(const std::string& fileName) noexcept
         prop->comment = reader.getString(item, "szComment");
         propskill.push(prop->id, prop);
     };
-
     auto fctLooper = [&](xml::node& head)
     {
         for (xml::node& section : head)
@@ -332,9 +331,6 @@ bool fe::ProjectManager::loadPropSkillXml(const std::string& fileName) noexcept
             }
         }
     };
-
-
     fctLooper(head);
-
-    return false;
+    return true;
 }

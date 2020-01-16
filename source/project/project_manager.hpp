@@ -4,6 +4,13 @@
 #include "property_manager.hpp"
 #include "reader_header.hpp"
 
+#include "prop_item.hpp"
+#include "prop_ctrl.hpp"
+#include "prop_karma.hpp"
+#include "prop_mover.hpp"
+#include "prop_mover_ex.hpp"
+#include "prop_skill.hpp"
+
 
 namespace fe
 {
@@ -37,6 +44,44 @@ namespace fe
 		bool	loadPropSkill(const std::string& fileName, LOADER_MODE mode) noexcept;
 		bool	loadPropCtrl(const std::string& fileName, LOADER_MODE mode) noexcept;
 		bool	loadPropKarma(const std::string& fileName, LOADER_MODE mode) noexcept;
-		const ReaderHeader& getHeader() const;
+
+		inline const ReaderHeader& getHeader() const noexcept
+		{
+			return std::ref(header);
+		};
+
+		inline PropItem* GetItem(fe::type::_uint id) noexcept
+		{
+			return dynamic_cast<PropItem*>(propitem.get(id));
+		};
+		inline PropSkill* GetSkill(fe::type::_uint id) noexcept
+		{
+			return dynamic_cast<PropSkill*>(propskill.get(id));
+		};
+		inline PropCtrl* GetCtrl(fe::type::_uint id) noexcept
+		{
+			return dynamic_cast<PropCtrl*>(propctrl.get(id));
+		};
+		inline PropKarma* GetKarma(fe::type::_uint id) noexcept
+		{
+			return dynamic_cast<PropKarma*>(propkarma.get(id));
+		};
+		inline PropMover* GetMover(fe::type::_uint id) noexcept
+		{
+			return dynamic_cast<PropMover*>(propmover.get(id));
+		};
+		inline PropSkill* GetSkillTroupe(fe::type::_uint id) noexcept
+		{
+			return dynamic_cast<PropSkill*>(propskilltroupe.get(id));
+		};
+
+		inline PropSkill* CreateSkill(fe::type::_uint id) noexcept
+		{
+			PropSkill* src = GetSkill(id);
+			if (src == nullptr)
+				return nullptr;
+			PropSkill* copy = new PropSkill(src);
+			return copy;
+		}
 	};
 }

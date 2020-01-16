@@ -334,9 +334,6 @@ bool fe::ProjectManager::loadPropItemXml(const std::string& fileName) noexcept
             }
         }
     };
-
-
     fctLooper(head);
-
-    return false;
+    return true;
 }

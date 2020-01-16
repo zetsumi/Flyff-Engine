@@ -18,11 +18,6 @@ fe::ProjectManager::~ProjectManager()
 {
 }
 
-const fe::ReaderHeader& fe::ProjectManager::getHeader() const
-{
-    return std::ref(header);
-}
-
 bool    fe::ProjectManager::loadHeader(const std::string& fileName, LOADER_MODE mode) noexcept
 {
     try

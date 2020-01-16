@@ -49,5 +49,14 @@ bool    propskill_load_from_file(fe::LOADER_MODE mode)
     }
     if (project.loadPropSkill("../../ressource/" + extension + "/prop/propSkill." + extension, mode) == false)
         return false;
+
+    fe::PropSkill* skill = project.GetSkill(1);
+    fe::PropSkill* skillCopy = project.CreateSkill(1);
+
+    std::cout << skill->name << std::endl;
+    std::cout << skillCopy->name << std::endl;
+    skillCopy->id = 124;
+    std::cout << skill->name << std::endl;
+    std::cout << skillCopy->name << std::endl;
     return true;
 }

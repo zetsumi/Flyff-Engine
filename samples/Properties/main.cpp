@@ -26,7 +26,7 @@ int main()
     //propctrl_load_from_file(fe::LOADER_MODE::XML);
 
     propskill_load_from_file(fe::LOADER_MODE::XML);
-    propskill_load_from_file(fe::LOADER_MODE::JSON);
+    //propskill_load_from_file(fe::LOADER_MODE::JSON);
 
     //propkarma_load_from_file(fe::LOADER_MODE::XML);
     //propkarma_load_from_file(fe::LOADER_MODE::JSON);
