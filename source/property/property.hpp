@@ -16,12 +16,16 @@ namespace fe
 
     struct API_DECLSPEC PropertyContainer
     {
-        PropertyContainer()
+
+        PropertyContainer(const PropertyContainer* o) : PropertyContainer(*o)
         {
         }
 
-        virtual ~PropertyContainer()
-        {
-        }
+        PropertyContainer() = default;
+        PropertyContainer(const PropertyContainer&) = default;
+        PropertyContainer(PropertyContainer&&) = default;
+        PropertyContainer& operator=(const PropertyContainer&) = default;
+        PropertyContainer& operator=(PropertyContainer&&) = default;
+        virtual ~PropertyContainer() = default;
     };
 }

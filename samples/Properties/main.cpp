@@ -15,7 +15,7 @@ bool propkarma_load_from_file(fe::LOADER_MODE mode);
 int main()
 {
     std::srand(std::time(nullptr));
-    
+
     //propitem_without_project();
     //propitem_load_from_file(fe::LOADER_MODE::JSON);
     //propitem_load_from_file(fe::LOADER_MODE::XML);

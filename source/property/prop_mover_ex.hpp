@@ -8,5 +8,15 @@ namespace fe
 {
     class API_DECLSPEC PropMoverEx : public PropertyContainer
     {
+        PropMoverEx(const PropMoverEx* o) : PropMoverEx(*o)
+        {
+        }
+
+        PropMoverEx() = default;
+        PropMoverEx(const PropMoverEx&) = default;
+        PropMoverEx(PropMoverEx&&) = default;
+        PropMoverEx& operator=(const PropMoverEx&) = default;
+        PropMoverEx& operator=(PropMoverEx&&) = default;
+        ~PropMoverEx() = default;
     };
 }
