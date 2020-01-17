@@ -32,6 +32,5 @@ bool load_text_json()
         << ") value[" << project.getText().get("IDS_PROPITEM_TXT_000101")
         << "]" << std::endl;
 
-    std::cout << "here" << std::endl;
     return true;
 }
