@@ -23,7 +23,7 @@ namespace fe
 
         PropertyContainer() = default;
         PropertyContainer(const PropertyContainer&) = default;
-        PropertyContainer(PropertyContainer&&) = default;
+        PropertyContainer(PropertyContainer&&) noexcept = default;
         PropertyContainer& operator=(const PropertyContainer&) = default;
         PropertyContainer& operator=(PropertyContainer&&) = default;
         virtual ~PropertyContainer() = default;

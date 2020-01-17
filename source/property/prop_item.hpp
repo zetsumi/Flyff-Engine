@@ -138,7 +138,7 @@ namespace fe
         PropItem(const PropItem* o) : PropItem(*o){}
         PropItem() = default;
         PropItem(const PropItem&) = default;
-        PropItem(PropItem&&) = default;
+        PropItem(PropItem&&) noexcept = default;
         PropItem& operator=(const PropItem&) = default;
         PropItem& operator=(PropItem&&) = default;
         ~PropItem() = default;

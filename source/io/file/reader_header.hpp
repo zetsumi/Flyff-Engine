@@ -3,8 +3,6 @@
 #include <sstream>
 #include <fstream>
 #include <string>
-#include <algorithm>
-#include <vector>
 #include <unordered_map>
 
 #include "framework.h"
@@ -16,7 +14,7 @@ namespace fe
 {
     class API_DECLSPEC ReaderHeader
     {
-        std::unordered_map<std::string, fe::type::_uint>    defines;
+        std::unordered_map<std::string, fe::type::_uint>    defines = {};
 
         bool    isValidLineHeader(const std::string& line) const noexcept;
         void    removeEmpty(std::string& line) const noexcept;
@@ -24,8 +22,15 @@ namespace fe
         bool    loadFromJSON(const std::string& fileName) noexcept;
         bool    loadFromXML(const std::string& fileName) noexcept;
     public:
-        ReaderHeader();
-        ~ReaderHeader();
+        ReaderHeader(const ReaderHeader* o) : ReaderHeader(*o)
+        {
+        }
+        ReaderHeader() = default;
+        ReaderHeader(const ReaderHeader&) = default;
+        ReaderHeader(ReaderHeader&&) noexcept = default;
+        ReaderHeader& operator=(const ReaderHeader&) = default;
+        ReaderHeader& operator=(ReaderHeader&&) = default;
+        virtual ~ReaderHeader() = default;
 
         bool                load(const std::string& fileName, LOADER_MODE mode) noexcept;
         void                write() const noexcept;

@@ -14,7 +14,7 @@ namespace fe
 
         PropMoverEx() = default;
         PropMoverEx(const PropMoverEx&) = default;
-        PropMoverEx(PropMoverEx&&) = default;
+        PropMoverEx(PropMoverEx&&) noexcept = default;
         PropMoverEx& operator=(const PropMoverEx&) = default;
         PropMoverEx& operator=(PropMoverEx&&) = default;
         ~PropMoverEx() = default;

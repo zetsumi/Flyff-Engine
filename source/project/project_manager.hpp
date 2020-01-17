@@ -3,6 +3,7 @@
 #include "framework.h"
 #include "property_manager.hpp"
 #include "reader_header.hpp"
+#include "reader_text.hpp"
 
 #include "prop_item.hpp"
 #include "prop_ctrl.hpp"
@@ -17,6 +18,7 @@ namespace fe
 	class API_DECLSPEC ProjectManager
 	{
 		ReaderHeader	header;
+		ReaderText		text;
 		PropertyManager	propitem;
 		PropertyManager	propctrl;
 		PropertyManager	propmover;
@@ -40,6 +42,7 @@ namespace fe
 		~ProjectManager();
 
 		bool	loadHeader(const std::string& fileName, LOADER_MODE mode) noexcept;
+		bool	loadText(const std::string& fileName, LOADER_MODE mode, bool skippEmpty = false) noexcept;
 		bool	loadPropItem(const std::string& fileName, LOADER_MODE mode) noexcept;
 		bool	loadPropSkill(const std::string& fileName, LOADER_MODE mode) noexcept;
 		bool	loadPropCtrl(const std::string& fileName, LOADER_MODE mode) noexcept;
@@ -49,6 +52,11 @@ namespace fe
 		{
 			return std::ref(header);
 		};
+		inline const ReaderText& getText() const noexcept
+		{
+			return std::ref(text);
+		};
+
 
 		inline PropItem* getItem(fe::type::_uint id) noexcept
 		{

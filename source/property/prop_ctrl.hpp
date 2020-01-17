@@ -24,7 +24,7 @@ namespace fe
         }
         PropCtrl() = default;
         PropCtrl(const PropCtrl&) = default;
-        PropCtrl(PropCtrl&&) = default;
+        PropCtrl(PropCtrl&&) noexcept = default;
         PropCtrl& operator=(const PropCtrl&) = default;
         PropCtrl& operator=(PropCtrl&&) = default;
         ~PropCtrl() = default;

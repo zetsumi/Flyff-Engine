@@ -141,7 +141,7 @@ namespace fe
 
         PropSkill() = default;
         PropSkill(const PropSkill&) = default;
-        PropSkill(PropSkill&&) = default;
+        PropSkill(PropSkill&&) noexcept = default;
         PropSkill& operator=(const PropSkill&) = default;
         PropSkill& operator=(PropSkill&&) = default;
         ~PropSkill() = default;

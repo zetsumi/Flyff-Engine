@@ -7,6 +7,8 @@
 void propitem_without_project();
 void propctrl_without_project();
 
+bool load_text_json();
+
 bool propitem_load_from_file(fe::LOADER_MODE mode);
 bool propctrl_load_from_file(fe::LOADER_MODE mode);
 bool propskill_load_from_file(fe::LOADER_MODE mode);
@@ -15,6 +17,8 @@ bool propkarma_load_from_file(fe::LOADER_MODE mode);
 int main()
 {
     std::srand(std::time(nullptr));
+
+    load_text_json();
 
     //propitem_without_project();
     //propitem_load_from_file(fe::LOADER_MODE::JSON);

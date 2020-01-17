@@ -146,6 +146,7 @@
     <ClCompile Include="sample_propitem.cpp" />
     <ClCompile Include="sample_propkarma.cpp" />
     <ClCompile Include="sample_propskill.cpp" />
+    <ClCompile Include="sample_text.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\FlyffRessource.vcxproj">

@@ -2,14 +2,6 @@
 #include "reader_header.hpp"
 #include "reader_json.hpp"
 
-fe::ReaderHeader::ReaderHeader()
-{
-}
-
-fe::ReaderHeader::~ReaderHeader()
-{
-}
-
 bool    fe::ReaderHeader::isValidLineHeader(const std::string& line) const noexcept
 {
     if (line.size() == 0)
@@ -29,7 +21,6 @@ bool    fe::ReaderHeader::isValidLineHeader(const std::string& line) const noexc
         return false;
     return true;
 }
-
 
 void    fe::ReaderHeader::removeEmpty(std::string& line) const noexcept
 {
@@ -99,6 +90,24 @@ bool fe::ReaderHeader::loadFromHeaderHPP(const std::string& fileName) noexcept
     return true;
 }
 
+bool    fe::ReaderHeader::load(const std::string& fileName, LOADER_MODE mode) noexcept
+{
+    if (fileName.empty())
+        return false;
+
+    switch (mode)
+    {
+    case fe::LOADER_MODE::JSON:
+        return loadFromJSON(fileName);
+    case fe::LOADER_MODE::XML:
+        return loadFromXML(fileName);
+    default:
+        if (fileName.find(".h") != std::string::npos)
+            return loadFromHeaderHPP(fileName);
+    }
+    return false;
+}
+
 bool fe::ReaderHeader::loadFromJSON(const std::string& fileName) noexcept
 {
 
@@ -106,7 +115,7 @@ bool fe::ReaderHeader::loadFromJSON(const std::string& fileName) noexcept
 
     if (reader.load(fileName) == false)
         return false;
-    picojson::object& data = reader.root.get<picojson::object>();
+    fe::json_object& data = reader.root.get<fe::json_object>();
     for (auto& it : data)
     {
         const std::string& key = it.first;
@@ -143,24 +152,6 @@ bool fe::ReaderHeader::loadFromJSON(const std::string& fileName) noexcept
 bool fe::ReaderHeader::loadFromXML(const std::string& fileName) noexcept
 {
     return true;
-}
-
-bool    fe::ReaderHeader::load(const std::string& fileName,LOADER_MODE mode) noexcept
-{
-    if (fileName.empty())
-        return false;
-
-    switch (mode)
-    {
-        case fe::LOADER_MODE::JSON:
-            return loadFromJSON(fileName);
-        case fe::LOADER_MODE::XML:
-            return loadFromXML(fileName);
-        default:
-            if (fileName.find(".h") != std::string::npos)
-                return loadFromHeaderHPP(fileName);
-    }
-    return false;
 }
 
 fe::type::_uint    fe::ReaderHeader::get(const std::string& header) const noexcept

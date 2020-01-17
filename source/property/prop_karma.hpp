@@ -35,7 +35,7 @@ namespace fe
 
         PropKarma() = default;
         PropKarma(const PropKarma&) = default;
-        PropKarma(PropKarma&&) = default;
+        PropKarma(PropKarma&&) noexcept = default;
         PropKarma& operator=(const PropKarma&) = default;
         PropKarma& operator=(PropKarma&&) = default;
         ~PropKarma() = default;

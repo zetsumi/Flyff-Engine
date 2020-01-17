@@ -22,6 +22,7 @@
     <ClCompile Include="source\dllmain.cpp" />
     <ClCompile Include="source\io\file\reader_header.cpp" />
     <ClCompile Include="source\io\file\reader_json.cpp" />
+    <ClCompile Include="source\io\file\reader_text.cpp" />
     <ClCompile Include="source\io\file\reader_xml.cpp" />
     <ClCompile Include="source\pch.cpp" />
     <ClCompile Include="source\project\loader\project_manager_loader_prop_ctrl.cpp" />
@@ -37,6 +38,7 @@
     <ClInclude Include="source\io\file\reader.hpp" />
     <ClInclude Include="source\io\file\reader_header.hpp" />
     <ClInclude Include="source\io\file\reader_json.hpp" />
+    <ClInclude Include="source\io\file\reader_text.hpp" />
     <ClInclude Include="source\io\file\reader_xml.hpp" />
     <ClInclude Include="source\pch.h" />
     <ClInclude Include="source\project\project_manager.hpp" />

@@ -7,6 +7,7 @@
 
 #include "framework.h"
 #include "reader.hpp"
+#include "reader_header.hpp"
 #if defined(FLYFFENGINE_JSON_PICOJSON)
 #include "third_party/json/picojson.h"
 #else

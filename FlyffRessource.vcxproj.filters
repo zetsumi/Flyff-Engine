@@ -93,6 +93,9 @@
     <ClCompile Include="source\io\file\reader_xml.cpp">
       <Filter>Fichiers sources\io\file</Filter>
     </ClCompile>
+    <ClCompile Include="source\io\file\reader_text.cpp">
+      <Filter>Fichiers sources\io\file</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\framework.h">
@@ -147,6 +150,9 @@
       <Filter>Fichiers sources\io\file</Filter>
     </ClInclude>
     <ClInclude Include="source\io\file\reader_xml.hpp">
+      <Filter>Fichiers sources\io\file</Filter>
+    </ClInclude>
+    <ClInclude Include="source\io\file\reader_text.hpp">
       <Filter>Fichiers sources\io\file</Filter>
     </ClInclude>
   </ItemGroup>

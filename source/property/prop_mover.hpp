@@ -100,7 +100,7 @@ namespace fe
 
         PropMover() = default;
         PropMover(const PropMover&) = default;
-        PropMover(PropMover&&) = default;
+        PropMover(PropMover&&) noexcept = default;
         PropMover& operator=(const PropMover&) = default;
         PropMover& operator=(PropMover&&) = default;
         ~PropMover() = default;

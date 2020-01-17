@@ -22,10 +22,24 @@ bool    fe::ProjectManager::loadHeader(const std::string& fileName, LOADER_MODE 
 {
     try
     {
-        return header.load(fileName, mode);
+        header.load(fileName, mode);
     }
     catch (const std::exception&)
     {
         return false;
     }
+    return true;
+}
+
+bool fe::ProjectManager::loadText(const std::string& fileName, LOADER_MODE mode, bool skippEmpty) noexcept
+{
+    try
+    {
+        text.load(fileName, mode, skippEmpty);
+    }
+    catch (const std::exception&)
+    {
+        return false;
+    }
+    return true;
 }
