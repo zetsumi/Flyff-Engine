@@ -157,7 +157,67 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ressource\json\prop\propItem.json">
+    <None Include="ressource\json\header\header_define.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\header\header_event.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\header\header_honor.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\header\header_item.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\header\header_item_kind.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\header\header_itemkind.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\header\header_job.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\header\header_lang.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\header\header_lord_skill.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\header\header_msghdr.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\header\header_neuz.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\header\header_obj.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\header\header_quest.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\header\header_resdata.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\header\header_skill.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\header\header_sound.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\header\header_wnd_style.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\header\header_world.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\header\header_attribute.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\header\header_continent.json">
+      <Filter>Fichiers de ressources\json\header</Filter>
+    </None>
+    <None Include="ressource\json\prop\propKarma.json">
       <Filter>Fichiers de ressources\json\prop</Filter>
     </None>
     <None Include="ressource\json\prop\propMoverEx.json">
@@ -169,49 +229,58 @@
     <None Include="ressource\json\prop\propQuest.json">
       <Filter>Fichiers de ressources\json\prop</Filter>
     </None>
-    <None Include="ressource\json\prop\randomEventMonster.json">
+    <None Include="ressource\json\prop\propSkill.json">
       <Filter>Fichiers de ressources\json\prop</Filter>
     </None>
-    <None Include="ressource\json\prop\propSkill.json">
+    <None Include="ressource\json\prop\randomEventMonster.json">
       <Filter>Fichiers de ressources\json\prop</Filter>
     </None>
     <None Include="ressource\json\prop\propCtrl.json">
       <Filter>Fichiers de ressources\json\prop</Filter>
     </None>
-    <None Include="ressource\json\prop\propKarma.json">
+    <None Include="ressource\json\prop\propItem.json">
       <Filter>Fichiers de ressources\json\prop</Filter>
     </None>
-    <None Include="ressource\json\header\header_attribute.json">
-      <Filter>Fichiers de ressources\json\header</Filter>
+    <None Include="ressource\json\text\text_dumuscle.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
     </None>
-    <None Include="ressource\json\header\header_define.json">
-      <Filter>Fichiers de ressources\json\header</Filter>
+    <None Include="ressource\json\text\text_duominous.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
     </None>
-    <None Include="ressource\json\header\header_item.json">
-      <Filter>Fichiers de ressources\json\header</Filter>
+    <None Include="ressource\json\text\text_duominous_1.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
     </None>
-    <None Include="ressource\json\header\header_itemkind.json">
-      <Filter>Fichiers de ressources\json\header</Filter>
+    <None Include="ressource\json\text\text_durustia.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
     </None>
-    <None Include="ressource\json\header\header_job.json">
-      <Filter>Fichiers de ressources\json\header</Filter>
+    <None Include="ressource\json\text\text_durustia_1.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
     </None>
-    <None Include="ressource\json\header\header_neuz.json">
-      <Filter>Fichiers de ressources\json\header</Filter>
+    <None Include="ressource\json\text\text_dusatemple.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
     </None>
-    <None Include="ressource\json\header\header_obj.json">
-      <Filter>Fichiers de ressources\json\header</Filter>
+    <None Include="ressource\json\text\text_dusatempleboss.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
     </None>
-    <None Include="ressource\json\header\header_skill.json">
-      <Filter>Fichiers de ressources\json\header</Filter>
+    <None Include="ressource\json\text\text_etc.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
     </None>
-    <None Include="ressource\json\header\header_sound.json">
-      <Filter>Fichiers de ressources\json\header</Filter>
+    <None Include="ressource\json\text\text_faq.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
     </None>
-    <None Include="ressource\json\header\header_world.json">
-      <Filter>Fichiers de ressources\json\header</Filter>
+    <None Include="ressource\json\text\text_gameguard.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
     </None>
-    <None Include="ressource\json\text\text_ctrl.json">
+    <None Include="ressource\json\text\text_guide.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_help.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_honorlist.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_instanthelp.json">
       <Filter>Fichiers de ressources\json\text</Filter>
     </None>
     <None Include="ressource\json\text\text_item.json">
@@ -220,10 +289,157 @@
     <None Include="ressource\json\text\text_karma.json">
       <Filter>Fichiers de ressources\json\text</Filter>
     </None>
+    <None Include="ressource\json\text\text_lordskill.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_minigame_alphabet.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
     <None Include="ressource\json\text\text_mover.json">
       <Filter>Fichiers de ressources\json\text</Filter>
     </None>
+    <None Include="ressource\json\text\text_patchclient.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_patroldestination.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_propitemetc.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_propmotion.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_propquest.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_propquest_dungeonandpk.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_propquest_requestbox.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_propquest_requestbox2.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_propquest_scenario.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_questdestination.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_resdata.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_skill.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_textclient.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_textemotion.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_tip.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_treehelp.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
     <None Include="ressource\json\text\text_troupeskill.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_tutorial.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_wdarena.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_wdguildhouselarge.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_wdguildhousemiddle.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_wdguildhousesmall.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_wdguildwar.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_wdguildwar1to1.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_wdheaven01.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_wdheaven02.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_wdheaven03.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_wdheaven04.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_wdheaven05.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_wdheaven06.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_wdheaven06_1.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_wdkebaras.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_wdmadrigal.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_wdminiroom.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_wdquiz.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_wdvolcane.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_wdvolcanered.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_wdvolcaneyellow.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_world.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_character.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_character_etc.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_character_school.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_ctrl.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_dubear.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_dudadk.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_dudreadfulcave.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_duflmas.json">
+      <Filter>Fichiers de ressources\json\text</Filter>
+    </None>
+    <None Include="ressource\json\text\text_dukrr.json">
       <Filter>Fichiers de ressources\json\text</Filter>
     </None>
   </ItemGroup>

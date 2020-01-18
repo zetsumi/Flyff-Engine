@@ -18,6 +18,7 @@ namespace fe
 {
 #if defined(FLYFFENGINE_JSON_PICOJSON)
     typedef picojson::object    json_object;
+    typedef picojson::array     json_array;
     typedef picojson::value     json_value;
 #else
 #endif

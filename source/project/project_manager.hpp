@@ -36,10 +36,14 @@ namespace fe
 		bool	loadPropKarmaXml(const std::string& fileName) noexcept;
 		bool	loadPropSkillXml(const std::string& fileName) noexcept;
 
+		bool	loadJson(const std::string& fileName) noexcept;
+		bool	loadXml(const std::string& fileName) noexcept;
 
 	public:
 		ProjectManager();
 		~ProjectManager();
+
+		bool	load(const std::string& fileName, LOADER_MODE mode) noexcept;
 
 		bool	loadHeader(const std::string& fileName, LOADER_MODE mode) noexcept;
 		bool	loadText(const std::string& fileName, LOADER_MODE mode, bool skippEmpty = false) noexcept;
