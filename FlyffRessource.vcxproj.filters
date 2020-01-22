@@ -442,6 +442,9 @@
     <None Include="ressource\json\text\text_dukrr.json">
       <Filter>Fichiers de ressources\json\text</Filter>
     </None>
+    <None Include="ressource\json\project.json">
+      <Filter>Fichiers de ressources\json</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="ressource\xml\prop\mdlobj.xml">

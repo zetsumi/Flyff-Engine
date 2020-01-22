@@ -45,15 +45,52 @@ bool fe::ProjectManager::loadJson(const std::string& fileName) noexcept
 
     if (reader.load(fileName) == false)
         return false;
+    fe::type::json::object root = reader.get<fe::type::json::object>(reader.root);
 
-    fe::json_object root = reader.get<fe::json_object>(reader.root);
-    fe::json_array& texts = reader.get<fe::json_array>(root["texts"]);
+    // path ressource
+    std::string& path = reader.get<std::string>(root["path_ressource"]);
+    path.append("json/");
+    
+    // load texts
+    fe::type::json::array& texts = reader.get<fe::type::json::array>(root["texts"]);
     for (auto& it : texts)
     {
-        const std::string& fileNameText = reader.get<std::string>(it);
-        if (loadText("../../ressource/json/text/" + fileNameText, fe::LOADER_MODE::JSON) == false)
+        const std::string& filename = reader.get<std::string>(it);
+        const std::string& fullpath = path + "text/" + filename;
+        if (loadText(fullpath, fe::LOADER_MODE::JSON) == false)
             return false;
     }
+
+    // load defines
+    fe::type::json::array& defines = reader.get<fe::type::json::array>(root["defines"]);
+    for(auto & it : defines)
+    {
+        const std::string& filename = reader.get<std::string>(it);
+        const std::string& fullpath = path + "header/" + filename;
+        if (loadHeader(fullpath, fe::LOADER_MODE::JSON) == false)
+            return false;
+    }
+
+
+    // load props
+    fe::type::json::object& props = reader.get<fe::type::json::object>(root["props"]);
+    const std::string& propitem = reader.get<std::string>(reader.get<fe::type::json::object>(props["propitem"])["json"]);
+    const std::string& propmover = reader.get<std::string>(reader.get<fe::type::json::object>(props["propmover"])["json"]);
+    const std::string& propmover_extend = reader.get<std::string>(reader.get<fe::type::json::object>(props["propmover_extend"])["json"]);
+    const std::string& propmover_ai = reader.get<std::string>(reader.get<fe::type::json::object>(props["propmover_ai"])["json"]);
+    const std::string& propctrl = reader.get<std::string>(reader.get<fe::type::json::object>(props["propctrl"])["json"]);
+    const std::string& propskill = reader.get<std::string>(reader.get<fe::type::json::object>(props["propskill"])["json"]);
+    const std::string& proptroupeskill = reader.get<std::string>(reader.get<fe::type::json::object>(props["proptroupeskill"])["json"]);
+    const std::string& propkarma = reader.get<std::string>(reader.get<fe::type::json::object>(props["propkarma"])["json"]);
+    const std::string& propquest = reader.get<std::string>(reader.get<fe::type::json::object>(props["propquest"])["json"]);
+    const std::string& random_event_monster = reader.get<std::string>(reader.get<fe::type::json::object>(props["random_event_monster"])["json"]);
+
+    const std::string& fullPathProp = path + "prop/";
+    loadPropItem(fullPathProp + propitem, fe::LOADER_MODE::JSON);
+    loadPropCtrl(fullPathProp + propctrl, fe::LOADER_MODE::JSON);
+    loadPropKarma(fullPathProp + propkarma, fe::LOADER_MODE::JSON);
+    loadPropSkill(fullPathProp + propskill, fe::LOADER_MODE::JSON);
+
     return true;
 }
 

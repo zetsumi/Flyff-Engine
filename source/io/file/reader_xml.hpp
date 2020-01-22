@@ -17,33 +17,36 @@
 
 namespace fe
 {
+    namespace type
+    {
     namespace xml
     {
-#if defined(FLYFFENGINE_XML_PUGIXML)
-        typedef pugi::xml_document      document;
-        typedef pugi::xml_parse_result  result;
-        typedef pugi::xml_node          node;
-        typedef pugi::xml_attribute     attribute;
-#else
-#endif
+    #if defined(FLYFFENGINE_XML_PUGIXML)
+            typedef pugi::xml_document      document;
+            typedef pugi::xml_parse_result  result;
+            typedef pugi::xml_node          node;
+            typedef pugi::xml_attribute     attribute;
+    #else
+    #endif
+        }
     }
 
     class API_DECLSPEC ReaderXml
     {
     public:
         ReaderHeader   header;
-        xml::document   document;
+        fe::type::xml::document   document;
 
         ReaderXml();
         ~ReaderXml();
 
-        std::string getString(xml::node& node, const std::string& nameAttribute) noexcept;
-        bool    getBoolean(xml::node& node, const std::string& nameAttribute) noexcept;
+        std::string getString(fe::type::xml::node& node, const std::string& nameAttribute) noexcept;
+        bool    getBoolean(fe::type::xml::node& node, const std::string& nameAttribute) noexcept;
 
         template<typename T>
-        T getNumber(xml::node& node, const std::string& nameAttribute) noexcept
+        T getNumber(fe::type::xml::node& node, const std::string& nameAttribute) noexcept
         {
-            xml::attribute attr = node.attribute(nameAttribute.c_str());
+            fe::type::xml::attribute attr = node.attribute(nameAttribute.c_str());
             if (attr.empty())
                 return static_cast<T>(0);
             if (header.has(attr.as_string()))

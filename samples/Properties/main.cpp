@@ -4,6 +4,8 @@
 
 #pragma warning( disable: 4251 )
 
+bool sample_project();
+
 void propitem_without_project();
 void propctrl_without_project();
 
@@ -18,7 +20,8 @@ int main()
 {
     std::srand(std::time(nullptr));
 
-    load_text_json();
+    sample_project();
+    //load_text_json();
 
     //propitem_without_project();
     //propitem_load_from_file(fe::LOADER_MODE::JSON);

@@ -75,6 +75,7 @@
     <None Include="ressource\json\header\header_sound.json" />
     <None Include="ressource\json\header\header_wnd_style.json" />
     <None Include="ressource\json\header\header_world.json" />
+    <None Include="ressource\json\project.json" />
     <None Include="ressource\json\prop\propCtrl.json" />
     <None Include="ressource\json\prop\propItem.json" />
     <None Include="ressource\json\prop\propKarma.json" />

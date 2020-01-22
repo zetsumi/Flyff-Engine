@@ -41,7 +41,7 @@ bool fe::ReaderJson::load(const std::string& szFileJson) noexcept
 }
 
 
-bool    fe::ReaderJson::write(fe::json_value& v, const std::string& szFileName) noexcept
+bool    fe::ReaderJson::write(fe::type::json::value& v, const std::string& szFileName) noexcept
 {
     try
     {
@@ -50,7 +50,7 @@ bool    fe::ReaderJson::write(fe::json_value& v, const std::string& szFileName) 
         myfile.open(szFileName);
         if (!myfile.is_open())
             return false;
-        myfile << fe::json_value(v).serialize(true);
+        myfile << fe::type::json::value(v).serialize(true);
         myfile.close();
 #else
         return false;
@@ -72,7 +72,7 @@ bool    fe::ReaderJson::write(const std::string& szFileName) noexcept
         myfile.open(szFileName);
         if (!myfile.is_open())
             return false;
-        myfile << fe::json_value(root).serialize(true);
+        myfile << fe::type::json::value(root).serialize(true);
         myfile.close();
 #else
         return false;

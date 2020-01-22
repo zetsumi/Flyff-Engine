@@ -16,17 +16,24 @@
 #pragma warning( disable : 4251 )
 namespace fe
 {
+    namespace type
+    {
+        namespace json
+        {
+
 #if defined(FLYFFENGINE_JSON_PICOJSON)
-    typedef picojson::object    json_object;
-    typedef picojson::array     json_array;
-    typedef picojson::value     json_value;
+            typedef picojson::object    object;
+            typedef picojson::array     array;
+            typedef picojson::value     value;
 #else
 #endif
+        }
+    }
 
     class API_DECLSPEC ReaderJson
     {
     public:
-        json_value  root;
+        fe::type::json::value  root;
         ReaderHeader header;
 
         ReaderJson();
@@ -34,7 +41,7 @@ namespace fe
 
         bool    load(const std::string& szFileJson) noexcept;
         bool    write(const std::string& szFileName) noexcept;
-        bool    write(json_value& v, const std::string& szFileName) noexcept;
+        bool    write(fe::type::json::value& v, const std::string& szFileName) noexcept;
 
         template<typename T, typename U>
         constexpr T& get(U& container)
@@ -58,7 +65,8 @@ namespace fe
         template<typename T, typename U>
         constexpr T getNumber(U& container)
         {
-
+            if (container.is<double>() == true)
+                return static_cast<T>(container.get<double>());
 #if defined(FLYFFENGINE_JSON_PICOJSON)
             if (container.is<std::string>() == true)
             {

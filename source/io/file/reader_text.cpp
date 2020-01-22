@@ -25,7 +25,7 @@ bool fe::ReaderText::loadJson(const std::string& fileName, bool skillEmpty)
 
     if (reader.load(fileName) == false)
         return false;
-    fe::json_object& data = reader.root.get<fe::json_object>();
+    fe::type::json::object& data = reader.root.get<fe::type::json::object>();
     for (auto& it : data)
     {
         try

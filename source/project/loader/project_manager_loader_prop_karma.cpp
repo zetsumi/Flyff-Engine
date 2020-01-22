@@ -26,15 +26,15 @@ bool fe::ProjectManager::loadPropKarma(const std::string& fileName, LOADER_MODE 
 bool fe::ProjectManager::loadPropKarmaJson(const std::string& fileName) noexcept
 {
     ReaderJson  reader;
-    reader.header = std::forward<ReaderHeader>(header);
+    reader.header = getHeader();
 
     if (reader.load(fileName) == false)
         return false;
 
-    fe::json_object& datas = reader.get<json_object>(reader.root);
+    fe::type::json::object& datas = reader.get<fe::type::json::object>(reader.root);
     for (auto& it : datas)
     {
-        fe::json_object& item = reader.get<fe::json_object>(it.second);
+        fe::type::json::object& item = reader.get<fe::type::json::object>(it.second);
         fe::PropKarma* prop = new fe::PropKarma();
 
         prop->id = reader.getNumber<fe::type::_int>(item["nGrade"]);
@@ -66,12 +66,12 @@ bool fe::ProjectManager::loadPropKarmaJson(const std::string& fileName) noexcept
 bool fe::ProjectManager::loadPropKarmaXml(const std::string& fileName) noexcept
 {
     ReaderXml reader;
-    reader.header = std::forward<ReaderHeader>(header);
+    reader.header = getHeader();
 
     if (reader.load(fileName) == false)
         return false;
-    xml::node head = reader.document.child("karmas");
-    for (xml::node& karma : head)
+    fe::type::xml::node head = reader.document.child("karmas");
+    for (fe::type::xml::node& karma : head)
     {
         fe::PropKarma* prop = new fe::PropKarma();
         prop->id = reader.getNumber<type::_int>(karma, "nGrade");

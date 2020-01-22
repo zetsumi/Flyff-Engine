@@ -115,7 +115,7 @@ bool fe::ReaderHeader::loadFromJSON(const std::string& fileName) noexcept
 
     if (reader.load(fileName) == false)
         return false;
-    fe::json_object& data = reader.root.get<fe::json_object>();
+    fe::type::json::object& data = reader.root.get<fe::type::json::object>();
     for (auto& it : data)
     {
         const std::string& key = it.first;

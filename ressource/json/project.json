@@ -1,4 +1,5 @@
 {
+    "path_ressource": "../../ressource/",
     "texts": [
         "text_ctrl.json",
         "text_item.json",
@@ -88,5 +89,47 @@
         "header_msghdr.json",
         "header_resdata.json",
         "header_wnd_style.json"
-    ]
+    ],
+    "props": {
+        "propitem": {
+            "xml": "propItem.xml",
+            "json": "propItem.json"
+        },
+        "propmover": {
+            "xml": "propMover.xml",
+            "json": "propMover.json"
+        },
+        "propmover_extend": {
+            "xml": "propMoverExtend.xml",
+            "json": "propMoverExtend.json"
+        },
+        "propmover_ai": {
+            "xml": "propMoverExAI.xml",
+            "json": "propMoverExAI.json"
+        },
+        "propctrl": {
+            "xml": "propCtrl.xml",
+            "json": "propCtrl.json"
+        },
+        "propskill": {
+            "xml": "propSkill.xml",
+            "json": "propSkill.json"
+        },
+        "proptroupeskill": {
+            "xml": "propTroupeSkill.xml",
+            "json": "propTroupeSkill.json"
+        },
+        "propkarma": {
+            "xml": "propKarma.xml",
+            "json": "propKarma.json"
+        },
+        "propquest": {
+            "xml": "propQuest.xml",
+            "json": "propQuest.json"
+        },
+        "random_event_monster": {
+            "xml": "randomEventMonster.xml",
+            "json": "randomEventMonster.json"
+        }
+    }
 }

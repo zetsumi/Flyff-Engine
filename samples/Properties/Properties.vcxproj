@@ -142,6 +142,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="sample_project.cpp" />
     <ClCompile Include="sample_propctrl.cpp" />
     <ClCompile Include="sample_propitem.cpp" />
     <ClCompile Include="sample_propkarma.cpp" />

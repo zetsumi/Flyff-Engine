@@ -25,7 +25,7 @@ bool fe::ReaderXml::load(const std::string& fileName) noexcept
 			return false;
 		buffer << stream.rdbuf();
 #if defined(FLYFFENGINE_XML_PUGIXML)
-		xml::result result = document.load_buffer(buffer.str().c_str(), buffer.str().size());
+		fe::type::xml::result result = document.load_buffer(buffer.str().c_str(), buffer.str().size());
 		if (!result)
 			return false;
 #else
@@ -38,17 +38,17 @@ bool fe::ReaderXml::load(const std::string& fileName) noexcept
     return true;
 }
 
-std::string fe::ReaderXml::getString(fe::xml::node& node, const std::string& nameAttribute) noexcept
+std::string fe::ReaderXml::getString(fe::type::xml::node& node, const std::string& nameAttribute) noexcept
 {
-	fe::xml::attribute attr = node.attribute(nameAttribute.c_str());
+	fe::type::xml::attribute attr = node.attribute(nameAttribute.c_str());
 	if (attr.empty() == true)
 		return std::string();
 	return attr.as_string();
 }
 
-bool fe::ReaderXml::getBoolean(fe::xml::node& node, const std::string& nameAttribute) noexcept
+bool fe::ReaderXml::getBoolean(fe::type::xml::node& node, const std::string& nameAttribute) noexcept
 {
-	fe::xml::attribute attr = node.attribute(nameAttribute.c_str());
+	fe::type::xml::attribute attr = node.attribute(nameAttribute.c_str());
 	if (attr.empty() == true)
 		return false;
 	return attr.as_bool();
