@@ -3,6 +3,10 @@
 > Designed by Zetsumi </br>
 > Projet permettant de chargé les fichier crééer par [Flyff-Script](https://github.com/zetsumi/Flyff-Scripts)
 
+## <img src="https://raw.githubusercontent.com/isocpp/logos/master/cpp_logo.png" width="40" height="40"> <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Windows_logo_-_2012.png" width="40" height="40">
+[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)</br>
+
+
 # Organisation Repertoire Exemples :
 * resource : Fichier de test valide
     * json
