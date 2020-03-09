@@ -16,6 +16,11 @@
 #pragma warning( disable : 4251 )
 namespace fe
 {
+    /**
+     * @brief Redifinition des types JSON cela les bliotheque utiliser
+     * Le principe etant d'abstraire et ne pas etre liée a une bibliotheque tout le long du projet
+     * 
+     */
     namespace type
     {
         namespace json
@@ -29,7 +34,11 @@ namespace fe
 #endif
         }
     }
-
+    /**
+     * @brief Object permettant le chargement des fichiers JSON
+     * L'object et concue pour abstraire différent type de bibliotheque JSON utilisable
+     * 
+     */
     class API_DECLSPEC ReaderJson
     {
     public:
@@ -39,10 +48,40 @@ namespace fe
         ReaderJson();
         ~ReaderJson();
 
+        /**
+         * @brief Charge le contenue du fichier
+         * 
+         * @param szFileJson Nome du fichier
+         * @return true 
+         * @return false 
+         */
         bool    load(const std::string& szFileJson) noexcept;
+        /**
+         * @brief Permet d'écrire les donnée stocker en mémoire dans un fichier au format JSON
+         * 
+         * @param szFileName Nom du fichier de sortie
+         * @return true 
+         * @return false 
+         */
         bool    write(const std::string& szFileName) noexcept;
+        /**
+         * @brief Permet d'écrire les donnée passé en paramètre dans un fichier au format JSON
+         * 
+         * @param v 
+         * @param szFileName Nom du fichier de sortie
+         * @return true 
+         * @return false 
+         */
         bool    write(fe::type::json::value& v, const std::string& szFileName) noexcept;
 
+        /**
+         * @brief Recuperer le valeur contenue la valeur passé en paramètre
+         * 
+         * @tparam T Type de la valeur souhaité
+         * @tparam U Type de la valeur passé en paramètre
+         * @param container Conteneur de type U contenant une valeur de type T
+         * @return constexpr T& 
+         */
         template<typename T, typename U>
         constexpr T& get(U& container)
         {
@@ -53,6 +92,14 @@ namespace fe
 #endif
         }
 
+        /**
+         * @brief Retourne le boolean contenant dans la variable passé en paramètre
+         * 
+         * @tparam T Type de container
+         * @param container Conteneur de type T contenant un boolean
+         * @return true 
+         * @return false 
+         */
         template<typename T>
         constexpr bool getBoolean(T& container)
         {
@@ -62,6 +109,14 @@ namespace fe
 #endif
         }
 
+        /**
+         * @brief Retourne un nombre de type T contenue dans container
+         * 
+         * @tparam T Type du nombre souhaité
+         * @tparam U Type du conteneur
+         * @param container Conteneur de type T contenant un nombre de type U
+         * @return constexpr T 
+         */
         template<typename T, typename U>
         constexpr T getNumber(U& container)
         {

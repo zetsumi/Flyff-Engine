@@ -154,17 +154,17 @@ bool fe::ReaderHeader::loadFromXML(const std::string& fileName) noexcept
     return true;
 }
 
-fe::type::_uint    fe::ReaderHeader::get(const std::string& header) const noexcept
+fe::type::_uint    fe::ReaderHeader::get(const std::string& id) const noexcept
 {
-    auto it = defines.find(header);
+    auto it = defines.find(id);
     if (it != defines.end())
         return it->second;
     return 0;
 }
 
-bool fe::ReaderHeader::has(const std::string& key) const
+bool fe::ReaderHeader::has(const std::string& id) const
 {
-    return defines.find(key) != defines.end();
+    return defines.find(id) != defines.end();
 }
 
 void fe::ReaderHeader::write() const noexcept

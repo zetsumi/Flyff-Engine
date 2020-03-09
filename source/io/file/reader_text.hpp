@@ -30,6 +30,12 @@ namespace fe
         ReaderText& operator=(ReaderText&&) = default;
         virtual ~ReaderText() = default;
 
+        /**
+         * @brief Recupérer le chaîne de caractères
+         * 
+         * @param key Nom de la clef stockant la valeur
+         * @return const std::string 
+         */
         inline const std::string    get(const std::string& key) const noexcept
         {
             auto it = texts.find(key);
@@ -37,11 +43,27 @@ namespace fe
                 return it->second;
             return std::forward<std::string>("");
         }
+        /**
+         * @brief Verifier que la clef a déjà etait stocker
+         * 
+         * @param key clef
+         * @return true 
+         * @return false 
+         */
         inline bool    has(const std::string& key) const noexcept
         {
             return texts.find(key) != texts.end() ? true : false;
         }
 
+        /**
+         * @brief Charge les fichier TEXT
+         * 
+         * @param fileName Nom du fichier
+         * @param mode Mode de lecture
+         * @param skillEmpty Option permettant d'ignorer les nom de sort vide ou invalid present dans le fichier chargé. Si true on ignore.
+         * @return true 
+         * @return false 
+         */
         bool    load(const std::string& fileName, LOADER_MODE mode, bool skillEmpty = false) noexcept;
     };
 }
