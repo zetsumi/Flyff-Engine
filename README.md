@@ -5,7 +5,7 @@
 
 ## <img src="https://raw.githubusercontent.com/isocpp/logos/master/cpp_logo.png" width="40" height="40"> <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Windows_logo_-_2012.png" width="40" height="40">
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)</br>
-
+[![discord](https://discordapp.com/api/guilds/294405146300121088/widget.png)](https://discord.gg/fZP7TWq)</br>
 
 # Organisation Repertoire Exemples :
 * resource : Fichier de test valide
