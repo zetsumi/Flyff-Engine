@@ -8,6 +8,11 @@
 
 namespace fe
 {
+    /**
+     * @brief Structure representant les SKILL dans flyff
+     * fichier "propskill.txt"
+     * 
+     */
     struct API_DECLSPEC PropSkill : PropertyContainer
     {
         fe::type::_uint     version = 0;

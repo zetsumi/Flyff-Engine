@@ -11,6 +11,10 @@
 
 namespace fe
 {
+    /**
+     * @brief Redifinition des types pour le mode 32 64 bits de flyff-engine
+     * 
+     */
     namespace type
     {
         typedef unsigned __int64 _uint;

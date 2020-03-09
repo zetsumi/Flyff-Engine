@@ -8,6 +8,11 @@
 
 namespace fe
 {
+    /**
+     * @brief Strucutre representant les propriétés du Karma dans FLYFF.
+     * Fichier "propkarma.txt"
+     * 
+     */
     struct API_DECLSPEC PropKarma : PropertyContainer
     {
         fe::type::_int  id = 0;

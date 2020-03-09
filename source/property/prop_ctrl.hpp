@@ -8,6 +8,11 @@
 
 namespace fe
 {
+    /**
+     * @brief Structure representant les propriétes des controler dans FLYFF.
+     * Fichier "propctrl.txt"
+     * 
+     */
     struct API_DECLSPEC PropCtrl : PropertyContainer
     {
         fe::type::_uint     id = 0;

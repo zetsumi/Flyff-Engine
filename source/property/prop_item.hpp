@@ -8,6 +8,11 @@
 
 namespace fe
 {
+    /**
+     * @brief Structure representant les propriété des ITEM dans FLYFF.
+     * Fichier "propitem.txt"
+     * 
+     */
     struct API_DECLSPEC PropItem : public PropertyContainer
     {
         fe::type::_uint    version = 0;

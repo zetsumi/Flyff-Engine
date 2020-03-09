@@ -8,6 +8,11 @@
 
 namespace fe
 {
+    /**
+     * @brief Structure representant les Mover dans flyff
+     * Fichier "propmover.inc"
+     * 
+     */
     struct API_DECLSPEC PropMover : PropertyContainer
     {
         fe::type::_uint        id = 0;

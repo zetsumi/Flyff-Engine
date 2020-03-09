@@ -6,7 +6,12 @@
 
 namespace fe
 {
-    class API_DECLSPEC PropMoverEx : public PropertyContainer
+    /**
+     * @brief Structure representant les extension des Mover dans Flyff
+     * Fichier "propmoverex.inc"
+     * 
+     */
+    struct API_DECLSPEC PropMoverEx : public PropertyContainer
     {
         PropMoverEx(const PropMoverEx* o) : PropMoverEx(*o)
         {
