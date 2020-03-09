@@ -11,7 +11,7 @@
 namespace fe
 {
     /**
-     * @brief Object permettant de manager l'ensemble des propriété du project.
+     * @brief Object permettant de manager une propriété du project.
      * L'object permet de recevoir et de redonner des propriété creer en amont.
      * Une propriété stocker est relier un à ID
      * 
