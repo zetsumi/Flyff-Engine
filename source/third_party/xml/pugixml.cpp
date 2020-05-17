@@ -11,7 +11,7 @@
  * Copyright (C) 2003, by Kristen Wegner (kristen@tima.net)
  */
 
-#include "pch.h"
+#include "pch_fressource.h"
 #include "pugixml.h"
 
 #include <stdlib.h>

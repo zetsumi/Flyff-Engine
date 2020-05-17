@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include "framework.h"
+#include "framework_fressource.h"
 #include "property.hpp"
 
 namespace fe

@@ -66,9 +66,6 @@
     <ClCompile Include="source\dllmain.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="source\pch.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="source\third_party\xml\pugixml.cpp">
       <Filter>Fichiers sources\thrid_party\xml</Filter>
     </ClCompile>
@@ -105,14 +102,11 @@
     <ClCompile Include="source\world\world_manager.cpp">
       <Filter>Fichiers sources\world</Filter>
     </ClCompile>
+    <ClCompile Include="source\pch_fressource.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="source\framework.h">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="source\pch.h">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
     <ClInclude Include="source\third_party\json\picojson.h">
       <Filter>Fichiers sources\thrid_party\json</Filter>
     </ClInclude>
@@ -184,6 +178,12 @@
     </ClInclude>
     <ClInclude Include="source\world\world_manager.hpp">
       <Filter>Fichiers sources\world</Filter>
+    </ClInclude>
+    <ClInclude Include="source\pch_fressource.h">
+      <Filter>Fichiers sources</Filter>
+    </ClInclude>
+    <ClInclude Include="source\framework_fressource.h">
+      <Filter>Fichiers sources</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

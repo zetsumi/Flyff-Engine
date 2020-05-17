@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <unordered_map>
 
-#include "framework.h"
+#include "framework_fressource.h"
 #include "property.hpp"
 
 #pragma warning( disable: 4251 )

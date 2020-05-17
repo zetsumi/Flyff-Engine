@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "pch_fressource.h"
 #include "property_manager.hpp"
 
 fe::PropertyManager::PropertyManager() :

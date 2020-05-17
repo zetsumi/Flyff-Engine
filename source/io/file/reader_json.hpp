@@ -5,7 +5,7 @@
 #include <string>
 #include <algorithm>
 
-#include "framework.h"
+#include "framework_fressource.h"
 #include "reader.hpp"
 #include "reader_header.hpp"
 #if defined(FLYFFENGINE_JSON_PICOJSON)

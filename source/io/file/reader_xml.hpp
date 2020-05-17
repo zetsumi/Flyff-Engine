@@ -4,7 +4,7 @@
 #include <string>
 #include <utility>
 
-#include "framework.h"
+#include "framework_fressource.h"
 #include "reader.hpp"
 #if defined(FLYFFENGINE_XML_PUGIXML)
 #include "third_party/xml/pugixml.h"
