@@ -63,9 +63,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\dllmain.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="source\third_party\xml\pugixml.cpp">
       <Filter>Fichiers sources\thrid_party\xml</Filter>
     </ClCompile>
@@ -103,6 +100,9 @@
       <Filter>Fichiers sources\world</Filter>
     </ClCompile>
     <ClCompile Include="source\pch_fressource.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="source\dllmain_fressource.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -182,7 +182,7 @@
     <ClInclude Include="source\pch_fressource.h">
       <Filter>Fichiers sources</Filter>
     </ClInclude>
-    <ClInclude Include="source\framework_fressource.h">
+    <ClInclude Include="source\framework_fengine.h">
       <Filter>Fichiers sources</Filter>
     </ClInclude>
   </ItemGroup>

@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\dllmain.cpp" />
+    <ClCompile Include="source\dllmain_fressource.cpp" />
     <ClCompile Include="source\io\file\reader_header.cpp" />
     <ClCompile Include="source\io\file\reader_json.cpp" />
     <ClCompile Include="source\io\file\reader_text.cpp" />
@@ -39,7 +39,7 @@
     <ClCompile Include="source\world\world_manager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="source\framework_fressource.h" />
+    <ClInclude Include="source\framework_fengine.h" />
     <ClInclude Include="source\io\file\reader.hpp" />
     <ClInclude Include="source\io\file\reader_header.hpp" />
     <ClInclude Include="source\io\file\reader_json.hpp" />
@@ -268,6 +268,7 @@
       <AdditionalIncludeDirectories>source/;source/property/;source/project/;source/io/file/</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <EnableModules>true</EnableModules>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -306,6 +307,7 @@
       <PrecompiledHeaderFile>pch_fressource.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>source/;source/property/;source/project/;source/io/file/</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
