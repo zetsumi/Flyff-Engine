@@ -55,6 +55,12 @@
     <Filter Include="Fichiers de ressources\json\text">
       <UniqueIdentifier>{f062f0aa-043c-48ab-86bc-0b9bf6f960ff}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\world">
+      <UniqueIdentifier>{5d7fc30c-d5ad-42a4-8185-26cec7ae55ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\util">
+      <UniqueIdentifier>{49b79b60-2549-458c-89df-c5608e88da46}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\dllmain.cpp">
@@ -95,6 +101,9 @@
     </ClCompile>
     <ClCompile Include="source\io\file\reader_text.cpp">
       <Filter>Fichiers sources\io\file</Filter>
+    </ClCompile>
+    <ClCompile Include="source\world\world_manager.cpp">
+      <Filter>Fichiers sources\world</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +163,27 @@
     </ClInclude>
     <ClInclude Include="source\io\file\reader_text.hpp">
       <Filter>Fichiers sources\io\file</Filter>
+    </ClInclude>
+    <ClInclude Include="source\world\world.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="source\world\world.hpp">
+      <Filter>Fichiers sources\world</Filter>
+    </ClInclude>
+    <ClInclude Include="source\world\respawn.hpp">
+      <Filter>Fichiers sources\world</Filter>
+    </ClInclude>
+    <ClInclude Include="source\util\vector.hpp">
+      <Filter>Fichiers sources\util</Filter>
+    </ClInclude>
+    <ClInclude Include="source\util\rect.hpp">
+      <Filter>Fichiers sources\util</Filter>
+    </ClInclude>
+    <ClInclude Include="source\world\landscape.hpp">
+      <Filter>Fichiers sources\world</Filter>
+    </ClInclude>
+    <ClInclude Include="source\world\world_manager.hpp">
+      <Filter>Fichiers sources\world</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

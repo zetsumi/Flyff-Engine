@@ -24,9 +24,7 @@ namespace fe
         fe::type::_uint     soundDamage = 0;
         std::string         comment = "";
 
-        PropCtrl(const PropCtrl* o) : PropCtrl(*o)
-        {
-        }
+        PropCtrl(const PropCtrl* o) : PropCtrl(*o) {}
         PropCtrl() = default;
         PropCtrl(const PropCtrl&) = default;
         PropCtrl(PropCtrl&&) noexcept = default;

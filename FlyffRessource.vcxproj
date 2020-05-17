@@ -24,7 +24,9 @@
     <ClCompile Include="source\io\file\reader_json.cpp" />
     <ClCompile Include="source\io\file\reader_text.cpp" />
     <ClCompile Include="source\io\file\reader_xml.cpp" />
-    <ClCompile Include="source\pch.cpp" />
+    <ClCompile Include="source\pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="source\project\loader\project_manager_loader_prop_ctrl.cpp" />
     <ClCompile Include="source\project\loader\project_manager_loader_prop_item.cpp" />
     <ClCompile Include="source\project\loader\project_manager_loader_prop_karma.cpp" />
@@ -32,6 +34,7 @@
     <ClCompile Include="source\project\project_manager.cpp" />
     <ClCompile Include="source\property\property_manager.cpp" />
     <ClCompile Include="source\third_party\xml\pugixml.cpp" />
+    <ClCompile Include="source\world\world_manager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\framework.h" />
@@ -53,6 +56,13 @@
     <ClInclude Include="source\third_party\json\picojson.h" />
     <ClInclude Include="source\third_party\xml\pugiconfig.h" />
     <ClInclude Include="source\third_party\xml\pugixml.h" />
+    <ClInclude Include="source\util\rect.hpp" />
+    <ClInclude Include="source\util\vector.hpp" />
+    <ClInclude Include="source\world\landscape.hpp" />
+    <ClInclude Include="source\world\respawn.hpp" />
+    <ClInclude Include="source\world\world.h" />
+    <ClInclude Include="source\world\world.hpp" />
+    <ClInclude Include="source\world\world_manager.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ressource\json\header\header_attribute.json" />
@@ -236,6 +246,8 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;FLYFFENGINE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>source/;source/property/;source/project/;source/io/file/;source/world/</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
