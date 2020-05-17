@@ -1,4 +1,4 @@
-#include "framework.h"
+#include "framework_fressource.h"
 
 #pragma warning( disable : 4251 )
 namespace fe

@@ -6,7 +6,7 @@
 #include <unordered_map>
 #include <utility>
 
-#include "framework.h"
+#include "framework_fressource.h"
 #include "reader.hpp"
 
 #pragma warning( disable: 4251 )

@@ -24,8 +24,10 @@
     <ClCompile Include="source\io\file\reader_json.cpp" />
     <ClCompile Include="source\io\file\reader_text.cpp" />
     <ClCompile Include="source\io\file\reader_xml.cpp" />
-    <ClCompile Include="source\pch.cpp">
+    <ClCompile Include="source\pch_fressource.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="source\project\loader\project_manager_loader_prop_ctrl.cpp" />
     <ClCompile Include="source\project\loader\project_manager_loader_prop_item.cpp" />
@@ -37,13 +39,13 @@
     <ClCompile Include="source\world\world_manager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="source\framework.h" />
+    <ClInclude Include="source\framework_fressource.h" />
     <ClInclude Include="source\io\file\reader.hpp" />
     <ClInclude Include="source\io\file\reader_header.hpp" />
     <ClInclude Include="source\io\file\reader_json.hpp" />
     <ClInclude Include="source\io\file\reader_text.hpp" />
     <ClInclude Include="source\io\file\reader_xml.hpp" />
-    <ClInclude Include="source\pch.h" />
+    <ClInclude Include="source\pch_fressource.h" />
     <ClInclude Include="source\project\project_manager.hpp" />
     <ClInclude Include="source\property\property.hpp" />
     <ClInclude Include="source\property\property_manager.hpp" />
@@ -257,12 +259,12 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;FLYFFENGINE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>pch_fressource.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>source/;source/property/;source/project/;source/io/file/</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <EnableModules>true</EnableModules>
@@ -294,14 +296,14 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;FLYFFENGINE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>pch_fressource.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>source/;source/property/;source/project/;source/io/file/</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>

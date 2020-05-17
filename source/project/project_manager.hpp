@@ -1,6 +1,6 @@
 #pragma once
 
-#include "framework.h"
+#include "framework_fressource.h"
 #include "property_manager.hpp"
 #include "reader_header.hpp"
 #include "reader_text.hpp"

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "framework.h"
+#include "framework_fressource.h"
 #include <string>
 
 #pragma warning( disable : 4251 )
