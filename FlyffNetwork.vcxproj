@@ -20,6 +20,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\dllmain_fnetwork.cpp" />
+    <ClCompile Include="source\io\network\emit\packet_builder.cpp" />
+    <ClCompile Include="source\io\network\emit\transaction.cpp" />
+    <ClCompile Include="source\io\network\emit\transaction_client.cpp" />
+    <ClCompile Include="source\io\network\emit\transaction_emit.cpp" />
+    <ClCompile Include="source\io\network\network.cpp" />
+    <ClCompile Include="source\io\network\socket_client.cpp" />
     <ClCompile Include="source\pch_fnetwork.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
@@ -27,7 +33,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\framework_fengine.h" />
+    <ClInclude Include="source\io\network\emit\packet_builder.hpp" />
+    <ClInclude Include="source\io\network\emit\packet_structure.hpp" />
+    <ClInclude Include="source\io\network\emit\transaction.hpp" />
+    <ClInclude Include="source\io\network\network.hpp" />
+    <ClInclude Include="source\io\network\socket.hpp" />
+    <ClInclude Include="source\io\network\socket_client.hpp" />
     <ClInclude Include="source\pch_fnetwork.h" />
+    <ClInclude Include="source\util\log.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
