@@ -102,7 +102,7 @@
     <ClCompile Include="source\io\file\reader_text.cpp">
       <Filter>Fichiers sources\io\file</Filter>
     </ClCompile>
-    <ClCompile Include="source\world\world.cpp">
+    <ClCompile Include="source\world\world_manager.cpp">
       <Filter>Fichiers sources\world</Filter>
     </ClCompile>
   </ItemGroup>
@@ -175,6 +175,15 @@
     </ClInclude>
     <ClInclude Include="source\util\vector.hpp">
       <Filter>Fichiers sources\util</Filter>
+    </ClInclude>
+    <ClInclude Include="source\util\rect.hpp">
+      <Filter>Fichiers sources\util</Filter>
+    </ClInclude>
+    <ClInclude Include="source\world\landscape.hpp">
+      <Filter>Fichiers sources\world</Filter>
+    </ClInclude>
+    <ClInclude Include="source\world\world_manager.hpp">
+      <Filter>Fichiers sources\world</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
