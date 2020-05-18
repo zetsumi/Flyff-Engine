@@ -21,11 +21,21 @@ unsigned int session_id = 0;
 
 static void	send_certify(SOCKET id)
 {
-	FE_CREATE_PACKET(PACKETTYPE_CERTIFY)
+	//FE_CREATE_PACKET(PACKETTYPE_CERTIFY, session_id)
+	fe::PacketBuilder pb;
+
+	pb.write<unsigned int>(PACKETTYPE_CERTIFY);
 	pb.writeString("20100412");
 	pb.writeString("test10");
 	pb.writeString("4d1677b3d55fd9c68e6baa7b1bd638d0");
-	FE_SENDPACKET(id, pb);
+
+	pb.debug();
+	pb.setHeader(session_id);
+	pb.debug();
+
+	auto buffer = pb.getData();
+	auto length = pb.getSize();
+	::send(id, (char*)buffer, length, 0);
 }
 
 static void	my_callback(SOCKET id, fe::PacketStructure* ps)
@@ -45,6 +55,7 @@ static void	my_callback(SOCKET id, fe::PacketStructure* ps)
 	{
 		session_id = pb.read<unsigned int>();
 		testCo = true;
+		send_certify(id);
 	}
 
 }
@@ -75,7 +86,6 @@ static bool	login_certifier(void)
 	if (_socket.connect(network) == false)
 		return false;
 	trans.run(my_callback);
-	send_certify(_socket.getSocket());
 	trans.wait();
 	return true;
 }
@@ -89,8 +99,8 @@ int main()
 	if (network.isValid() == false)
 		return false;
 
-	if (test_connection_certifier() == false)
-		return 1;
+	//if (test_connection_certifier() == false)
+	//	return 1;
 
 	if (login_certifier() == false)
 		return 2;

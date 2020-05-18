@@ -32,26 +32,17 @@ unsigned int fe::PacketBuilder::getSize(void) const
 	return packet->size;
 }
 
-void fe::PacketBuilder::setHeader(void)
+void fe::PacketBuilder::setHeader(unsigned int sessionID)
 {
-	unsigned char* tmp = nullptr;
-	unsigned int destSize = packet->size + sizeof(unsigned int) + sizeof(unsigned char);
+	unsigned char headerMark = 0x5e;
+	unsigned int length = packet->size;
 
-	tmp = new unsigned char[destSize]();
+	FE_CONSOLELOG("length<%u>", length);
 
-	// copy header
-	::memcpy_s(tmp, sizeof(unsigned int), (unsigned char*)0x5e, sizeof(unsigned char));
-	// copy size
-	//fe::crc32Update((const fe::byte*)(&packet->size), sizeof(packet->size));
-	::memcpy_s(tmp + sizeof(unsigned char), sizeof(unsigned int) + sizeof(unsigned char), &packet->size, sizeof(unsigned int));
-	// data
-	::memcpy_s(tmp + sizeof(unsigned int) + sizeof(unsigned char), destSize, packet->data, packet->size);
-
-	delete packet->data;
-	packet->data = nullptr;
-
-	packet->size += sizeof(unsigned int);
-	packet->data = tmp;
+	writeFront<unsigned int>(sessionID);
+	writeFront<unsigned int>(length);
+	writeFront<unsigned int>(sessionID);
+	writeFront<unsigned char>(headerMark);
 }
 
 void	fe::PacketBuilder::setPacket(PacketStructure* ps)

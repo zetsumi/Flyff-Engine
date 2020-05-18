@@ -1,13 +1,12 @@
 # Packet Structure
 
-HEADER
-PACKETTYPE
-DATAS
+Structure d'un packet.
 
-
-Client <--> Certifier
-
-Client se connecte deux fois au certifier.
-La premier on recupere un `session id` via `0x000`.
-
-La deuxieme....
+| ID            |      OCTECT       |  DESCRIPTION      |
+|:----------    |:-------------:    |:------            |
+| HEADER MARK   |  1                | 0x5e, fix         |
+| SESSION ID    |  4                | temps chiffrer    |
+| LENGTH        |  4                | taille            |
+| SESSION ID    |  4                | temps chiffer     |
+| PACKETTYPE    |  4                | type du paquet    |
+| DATA          |  LENGTH - 4       | donnee du paquet  |

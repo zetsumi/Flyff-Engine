@@ -15,6 +15,20 @@ namespace fe
 		unsigned int offset = 0;
 		PacketStructure* packet = new PacketStructure();
 
+		template<typename T>
+		inline void writeFront(T val)
+		{
+			unsigned int length = packet->size + sizeof(T);
+			unsigned char* tmp = new unsigned char[length]();
+			::memcpy_s(tmp, length, &val, sizeof(T));
+			::memcpy_s(tmp + sizeof(T), length, packet->data, packet->size);
+			delete packet->data;
+			packet->data = nullptr;
+			packet->data = tmp;
+
+			packet->size = length;
+		}
+
 	public:
 		PacketBuilder() = default;
 		~PacketBuilder() = default;
@@ -22,7 +36,7 @@ namespace fe
 		void					debug(void) const;
 		const unsigned char*	getData(void) const;
 		unsigned int			getSize(void) const;
-		void					setHeader(void);
+		void					setHeader(unsigned int sessionID);
 		void					setPacket(PacketStructure* ps);
 		void					writeString(const char* var);
 		void					writeString(const char* var, unsigned int length);
@@ -67,18 +81,3 @@ namespace fe
 	};
 }
 
-#define	FE_CREATE_PACKET(type) \
-	fe::PacketBuilder pb; \
-	pb.write<unsigned __int32>(type);
-
-
-#define	FE_SEND(id, buffer, size) \
-	FE_CONSOLELOG("size: <%u><%010x>", size, size); \
-	int opcode = ::send(id, buffer, size, 0); \
-	if (opcode <= 0) \
-		FE_CONSOLELOG("opcode(send): %u", opcode);
-
-#define	FE_SENDPACKET(id, pb) \
-	unsigned int size = pb.getSize(); \
-	const char* buffer = reinterpret_cast<const char*>(pb.getData()); \
-	FE_SEND(id, buffer, size)
