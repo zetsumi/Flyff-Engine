@@ -1,6 +1,7 @@
 #include <pch_fnetwork.h>
 #include <util/log.hpp>
 #include <io/network/emit/packet_builder.hpp>
+#include <crypto/crc32.hpp>
 
 
 void	fe::PacketBuilder::debug(void) const
@@ -15,21 +16,12 @@ void	fe::PacketBuilder::debug(void) const
 	FE_CONSOLELOG("============");
 }
 
-const unsigned char* fe::PacketBuilder::getData(bool builder) const
+const unsigned char* fe::PacketBuilder::getData(void) const
 {
 	if (packet == nullptr)
 		return nullptr;
 	if (packet->size == 0)
 		return nullptr;
-	if (builder == false)
-		return packet->data;
-	unsigned char* tmp = new unsigned char[packet->size + sizeof(unsigned int)]();
-	::memcpy_s(tmp, sizeof(unsigned int), &packet->size, sizeof(unsigned int));
-	::memcpy_s(tmp + sizeof(unsigned int), packet->size, packet->data, packet->size);
-	delete packet->data;
-	packet->data = nullptr;
-	packet->size += sizeof(unsigned int);
-	packet->data = tmp;
 	return packet->data;
 }
 
@@ -38,6 +30,28 @@ unsigned int fe::PacketBuilder::getSize(void) const
 	if (packet == nullptr)
 		return 0;
 	return packet->size;
+}
+
+void fe::PacketBuilder::setHeader(void)
+{
+	unsigned char* tmp = nullptr;
+	unsigned int destSize = packet->size + sizeof(unsigned int) + sizeof(unsigned char);
+
+	tmp = new unsigned char[destSize]();
+
+	// copy header
+	::memcpy_s(tmp, sizeof(unsigned int), (unsigned char*)0x5e, sizeof(unsigned char));
+	// copy size
+	//fe::crc32Update((const fe::byte*)(&packet->size), sizeof(packet->size));
+	::memcpy_s(tmp + sizeof(unsigned char), sizeof(unsigned int) + sizeof(unsigned char), &packet->size, sizeof(unsigned int));
+	// data
+	::memcpy_s(tmp + sizeof(unsigned int) + sizeof(unsigned char), destSize, packet->data, packet->size);
+
+	delete packet->data;
+	packet->data = nullptr;
+
+	packet->size += sizeof(unsigned int);
+	packet->data = tmp;
 }
 
 void	fe::PacketBuilder::setPacket(PacketStructure* ps)

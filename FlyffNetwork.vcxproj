@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\crypto\crc32.cpp" />
     <ClCompile Include="source\dllmain_fnetwork.cpp" />
     <ClCompile Include="source\io\network\emit\packet_builder.cpp" />
     <ClCompile Include="source\io\network\emit\transaction.cpp" />
@@ -32,6 +33,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\crypto\crc32.hpp" />
     <ClInclude Include="source\framework_fengine.h" />
     <ClInclude Include="source\io\network\emit\packet_builder.hpp" />
     <ClInclude Include="source\io\network\emit\packet_structure.hpp" />

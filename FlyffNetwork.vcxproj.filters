@@ -25,6 +25,9 @@
     <Filter Include="Source Files\io\network\emit">
       <UniqueIdentifier>{f48e52f3-c9ad-47a3-8b8f-322462cec047}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\crypto">
+      <UniqueIdentifier>{5a3bfdfb-a04e-472e-bb66-e4d68a943fc8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\dllmain_fnetwork.cpp">
@@ -50,6 +53,9 @@
     </ClCompile>
     <ClCompile Include="source\io\network\emit\transaction_emit.cpp">
       <Filter>Source Files\io\network\emit</Filter>
+    </ClCompile>
+    <ClCompile Include="source\crypto\crc32.cpp">
+      <Filter>Source Files\crypto</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -79,6 +85,9 @@
     </ClInclude>
     <ClInclude Include="source\io\network\emit\packet_builder.hpp">
       <Filter>Source Files\io\network\emit</Filter>
+    </ClInclude>
+    <ClInclude Include="source\crypto\crc32.hpp">
+      <Filter>Source Files\crypto</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

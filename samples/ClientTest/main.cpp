@@ -21,14 +21,11 @@ unsigned int session_id = 0;
 
 static void	send_certify(SOCKET id)
 {
-	fe::PacketBuilder pb;
-	pb.write<unsigned int>(PACKETTYPE_CERTIFY);
+	FE_CREATE_PACKET(PACKETTYPE_CERTIFY)
 	pb.writeString("20100412");
 	pb.writeString("test10");
 	pb.writeString("4d1677b3d55fd9c68e6baa7b1bd638d0");
-	FE_CONSOLELOG("size: %u", pb.getSize());
-	int opcode = ::send(id, (char*)pb.getData(false), pb.getSize(), 0);
-	FE_CONSOLELOG("opcode(send): %u", opcode);
+	FE_SENDPACKET(id, pb);
 }
 
 static void	my_callback(SOCKET id, fe::PacketStructure* ps)
@@ -36,19 +33,12 @@ static void	my_callback(SOCKET id, fe::PacketStructure* ps)
 	fe::PacketBuilder pb;
 	pb.setPacket(ps);
 
-	const unsigned char* data = pb.getData(false);
-	unsigned int size = pb.getSize();
-
-	FE_CONSOLELOG("size:<%u>", size);
-	for (unsigned int i = 0; i < size; ++i)
-		FE_CONSOLELOG("%02x", data[i]);
-
-	for (unsigned int i = 0; i < 5; ++i)
-		pb.read<char>();
 
 	FE_CONSOLELOG("***");
-	unsigned int packettype = pb.read<unsigned int>();
-	FE_CONSOLELOG("packettype<%u>", packettype);
+	unsigned char	headmark = pb.read<unsigned char>();
+	unsigned int	length = pb.read<unsigned int>();
+	unsigned int	packettype = pb.read<unsigned int>();
+	FE_CONSOLELOG("headmark<%c><%02x> length<%u> packettype<%u>", headmark, headmark, length, packettype);
 	FE_CONSOLELOG("***");
 
 	if (packettype == PACKETTYPE_WELCOME)

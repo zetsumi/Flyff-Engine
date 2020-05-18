@@ -20,8 +20,9 @@ namespace fe
 		~PacketBuilder() = default;
 
 		void					debug(void) const;
-		const unsigned char* getData(bool builder = true) const;
+		const unsigned char*	getData(void) const;
 		unsigned int			getSize(void) const;
+		void					setHeader(void);
 		void					setPacket(PacketStructure* ps);
 		void					writeString(const char* var);
 		void					writeString(const char* var, unsigned int length);
@@ -66,3 +67,18 @@ namespace fe
 	};
 }
 
+#define	FE_CREATE_PACKET(type) \
+	fe::PacketBuilder pb; \
+	pb.write<unsigned __int32>(type);
+
+
+#define	FE_SEND(id, buffer, size) \
+	FE_CONSOLELOG("size: <%u><%010x>", size, size); \
+	int opcode = ::send(id, buffer, size, 0); \
+	if (opcode <= 0) \
+		FE_CONSOLELOG("opcode(send): %u", opcode);
+
+#define	FE_SENDPACKET(id, pb) \
+	unsigned int size = pb.getSize(); \
+	const char* buffer = reinterpret_cast<const char*>(pb.getData()); \
+	FE_SEND(id, buffer, size)
