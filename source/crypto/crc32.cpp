@@ -1,7 +1,6 @@
 #include <pch_fnetwork.h>
 #include <crypto/crc32.hpp>
 
-
 fe::word32 m_crc;
 
 constexpr fe::word32 m_tab[] = {
@@ -60,7 +59,7 @@ constexpr fe::word32 m_tab[] = {
 };
 
 
-void fe::crc32Update(const fe::byte* s, unsigned int n)
+void fe::encryptCrc32(const fe::byte* s, unsigned int n)
 {
 	fe::word32 crc = m_crc;
 

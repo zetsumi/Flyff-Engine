@@ -35,7 +35,7 @@ namespace fe
 		return IsAlignedOn(p, GetAlignment<T>());
 	}
 
-	void crc32Update(const fe::byte* s, unsigned int n);
+	void encryptCrc32(const fe::byte* s, unsigned int n);
 }
 
 #define CRC32_INDEX(c) (c & 0xff)
