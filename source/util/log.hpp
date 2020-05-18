@@ -9,7 +9,7 @@
 
 namespace fe
 {
-	inline static void _log(bool console, const char* functionName, const char* format, ...)
+	inline static void _log(bool console, const char* functionName, unsigned int line, const char* format, ...)
 	{
 		try
 		{
@@ -32,7 +32,9 @@ namespace fe
 			// Ajout de prefix au message
 			std::string message;
 			message.append(functionName);
-			message.append(": ");
+			message.append(" [");
+			message.append(std::to_string(line));
+			message.append("]: ");
 			message.append(std::string{ temp.data(), length });
 			message.append("\n");
 
@@ -49,9 +51,9 @@ namespace fe
 
 
 #if defined(_DEBUG)
-#define FE_LOG(format, ...)			fe::_log(true, __FUNCTION__, format, __VA_ARGS__)
-#define FE_CONSOLELOG(format, ...)	fe::_log(true, __FUNCTION__, format, __VA_ARGS__)
+#define FE_LOG(format, ...)			fe::_log(true, __FUNCTION__, __LINE__, format, __VA_ARGS__)
+#define FE_CONSOLELOG(format, ...)	fe::_log(true, __FUNCTION__, __LINE__, format, __VA_ARGS__)
 #else
-#define FE_CONSOLELOG(format, ...)	fe::_log(true, __FUNCTION__, format, __VA_ARGS__)
-#define FE_LOG(format, ...)			fe::_log(false, __FUNCTION__, format, __VA_ARGS__)
+#define FE_CONSOLELOG(format, ...)	fe::_log(true, __FUNCTION__, __LINE__, format, __VA_ARGS__)
+#define FE_LOG(format, ...)			fe::_log(false, __FUNCTION__, __LINE__, format, __VA_ARGS__)
 #endif //_DEBUG

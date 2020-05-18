@@ -18,7 +18,7 @@ bool	testCo = false;
 unsigned int session_id = 0;
 
 
-
+/*
 static void	send_certify(SOCKET id)
 {
 	//FE_CREATE_PACKET(PACKETTYPE_CERTIFY, session_id)
@@ -59,23 +59,7 @@ static void	my_callback(SOCKET id, fe::PacketStructure* ps)
 	}
 
 }
-
-
-static bool	test_connection_certifier(void)
-{
-	trans.setSocket(&_socket);
-	trans.setMode(fe::MODE_TRANSACTION::MODE_CLIENT);
-
-	if (_socket.connect(network) == false)
-		return false;
-	if (trans.run(my_callback) == false)
-		return false;
-	trans.wait(false);
-	while (testCo == false)
-		;
-	_socket.shutdown();
-	return true;
-}
+*/
 
 
 static bool	login_certifier(void)
@@ -85,7 +69,12 @@ static bool	login_certifier(void)
 
 	if (_socket.connect(network) == false)
 		return false;
-	trans.run(my_callback);
+	fe::HandlerMessage handler;
+	handler.pushAction(PACKETTYPE_WELCOME,
+		std::bind(&fe::HandlerMessage::onWelcome, &handler,
+			std::placeholders::_1));
+	auto f = std::bind(&fe::HandlerMessage::onMsg, &handler, std::placeholders::_1, std::placeholders::_2);
+	trans.run(f);
 	trans.wait();
 	return true;
 }
@@ -98,9 +87,6 @@ int main()
 	network.setPort(23000);
 	if (network.isValid() == false)
 		return false;
-
-	//if (test_connection_certifier() == false)
-	//	return 1;
 
 	if (login_certifier() == false)
 		return 2;

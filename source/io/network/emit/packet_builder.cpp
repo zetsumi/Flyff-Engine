@@ -54,13 +54,13 @@ void	fe::PacketBuilder::setPacket(PacketStructure* ps)
 void	fe::PacketBuilder::writeString(const char* var)
 {
 	size_t length = ::strlen(var);
-	writeString(var, length);
+	writeString(var, static_cast<fe::type::_uint>(length));
 }
 
 void	fe::PacketBuilder::writeString(const char* var, unsigned int length)
 {
 	write<unsigned int>(length);
-	packet->data = (unsigned char*)::realloc(packet->data, packet->size + length);
+	packet->data = reinterpret_cast<unsigned char*>(::realloc(packet->data, packet->size + length));
 	if (packet->data == nullptr)
 		return;
 	::memcpy_s(packet->data + packet->size, length, var, length);

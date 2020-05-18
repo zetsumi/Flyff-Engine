@@ -6,7 +6,7 @@
 #include <framework_fengine.h>
 #include <io/network/socket_client.hpp>
 #include <io/network/emit/packet_builder.hpp>
-#include <io/network/emit/message_handler.hpp>
+#include <io/network/message/handler_message.hpp>
 
 #define	DEFAULT_BUFFER_SIZE_RECEIVE 1000
 
@@ -25,10 +25,11 @@ namespace fe
 		Socket* _socket = nullptr;
 		MODE_TRANSACTION	mode = MODE_TRANSACTION::MODE_UNKNOW;
 		callbackOnMessage	onPacketMessage = nullptr;
+		std::function<void(SOCKET id, fe::PacketStructure* ps)>	handlerMessageCallBack = nullptr;
 
 
-		bool	runClient(void);
 		void	loopReceive(SOCKET idClient);
+		bool	run(void);
 
 	public:
 		Transaction() = default;
@@ -38,7 +39,8 @@ namespace fe
 		bool	setSocket(Socket* s);
 		void	setMode(MODE_TRANSACTION modeTransaction);
 		bool	isMode(MODE_TRANSACTION modeTransaction);
-		bool	run(callbackOnMessage callback);
+		bool	run(fe::callbackOnMessage callback);
+		bool	run(std::function<void(SOCKET id, fe::PacketStructure* ps)> callback);
 
 		// emiter
 		bool	sender(SOCKET idSocket, unsigned int size, const char* data);
