@@ -29,10 +29,14 @@ Projet permettant de communiquer avec les serveurs flyffs v15 ou [Rhisis](https:
 ### Organisation Répertoire Source :
 * ___source___
     * ___io___
-        * ___file___ : permet l'abstraction de chargement et lecture des fichiers.
+        * ___file___ : Permet l'abstraction de chargement et lecture des fichiers.
+        * ___network___ : Gestion de la socket reseau.
+            * ___emit___ : Gestion des envoies et reception des paquets.
     * ___project___ : Regroupement de la logique de stockage et d'utilsation des propriété chargé.
         * ___loader___ : Logique et structure de chargement d'un fichier.
     * ___property___ : Structure des différentes propriétés.
+    * ___util___ : Ensemble de fonction utile dans toutes circontances.
+    * ___crypto___ : Outil de chiffrement et hash.
     * ___third_party___ : Ensemble de code source externe.
         * ___json___ : Manipulation des fichiers JSON.
         * ___xml___ : Manipulation des fichiers XML.
@@ -45,3 +49,4 @@ Projet permettant de communiquer avec les serveurs flyffs v15 ou [Rhisis](https:
     * ___text___
 * ___samples___ : Suite d'exemple d'utilisation de Flyff-Engine
     * ___Properties___ : Exemple de chargement et d'utilisation des propriété
+    * ___ClientTest___ : Exemple de communication avec les serveurs.

@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\util">
+      <UniqueIdentifier>{bfaf3455-2026-4e44-a2b9-0c9b6a7e0e69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\io">
+      <UniqueIdentifier>{e7ae5f20-145a-41bf-891a-2bb5f5a14029}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\io\network">
+      <UniqueIdentifier>{cd6dea7f-e795-4694-b71c-47c76b94a5f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\io\network\emit">
+      <UniqueIdentifier>{f48e52f3-c9ad-47a3-8b8f-322462cec047}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\crypto">
+      <UniqueIdentifier>{5a3bfdfb-a04e-472e-bb66-e4d68a943fc8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\dllmain_fnetwork.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\pch_fnetwork.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\io\network\socket_client.cpp">
+      <Filter>Source Files\io\network</Filter>
+    </ClCompile>
+    <ClCompile Include="source\io\network\network.cpp">
+      <Filter>Source Files\io\network</Filter>
+    </ClCompile>
+    <ClCompile Include="source\io\network\emit\transaction.cpp">
+      <Filter>Source Files\io\network\emit</Filter>
+    </ClCompile>
+    <ClCompile Include="source\io\network\emit\transaction_client.cpp">
+      <Filter>Source Files\io\network\emit</Filter>
+    </ClCompile>
+    <ClCompile Include="source\io\network\emit\packet_builder.cpp">
+      <Filter>Source Files\io\network\emit</Filter>
+    </ClCompile>
+    <ClCompile Include="source\io\network\emit\transaction_emit.cpp">
+      <Filter>Source Files\io\network\emit</Filter>
+    </ClCompile>
+    <ClCompile Include="source\crypto\crc32.cpp">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\pch_fnetwork.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\framework_fengine.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\util\log.hpp">
+      <Filter>Source Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="source\io\network\socket.hpp">
+      <Filter>Source Files\io\network</Filter>
+    </ClInclude>
+    <ClInclude Include="source\io\network\socket_client.hpp">
+      <Filter>Source Files\io\network</Filter>
+    </ClInclude>
+    <ClInclude Include="source\io\network\network.hpp">
+      <Filter>Source Files\io\network</Filter>
+    </ClInclude>
+    <ClInclude Include="source\io\network\emit\transaction.hpp">
+      <Filter>Source Files\io\network\emit</Filter>
+    </ClInclude>
+    <ClInclude Include="source\io\network\emit\packet_structure.hpp">
+      <Filter>Source Files\io\network\emit</Filter>
+    </ClInclude>
+    <ClInclude Include="source\io\network\emit\packet_builder.hpp">
+      <Filter>Source Files\io\network\emit</Filter>
+    </ClInclude>
+    <ClInclude Include="source\crypto\crc32.hpp">
+      <Filter>Source Files\crypto</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

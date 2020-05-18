@@ -1,4 +1,3 @@
-// dllmain.cpp : Définit le point d'entrée de l'application DLL.
 #include "pch_fressource.h"
 
 BOOL APIENTRY DllMain( HMODULE hModule,

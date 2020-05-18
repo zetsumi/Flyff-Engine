@@ -1,6 +1,6 @@
 #pragma once
 
-#if defined(FLYFFENGINE_EXPORTS)
+#if defined(FLYFFENGINE_EXPORTS) || defined(FLYFFNETWORK_EXPORTS)
 # define API_DECLSPEC __declspec(dllexport)
 #else
 # define API_DECLSPEC __declspec(dllimport)
