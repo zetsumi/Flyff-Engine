@@ -34,7 +34,10 @@ bool fe::Transaction::run(callbackOnMessage callback)
 	return true;
 }
 
-void fe::Transaction::wait(void)
+void fe::Transaction::wait(bool waiting)
 {
-	main.join();
+	if (waiting == true)
+		main.join();
+	else
+		main.detach();
 }

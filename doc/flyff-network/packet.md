@@ -1,5 +1,6 @@
 # Packet Structure
 
+HEADER
 PACKETTYPE
 DATAS
 

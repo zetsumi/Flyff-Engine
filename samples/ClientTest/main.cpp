@@ -2,15 +2,22 @@
 #include <pch_fnetwork.h>
 
 
-
-//#define	PACKETTYPE_SRVR_LIST	(DWORD)0x000000fd
-//#define	PACKETTYPE_ERROR	(DWORD)0x000000fe
-//#define	PACKETTYPE_ERROR_STRING	(DWORD)0x70000003
+#define	PACKETTYPE_SRVR_LIST	(DWORD)0x000000fd
+#define	PACKETTYPE_ERROR	(DWORD)0x000000fe
+#define	PACKETTYPE_ERROR_STRING	(DWORD)0x70000003
 #define	PACKETTYPE_KEEP_ALIVE	(DWORD)0x00000018
 #define	PACKETTYPE_PING		(DWORD)0x00000014
 #define	PACKETTYPE_CERTIFY	(DWORD)0x000000fc
+#define	PACKETTYPE_WELCOME	(DWORD)0x00000000
 
+fe::Network			network{};
+fe::SocketClient	_socket{};
+fe::Transaction		trans{};
+
+bool	testCo = false;
 unsigned int session_id = 0;
+
+
 
 static void	send_certify(SOCKET id)
 {
@@ -19,7 +26,9 @@ static void	send_certify(SOCKET id)
 	pb.writeString("20100412");
 	pb.writeString("test10");
 	pb.writeString("4d1677b3d55fd9c68e6baa7b1bd638d0");
-	::send(id, (char*)pb.getData(false), pb.getSize(), 0);
+	FE_CONSOLELOG("size: %u", pb.getSize());
+	int opcode = ::send(id, (char*)pb.getData(false), pb.getSize(), 0);
+	FE_CONSOLELOG("opcode(send): %u", opcode);
 }
 
 static void	my_callback(SOCKET id, fe::PacketStructure* ps)
@@ -39,43 +48,62 @@ static void	my_callback(SOCKET id, fe::PacketStructure* ps)
 
 	FE_CONSOLELOG("***");
 	unsigned int packettype = pb.read<unsigned int>();
-	FE_CONSOLELOG("packettype<%u>",packettype);
+	FE_CONSOLELOG("packettype<%u>", packettype);
 	FE_CONSOLELOG("***");
 
-	if (packettype == 0)
+	if (packettype == PACKETTYPE_WELCOME)
 	{
 		session_id = pb.read<unsigned int>();
+		testCo = true;
 	}
 
+}
+
+
+static bool	test_connection_certifier(void)
+{
+	trans.setSocket(&_socket);
+	trans.setMode(fe::MODE_TRANSACTION::MODE_CLIENT);
+
+	if (_socket.connect(network) == false)
+		return false;
+	if (trans.run(my_callback) == false)
+		return false;
+	trans.wait(false);
+	while (testCo == false)
+		;
+	_socket.shutdown();
+	return true;
+}
+
+
+static bool	login_certifier(void)
+{
+	trans.setSocket(&_socket);
+	trans.setMode(fe::MODE_TRANSACTION::MODE_CLIENT);
+
+	if (_socket.connect(network) == false)
+		return false;
+	trans.run(my_callback);
+	send_certify(_socket.getSocket());
+	trans.wait();
+	return true;
 }
 
 int main()
 {
 	FE_CONSOLELOG("running client test");
 
-	fe::Network network;
-	fe::SocketClient socket;
-	fe::Transaction trans;
-
 	network.setIP("127.0.0.1");
 	network.setPort(23000);
 	if (network.isValid() == false)
+		return false;
+
+	if (test_connection_certifier() == false)
 		return 1;
-	if (socket.connect(network) == false)
-		return 2;
-	trans.setMode(fe::MODE_TRANSACTION::MODE_CLIENT);
-	if (trans.setSocket(&socket) == false)
-		return 3;
 
-	if (trans.run(my_callback) == false)
-		return 4;
-	trans.wait();
-
-	// reco
-	if (socket.connect(network) == false)
+	if (login_certifier() == false)
 		return 2;
-	trans.run(my_callback);
-	trans.wait();
 
 	return 0;
 }

@@ -46,6 +46,6 @@ namespace fe
 		PacketStructure* receiver(SOCKET idSocket);
 		PacketStructure* receiver(SOCKET idSocket, unsigned int bufferSize);
 
-		void	wait(void);
+		void	wait(bool waiting = true);
 	};
 }
