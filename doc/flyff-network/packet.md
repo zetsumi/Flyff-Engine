@@ -1,14 +1,19 @@
 # Packet Structure
 
 ## Structure d'un packet.
-| ID            |      OCTECT       |  DESCRIPTION      |
-|:----------    |:-------------:    |:------            |
-| HEADER MARK   |  1                | 0x5e, fixe        |
-| SESSION ID1   |  4                | temps chiffrer    |
-| LENGTH        |  4                | taille            |
-| SESSION ID2   |  4                | temps chiffer     |
-| PACKETTYPE    |  4                | type du paquet    |
-| DATA          |  LENGTH - 4       | donnee du paquet  |
+| ID            |      OCTECT       |  DESCRIPTION          |
+|:----------    |:-------------:    |:------                |
+| HEADER MARK   |  1                | 0x5e, fixe            |
+| SESSION ID1   |  4                | temps chiffrer        |
+| LENGTH        |  4                | taille                |
+| SESSION ID2   |  4                | temps chiffer         |
+| PACKETTYPE    |  4                | type du paquet        |
+| DPID          |  4                | identifiant client    |
+| DATA          |  LENGTH - 4       | donnee du paquet      |
+
+Le ***DIP*** n'est pas present dans les paquets envoyer entre le `Client` et le `Certifier`.
+Il represente un `ID` definit par la bilbiotheque [DirectPlay](https://docs.microsoft.com/en-us/previous-versions/windows/desktop/bb153243(v%3Dvs.85)) de DirectX 9.0.<br>
+Le `LoginServer` recoit le DPID mais l'ignore.<br>
 
 ## ID
 Description des differentes partie du paquet.
