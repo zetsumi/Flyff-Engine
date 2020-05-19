@@ -4,36 +4,18 @@
 
 void fe::HandlerCertifier::initialize(void)
 {
-	ON_PACKETTYPE(PACKETTYPE_WELCOME, &fe::HandlerCertifier::onWelcome);
-	ON_PACKETTYPE(PACKETTYPE_KEEP_ALIVE, &fe::HandlerCertifier::onKeepAlive);
-	ON_PACKETTYPE(PACKETTYPE_PING, &fe::HandlerCertifier::onPing);
+
+	handlerType = HANDLER_PACKET_TYPE::CERTIFIER;
+
+	ON_PACKETTYPE(PACKETTYPE_WELCOME, &fe::HandlerMessage::onWelcome);
+	ON_PACKETTYPE(PACKETTYPE_KEEP_ALIVE, &fe::HandlerMessage::onKeepAlive);
+	ON_PACKETTYPE(PACKETTYPE_PING, &fe::HandlerMessage::onPing);
+
 	ON_PACKETTYPE(PACKETTYPE_SRVR_LIST, &fe::HandlerCertifier::onServerList);
 	ON_PACKETTYPE(PACKETTYPE_ERROR, &fe::HandlerCertifier::onError);
 	ON_PACKETTYPE(PACKETTYPE_ERROR_STRING, &fe::HandlerCertifier::onErrorString);
 }
 
-void fe::HandlerCertifier::onWelcome(SOCKET id)
-{
-	FE_CONSOLELOG("welcome");
-	sessionID = packetBuilder.read<fe::type::_32uint>();
-
-	auto fct = std::bind(&HandlerCertifier::processPing, this, id);
-	ping = std::thread(fct);
-	ping.detach();
-
-	sendCertify(id, TEST_DEFAULT_BUILD_VERSION, TEST_DEFAULT_ACCOUNT, TEST_DEFAULT_PASSWORD);
-}
-
-void fe::HandlerCertifier::onKeepAlive(SOCKET id)
-{
-	FE_CONSOLELOG("keep alive");
-	sendKeepAlive(id);
-}
-
-void fe::HandlerCertifier::onPing(SOCKET id)
-{
-	FE_CONSOLELOG("ping");
-}
 
 void fe::HandlerCertifier::onServerList(SOCKET id)
 {

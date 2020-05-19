@@ -2,6 +2,8 @@
 
 #include <framework_fengine.h>
 #include <winsock.h>
+#include <thread>
+#include <mutex>
 #include <unordered_map>
 #include <io/network/emit/packet_structure.hpp>
 #include <io/network/message/packet_type.hpp>
@@ -14,17 +16,36 @@ namespace fe
 		[[noreturn]] void	loadHeader(fe::type::_uchar& mark, fe::type::_32uint& length);
 
 	protected:
+		std::unordered_map<fe::type::_32uint, std::function<void(SOCKET id)>>	actions{};
+		std::thread	ping{};
+		fe::PacketBuilder	packetBuilder{};
+		fe::type::_32uint	sessionID = 0;
+		std::mutex			lockerSend;
+		fe::type::_32uint	dpid = 0xffffffff;
+		HANDLER_PACKET_TYPE	handlerType = HANDLER_PACKET_TYPE::UNKNOW;
+
+		// global
 		[[nodiscard]] bool	pushAction(fe::type::_32uint packetType, std::function<void(SOCKET id)> action);
 
-		std::unordered_map<fe::type::_32uint, std::function<void(SOCKET id)>>	actions;
-		fe::PacketBuilder	packetBuilder{};
+		// emit & receive
+		[[nodiscard]] bool	sendPing(SOCKET id);
+		[[noreturn]] void	processPing(SOCKET id);
 
 	public:
 		HandlerMessage() = default;
+		HandlerMessage(HandlerMessage&& h) = default;
+		HandlerMessage(const HandlerMessage& h) = default;
+		HandlerMessage& operator=(const HandlerMessage& h) = default;
 		virtual ~HandlerMessage() = default;
+
+		[[noreturn]] void	sendKeepAlive(SOCKET id);
+		[[noreturn]] void	sendError(SOCKET id);
 
 		[[noreturn]] virtual void	initialize(void) = 0;
 		[[nodiscard]] void	onMsg(SOCKET id, fe::PacketStructure* ps);
+		[[noreturn]] void	onWelcome(SOCKET id);
+		[[noreturn]] void	onKeepAlive(SOCKET id);
+		[[noreturn]] void	onPing(SOCKET id);
 	};
 
 	typedef void	(*callbackOnMessage)(SOCKET id, fe::PacketStructure* ps);

@@ -29,6 +29,11 @@ static bool	handler_certifier(void)
 	auto onMsg = std::bind(&fe::HandlerMessage::onMsg, &certifier, std::placeholders::_1, std::placeholders::_2);
 	if (transCertifier.run(onMsg) == false)
 		return false;
+
+	// test connection
+	certifier.sendCertify(_socket.getSocket(), TEST_DEFAULT_BUILD_VERSION, TEST_DEFAULT_ACCOUNT, TEST_DEFAULT_PASSWORD);
+
+	transCertifier.wait();
 	FE_CONSOLELOG("out");
 	return true;
 }
@@ -57,18 +62,18 @@ static bool	handler_login(void)
 	auto onMsg = std::bind(&fe::HandlerMessage::onMsg, &login, std::placeholders::_1, std::placeholders::_2);
 	if (transLogin.run(onMsg) == false)
 		return false;
+	transLogin.wait();
 	FE_CONSOLELOG("out");
 	return true;
 }
 
 int main()
 {
-	if (handler_certifier() == false)
-		return 2;
-	if (handler_login() == false)
-		return 3;
+	std::thread tcert(handler_certifier);
+	std::thread tlogin(handler_login);
 
-	transCertifier.wait();
-	transLogin.wait();
+	tcert.join();
+	tlogin.join();
+
 	return 0;
 }

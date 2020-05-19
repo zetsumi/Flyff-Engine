@@ -36,20 +36,28 @@ unsigned int fe::PacketBuilder::getSize(void) const
 	return packet->size;
 }
 
-void fe::PacketBuilder::writeHeader(fe::type::_32uint sessionID)
+void fe::PacketBuilder::writeHeader(fe::type::_32uint sessionID, HANDLER_PACKET_TYPE handlerType)
 {
 	fe::type::_uchar mark = 0x5e;
 	fe::type::_32uint length = packet->size;
 
-	FE_CONSOLELOG("mark:{%#02x} length{%#010x}{%u} sessionID{%#010x}{%u}",
-		mark,
-		length, length,
-		sessionID, sessionID);
+	if (handlerType == HANDLER_PACKET_TYPE::LOGIN)
+	{
+		writeFront<fe::type::_32uint>(0xffffffff);
+		length = packet->size;
+	}
 
+	// session ID
 	writeFront<fe::type::_32uint>(sessionID);
 	writeFront<fe::type::_32uint>(length);
 	writeFront<fe::type::_32uint>(sessionID);
 	writeFront<fe::type::_uchar>(mark);
+
+	FE_CONSOLELOG("TYPE{%u} mark:{%#02x} length{%#010x}{%u} sessionID{%#010x}{%u}",
+		static_cast<fe::type::_32uint>(handlerType),
+		mark,
+		length, length,
+		sessionID, sessionID);
 }
 
 bool	fe::PacketBuilder::setPacket(PacketStructure* ps)

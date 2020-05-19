@@ -2,8 +2,6 @@
 
 #include <framework_fengine.h>
 #include <string>
-#include <thread>
-#include <mutex>
 #include <io/network/message/handler_message.hpp>
 
 #define TEST_DEFAULT_BUILD_VERSION	"20100412"
@@ -14,27 +12,20 @@ namespace fe
 {
 	class API_DECLSPEC HandlerCertifier : public HandlerMessage
 	{
-		std::mutex			lockerSend;
-		fe::type::_32uint	sessionID = 0;
-		std::thread			ping;
-
-		[[noreturn]] void	processPing(SOCKET id);
-
-		[[noreturn]] void	sendDisconnectAccount(SOCKET id, const char* account, const char* password);
-		[[noreturn]] void	sendCertify(SOCKET id, const char* buildVersion, const char* account, const char* password);
-		[[noreturn]] void	sendKeepAlive(SOCKET id);
-		[[noreturn]] void	sendPing(SOCKET id);
-		[[noreturn]] void	sendError(SOCKET id);
-		[[noreturn]] void	sendNewAccount(SOCKET id, const char* account, const char* password);
-
 	public:
 		HandlerCertifier() = default;
+		HandlerCertifier(HandlerCertifier&& h) = default;
+		HandlerCertifier(const HandlerCertifier& h) = default;
+		HandlerCertifier& operator=(const HandlerCertifier& h) = default;
 		~HandlerCertifier() = default;
 
+		// emit
+		[[noreturn]] void	sendDisconnectAccount(SOCKET id, const char* account, const char* password);
+		[[noreturn]] void	sendCertify(SOCKET id, const char* buildVersion, const char* account, const char* password);
+		[[noreturn]] void	sendNewAccount(SOCKET id, const char* account, const char* password);
+
+		// receive
 		[[noreturn]] void	initialize(void) override;
-		[[noreturn]] void	onWelcome(SOCKET id);
-		[[noreturn]] void	onKeepAlive(SOCKET id);
-		[[noreturn]] void	onPing(SOCKET id);
 		[[noreturn]] void	onServerList(SOCKET id);
 		[[noreturn]] void	onError(SOCKET id);
 		[[noreturn]] void	onErrorString(SOCKET id);

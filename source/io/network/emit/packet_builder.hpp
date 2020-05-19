@@ -9,6 +9,13 @@
 
 namespace fe
 {
+	enum class HANDLER_PACKET_TYPE : unsigned short
+	{
+		UNKNOW,
+		CERTIFIER,
+		LOGIN
+	};
+
 	class API_DECLSPEC PacketBuilder
 	{
 		std::mutex	locker;
@@ -38,7 +45,7 @@ namespace fe
 		[[nodiscard]] const unsigned char*	getData(void) const;
 		unsigned int						getSize(void) const;
 		[[nodiscard]] bool					setPacket(PacketStructure* ps);
-		[[noreturn]] void					writeHeader(fe::type::_32uint sessionID);
+		[[noreturn]] void					writeHeader(fe::type::_32uint sessionID, HANDLER_PACKET_TYPE handlerType);
 		[[noreturn]] void					writeString(const char* var);
 		[[noreturn]] void					writeString(const char* var, unsigned int length);
 		[[nodiscard]] const char*			readString(void);
