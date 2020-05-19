@@ -24,6 +24,7 @@
     <ClCompile Include="source\handler\handler_certifier.cpp" />
     <ClCompile Include="source\handler\handler_certifier_emiter.cpp" />
     <ClCompile Include="source\handler\handler_login.cpp" />
+    <ClCompile Include="source\handler\handler_login_emit.cpp" />
     <ClCompile Include="source\io\network\emit\packet_builder.cpp" />
     <ClCompile Include="source\io\network\emit\transaction.cpp" />
     <ClCompile Include="source\io\network\emit\transaction_client.cpp" />

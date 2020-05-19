@@ -28,7 +28,7 @@ namespace fe
 		[[nodiscard]] bool	pushAction(fe::type::_32uint packetType, std::function<void(SOCKET id)> action);
 
 		// emit & receive
-		[[nodiscard]] bool	sendPing(SOCKET id);
+		[[noreturn]] void	sendPing(SOCKET id);
 		[[noreturn]] void	processPing(SOCKET id);
 
 	public:
@@ -56,8 +56,8 @@ namespace fe
 	if (pushAction(packettype, std::bind(fct, this, std::placeholders::_1)) == false) \
 		FE_CONSOLELOG("fail add action on packet type [%u]", packettype);
 
-#define	FE_SEND(pb) \
+#define	FE_SEND(pb, idSocket) \
 	auto buffer = pb.getData(); \
 	auto length = pb.getSize(); \
 	if (buffer != nullptr && length > 0) \
-		::send(id, (char*)buffer, length, 0);
+		::send(idSocket, (char*)buffer, length, 0);

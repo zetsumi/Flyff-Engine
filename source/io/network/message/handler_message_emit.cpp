@@ -12,7 +12,7 @@ void fe::HandlerMessage::sendKeepAlive(SOCKET id)
 		builder.write<fe::type::_32uint>(dpid);
 
 	builder.writeHeader(sessionID, handlerType);
-	FE_SEND(builder);
+	FE_SEND(builder, id);
 
 	lockerSend.unlock();
 }
@@ -29,33 +29,21 @@ void fe::HandlerMessage::sendError(SOCKET id)
 
 	builder.writeHeader(sessionID, handlerType);
 
-	FE_SEND(builder);
+	FE_SEND(builder, id);
 
 	lockerSend.unlock();
 }
 
-bool fe::HandlerMessage::sendPing(SOCKET id)
+void fe::HandlerMessage::sendPing(SOCKET id)
 {
-	try
-	{
-		lockerSend.lock();
-		fe::PacketBuilder builder;
+	lockerSend.lock();
+	fe::PacketBuilder builder;
 
-		builder.write<fe::type::_32uint>(PACKETTYPE_PING);
-		if (handlerType == HANDLER_PACKET_TYPE::LOGIN)
-			builder.write<fe::type::_32uint>(dpid);
+	builder.write<fe::type::_32uint>(PACKETTYPE_PING);
+	if (handlerType == HANDLER_PACKET_TYPE::LOGIN)
+		builder.write<fe::type::_32uint>(dpid);
+	builder.writeHeader(sessionID, handlerType);
+	FE_SEND(builder, id);
 
-		builder.writeHeader(sessionID, handlerType);
-
-		FE_SEND(builder);
-		FE_CONSOLELOG("sending ping at <%u>", id);
-
-		lockerSend.unlock();
-		return true;
-	}
-	catch (const std::exception& e)
-	{
-		FE_CONSOLELOG("error {%s}", e.what());
-	}
-	return false;
+	lockerSend.unlock();
 }

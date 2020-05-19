@@ -5,6 +5,7 @@ fe::Transaction			transLogin{};
 fe::HandlerCertifier	certifier;
 fe::SocketClient		_socketCert;
 fe::HandlerLogin		login;
+fe::SocketClient		_socketLog{};
 
 
 int main()

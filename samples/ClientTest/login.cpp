@@ -5,23 +5,23 @@ extern fe::Transaction			transLogin;
 extern fe::HandlerCertifier		certifier;
 extern fe::SocketClient			_socketCert;
 extern fe::HandlerLogin			login;
+extern fe::SocketClient			_socketLog;
 
 
 bool	handler_login(void)
 {
 	fe::Network network;
-	fe::SocketClient _socket;
 
 	network.setIP("127.0.0.1");
 	network.setPort(28000);
 	if (network.isValid() == false)
 		return false;
 
-	if (transLogin.setSocket(&_socket) == false)
+	if (transLogin.setSocket(&_socketLog) == false)
 		return false;
 	transLogin.setMode(fe::MODE_TRANSACTION::MODE_CLIENT);
 
-	if (_socket.connect(network) == false)
+	if (_socketLog.connect(network) == false)
 		return false;
 
 	login.initialize();

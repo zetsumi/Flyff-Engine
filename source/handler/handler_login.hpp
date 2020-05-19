@@ -13,9 +13,11 @@ namespace fe
 		HandlerLogin& operator=(const HandlerLogin& h) = default;
 		~HandlerLogin() = default;
 
-		//[[noreturn]] void	sendPreJoin(void);
+		[[noreturn]] void	sendPreJoin(SOCKET id);
+		[[noreturn]] void	sendQueryTickCount(SOCKET id);
 
 		[[noreturn]] virtual void	initialize(void);
+		[[noreturn]] virtual void	onQueryTickCount(SOCKET id);
 	};
 }
 

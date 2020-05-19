@@ -6,6 +6,7 @@ extern fe::Transaction			transLogin;
 extern fe::HandlerCertifier		certifier;
 extern fe::SocketClient			_socketCert;
 extern fe::HandlerLogin			login;
+extern fe::SocketClient			_socketLog;
 
 
 
@@ -16,10 +17,16 @@ static void	connect_login(void)
 	tlogin.detach();
 }
 
+static void	login_query_tick_count(void)
+{
+	login.sendQueryTickCount(_socketLog.getSocket());
+}
+
 static void	help(void)
 {
 	FE_LOG("Liste des commandes :");
 	FE_LOG("	connect_login | cl");
+	FE_LOG("	login_query_tick_count | lqtc");
 }
 
 
@@ -37,6 +44,8 @@ void		prompt(void)
 		{"help", help},
 		{"connect_login", connect_login},
 		{"cl", connect_login},
+		{"login_query_tick_count", login_query_tick_count},
+		{"lqtc", login_query_tick_count},
 		{nullptr, nullptr}
 	};
 

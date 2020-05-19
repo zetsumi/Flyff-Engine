@@ -10,8 +10,7 @@ void fe::HandlerMessage::processPing(SOCKET id)
 	while (true)
 	{
 		std::this_thread::sleep_for(min);
-		if (sendPing(id) == false)
-			break;
+		sendPing(id);
 	}
 }
 
