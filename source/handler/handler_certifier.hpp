@@ -41,13 +41,3 @@ namespace fe
 
 	};
 }
-
-#define	ON_PACKETTYPE(packettype, fct) \
-	if (pushAction(packettype, std::bind(fct, this, std::placeholders::_1)) == false) \
-		FE_CONSOLELOG("fail add action on packet type [%u]", packettype);
-
-#define	FE_SEND(pb) \
-	auto buffer = pb.getData(); \
-	auto length = pb.getSize(); \
-	if (buffer != nullptr && length > 0) \
-		::send(id, (char*)buffer, length, 0);

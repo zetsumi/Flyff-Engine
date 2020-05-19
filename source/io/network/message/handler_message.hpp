@@ -23,10 +23,20 @@ namespace fe
 		HandlerMessage() = default;
 		virtual ~HandlerMessage() = default;
 
-		[[noreturn]] virtual void	initialize() = 0;
+		[[noreturn]] virtual void	initialize(void) = 0;
 		[[nodiscard]] void	onMsg(SOCKET id, fe::PacketStructure* ps);
 	};
 
 	typedef void	(*callbackOnMessage)(SOCKET id, fe::PacketStructure* ps);
 	typedef void	(HandlerMessage::*callbackHandlerMessage)(SOCKET id, fe::PacketStructure* ps);
 }
+
+#define	ON_PACKETTYPE(packettype, fct) \
+	if (pushAction(packettype, std::bind(fct, this, std::placeholders::_1)) == false) \
+		FE_CONSOLELOG("fail add action on packet type [%u]", packettype);
+
+#define	FE_SEND(pb) \
+	auto buffer = pb.getData(); \
+	auto length = pb.getSize(); \
+	if (buffer != nullptr && length > 0) \
+		::send(id, (char*)buffer, length, 0);
