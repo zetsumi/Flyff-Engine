@@ -7,10 +7,21 @@ extern fe::HandlerCertifier		certifier;
 extern fe::SocketClient			_socketCert;
 extern fe::HandlerLogin			login;
 
+
+
+static void	connect_login(void)
+{
+	FE_LOG("connecting LoginServer");
+	std::thread tlogin(handler_login);
+	tlogin.detach();
+}
+
 static void	help(void)
 {
-	FE_LOG("liste des commandes!");
+	FE_LOG("Liste des commandes :");
+	FE_LOG("	connect_login | cl");
 }
+
 
 void		prompt(void)
 {
@@ -21,15 +32,38 @@ void		prompt(void)
 	std::getline(std::cin, line);
 	certifier.sendCertify(_socketCert.getSocket(), TEST_DEFAULT_BUILD_VERSION, TEST_DEFAULT_ACCOUNT, TEST_DEFAULT_PASSWORD);
 
-	FE_LOG("Connecto to LoginServer");
-	std::thread tlogin(handler_login);
-	tlogin.detach();
+	
+	cmd_exe_1 listCommandeSimple[] = {
+		{"help", help},
+		{"connect_login", connect_login},
+		{"cl", connect_login},
+		{nullptr, nullptr}
+	};
 
+	bool r = false;
+	unsigned int i = 0;
 	FE_PROMPT("");
 	while (std::getline(std::cin, line))
 	{
-		if (line.compare("help") == 0)
+		while (listCommandeSimple[i].token != nullptr)
+		{
+			FE_CONSOLELOG("%s", listCommandeSimple[i].token);
+			if (line.compare(listCommandeSimple[i].token) == 0)
+			{
+				listCommandeSimple[i].process();
+				r = true;
+				break;
+			}
+			++i;
+		}
+		i = 0;
+
+		if (r == false)
+		{
+			FE_LOG("commande non reconnue !");
 			help();
+		}
+		r = false;
 		FE_PROMPT("");
 	}
 }

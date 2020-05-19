@@ -8,3 +8,9 @@
 bool	handler_login(void);
 bool	handler_certifier(void);
 void	prompt(void);
+
+struct cmd_exe_1
+{
+	const char* token;
+	void	(*process)(void);
+};
