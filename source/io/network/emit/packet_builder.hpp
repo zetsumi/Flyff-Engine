@@ -33,15 +33,16 @@ namespace fe
 		PacketBuilder() = default;
 		~PacketBuilder() = default;
 
-		void					debug(void) const;
-		const unsigned char*	getData(void) const;
-		unsigned int			getSize(void) const;
-		void					setHeader(unsigned int sessionID);
-		void					setPacket(PacketStructure* ps);
-		void					writeString(const char* var);
-		void					writeString(const char* var, unsigned int length);
-		const char* readString(void);
-		unsigned int			getOffset(void) const;
+		[[noreturn]] void					reset(void);
+		[[noreturn]] void					debug(void) const;
+		[[nodiscard]] const unsigned char*	getData(void) const;
+		unsigned int						getSize(void) const;
+		[[nodiscard]] bool					setPacket(PacketStructure* ps);
+		[[noreturn]] void					writeHeader(fe::type::_32uint sessionID);
+		[[noreturn]] void					writeString(const char* var);
+		[[noreturn]] void					writeString(const char* var, unsigned int length);
+		[[nodiscard]] const char*			readString(void);
+		unsigned int						getOffset(void) const;
 
 		template<typename T>
 		inline void	write(T var)

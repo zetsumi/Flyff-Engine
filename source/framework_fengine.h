@@ -17,8 +17,10 @@ namespace fe
      */
     namespace type
     {
-        typedef unsigned __int64 _uint;
-        typedef __int64          _int;
+        typedef unsigned __int64    _uint;
+        typedef __int64             _int;
+        typedef unsigned __int32    _32uint;
+        typedef __int32             _32int;
+        typedef unsigned char       _uchar;
     }
 }
-

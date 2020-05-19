@@ -4,16 +4,20 @@
 #include <crypto/crc32.hpp>
 
 
+void fe::PacketBuilder::reset(void)
+{
+	offset = 0;
+	delete packet;
+	packet = nullptr;
+}
+
 void	fe::PacketBuilder::debug(void) const
 {
-	FE_CONSOLELOG("============");
+	FE_CONSOLELOG("======DEBUG======");
 	FE_CONSOLELOG("size[%u]", packet->size);
-	for (unsigned int i = 0; i < packet->size; ++i)
-	{
-		FE_CONSOLELOG("data[%u] = [%d] = 0x{%#02x}",
-			i, packet->data[i], packet->data[i]);
-	}
-	FE_CONSOLELOG("============");
+	for (fe::type::_32uint i = 0; i < packet->size; ++i)
+		FE_CONSOLELOG("data[%u] = [%d] = 0x{%#02x}",i, packet->data[i], packet->data[i]);
+	FE_CONSOLELOG("======DEBUG======");
 }
 
 const unsigned char* fe::PacketBuilder::getData(void) const
@@ -32,52 +36,56 @@ unsigned int fe::PacketBuilder::getSize(void) const
 	return packet->size;
 }
 
-void fe::PacketBuilder::setHeader(unsigned int sessionID)
+void fe::PacketBuilder::writeHeader(fe::type::_32uint sessionID)
 {
-	unsigned char headerMark = 0x5e;
-	unsigned int length = packet->size;
+	fe::type::_uchar mark = 0x5e;
+	fe::type::_32uint length = packet->size;
 
-	FE_CONSOLELOG("length<%u>", length);
+	FE_CONSOLELOG("mark:{%#02x} length{%#010x}{%u} sessionID{%#010x}{%u}",
+		mark,
+		length, length,
+		sessionID, sessionID);
 
-	writeFront<unsigned int>(sessionID);
-	writeFront<unsigned int>(length);
-	writeFront<unsigned int>(sessionID);
-	writeFront<unsigned char>(headerMark);
+	writeFront<fe::type::_32uint>(sessionID);
+	writeFront<fe::type::_32uint>(length);
+	writeFront<fe::type::_32uint>(sessionID);
+	writeFront<fe::type::_uchar>(mark);
 }
 
-void	fe::PacketBuilder::setPacket(PacketStructure* ps)
+bool	fe::PacketBuilder::setPacket(PacketStructure* ps)
 {
-	if (ps != nullptr)
-		packet = ps;
+	if (ps == nullptr)
+		return false;
+	delete packet;
+	packet = ps;
+	return true;
 }
 
 void	fe::PacketBuilder::writeString(const char* var)
 {
 	size_t length = ::strlen(var);
-	writeString(var, length);
+	writeString(var, static_cast<fe::type::_uint>(length));
 }
 
 void	fe::PacketBuilder::writeString(const char* var, unsigned int length)
 {
 	write<unsigned int>(length);
-	packet->data = (unsigned char*)::realloc(packet->data, packet->size + length);
-	if (packet->data == nullptr)
-		return;
-	::memcpy_s(packet->data + packet->size, length, var, length);
-	packet->size += length;
+	packet->data = reinterpret_cast<unsigned char*>(::realloc(packet->data, packet->size + length));
+	if (packet->data != nullptr)
+	{
+		::memcpy_s(packet->data + packet->size, length, var, length);
+		packet->size += length;
+	}
 }
 
 const char* fe::PacketBuilder::readString(void)
 {
-	unsigned int length = read<unsigned int>();
-	unsigned char* cur = packet->data + offset;
+	fe::type::_32uint length = read<fe::type::_32uint>();
+	fe::type::_uchar* cur = packet->data + offset;
 	char* var = new char[length + 1]();
 	::memcpy_s(var, length, cur, length);
 	var[length] = '\0';
 	offset += length;
-
-	FE_CONSOLELOG("length:[%u] string[%s]", length, var);
-
 	return var;
 }
 

@@ -28,6 +28,12 @@
     <Filter Include="Source Files\crypto">
       <UniqueIdentifier>{5a3bfdfb-a04e-472e-bb66-e4d68a943fc8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\io\network\message">
+      <UniqueIdentifier>{1d5ab3c1-e534-45be-83d4-12c91542e327}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\handler">
+      <UniqueIdentifier>{fdae1bf1-eccc-4517-b0ac-6c190ce219c0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\dllmain_fnetwork.cpp">
@@ -56,6 +62,15 @@
     </ClCompile>
     <ClCompile Include="source\crypto\crc32.cpp">
       <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="source\handler\handler_certifier.cpp">
+      <Filter>Source Files\handler</Filter>
+    </ClCompile>
+    <ClCompile Include="source\handler\handler_certifier_emiter.cpp">
+      <Filter>Source Files\handler</Filter>
+    </ClCompile>
+    <ClCompile Include="source\io\network\message\handler_message.cpp">
+      <Filter>Source Files\io\network\message</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +103,15 @@
     </ClInclude>
     <ClInclude Include="source\crypto\crc32.hpp">
       <Filter>Source Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="source\io\network\message\packet_type.hpp">
+      <Filter>Source Files\io\network\message</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\handler_certifier.hpp">
+      <Filter>Source Files\handler</Filter>
+    </ClInclude>
+    <ClInclude Include="source\io\network\message\handler_message.hpp">
+      <Filter>Source Files\io\network\message</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

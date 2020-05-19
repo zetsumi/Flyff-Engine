@@ -6,7 +6,7 @@
 #include <framework_fengine.h>
 #include <io/network/socket_client.hpp>
 #include <io/network/emit/packet_builder.hpp>
-#include <io/network/emit/message_handler.hpp>
+#include <io/network/message/handler_message.hpp>
 
 #define	DEFAULT_BUFFER_SIZE_RECEIVE 1000
 
@@ -21,31 +21,32 @@ namespace fe
 
 	class API_DECLSPEC Transaction
 	{
-		std::thread	main;
+		std::thread			main;
 		Socket* _socket = nullptr;
 		MODE_TRANSACTION	mode = MODE_TRANSACTION::MODE_UNKNOW;
-		callbackOnMessage	onPacketMessage = nullptr;
+		std::function<void(SOCKET id, fe::PacketStructure* ps)>	handlerMessageCallBack = nullptr;
 
 
-		bool	runClient(void);
-		void	loopReceive(SOCKET idClient);
+		[[noreturn]] void	loopReceive(SOCKET idClient);
+		[[nodiscard]] bool	run(void);
 
 	public:
 		Transaction() = default;
 		~Transaction() = default;
 
 		// global
-		bool	setSocket(Socket* s);
-		void	setMode(MODE_TRANSACTION modeTransaction);
-		bool	isMode(MODE_TRANSACTION modeTransaction);
-		bool	run(callbackOnMessage callback);
+		[[nodiscard]] bool	setSocket(Socket* s);
+		[[noreturn]] void	setMode(MODE_TRANSACTION modeTransaction);
+		[[nodiscard]] bool	isMode(MODE_TRANSACTION modeTransaction);
+		[[nodiscard]] bool	run(std::function<void(SOCKET id, fe::PacketStructure* ps)> callback);
 
 		// emiter
-		bool	sender(SOCKET idSocket, unsigned int size, const char* data);
-		bool	sender(SOCKET idSocket, PacketBuilder& packet);
-		PacketStructure* receiver(SOCKET idSocket);
-		PacketStructure* receiver(SOCKET idSocket, unsigned int bufferSize);
+		[[nodiscard]] bool	sender(SOCKET idSocket, unsigned int size, const char* data);
+		[[nodiscard]] bool	sender(SOCKET idSocket, PacketBuilder& packet);
+		[[nodiscard]] PacketStructure* receiver(SOCKET idSocket);
+		[[nodiscard]] PacketStructure* receiver(SOCKET idSocket, unsigned int bufferSize);
 
-		void	wait(bool waiting = true);
+		// thread manager
+		[[noreturn]] void	wait(bool waiting = true);
 	};
 }
