@@ -13,3 +13,4 @@
 #include <io/network/network.hpp>
 #include <io/network/emit/transaction.hpp>
 #include <io/network/message/handler_message.hpp>
+#include <io/network/message/handler_certifier.hpp>

@@ -4,16 +4,20 @@
 #include <crypto/crc32.hpp>
 
 
+void fe::PacketBuilder::reset(void)
+{
+	offset = 0;
+	delete packet;
+	packet = nullptr;
+}
+
 void	fe::PacketBuilder::debug(void) const
 {
-	FE_CONSOLELOG("============");
+	FE_CONSOLELOG("======DEBUG======");
 	FE_CONSOLELOG("size[%u]", packet->size);
 	for (unsigned int i = 0; i < packet->size; ++i)
-	{
-		FE_CONSOLELOG("data[%u] = [%d] = 0x{%#02x}",
-			i, packet->data[i], packet->data[i]);
-	}
-	FE_CONSOLELOG("============");
+		FE_CONSOLELOG("data[%u] = [%d] = 0x{%#02x}",i, packet->data[i], packet->data[i]);
+	FE_CONSOLELOG("======DEBUG======");
 }
 
 const unsigned char* fe::PacketBuilder::getData(void) const
@@ -32,7 +36,7 @@ unsigned int fe::PacketBuilder::getSize(void) const
 	return packet->size;
 }
 
-void fe::PacketBuilder::setHeader(unsigned int sessionID)
+void fe::PacketBuilder::writeHeader(unsigned int sessionID)
 {
 	unsigned char headerMark = 0x5e;
 	unsigned int length = packet->size;
@@ -45,10 +49,13 @@ void fe::PacketBuilder::setHeader(unsigned int sessionID)
 	writeFront<unsigned char>(headerMark);
 }
 
-void	fe::PacketBuilder::setPacket(PacketStructure* ps)
+bool	fe::PacketBuilder::setPacket(PacketStructure* ps)
 {
-	if (ps != nullptr)
-		packet = ps;
+	if (ps == nullptr)
+		return false;
+	delete packet;
+	packet = ps;
+	return true;
 }
 
 void	fe::PacketBuilder::writeString(const char* var)
@@ -75,9 +82,6 @@ const char* fe::PacketBuilder::readString(void)
 	::memcpy_s(var, length, cur, length);
 	var[length] = '\0';
 	offset += length;
-
-	FE_CONSOLELOG("length:[%u] string[%s]", length, var);
-
 	return var;
 }
 

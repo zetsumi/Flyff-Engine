@@ -63,6 +63,12 @@
     <ClCompile Include="source\io\network\message\handler_message.cpp">
       <Filter>Source Files\io\network\message</Filter>
     </ClCompile>
+    <ClCompile Include="source\io\network\message\handler_certifier.cpp">
+      <Filter>Source Files\io\network\message</Filter>
+    </ClCompile>
+    <ClCompile Include="source\io\network\message\handler_certifier_emiter.cpp">
+      <Filter>Source Files\io\network\message</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\pch_fnetwork.h">
@@ -96,6 +102,12 @@
       <Filter>Source Files\crypto</Filter>
     </ClInclude>
     <ClInclude Include="source\io\network\message\handler_message.hpp">
+      <Filter>Source Files\io\network\message</Filter>
+    </ClInclude>
+    <ClInclude Include="source\io\network\message\handler_certifier.hpp">
+      <Filter>Source Files\io\network\message</Filter>
+    </ClInclude>
+    <ClInclude Include="source\io\network\message\packet_type.hpp">
       <Filter>Source Files\io\network\message</Filter>
     </ClInclude>
   </ItemGroup>
