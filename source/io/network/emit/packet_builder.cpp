@@ -68,10 +68,11 @@ void	fe::PacketBuilder::writeString(const char* var, unsigned int length)
 {
 	write<unsigned int>(length);
 	packet->data = reinterpret_cast<unsigned char*>(::realloc(packet->data, packet->size + length));
-	if (packet->data == nullptr)
-		return;
-	::memcpy_s(packet->data + packet->size, length, var, length);
-	packet->size += length;
+	if (packet->data != nullptr)
+	{
+		::memcpy_s(packet->data + packet->size, length, var, length);
+		packet->size += length;
+	}
 }
 
 const char* fe::PacketBuilder::readString(void)

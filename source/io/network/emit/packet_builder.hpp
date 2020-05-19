@@ -36,13 +36,13 @@ namespace fe
 		[[noreturn]] void					reset(void);
 		[[noreturn]] void					debug(void) const;
 		[[nodiscard]] const unsigned char*	getData(void) const;
-		unsigned int			getSize(void) const;
+		unsigned int						getSize(void) const;
+		[[nodiscard]] bool					setPacket(PacketStructure* ps);
 		[[noreturn]] void					writeHeader(unsigned int sessionID);
-		[[nodiscard]] bool		setPacket(PacketStructure* ps);
 		[[noreturn]] void					writeString(const char* var);
 		[[noreturn]] void					writeString(const char* var, unsigned int length);
-		[[nodiscard]] const char*				readString(void);
-		unsigned int			getOffset(void) const;
+		[[nodiscard]] const char*			readString(void);
+		unsigned int						getOffset(void) const;
 
 		template<typename T>
 		inline void	write(T var)

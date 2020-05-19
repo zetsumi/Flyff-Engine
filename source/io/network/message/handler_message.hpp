@@ -17,7 +17,7 @@ namespace fe
 		[[nodiscard]] bool	pushAction(fe::type::_uint packetType, std::function<void(SOCKET id)> action);
 
 		std::unordered_map<fe::type::_uint, std::function<void(SOCKET id)>>	actions;
-		fe::PacketBuilder	pb{};
+		fe::PacketBuilder	packetBuilder{};
 
 	public:
 		HandlerMessage() = default;

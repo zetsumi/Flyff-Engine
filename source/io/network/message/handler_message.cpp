@@ -5,8 +5,8 @@
 
 void fe::HandlerMessage::loadHeader(fe::type::_uchar& mark, fe::type::_32uint& length)
 {
-	mark = pb.read<fe::type::_uchar>();
-	length = pb.read<fe::type::_32uint>();
+	mark = packetBuilder.read<fe::type::_uchar>();
+	length = packetBuilder.read<fe::type::_32uint>();
 }
 
 bool fe::HandlerMessage::pushAction(fe::type::_uint packetType, std::function<void(SOCKET id)> action)
@@ -25,8 +25,8 @@ void fe::HandlerMessage::onMsg(SOCKET id, fe::PacketStructure* ps)
 
 
 	FE_CONSOLELOG("****************");
-	pb.reset();
-	if (pb.setPacket(ps) == false)
+	packetBuilder.reset();
+	if (packetBuilder.setPacket(ps) == false)
 	{
 		FE_CONSOLELOG("fail on setPacket");
 		return;
@@ -36,7 +36,7 @@ void fe::HandlerMessage::onMsg(SOCKET id, fe::PacketStructure* ps)
 	loadHeader(mark, length);
 	FE_CONSOLELOG("header {%#02x} length{%#010x}{%u}", mark, length, length);
 
-	packetType = pb.read<fe::type::_32uint>();
+	packetType = packetBuilder.read<fe::type::_32uint>();
 	FE_CONSOLELOG("packet type{%#08x}", packetType);
 
 	auto it = actions.find(packetType);

@@ -2,6 +2,7 @@
 
 #include <framework_fengine.h>
 #include <string>
+#include <mutex>
 #include <io/network/message/handler_message.hpp>
 
 #define TEST_DEFAULT_BUILD_VERSION	"20100412"
@@ -12,9 +13,14 @@ namespace fe
 {
 	class API_DECLSPEC HandlerCertifier : public HandlerMessage
 	{
+		std::mutex			lockerSend;
 		fe::type::_32uint	sessionID = 0;
+
+		[[noreturn]] void	sendDisconnectAccount(SOCKET id, const char* account, const char* password);
 		[[noreturn]] void	sendCertify(SOCKET id, const char* buildVersion, const char* account, const char* password);
 		[[noreturn]] void	sendKeepAlive(SOCKET id);
+		[[noreturn]] void	sendError(SOCKET id);
+		[[noreturn]] void	sendNewAccount(SOCKET id, const char* account, const char* password);
 
 	public:
 		HandlerCertifier() = default;
@@ -25,6 +31,9 @@ namespace fe
 		[[noreturn]] void	onKeepAlive(SOCKET id);
 		[[noreturn]] void	onPing(SOCKET id);
 		[[noreturn]] void	onServerList(SOCKET id);
+		[[noreturn]] void	onError(SOCKET id);
+		[[noreturn]] void	onErrorString(SOCKET id);
+
 	};
 }
 
