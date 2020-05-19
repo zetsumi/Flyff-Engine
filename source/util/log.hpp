@@ -9,14 +9,14 @@
 
 namespace fe
 {
-	inline static void _log(bool console, const char* functionName, unsigned int line, const char* format, ...)
+	inline static void _log(bool consoleVS, bool endLine, const char* functionName, unsigned int line, const char* format, ...)
 	{
 		try
 		{
 			if (functionName == nullptr || format == nullptr)
 				return;
-			auto temp = std::vector<char>{};
-			auto length = std::size_t{ 1024 };
+			std::vector<char> temp = std::vector<char>{};
+			std::size_t length = std::size_t{ 1024 };
 			std::va_list args;
 			while (temp.size() <= length)
 			{
@@ -31,17 +31,30 @@ namespace fe
 
 			// Ajout de prefix au message
 			std::string message;
-			message.append(functionName);
-			message.append(" [");
-			message.append(std::to_string(line));
-			message.append("]: ");
-			message.append(std::string{ temp.data(), length });
-			message.append("\n");
+			if (consoleVS == false)
+			{
+				message.append("$> ");
+			}
+			else
+			{
+				message.append(functionName);
+				message.append(" [");
+				message.append(std::to_string(line));
+				message.append("]: ");
 
-			if (console == true)
+			}
+			message.append(std::string{ temp.data(), length });
+			if (endLine == true && consoleVS == true)
+				message.append("\n");
+
+			if (consoleVS == true)
 				::OutputDebugStringA(message.c_str());
 			else
-				std::cout << message << std::endl;
+			{
+				std::cout << message;
+				if (endLine == true)
+					std::cout << std::endl;
+			}
 		}
 		catch (const std::exception&)
 		{
@@ -51,9 +64,11 @@ namespace fe
 
 
 #if defined(_DEBUG)
-#define FE_LOG(format, ...)			fe::_log(true, __FUNCTION__, __LINE__, format, __VA_ARGS__)
-#define FE_CONSOLELOG(format, ...)	fe::_log(true, __FUNCTION__, __LINE__, format, __VA_ARGS__)
+#define FE_LOG(format, ...)			fe::_log(false, true, __FUNCTION__, __LINE__, format, __VA_ARGS__)
+#define FE_PROMPT(format, ...)		fe::_log(false, false, __FUNCTION__, __LINE__, format, __VA_ARGS__)
+#define FE_CONSOLELOG(format, ...)	fe::_log(true, true, __FUNCTION__, __LINE__, format, __VA_ARGS__)
 #else
-#define FE_CONSOLELOG(format, ...)	fe::_log(true, __FUNCTION__, __LINE__, format, __VA_ARGS__)
-#define FE_LOG(format, ...)			fe::_log(false, __FUNCTION__, __LINE__, format, __VA_ARGS__)
+#define FE_LOG(format, ...)			fe::_log(false, true, __FUNCTION__, __LINE__, format, __VA_ARGS__)
+#define FE_PROMPT(format, ...)		fe::_log(false, false, __FUNCTION__, __LINE__, format, __VA_ARGS__)
+#define FE_CONSOLELOG(format, ...)	fe::_log(true, true, __FUNCTION__, __LINE__, format, __VA_ARGS__)
 #endif //_DEBUG
