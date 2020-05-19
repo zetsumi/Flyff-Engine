@@ -21,12 +21,12 @@
   <ItemGroup>
     <ClCompile Include="source\crypto\crc32.cpp" />
     <ClCompile Include="source\dllmain_fnetwork.cpp" />
+    <ClCompile Include="source\handler\handler_certifier.cpp" />
+    <ClCompile Include="source\handler\handler_certifier_emiter.cpp" />
     <ClCompile Include="source\io\network\emit\packet_builder.cpp" />
     <ClCompile Include="source\io\network\emit\transaction.cpp" />
     <ClCompile Include="source\io\network\emit\transaction_client.cpp" />
     <ClCompile Include="source\io\network\emit\transaction_emit.cpp" />
-    <ClCompile Include="source\io\network\message\handler_certifier.cpp" />
-    <ClCompile Include="source\io\network\message\handler_certifier_emiter.cpp" />
     <ClCompile Include="source\io\network\message\handler_message.cpp" />
     <ClCompile Include="source\io\network\network.cpp" />
     <ClCompile Include="source\io\network\socket_client.cpp" />
@@ -38,10 +38,10 @@
   <ItemGroup>
     <ClInclude Include="source\crypto\crc32.hpp" />
     <ClInclude Include="source\framework_fengine.h" />
+    <ClInclude Include="source\handler\handler_certifier.hpp" />
     <ClInclude Include="source\io\network\emit\packet_builder.hpp" />
     <ClInclude Include="source\io\network\emit\packet_structure.hpp" />
     <ClInclude Include="source\io\network\emit\transaction.hpp" />
-    <ClInclude Include="source\io\network\message\handler_certifier.hpp" />
     <ClInclude Include="source\io\network\message\handler_message.hpp" />
     <ClInclude Include="source\io\network\message\packet_type.hpp" />
     <ClInclude Include="source\io\network\network.hpp" />

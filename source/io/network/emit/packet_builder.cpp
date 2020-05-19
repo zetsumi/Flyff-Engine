@@ -15,7 +15,7 @@ void	fe::PacketBuilder::debug(void) const
 {
 	FE_CONSOLELOG("======DEBUG======");
 	FE_CONSOLELOG("size[%u]", packet->size);
-	for (unsigned int i = 0; i < packet->size; ++i)
+	for (fe::type::_32uint i = 0; i < packet->size; ++i)
 		FE_CONSOLELOG("data[%u] = [%d] = 0x{%#02x}",i, packet->data[i], packet->data[i]);
 	FE_CONSOLELOG("======DEBUG======");
 }
@@ -36,17 +36,20 @@ unsigned int fe::PacketBuilder::getSize(void) const
 	return packet->size;
 }
 
-void fe::PacketBuilder::writeHeader(unsigned int sessionID)
+void fe::PacketBuilder::writeHeader(fe::type::_32uint sessionID)
 {
-	unsigned char headerMark = 0x5e;
-	unsigned int length = packet->size;
+	fe::type::_uchar mark = 0x5e;
+	fe::type::_32uint length = packet->size;
 
-	FE_CONSOLELOG("length<%u>", length);
+	FE_CONSOLELOG("mark:{%#02x} length{%#010x}{%u} sessionID{%#010x}{%u}",
+		mark,
+		length, length,
+		sessionID, sessionID);
 
-	writeFront<unsigned int>(sessionID);
-	writeFront<unsigned int>(length);
-	writeFront<unsigned int>(sessionID);
-	writeFront<unsigned char>(headerMark);
+	writeFront<fe::type::_32uint>(sessionID);
+	writeFront<fe::type::_32uint>(length);
+	writeFront<fe::type::_32uint>(sessionID);
+	writeFront<fe::type::_uchar>(mark);
 }
 
 bool	fe::PacketBuilder::setPacket(PacketStructure* ps)
@@ -77,8 +80,8 @@ void	fe::PacketBuilder::writeString(const char* var, unsigned int length)
 
 const char* fe::PacketBuilder::readString(void)
 {
-	unsigned int length = read<unsigned int>();
-	unsigned char* cur = packet->data + offset;
+	fe::type::_32uint length = read<fe::type::_32uint>();
+	fe::type::_uchar* cur = packet->data + offset;
 	char* var = new char[length + 1]();
 	::memcpy_s(var, length, cur, length);
 	var[length] = '\0';

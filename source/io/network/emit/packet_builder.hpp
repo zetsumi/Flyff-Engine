@@ -38,7 +38,7 @@ namespace fe
 		[[nodiscard]] const unsigned char*	getData(void) const;
 		unsigned int						getSize(void) const;
 		[[nodiscard]] bool					setPacket(PacketStructure* ps);
-		[[noreturn]] void					writeHeader(unsigned int sessionID);
+		[[noreturn]] void					writeHeader(fe::type::_32uint sessionID);
 		[[noreturn]] void					writeString(const char* var);
 		[[noreturn]] void					writeString(const char* var, unsigned int length);
 		[[nodiscard]] const char*			readString(void);

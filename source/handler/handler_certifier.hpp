@@ -2,6 +2,7 @@
 
 #include <framework_fengine.h>
 #include <string>
+#include <thread>
 #include <mutex>
 #include <io/network/message/handler_message.hpp>
 
@@ -15,10 +16,14 @@ namespace fe
 	{
 		std::mutex			lockerSend;
 		fe::type::_32uint	sessionID = 0;
+		std::thread			ping;
+
+		[[noreturn]] void	processPing(SOCKET id);
 
 		[[noreturn]] void	sendDisconnectAccount(SOCKET id, const char* account, const char* password);
 		[[noreturn]] void	sendCertify(SOCKET id, const char* buildVersion, const char* account, const char* password);
 		[[noreturn]] void	sendKeepAlive(SOCKET id);
+		[[noreturn]] void	sendPing(SOCKET id);
 		[[noreturn]] void	sendError(SOCKET id);
 		[[noreturn]] void	sendNewAccount(SOCKET id, const char* account, const char* password);
 

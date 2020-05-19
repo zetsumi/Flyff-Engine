@@ -9,7 +9,7 @@ void fe::HandlerMessage::loadHeader(fe::type::_uchar& mark, fe::type::_32uint& l
 	length = packetBuilder.read<fe::type::_32uint>();
 }
 
-bool fe::HandlerMessage::pushAction(fe::type::_uint packetType, std::function<void(SOCKET id)> action)
+bool fe::HandlerMessage::pushAction(fe::type::_32uint packetType, std::function<void(SOCKET id)> action)
 {
 	if (action == nullptr)
 		return false;

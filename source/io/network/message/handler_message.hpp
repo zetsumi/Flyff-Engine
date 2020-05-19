@@ -14,9 +14,9 @@ namespace fe
 		[[noreturn]] void	loadHeader(fe::type::_uchar& mark, fe::type::_32uint& length);
 
 	protected:
-		[[nodiscard]] bool	pushAction(fe::type::_uint packetType, std::function<void(SOCKET id)> action);
+		[[nodiscard]] bool	pushAction(fe::type::_32uint packetType, std::function<void(SOCKET id)> action);
 
-		std::unordered_map<fe::type::_uint, std::function<void(SOCKET id)>>	actions;
+		std::unordered_map<fe::type::_32uint, std::function<void(SOCKET id)>>	actions;
 		fe::PacketBuilder	packetBuilder{};
 
 	public:

@@ -1,5 +1,5 @@
 #include <pch_fnetwork.h>
-#include <io/network/message/handler_certifier.hpp>
+#include <handler/handler_certifier.hpp>
 
 
 void fe::HandlerCertifier::initialize(void)
@@ -16,6 +16,10 @@ void fe::HandlerCertifier::onWelcome(SOCKET id)
 {
 	FE_CONSOLELOG("welcome");
 	sessionID = packetBuilder.read<fe::type::_32uint>();
+
+	auto fct = std::bind(&HandlerCertifier::processPing, this, id);
+	ping = std::thread(fct);
+	ping.detach();
 
 	sendCertify(id, TEST_DEFAULT_BUILD_VERSION, TEST_DEFAULT_ACCOUNT, TEST_DEFAULT_PASSWORD);
 }
