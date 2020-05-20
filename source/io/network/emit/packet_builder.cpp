@@ -41,7 +41,7 @@ void fe::PacketBuilder::writeHeader(fe::type::_32uint sessionID, HANDLER_PACKET_
 	fe::type::_uchar mark = 0x5e;
 	fe::type::_32uint length = packet->size;
 
-	if (handlerType == HANDLER_PACKET_TYPE::LOGIN)
+	if (handlerType == HANDLER_PACKET_TYPE::LOGIN || handlerType == HANDLER_PACKET_TYPE::CACHE)
 	{
 		writeFront<fe::type::_32uint>(0xffffffff);
 		length = packet->size;

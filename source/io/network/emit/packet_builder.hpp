@@ -13,7 +13,8 @@ namespace fe
 	{
 		UNKNOW,
 		CERTIFIER,
-		LOGIN
+		LOGIN,
+		CACHE
 	};
 
 	class API_DECLSPEC PacketBuilder

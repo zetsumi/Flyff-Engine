@@ -14,32 +14,28 @@ extern fe::HandlerLogin			login;
 extern fe::HandlerCache			cache;
 
 
-
-bool	handler_certifier(void)
+bool	handler_cache(void)
 {
 	fe::Network network;
 
-	certifier.initialize();
+	cache.initialize();
 
-	network.setIP("127.0.0.1");
-	network.setPort(23000);
+	network.setIP(login.getCacheServerAddr());
+	network.setPort(5400);
 	if (network.isValid() == false)
 		return false;
 
+	if (_socketCache.connect(network) == false)
+		return false;
+	if (transCache.setSocket(&_socketCache) == false)
+		return false;
+	transCache.setMode(fe::MODE_TRANSACTION::MODE_CLIENT);
 
-	if (_socketCert.connect(network) == false)
+	auto onMsg = std::bind(&fe::HandlerMessage::onMsg, &cache, std::placeholders::_1, std::placeholders::_2);
+	if (transCache.run(onMsg) == false)
 		return false;
 
-	if (transCertifier.setSocket(&_socketCert) == false)
-		return false;
-	transCertifier.setMode(fe::MODE_TRANSACTION::MODE_CLIENT);
-
-
-	auto onMsg = std::bind(&fe::HandlerMessage::onMsg, &certifier, std::placeholders::_1, std::placeholders::_2);
-	if (transCertifier.run(onMsg) == false)
-		return false;
-
-	transCertifier.wait();
+	transCache.wait();
 	FE_CONSOLELOG("out");
 	return true;
 }

@@ -144,6 +144,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cache.cpp" />
+    <ClCompile Include="cmd_cache.cpp" />
     <ClCompile Include="certifier.cpp" />
     <ClCompile Include="cmd_certifier.cpp" />
     <ClCompile Include="cmd_login.cpp" />

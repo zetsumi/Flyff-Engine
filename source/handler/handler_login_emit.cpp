@@ -2,6 +2,7 @@
 #include <handler/handler_login.hpp>
 #include <ctime>
 
+
 void fe::HandlerLogin::sendQueryTickCount(SOCKET id)
 {
 	lockerSend.lock();

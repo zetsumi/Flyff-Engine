@@ -2,10 +2,16 @@
 
 fe::Transaction			transCertifier{};
 fe::Transaction			transLogin{};
-fe::HandlerCertifier	certifier;
-fe::SocketClient		_socketCert;
-fe::HandlerLogin		login;
-fe::SocketClient		_socketLog{};
+fe::Transaction			transCache{};
+
+fe::SocketClient			_socketCert{};
+fe::SocketClient			_socketLog{};
+fe::SocketClient			_socketCache{};
+
+fe::HandlerCertifier		certifier{};
+fe::HandlerLogin			login{};
+fe::HandlerCache			cache{};
+
 
 
 int main()

@@ -1,5 +1,6 @@
 #include "./header.hpp"
 
+
 extern fe::Transaction			transCertifier;
 extern fe::Transaction			transLogin;
 extern fe::Transaction			transCache;
@@ -14,14 +15,9 @@ extern fe::HandlerCache			cache;
 
 
 
-void	certifier_connect(void)
+void cache_connect(void)
 {
-	FE_LOG("connecting Certifier");
-	std::thread tcert(handler_certifier);
-	tcert.detach();
-}
-
-void	cert_disconnect(void)
-{
-	// TODO :
+	FE_LOG("connecting CacheServer");
+	std::thread tproxy(handler_cache);
+	tproxy.detach();
 }

@@ -3,10 +3,16 @@
 
 extern fe::Transaction			transCertifier;
 extern fe::Transaction			transLogin;
-extern fe::HandlerCertifier		certifier;
+extern fe::Transaction			transCache;
+
 extern fe::SocketClient			_socketCert;
-extern fe::HandlerLogin			login;
 extern fe::SocketClient			_socketLog;
+extern fe::SocketClient			_socketCache;
+
+extern fe::HandlerCertifier		certifier;
+extern fe::HandlerLogin			login;
+extern fe::HandlerCache			cache;
+
 
 
 static void help(void);
@@ -21,6 +27,9 @@ cmd_exe_1 listCommandeSimple[] = {
 	{"login_connect", "lc", login_connect},
 	{"login_query_tick_count", "lqtc", login_query_tick_count},
 	{"login_get_list_player", "lglp", login_get_list_player},
+
+	// cache / proxy
+	{"proxy_connect", "pc", cache_connect},
 	{nullptr, nullptr}
 };
 

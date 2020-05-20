@@ -2,6 +2,7 @@
 Description de different interaction entre le `Client` et le `LoginServer`.<br>
 
 ## Processus
+Le `Client` garde une connection avec le `LoginServer` durant la phase de connection.<br>
 
 ### SEND
 Liste des paquets que le `Client` envoie au `LoginServer`.<br>

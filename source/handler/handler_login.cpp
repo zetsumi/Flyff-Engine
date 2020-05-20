@@ -2,6 +2,11 @@
 #include <handler/handler_login.hpp>
 
 
+const char* fe::HandlerLogin::getCacheServerAddr(void) const
+{
+	return cacheServerAddr;
+}
+
 
 void fe::HandlerLogin::initialize(void)
 {
@@ -31,8 +36,8 @@ void fe::HandlerLogin::onQueryTickCount(SOCKET id)
 
 void fe::HandlerLogin::onCacheAddr(SOCKET id)
 {
-	const char* addr = packetBuilder.readString();
-	FE_CONSOLELOG("addr:{%s}", addr);
+	cacheServerAddr = const_cast<char*>(packetBuilder.readString());
+	FE_CONSOLELOG("cacheServerAddr:{%s}", cacheServerAddr);
 }
 
 void fe::HandlerLogin::onPlayerList(SOCKET id)
@@ -59,7 +64,7 @@ void fe::HandlerLogin::onPlayerList(SOCKET id)
 		float x = packetBuilder.read<float>();
 		float y = packetBuilder.read<float>();
 		float z = packetBuilder.read<float>();
-		FE_CONSOLELOG("Position(%f,%f,%f)",
+		FE_CONSOLELOG("Position(%f, %f, %f)",
 			x, y, z
 		);
 #pragma endregion
@@ -81,7 +86,7 @@ void fe::HandlerLogin::onPlayerList(SOCKET id)
 		fe::type::_32uint	hairMesh = packetBuilder.read<fe::type::_32uint>();
 		fe::type::_32uint	hairColor = packetBuilder.read<fe::type::_32uint>();
 		fe::type::_32uint	headMesh = packetBuilder.read<fe::type::_32uint>();
-		FE_CONSOLELOG("skinSet{%u} hairMesh{%u} hairColor{%u} headMesh{%u}",
+		FE_CONSOLELOG("skinSet{%u} hairMesh{%u} hairColor{%#010x} headMesh{%u}",
 			skinSet, hairMesh, hairColor, headMesh
 		);
 #pragma endregion

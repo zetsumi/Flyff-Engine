@@ -84,6 +84,12 @@
     <ClCompile Include="source\handler\handler_login_emit.cpp">
       <Filter>Source Files\handler</Filter>
     </ClCompile>
+    <ClCompile Include="source\handler\handler_cache.cpp">
+      <Filter>Source Files\handler</Filter>
+    </ClCompile>
+    <ClCompile Include="source\handler\handler_cache_emit.cpp">
+      <Filter>Source Files\handler</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\pch_fnetwork.h">
@@ -126,6 +132,9 @@
       <Filter>Source Files\io\network\message</Filter>
     </ClInclude>
     <ClInclude Include="source\handler\handler_login.hpp">
+      <Filter>Source Files\handler</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\handler_cache.hpp">
       <Filter>Source Files\handler</Filter>
     </ClInclude>
   </ItemGroup>
