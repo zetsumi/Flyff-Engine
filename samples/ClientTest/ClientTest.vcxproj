@@ -145,6 +145,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="certifier.cpp" />
+    <ClCompile Include="cmd_certifier.cpp" />
+    <ClCompile Include="cmd_login.cpp" />
     <ClCompile Include="login.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="prompt.cpp" />

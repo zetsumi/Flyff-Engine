@@ -52,12 +52,6 @@ void fe::PacketBuilder::writeHeader(fe::type::_32uint sessionID, HANDLER_PACKET_
 	writeFront<fe::type::_32uint>(length);
 	writeFront<fe::type::_32uint>(sessionID);
 	writeFront<fe::type::_uchar>(mark);
-
-	FE_CONSOLELOG("TYPE{%u} mark:{%#02x} length{%#010x}{%u} sessionID{%#010x}{%u}",
-		static_cast<fe::type::_32uint>(handlerType),
-		mark,
-		length, length,
-		sessionID, sessionID);
 }
 
 bool	fe::PacketBuilder::setPacket(PacketStructure* ps)

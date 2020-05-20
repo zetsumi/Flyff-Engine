@@ -13,11 +13,18 @@ namespace fe
 		HandlerLogin& operator=(const HandlerLogin& h) = default;
 		~HandlerLogin() = default;
 
-		[[noreturn]] void	sendPreJoin(SOCKET id);
 		[[noreturn]] void	sendQueryTickCount(SOCKET id);
+		[[noreturn]] void	sendGetListPlayer(SOCKET id, const char* protocolVersion, fe::type::_32uint authKey,
+												const char* account, const char* password, fe::type::_32uint idServer);
+		[[noreturn]] void	sendPreJoin(SOCKET id);
 
 		[[noreturn]] virtual void	initialize(void);
 		[[noreturn]] virtual void	onQueryTickCount(SOCKET id);
+		[[noreturn]] virtual void	onCacheAddr(SOCKET id);
+		[[noreturn]] virtual void	onPlayerList(SOCKET id);
+		[[noreturn]] virtual void	onProtectNumPad(SOCKET id);
+		[[noreturn]] virtual void	onProtectLoginCert(SOCKET id);
+
 	};
 }
 

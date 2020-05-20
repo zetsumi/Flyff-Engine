@@ -2,6 +2,8 @@
 Description de different interaction entre le `Client` et le `Certifier`.<br>
 
 ## Processus
+Le `Client` garde une connection avec le `Certifier` durant la phase de connection.<br>
+Une fois que le `Client` a recue la liste de joueurs via le `LoginSever` ***PACKETTYPE_PLAYER_LIST*** la connection se ferme.<br>
 
 ### Test de connection
 Le `Client` effectue un test de connection TCP uniquement via `connect` puis `close` la socket.<br>
@@ -11,13 +13,12 @@ TestNetLib(g_Neuz.m_lpCertifierAddr, PN_CERTIFIER);
 ```
 
 ### PING PONG
-Le client doit garder une connection ouverte avec le `Certifier` via un service de `PING PONG`.<br>
 Cela permet de verifier que le `Client` est toujours a l'ecoute.<br>
 Un message paquette ***PACKETTYPE_PING*** doit etre envoyer toutes les minutes.<br>
 
 
 ### KEEP ALIVE
-Le serveur envoyer regulierement un paquet ***PACKETTYPE_KEEP_ALIVE***.<br>
+Le serveur envoie regulierement un paquet ***PACKETTYPE_KEEP_ALIVE***.<br>
 Il s'attend que le client lui retourne aussi un paquet ***PACKETTYPE_KEEP_ALIVE***.<br>
 Le paquet envoyer et envoyer ne contient aucune ***DATA***.<br>
 

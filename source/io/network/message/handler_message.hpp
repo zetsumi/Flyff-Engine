@@ -46,6 +46,9 @@ namespace fe
 		[[noreturn]] void	onWelcome(SOCKET id);
 		[[noreturn]] void	onKeepAlive(SOCKET id);
 		[[noreturn]] void	onPing(SOCKET id);
+		[[noreturn]] void	onError(SOCKET id);
+		[[noreturn]] void	onErrorString(SOCKET id);
+
 	};
 
 	typedef void	(*callbackOnMessage)(SOCKET id, fe::PacketStructure* ps);

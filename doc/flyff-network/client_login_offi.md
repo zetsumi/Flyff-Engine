@@ -29,3 +29,6 @@ Le paquet ***PACKETTYPE_GETPLAYERLIST***.<br>
 
 ### RECEIVE
 Liste des paquets que le `LoginServer` envoie au `Client`.<br>
+
+### PACKETTYPE_PLAYER_LIST
+Liste des joueurs

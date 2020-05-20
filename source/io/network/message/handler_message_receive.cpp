@@ -9,7 +9,7 @@ void fe::HandlerMessage::onMsg(SOCKET id, fe::PacketStructure* ps)
 	fe::type::_32uint	packetType = 0;
 
 
-	FE_CONSOLELOG("****************");
+	//FE_CONSOLELOG("****************");
 	packetBuilder.reset();
 	if (packetBuilder.setPacket(ps) == false)
 	{
@@ -19,10 +19,10 @@ void fe::HandlerMessage::onMsg(SOCKET id, fe::PacketStructure* ps)
 
 
 	loadHeader(mark, length);
-	FE_CONSOLELOG("header {%#02x} length{%#010x}{%u}", mark, length, length);
+	//FE_CONSOLELOG("header {%#02x} length{%#010x}{%u}", mark, length, length);
 
 	packetType = packetBuilder.read<fe::type::_32uint>();
-	FE_CONSOLELOG("packet type{%#08x}", packetType);
+	//FE_CONSOLELOG("packet type{%#08x}", packetType);
 
 	auto it = actions.find(packetType);
 	if (it != actions.end())
@@ -30,15 +30,14 @@ void fe::HandlerMessage::onMsg(SOCKET id, fe::PacketStructure* ps)
 	else
 		FE_CONSOLELOG("packet type unknow<%#010x>", packetType);
 
-	FE_CONSOLELOG("****************");
+	//FE_CONSOLELOG("****************");
 }
 
 
 void fe::HandlerMessage::onWelcome(SOCKET id)
 {
-	FE_CONSOLELOG("welcome");
 	sessionID = packetBuilder.read<fe::type::_32uint>();
-
+	FE_CONSOLELOG("sessionID:{%u}", sessionID);
 	auto fct = std::bind(&HandlerMessage::processPing, this, id);
 	ping = std::thread(fct);
 	ping.detach();
@@ -46,11 +45,26 @@ void fe::HandlerMessage::onWelcome(SOCKET id)
 
 void fe::HandlerMessage::onKeepAlive(SOCKET id)
 {
-	FE_CONSOLELOG("keep alive");
 	sendKeepAlive(id);
 }
 
 void fe::HandlerMessage::onPing(SOCKET id)
 {
-	FE_CONSOLELOG("ping");
+}
+
+void fe::HandlerMessage::onError(SOCKET id)
+{
+	FE_CONSOLELOG("error");
+	fe::type::_32uint opcodeError = packetBuilder.read<fe::type::_32uint>();
+	FE_CONSOLELOG("OP CODE: %#010x", opcodeError);
+	sendError(id);
+}
+
+void fe::HandlerMessage::onErrorString(SOCKET id)
+{
+	FE_CONSOLELOG("error string");
+	const char* messageError = packetBuilder.readString();
+	if (messageError != nullptr)
+		FE_CONSOLELOG("Message Error: %s", messageError);
+	sendError(id);
 }
