@@ -24,6 +24,7 @@ void fe::HandlerLogin::initialize(void)
 	ON_PACKETTYPE(PACKETTYPE_PLAYER_LIST, &fe::HandlerLogin::onPlayerList);
 	ON_PACKETTYPE(PACKETTYPE_LOGIN_PROTECT_NUMPAD, &fe::HandlerLogin::onProtectNumPad);
 	ON_PACKETTYPE(PACKETTYPE_LOGIN_PROTECT_CERT, &fe::HandlerLogin::onProtectLoginCert);
+	ON_PACKETTYPE(PACKETTYPE_PRE_JOIN, &fe::HandlerLogin::onPreJoin);
 }
 
 void fe::HandlerLogin::onQueryTickCount(SOCKET id)
@@ -167,4 +168,9 @@ void fe::HandlerLogin::onProtectLoginCert(SOCKET id)
 	fe::type::_32uint logged = packetBuilder.read<fe::type::_32uint>();
 	fe::type::_32uint idNumPad = packetBuilder.read<fe::type::_32uint>();
 	FE_CONSOLELOG("logged:{%u} idNumPad:{%u}", logged, idNumPad);
+}
+
+void fe::HandlerLogin::onPreJoin(SOCKET id)
+{
+	FE_CONSOLELOG("");
 }

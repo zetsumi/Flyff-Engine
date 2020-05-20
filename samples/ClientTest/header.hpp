@@ -19,9 +19,11 @@ void	login_connect(void);
 void	login_query_tick_count(void);
 void	login_disconnect(void);
 void	login_get_list_player(void);
+void	login_pre_join(void);
 
 // Commande CacheServer
 void	cache_connect(void);
+void	cache_join(void);
 
 struct cmd_exe_1
 {

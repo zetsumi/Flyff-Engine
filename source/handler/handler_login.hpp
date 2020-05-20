@@ -23,7 +23,7 @@ namespace fe
 		[[noreturn]] void	sendQueryTickCount(SOCKET id);
 		[[noreturn]] void	sendGetListPlayer(SOCKET id, const char* protocolVersion, fe::type::_32uint authKey,
 												const char* account, const char* password, fe::type::_32uint idServer);
-		[[noreturn]] void	sendPreJoin(SOCKET id);
+		[[noreturn]] void	sendPreJoin(SOCKET id, const char* account, fe::type::_32uint idPlayer, const char* playerName, fe::type::_32int secretPIN);
 
 
 		// receiver
@@ -32,6 +32,8 @@ namespace fe
 		[[noreturn]] virtual void	onPlayerList(SOCKET id);
 		[[noreturn]] virtual void	onProtectNumPad(SOCKET id);
 		[[noreturn]] virtual void	onProtectLoginCert(SOCKET id);
+		[[noreturn]] virtual void	onPreJoin(SOCKET id);
+
 
 	};
 }

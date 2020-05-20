@@ -9,4 +9,11 @@ void fe::HandlerCache::initialize(void)
 	ON_PACKETTYPE(PACKETTYPE_PING, &fe::HandlerMessage::onPing);
 	ON_PACKETTYPE(PACKETTYPE_ERROR, &fe::HandlerMessage::onError);
 	ON_PACKETTYPE(PACKETTYPE_ERROR_STRING, &fe::HandlerMessage::onErrorString);
+
+	ON_PACKETTYPE(PACKETTYPE_JOIN, &fe::HandlerCache::onJoin);
+}
+
+void fe::HandlerCache::onJoin(SOCKET id)
+{
+	FE_CONSOLELOG("");
 }

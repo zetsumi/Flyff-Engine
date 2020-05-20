@@ -11,6 +11,17 @@ namespace fe
 		HandlerCache() = default;
 		~HandlerCache() = default;
 
+		// emit
+		[[noreturn]] void	sendJoin(SOCKET id, fe::type::_32uint idWorld, fe::type::_32uint idPlayer, fe::type::_32uint authKey,
+			fe::type::_32uint idParty, fe::type::_32uint idGuild, fe::type::_32uint idWar,
+			fe::type::_32uint idOfMulti, fe::type::_uchar slot,
+			const char* playerName, const char* account, const char* password
+		);
+
+		// global
 		[[noreturn]] virtual void	initialize(void);
+
+		// receive
+		[[noreturn]] virtual void	onJoin(SOCKET id);
 	};
 }

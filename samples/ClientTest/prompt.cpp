@@ -27,9 +27,11 @@ cmd_exe_1 listCommandeSimple[] = {
 	{"login_connect", "lc", login_connect},
 	{"login_query_tick_count", "lqtc", login_query_tick_count},
 	{"login_get_list_player", "lglp", login_get_list_player},
+	{"login_pre_join", "lpj", login_pre_join},
 
 	// cache / proxy
 	{"proxy_connect", "pc", cache_connect},
+	{"proxy_join", "pj", cache_join},
 	{nullptr, nullptr}
 };
 

@@ -41,3 +41,13 @@ void login_get_list_player(void)
 		TEST_DEFAULT_PASSWORD,
 		TEST_DEFAULT_ID_SERVER);
 }
+
+void	login_pre_join(void)
+{
+	login.sendPreJoin(_socketLog.getSocket(),
+		TEST_DEFAULT_ACCOUNT,
+		TEST_DEFAULT_ID_PLAYER,
+		TEST_DEFAULT_PLAYER_NAME,
+		-1);
+}
+

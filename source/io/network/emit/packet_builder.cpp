@@ -16,7 +16,7 @@ void	fe::PacketBuilder::debug(void) const
 	FE_CONSOLELOG("======DEBUG======");
 	FE_CONSOLELOG("size[%u]", packet->size);
 	for (fe::type::_32uint i = 0; i < packet->size; ++i)
-		FE_CONSOLELOG("data[%u] = [%d] = 0x{%#02x}",i, packet->data[i], packet->data[i]);
+		FE_CONSOLELOG("data[%u]: decimal:{%d} hexa:{0x{%#02x}}", i, packet->data[i], packet->data[i]);
 	FE_CONSOLELOG("======DEBUG======");
 }
 
