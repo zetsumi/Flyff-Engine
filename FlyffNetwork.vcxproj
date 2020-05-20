@@ -21,13 +21,19 @@
   <ItemGroup>
     <ClCompile Include="source\crypto\crc32.cpp" />
     <ClCompile Include="source\dllmain_fnetwork.cpp" />
+    <ClCompile Include="source\handler\handler_cache.cpp" />
+    <ClCompile Include="source\handler\handler_cache_emit.cpp" />
     <ClCompile Include="source\handler\handler_certifier.cpp" />
     <ClCompile Include="source\handler\handler_certifier_emiter.cpp" />
+    <ClCompile Include="source\handler\handler_login.cpp" />
+    <ClCompile Include="source\handler\handler_login_emit.cpp" />
     <ClCompile Include="source\io\network\emit\packet_builder.cpp" />
     <ClCompile Include="source\io\network\emit\transaction.cpp" />
     <ClCompile Include="source\io\network\emit\transaction_client.cpp" />
     <ClCompile Include="source\io\network\emit\transaction_emit.cpp" />
     <ClCompile Include="source\io\network\message\handler_message.cpp" />
+    <ClCompile Include="source\io\network\message\handler_message_emit.cpp" />
+    <ClCompile Include="source\io\network\message\handler_message_receive.cpp" />
     <ClCompile Include="source\io\network\network.cpp" />
     <ClCompile Include="source\io\network\socket_client.cpp" />
     <ClCompile Include="source\pch_fnetwork.cpp">
@@ -38,7 +44,9 @@
   <ItemGroup>
     <ClInclude Include="source\crypto\crc32.hpp" />
     <ClInclude Include="source\framework_fengine.h" />
+    <ClInclude Include="source\handler\handler_cache.hpp" />
     <ClInclude Include="source\handler\handler_certifier.hpp" />
+    <ClInclude Include="source\handler\handler_login.hpp" />
     <ClInclude Include="source\io\network\emit\packet_builder.hpp" />
     <ClInclude Include="source\io\network\emit\packet_structure.hpp" />
     <ClInclude Include="source\io\network\emit\transaction.hpp" />

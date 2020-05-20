@@ -2,6 +2,17 @@
 #include <io/network/message/handler_message.hpp>
 
 
+void fe::HandlerMessage::processPing(SOCKET id)
+{
+	FE_CONSOLELOG("process ping");
+	//std::chrono::minutes min = std::chrono::minutes(1);
+	std::chrono::seconds min = std::chrono::seconds(5);
+	while (true)
+	{
+		std::this_thread::sleep_for(min);
+		sendPing(id);
+	}
+}
 
 void fe::HandlerMessage::loadHeader(fe::type::_uchar& mark, fe::type::_32uint& length)
 {
@@ -17,33 +28,3 @@ bool fe::HandlerMessage::pushAction(fe::type::_32uint packetType, std::function<
 	return true;
 }
 
-void fe::HandlerMessage::onMsg(SOCKET id, fe::PacketStructure* ps)
-{
-	fe::type::_uchar	mark = 0;
-	fe::type::_32uint	length = 0;
-	fe::type::_32uint	packetType = 0;
-
-
-	FE_CONSOLELOG("****************");
-	packetBuilder.reset();
-	if (packetBuilder.setPacket(ps) == false)
-	{
-		FE_CONSOLELOG("fail on setPacket");
-		return;
-	}
-
-
-	loadHeader(mark, length);
-	FE_CONSOLELOG("header {%#02x} length{%#010x}{%u}", mark, length, length);
-
-	packetType = packetBuilder.read<fe::type::_32uint>();
-	FE_CONSOLELOG("packet type{%#08x}", packetType);
-
-	auto it = actions.find(packetType);
-	if (it != actions.end())
-		it->second(id);
-	else
-		FE_CONSOLELOG("packet type unknow<%#010x>", packetType);
-
-	FE_CONSOLELOG("****************");
-}

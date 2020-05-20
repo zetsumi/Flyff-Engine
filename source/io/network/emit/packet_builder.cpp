@@ -16,7 +16,7 @@ void	fe::PacketBuilder::debug(void) const
 	FE_CONSOLELOG("======DEBUG======");
 	FE_CONSOLELOG("size[%u]", packet->size);
 	for (fe::type::_32uint i = 0; i < packet->size; ++i)
-		FE_CONSOLELOG("data[%u] = [%d] = 0x{%#02x}",i, packet->data[i], packet->data[i]);
+		FE_CONSOLELOG("data[%u]: decimal:{%d} hexa:{0x{%#02x}}", i, packet->data[i], packet->data[i]);
 	FE_CONSOLELOG("======DEBUG======");
 }
 
@@ -36,16 +36,18 @@ unsigned int fe::PacketBuilder::getSize(void) const
 	return packet->size;
 }
 
-void fe::PacketBuilder::writeHeader(fe::type::_32uint sessionID)
+void fe::PacketBuilder::writeHeader(fe::type::_32uint sessionID, HANDLER_PACKET_TYPE handlerType)
 {
 	fe::type::_uchar mark = 0x5e;
 	fe::type::_32uint length = packet->size;
 
-	FE_CONSOLELOG("mark:{%#02x} length{%#010x}{%u} sessionID{%#010x}{%u}",
-		mark,
-		length, length,
-		sessionID, sessionID);
+	if (handlerType == HANDLER_PACKET_TYPE::LOGIN || handlerType == HANDLER_PACKET_TYPE::CACHE)
+	{
+		writeFront<fe::type::_32uint>(0xffffffff);
+		length = packet->size;
+	}
 
+	// session ID
 	writeFront<fe::type::_32uint>(sessionID);
 	writeFront<fe::type::_32uint>(length);
 	writeFront<fe::type::_32uint>(sessionID);

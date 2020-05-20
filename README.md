@@ -35,6 +35,7 @@ Projet permettant de communiquer avec les serveurs flyffs v15 ou [Rhisis](https:
     * ___project___ : Regroupement de la logique de stockage et d'utilsation des propriété chargé.
         * ___loader___ : Logique et structure de chargement d'un fichier.
     * ___property___ : Structure des différentes propriétés.
+    * ___handler___ : Gestionnaire d'évenement
     * ___util___ : Ensemble de fonction utile dans toutes circontances.
     * ___crypto___ : Outil de chiffrement et hash.
     * ___third_party___ : Ensemble de code source externe.
