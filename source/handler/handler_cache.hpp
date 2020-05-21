@@ -32,6 +32,8 @@ namespace fe
 		[[noreturn]] void	onSnapShot(SOCKET id);
 
 		// snapshottype
+		[[noreturn]] void	onEnvironmentAll(PARAMETERS_FUNCTION_SNAPSHOT);
+		[[noreturn]] void	onWorldReadInfo(PARAMETERS_FUNCTION_SNAPSHOT);
 		[[noreturn]] void	onQueryPlayerData(PARAMETERS_FUNCTION_SNAPSHOT);
 		[[noreturn]] void	onDestPos(PARAMETERS_FUNCTION_SNAPSHOT);
 		[[noreturn]] void	onMoverCorr(PARAMETERS_FUNCTION_SNAPSHOT);

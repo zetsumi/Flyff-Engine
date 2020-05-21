@@ -1,6 +1,24 @@
 #include <pch_fnetwork.h>
 #include <util/vector.hpp>
 
+void fe::HandlerCache::onEnvironmentAll(PARAMETERS_FUNCTION_SNAPSHOT)
+{
+	fe::type::_32int season = packetBuilder.read<fe::type::_32int>();
+	FE_CONSOLELOG("season{%d}", season);
+}
+
+void fe::HandlerCache::onWorldReadInfo(PARAMETERS_FUNCTION_SNAPSHOT)
+{
+	fe::type::_32uint idWorld = packetBuilder.read<fe::type::_32uint>();
+	fe::Vector3D<float> pos;
+	pos.x = packetBuilder.read<float>();
+	pos.y = packetBuilder.read<float>();
+	pos.z = packetBuilder.read<float>();
+
+	FE_CONSOLELOG("idWorld{%d}", idWorld);
+	FE_CONSOLELOG("pos(%f, %f, %f)", pos.x, pos.y, pos.z);
+}
+
 void fe::HandlerCache::onQueryPlayerData(PARAMETERS_FUNCTION_SNAPSHOT)
 {
 	fe::type::_32uint idPlayer = packetBuilder.read<fe::type::_32uint>();

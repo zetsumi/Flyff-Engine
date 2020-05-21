@@ -24,6 +24,8 @@ void fe::HandlerCache::initialize(void)
 	ON_PACKETTYPE(PACKETTYPE_JOIN,		&fe::HandlerCache::onSnapShot);
 	ON_PACKETTYPE(PACKETTYPE_SNAPSHOT,	&fe::HandlerCache::onSnapShot);
 
+	addSnapShot(SNAPSHOTTYPE_ENVIRONMENTALL,		&fe::HandlerCache::onEnvironmentAll);
+	addSnapShot(SNAPSHOTTYPE_WORLD_READINFO,		&fe::HandlerCache::onWorldReadInfo);
 	addSnapShot(SNAPSHOTTYPE_QUERY_PLAYER_DATA,		&fe::HandlerCache::onQueryPlayerData);
 	addSnapShot(SNAPSHOTTYPE_DESTPOS,				&fe::HandlerCache::onDestPos);
 	addSnapShot(SNAPSHOTTYPE_MOVERCORR,				&fe::HandlerCache::onMoverCorr);
@@ -45,7 +47,10 @@ void fe::HandlerCache::onSnapShot(SOCKET id)
 		FE_CONSOLELOG("objid{%#010x}{%u} snapshotType{%#04x}{%u}", objid, objid, snapshotType, snapshotType);
 		auto it = snapshots.find(snapshotType);
 		if (it == snapshots.end())
+		{
+			FE_CONSOLELOG("snapshotType{#04x} unknow", snapshotType);
 			break;
+		}
 		it->second(id, objid);
 	}
 }
