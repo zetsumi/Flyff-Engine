@@ -66,10 +66,10 @@ bool	fe::PacketBuilder::setPacket(PacketStructure* ps)
 void	fe::PacketBuilder::writeString(const char* var)
 {
 	size_t length = ::strlen(var);
-	writeString(var, static_cast<fe::type::_uint>(length));
+	writeString(var, static_cast<fe::type::_32uint>(length));
 }
 
-void	fe::PacketBuilder::writeString(const char* var, unsigned int length)
+void	fe::PacketBuilder::writeString(const char* var, fe::type::_32uint length)
 {
 	write<unsigned int>(length);
 	packet->data = reinterpret_cast<unsigned char*>(::realloc(packet->data, packet->size + length));

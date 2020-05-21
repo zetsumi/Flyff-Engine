@@ -21,7 +21,7 @@ void fe::Transaction::setLengthBuffer(unsigned int len)
 		lengthBuffer = len;
 }
 
-const fe::Socket const* fe::Transaction::getSocket(void) const
+const fe::Socket * const fe::Transaction::getSocket(void) const
 {
 	return _socket;
 }

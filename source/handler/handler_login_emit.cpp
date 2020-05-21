@@ -13,7 +13,8 @@ void fe::HandlerLogin::sendQueryTickCount(SOCKET id)
 	pb.write<fe::type::_32int>(static_cast<fe::type::_32uint>(tm));
 
 	pb.writeHeader(sessionID, handlerType);
-	transaction->sender(pb);
+	if (transaction->sender(pb) == false)
+		FE_CONSOLELOG("fail send");
 
 	lockerSend.unlock();
 }
@@ -33,7 +34,8 @@ void fe::HandlerLogin::sendGetListPlayer(SOCKET id, const char* protocolVersion,
 	pb.write<fe::type::_32uint>(idServer);
 
 	pb.writeHeader(sessionID, handlerType);
-	transaction->sender(pb);
+	if (transaction->sender(pb) == false)
+		FE_CONSOLELOG("fail send");
 
 	lockerSend.unlock();
 }
@@ -51,7 +53,8 @@ void fe::HandlerLogin::sendPreJoin(SOCKET id, const char* account, fe::type::_32
 	pb.write<fe::type::_32int>(secretPIN);
 
 	pb.writeHeader(sessionID, handlerType);
-	transaction->sender(pb);
+	if (transaction->sender(pb) == false)
+		FE_CONSOLELOG("fail send");
 
 	lockerSend.unlock();
 }

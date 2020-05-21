@@ -18,7 +18,8 @@ void fe::HandlerMessage::sendKeepAlive(SOCKET id)
 		pb.write<fe::type::_32uint>(dpid);
 
 	pb.writeHeader(sessionID, handlerType);
-	transaction->sender(pb);
+	if (transaction->sender(pb) == false)
+		FE_CONSOLELOG("fail send");
 
 	lockerSend.unlock();
 }
@@ -34,7 +35,8 @@ void fe::HandlerMessage::sendError(SOCKET id)
 		pb.write<fe::type::_32uint>(dpid);
 
 	pb.writeHeader(sessionID, handlerType);
-	transaction->sender(pb);
+	if (transaction->sender(pb) == false)
+		FE_CONSOLELOG("fail send");
 
 	lockerSend.unlock();
 }
@@ -48,7 +50,8 @@ void fe::HandlerMessage::sendPing(SOCKET id)
 	if (handlerType == HANDLER_PACKET_TYPE::LOGIN || handlerType == HANDLER_PACKET_TYPE::CACHE)
 		pb.write<fe::type::_32uint>(dpid);
 	pb.writeHeader(sessionID, handlerType);
-	transaction->sender(pb);
+	if (transaction->sender(pb) == false)
+		FE_CONSOLELOG("fail send");
 
 	lockerSend.unlock();
 }

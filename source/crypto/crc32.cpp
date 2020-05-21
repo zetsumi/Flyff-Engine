@@ -59,26 +59,26 @@ constexpr fe::word32 m_tab[] = {
 };
 
 
-void fe::encryptCrc32(const fe::byte* s, unsigned int n)
-{
-	fe::word32 crc = m_crc;
-
-	for (; !fe::IsAligned<fe::word32>(s) && n > 0; n--)
-		crc = m_tab[CRC32_INDEX(crc) ^ *s++] ^ CRC32_SHIFTED(crc);
-
-	while (n >= 4)
-	{
-		crc ^= *(const fe::word32*)s;
-		crc = m_tab[CRC32_INDEX(crc)] ^ CRC32_SHIFTED(crc);
-		crc = m_tab[CRC32_INDEX(crc)] ^ CRC32_SHIFTED(crc);
-		crc = m_tab[CRC32_INDEX(crc)] ^ CRC32_SHIFTED(crc);
-		crc = m_tab[CRC32_INDEX(crc)] ^ CRC32_SHIFTED(crc);
-		n -= 4;
-		s += 4;
-	}
-
-	while (n--)
-		crc = m_tab[CRC32_INDEX(crc) ^ *s++] ^ CRC32_SHIFTED(crc);
-
-	m_crc = crc;
-}
+//void fe::encryptCrc32(const fe::byte* s, unsigned int n)
+//{
+//	fe::word32 crc = m_crc;
+//
+//	for (; !fe::IsAligned<fe::word32>(s) && n > 0; n--)
+//		crc = m_tab[CRC32_INDEX(crc) ^ *s++] ^ CRC32_SHIFTED(crc);
+//
+//	while (n >= 4)
+//	{
+//		crc ^= *(const fe::word32*)s;
+//		crc = m_tab[CRC32_INDEX(crc)] ^ CRC32_SHIFTED(crc);
+//		crc = m_tab[CRC32_INDEX(crc)] ^ CRC32_SHIFTED(crc);
+//		crc = m_tab[CRC32_INDEX(crc)] ^ CRC32_SHIFTED(crc);
+//		crc = m_tab[CRC32_INDEX(crc)] ^ CRC32_SHIFTED(crc);
+//		n -= 4;
+//		s += 4;
+//	}
+//
+//	while (n--)
+//		crc = m_tab[CRC32_INDEX(crc) ^ *s++] ^ CRC32_SHIFTED(crc);
+//
+//	m_crc = crc;
+//}

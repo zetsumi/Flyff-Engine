@@ -48,7 +48,7 @@ namespace fe
 		[[nodiscard]] bool					setPacket(PacketStructure* ps);
 		[[noreturn]] void					writeHeader(fe::type::_32uint sessionID, HANDLER_PACKET_TYPE handlerType);
 		[[noreturn]] void					writeString(const char* var);
-		[[noreturn]] void					writeString(const char* var, unsigned int length);
+		[[noreturn]] void					writeString(const char* var, fe::type::_32uint length);
 		[[nodiscard]] const char*			readString(void);
 		unsigned int						getOffset(void) const;
 

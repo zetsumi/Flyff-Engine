@@ -13,7 +13,8 @@ void fe::HandlerCertifier::sendDisconnectAccount(SOCKET id, const char* account,
 	pb.writeString(password);
 
 	pb.writeHeader(sessionID, handlerType);
-	transaction->sender(pb);
+	if (transaction->sender(pb) == false)
+		FE_CONSOLELOG("fail send");
 
 	lockerSend.unlock();
 }
@@ -29,7 +30,8 @@ void fe::HandlerCertifier::sendCertify(SOCKET id, const char* buildVersion, cons
 	pb.writeString(password);
 
 	pb.writeHeader(sessionID, handlerType);
-	transaction->sender(pb);
+	if (transaction->sender(pb) == false)
+		FE_CONSOLELOG("fail send");
 
 	lockerSend.unlock();
 }
@@ -45,7 +47,8 @@ void fe::HandlerCertifier::sendNewAccount(SOCKET id, const char* account, const 
 	pb.writeString(password);
 
 	pb.writeHeader(sessionID, handlerType);
-	transaction->sender(pb);
+	if (transaction->sender(pb) == false)
+		FE_CONSOLELOG("fail send");
 
 	lockerSend.unlock();
 }
