@@ -3,7 +3,20 @@
 
 void fe::HandlerCache::onQueryPlayerData(PARAMETERS_FUNCTION_SNAPSHOT)
 {
-	FE_CONSOLELOG("");
+	fe::type::_32uint idPlayer = packetBuilder.read<fe::type::_32uint>();
+	const char* playerName = packetBuilder.readString();
+
+	fe::type::_uchar	job = packetBuilder.read<fe::type::_uchar>();
+	fe::type::_uchar	level = packetBuilder.read<fe::type::_uchar>();
+	fe::type::_uchar	sex = packetBuilder.read<fe::type::_uchar>();
+	packetBuilder.read<fe::type::_uchar>();
+	fe::type::_32int	ver = packetBuilder.read<fe::type::_32int>();
+	fe::type::_32int	login = packetBuilder.read<fe::type::_32int>();
+	FE_CONSOLELOG("job{%02x}", job);
+	FE_CONSOLELOG("level{%02x}", level);
+	FE_CONSOLELOG("sex{%02x}", sex);
+	FE_CONSOLELOG("ver{%d}", ver);
+	FE_CONSOLELOG("login{%d}", login);
 }
 
 void fe::HandlerCache::onDestPos(PARAMETERS_FUNCTION_SNAPSHOT)
