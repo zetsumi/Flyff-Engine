@@ -34,5 +34,6 @@ namespace fe
 		// snapshottype
 		[[noreturn]] void	onQueryPlayerData(PARAMETERS_FUNCTION_SNAPSHOT);
 		[[noreturn]] void	onDestPos(PARAMETERS_FUNCTION_SNAPSHOT);
+		[[noreturn]] void	onMoverCorr(PARAMETERS_FUNCTION_SNAPSHOT);
 	};
 }

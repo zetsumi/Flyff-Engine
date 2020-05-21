@@ -26,6 +26,7 @@ void fe::HandlerCache::initialize(void)
 
 	addSnapShot(SNAPSHOTTYPE_QUERY_PLAYER_DATA,		&fe::HandlerCache::onQueryPlayerData);
 	addSnapShot(SNAPSHOTTYPE_DESTPOS,				&fe::HandlerCache::onDestPos);
+	addSnapShot(SNAPSHOTTYPE_MOVERCORR,				&fe::HandlerCache::onMoverCorr);
 }
 
 void fe::HandlerCache::onSnapShot(SOCKET id)

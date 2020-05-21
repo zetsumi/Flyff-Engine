@@ -59,6 +59,7 @@
     <ClInclude Include="source\io\network\socket_client.hpp" />
     <ClInclude Include="source\pch_fnetwork.h" />
     <ClInclude Include="source\util\log.hpp" />
+    <ClInclude Include="source\util\vector.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
