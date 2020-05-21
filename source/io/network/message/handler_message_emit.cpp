@@ -2,17 +2,23 @@
 #include <io/network/message/handler_message.hpp>
 
 
+void fe::HandlerMessage::setTransaction(Transaction* newTransaction)
+{
+	if (newTransaction != nullptr)
+		transaction = newTransaction;
+}
+
 void fe::HandlerMessage::sendKeepAlive(SOCKET id)
 {
 	lockerSend.lock();
-	fe::PacketBuilder builder;
+	fe::PacketBuilder pb;
 
-	builder.write<fe::type::_32uint>(PACKETTYPE_KEEP_ALIVE);
+	pb.write<fe::type::_32uint>(PACKETTYPE_KEEP_ALIVE);
 	if (handlerType == HANDLER_PACKET_TYPE::LOGIN || handlerType == HANDLER_PACKET_TYPE::CACHE)
-		builder.write<fe::type::_32uint>(dpid);
+		pb.write<fe::type::_32uint>(dpid);
 
-	builder.writeHeader(sessionID, handlerType);
-	FE_SEND(builder, id);
+	pb.writeHeader(sessionID, handlerType);
+	transaction->sender(pb);
 
 	lockerSend.unlock();
 }
@@ -21,15 +27,14 @@ void fe::HandlerMessage::sendKeepAlive(SOCKET id)
 void fe::HandlerMessage::sendError(SOCKET id)
 {
 	lockerSend.lock();
-	fe::PacketBuilder builder;
+	fe::PacketBuilder pb;
 
-	builder.write<fe::type::_32uint>(PACKETTYPE_ERROR);
+	pb.write<fe::type::_32uint>(PACKETTYPE_ERROR);
 	if (handlerType == HANDLER_PACKET_TYPE::LOGIN || handlerType == HANDLER_PACKET_TYPE::CACHE)
-		builder.write<fe::type::_32uint>(dpid);
+		pb.write<fe::type::_32uint>(dpid);
 
-	builder.writeHeader(sessionID, handlerType);
-
-	FE_SEND(builder, id);
+	pb.writeHeader(sessionID, handlerType);
+	transaction->sender(pb);
 
 	lockerSend.unlock();
 }
@@ -37,13 +42,13 @@ void fe::HandlerMessage::sendError(SOCKET id)
 void fe::HandlerMessage::sendPing(SOCKET id)
 {
 	lockerSend.lock();
-	fe::PacketBuilder builder;
+	fe::PacketBuilder pb;
 
-	builder.write<fe::type::_32uint>(PACKETTYPE_PING);
+	pb.write<fe::type::_32uint>(PACKETTYPE_PING);
 	if (handlerType == HANDLER_PACKET_TYPE::LOGIN || handlerType == HANDLER_PACKET_TYPE::CACHE)
-		builder.write<fe::type::_32uint>(dpid);
-	builder.writeHeader(sessionID, handlerType);
-	FE_SEND(builder, id);
+		pb.write<fe::type::_32uint>(dpid);
+	pb.writeHeader(sessionID, handlerType);
+	transaction->sender(pb);
 
 	lockerSend.unlock();
 }

@@ -7,17 +7,19 @@
 #include <unordered_map>
 #include <io/network/emit/packet_structure.hpp>
 #include <io/network/message/packet_type.hpp>
+#include <io/network/emit/transaction.hpp>
 
 
 namespace fe
 {
 	class API_DECLSPEC HandlerMessage
 	{
-		[[noreturn]] void	loadHeader(fe::type::_uchar& mark, fe::type::_32uint& length);
+		[[noreturn]] void	loadHeader(fe::type::_uchar& mark, fe::type::_32uint& length, fe::type::_32uint& packettype);
 
 	protected:
 		std::unordered_map<fe::type::_32uint, std::function<void(SOCKET id)>>	actions{};
 		std::thread	ping{};
+		Transaction*		transaction = nullptr;
 		fe::PacketBuilder	packetBuilder{};
 		fe::type::_32uint	sessionID = 0;
 		std::mutex			lockerSend;
@@ -37,6 +39,8 @@ namespace fe
 		HandlerMessage(const HandlerMessage& h) = default;
 		HandlerMessage& operator=(const HandlerMessage& h) = default;
 		virtual ~HandlerMessage() = default;
+
+		[[noreturn]] void	setTransaction(Transaction* newTransaction);
 
 		[[noreturn]] void	sendKeepAlive(SOCKET id);
 		[[noreturn]] void	sendError(SOCKET id);
@@ -58,9 +62,3 @@ namespace fe
 #define	ON_PACKETTYPE(packettype, fct) \
 	if (pushAction(packettype, std::bind(fct, this, std::placeholders::_1)) == false) \
 		FE_CONSOLELOG("fail add action on packet type [%u]", packettype);
-
-#define	FE_SEND(pb, idSocket) \
-	auto buffer = pb.getData(); \
-	auto length = pb.getSize(); \
-	if (buffer != nullptr && length > 0) \
-		::send(idSocket, (char*)buffer, length, 0);

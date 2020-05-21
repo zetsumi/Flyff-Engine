@@ -4,20 +4,20 @@
 
 void fe::HandlerMessage::processPing(SOCKET id)
 {
-	FE_CONSOLELOG("process ping");
-	//std::chrono::minutes min = std::chrono::minutes(1);
-	std::chrono::seconds min = std::chrono::seconds(5);
+	std::chrono::seconds sec = std::chrono::seconds(30);
 	while (true)
 	{
-		std::this_thread::sleep_for(min);
+		std::this_thread::sleep_for(sec);
 		sendPing(id);
 	}
 }
 
-void fe::HandlerMessage::loadHeader(fe::type::_uchar& mark, fe::type::_32uint& length)
+void fe::HandlerMessage::loadHeader(fe::type::_uchar& mark, fe::type::_32uint& length, fe::type::_32uint& packettype)
 {
 	mark = packetBuilder.read<fe::type::_uchar>();
 	length = packetBuilder.read<fe::type::_32uint>();
+	packettype = packetBuilder.read<fe::type::_32uint>();
+	FE_CONSOLELOG("header {%#02x} length{%#010x}{%u} packettype{%#08x}", mark, length, length, packettype);
 }
 
 bool fe::HandlerMessage::pushAction(fe::type::_32uint packetType, std::function<void(SOCKET id)> action)

@@ -19,7 +19,6 @@ bool	handler_certifier(void)
 {
 	fe::Network network;
 
-	certifier.initialize();
 
 	network.setIP("127.0.0.1");
 	network.setPort(23000);
@@ -33,7 +32,11 @@ bool	handler_certifier(void)
 	if (transCertifier.setSocket(&_socketCert) == false)
 		return false;
 	transCertifier.setMode(fe::MODE_TRANSACTION::MODE_CLIENT);
+	unsigned int headerLength = sizeof(fe::type::_uchar) + sizeof(fe::type::_32uint) + sizeof(fe::type::_32uint);
+	transCertifier.setLengthBuffer(headerLength);
 
+	certifier.initialize();
+	certifier.setTransaction(&transCertifier);
 
 	auto onMsg = std::bind(&fe::HandlerMessage::onMsg, &certifier, std::placeholders::_1, std::placeholders::_2);
 	if (transCertifier.run(onMsg) == false)

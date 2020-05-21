@@ -18,7 +18,6 @@ bool	handler_cache(void)
 {
 	fe::Network network;
 
-	cache.initialize();
 
 	network.setIP(login.getCacheServerAddr());
 	network.setPort(5400);
@@ -30,6 +29,11 @@ bool	handler_cache(void)
 	if (transCache.setSocket(&_socketCache) == false)
 		return false;
 	transCache.setMode(fe::MODE_TRANSACTION::MODE_CLIENT);
+	unsigned int headerLength = sizeof(fe::type::_uchar) + sizeof(fe::type::_32uint) + sizeof(fe::type::_32uint);
+	transCache.setLengthBuffer(headerLength);
+
+	cache.initialize();
+	cache.setTransaction(&transCache);
 
 	auto onMsg = std::bind(&fe::HandlerMessage::onMsg, &cache, std::placeholders::_1, std::placeholders::_2);
 	if (transCache.run(onMsg) == false)

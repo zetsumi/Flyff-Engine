@@ -29,7 +29,7 @@ void fe::HandlerCache::sendJoin(SOCKET id, fe::type::_32uint idWorld, fe::type::
 	pb.write<fe::type::_32int>(0);
 
 	pb.writeHeader(sessionID, handlerType);
-	FE_SEND(pb, id);
+	transaction->sender(pb);
 
 	lockerSend.unlock();
 }

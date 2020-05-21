@@ -13,7 +13,7 @@ void fe::HandlerCertifier::sendDisconnectAccount(SOCKET id, const char* account,
 	pb.writeString(password);
 
 	pb.writeHeader(sessionID, handlerType);
-	FE_SEND(pb, id);
+	transaction->sender(pb);
 
 	lockerSend.unlock();
 }
@@ -21,16 +21,15 @@ void fe::HandlerCertifier::sendDisconnectAccount(SOCKET id, const char* account,
 void fe::HandlerCertifier::sendCertify(SOCKET id, const char* buildVersion, const char* account, const char* password)
 {
 	lockerSend.lock();
-	fe::PacketBuilder builder;
+	fe::PacketBuilder pb;
 
-	builder.write<fe::type::_32uint>(PACKETTYPE_CERTIFY);
-	builder.writeString(buildVersion);
-	builder.writeString(account);
-	builder.writeString(password);
+	pb.write<fe::type::_32uint>(PACKETTYPE_CERTIFY);
+	pb.writeString(buildVersion);
+	pb.writeString(account);
+	pb.writeString(password);
 
-	builder.writeHeader(sessionID, handlerType);
-
-	FE_SEND(builder, id);
+	pb.writeHeader(sessionID, handlerType);
+	transaction->sender(pb);
 
 	lockerSend.unlock();
 }
@@ -46,7 +45,7 @@ void fe::HandlerCertifier::sendNewAccount(SOCKET id, const char* account, const 
 	pb.writeString(password);
 
 	pb.writeHeader(sessionID, handlerType);
-	FE_SEND(pb, id);
+	transaction->sender(pb);
 
 	lockerSend.unlock();
 }

@@ -22,9 +22,15 @@ bool fe::Transaction::sender(SOCKET idSocket, PacketBuilder& packet)
 	return sender(idSocket, packet.getSize(), reinterpret_cast<const char*>(packet.getData()));
 }
 
+bool fe::Transaction::sender(PacketBuilder& packet)
+{
+	SOCKET idSocket = _socket->getSocket();
+	return sender(idSocket, packet);
+}
+
 fe::PacketStructure* fe::Transaction::receiver(SOCKET idSocket)
 {
-	return receiver(idSocket, DEFAULT_BUFFER_SIZE_RECEIVE);
+	return receiver(idSocket, lengthBuffer);
 }
 
 fe::PacketStructure* fe::Transaction::receiver(SOCKET idSocket, unsigned int bufferSize)
@@ -39,9 +45,7 @@ fe::PacketStructure* fe::Transaction::receiver(SOCKET idSocket, unsigned int buf
 
 	fe::PacketStructure* ps = new fe::PacketStructure();
 	if (ps == nullptr)
-	{
 		return nullptr;
-	}
 	ps->data = (unsigned char*)buffer;
 	ps->size = octects;
 	return ps;

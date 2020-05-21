@@ -23,6 +23,7 @@
     <ClCompile Include="source\dllmain_fnetwork.cpp" />
     <ClCompile Include="source\handler\handler_cache.cpp" />
     <ClCompile Include="source\handler\handler_cache_emit.cpp" />
+    <ClCompile Include="source\handler\handler_cache_snapshot.cpp" />
     <ClCompile Include="source\handler\handler_certifier.cpp" />
     <ClCompile Include="source\handler\handler_certifier_emiter.cpp" />
     <ClCompile Include="source\handler\handler_login.cpp" />
@@ -52,6 +53,7 @@
     <ClInclude Include="source\io\network\emit\transaction.hpp" />
     <ClInclude Include="source\io\network\message\handler_message.hpp" />
     <ClInclude Include="source\io\network\message\packet_type.hpp" />
+    <ClInclude Include="source\io\network\message\snapshot_type.hpp" />
     <ClInclude Include="source\io\network\network.hpp" />
     <ClInclude Include="source\io\network\socket.hpp" />
     <ClInclude Include="source\io\network\socket_client.hpp" />
