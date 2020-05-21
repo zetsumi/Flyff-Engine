@@ -17,6 +17,7 @@
 #define	SNAPSHOTTYPE_FLYFF_EVENT					(unsigned short)0x00b2
 #define SNAPSHOTTYPE_ALLACTION						(unsigned short)0x00b7
 #define SNAPSHOTTYPE_GUILDCOMBAT					(unsigned short)0x00b8
+#define	SNAPSHOTTYPE_DESTPOS						(unsigned short)0x00c1
 #define	SNAPSHOTTYPE_ADD_OBJ						(unsigned short)0x00f0
 #define SNAPSHOTTYPE_TAG							(unsigned short)0x00f7
 #define	SNAPSHOTTYPE_QUERY_PLAYER_DATA				(unsigned short)0x0141
