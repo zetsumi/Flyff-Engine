@@ -15,7 +15,6 @@ void fe::HandlerMessage::onMsg(SOCKET id, fe::PacketStructure* ps)
 		FE_CONSOLELOG("fail on setPacket");
 		return;
 	}
-	packetBuilder.debug();
 
 	loadHeader(mark, length, packetType);
 
@@ -30,7 +29,6 @@ void fe::HandlerMessage::onMsg(SOCKET id, fe::PacketStructure* ps)
 			FE_CONSOLELOG("fail on setPacket");
 			return;
 		}
-		packetBuilder.debug();
 	}
 
 	auto it = actions.find(packetType);

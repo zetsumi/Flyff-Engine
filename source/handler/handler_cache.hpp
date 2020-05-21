@@ -19,9 +19,10 @@ namespace fe
 		);
 
 		// global
-		[[noreturn]] virtual void	initialize(void);
+		[[noreturn]] void	initialize(void) override;
 
 		// receive
-		[[noreturn]] virtual void	onJoin(SOCKET id);
+		[[noreturn]] void	onSnapShot(SOCKET id);
+		[[noreturn]] void	onJoin(SOCKET id);
 	};
 }
