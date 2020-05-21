@@ -7,9 +7,14 @@ namespace fe
 {
 	class API_DECLSPEC HandlerCache : public HandlerMessage
 	{
+		std::unordered_map<unsigned short, std::function<void(SOCKET id, fe::type::_32uint objid)>> snapshots;
+
 	public:
 		HandlerCache() = default;
-		~HandlerCache() = default;
+		virtual ~HandlerCache() = default;
+
+		typedef void (HandlerCache::*callbackSnap)(SOCKET id, fe::type::_32uint objid);
+		[[noreturn]] void addSnapShot(unsigned short, callbackSnap action);
 
 		// emit
 		[[noreturn]] void	sendJoin(SOCKET id, fe::type::_32uint idWorld, fe::type::_32uint idPlayer, fe::type::_32uint authKey,
@@ -21,8 +26,11 @@ namespace fe
 		// global
 		[[noreturn]] void	initialize(void) override;
 
-		// receive
+		// packet type
 		[[noreturn]] void	onSnapShot(SOCKET id);
 		[[noreturn]] void	onJoin(SOCKET id);
+
+		// snapshottype
+		[[noreturn]] void	onQueryPlayerData(SOCKET id, fe::type::_32uint);
 	};
 }

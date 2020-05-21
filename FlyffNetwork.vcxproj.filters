@@ -90,6 +90,9 @@
     <ClCompile Include="source\handler\handler_cache_emit.cpp">
       <Filter>Source Files\handler</Filter>
     </ClCompile>
+    <ClCompile Include="source\handler\handler_cache_snapshot.cpp">
+      <Filter>Source Files\handler</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\pch_fnetwork.h">
@@ -136,6 +139,9 @@
     </ClInclude>
     <ClInclude Include="source\handler\handler_cache.hpp">
       <Filter>Source Files\handler</Filter>
+    </ClInclude>
+    <ClInclude Include="source\io\network\message\snapshot_type.hpp">
+      <Filter>Source Files\io\network\message</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
