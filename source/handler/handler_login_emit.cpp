@@ -11,8 +11,9 @@ void fe::HandlerLogin::sendQueryTickCount(SOCKET id)
 	std::time_t	tm = std::time(nullptr);
 	pb.write<fe::type::_32uint>(PACKETTYPE_QUERYTICKCOUNT);
 	pb.write<fe::type::_32int>(static_cast<fe::type::_32uint>(tm));
+
 	pb.writeHeader(sessionID, handlerType);
-	FE_SEND(pb, id);
+	transaction->sender(pb);
 
 	lockerSend.unlock();
 }
@@ -30,8 +31,9 @@ void fe::HandlerLogin::sendGetListPlayer(SOCKET id, const char* protocolVersion,
 	pb.writeString(account);
 	pb.writeString(password);
 	pb.write<fe::type::_32uint>(idServer);
+
 	pb.writeHeader(sessionID, handlerType);
-	FE_SEND(pb, id);
+	transaction->sender(pb);
 
 	lockerSend.unlock();
 }
@@ -47,8 +49,9 @@ void fe::HandlerLogin::sendPreJoin(SOCKET id, const char* account, fe::type::_32
 	pb.write<fe::type::_32uint>(idPlayer);
 	pb.writeString(playerName);
 	pb.write<fe::type::_32int>(secretPIN);
+
 	pb.writeHeader(sessionID, handlerType);
-	FE_SEND(pb, id);
+	transaction->sender(pb);
 
 	lockerSend.unlock();
 }

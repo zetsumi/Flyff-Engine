@@ -5,11 +5,10 @@
 void fe::HandlerMessage::processPing(SOCKET id)
 {
 	FE_CONSOLELOG("process ping");
-	//std::chrono::minutes min = std::chrono::minutes(1);
-	std::chrono::seconds min = std::chrono::seconds(5);
+	std::chrono::seconds sec = std::chrono::seconds(30);
 	while (true)
 	{
-		std::this_thread::sleep_for(min);
+		std::this_thread::sleep_for(sec);
 		sendPing(id);
 	}
 }

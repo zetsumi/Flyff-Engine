@@ -25,11 +25,13 @@ bool	handler_login(void)
 	if (transLogin.setSocket(&_socketLog) == false)
 		return false;
 	transLogin.setMode(fe::MODE_TRANSACTION::MODE_CLIENT);
+	transLogin.setLengthBuffer(500);
 
 	if (_socketLog.connect(network) == false)
 		return false;
 
 	login.initialize();
+	login.setTransaction(&transLogin);
 
 	auto onMsg = std::bind(&fe::HandlerMessage::onMsg, &login, std::placeholders::_1, std::placeholders::_2);
 	if (transLogin.run(onMsg) == false)

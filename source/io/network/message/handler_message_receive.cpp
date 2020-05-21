@@ -9,7 +9,7 @@ void fe::HandlerMessage::onMsg(SOCKET id, fe::PacketStructure* ps)
 	fe::type::_32uint	packetType = 0;
 
 
-	//FE_CONSOLELOG("****************");
+	FE_CONSOLELOG("****************");
 	packetBuilder.reset();
 	if (packetBuilder.setPacket(ps) == false)
 	{
@@ -19,10 +19,10 @@ void fe::HandlerMessage::onMsg(SOCKET id, fe::PacketStructure* ps)
 
 
 	loadHeader(mark, length);
-	//FE_CONSOLELOG("header {%#02x} length{%#010x}{%u}", mark, length, length);
+	FE_CONSOLELOG("header {%#02x} length{%#010x}{%u}", mark, length, length);
 
 	packetType = packetBuilder.read<fe::type::_32uint>();
-	//FE_CONSOLELOG("packet type{%#08x}", packetType);
+	FE_CONSOLELOG("packet type{%#08x}", packetType);
 
 	auto it = actions.find(packetType);
 	if (it != actions.end())
@@ -30,7 +30,7 @@ void fe::HandlerMessage::onMsg(SOCKET id, fe::PacketStructure* ps)
 	else
 		FE_CONSOLELOG("packet type unknow<%#010x>", packetType);
 
-	//FE_CONSOLELOG("****************");
+	FE_CONSOLELOG("****************");
 }
 
 
