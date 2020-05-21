@@ -32,7 +32,8 @@ bool	handler_certifier(void)
 	if (transCertifier.setSocket(&_socketCert) == false)
 		return false;
 	transCertifier.setMode(fe::MODE_TRANSACTION::MODE_CLIENT);
-	transCertifier.setLengthBuffer(500);
+	unsigned int headerLength = sizeof(fe::type::_uchar) + sizeof(fe::type::_32uint) + sizeof(fe::type::_32uint);
+	transCertifier.setLengthBuffer(headerLength);
 
 	certifier.initialize();
 	certifier.setTransaction(&transCertifier);

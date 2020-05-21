@@ -14,7 +14,7 @@ namespace fe
 {
 	class API_DECLSPEC HandlerMessage
 	{
-		[[noreturn]] void	loadHeader(fe::type::_uchar& mark, fe::type::_32uint& length);
+		[[noreturn]] void	loadHeader(fe::type::_uchar& mark, fe::type::_32uint& length, fe::type::_32uint& packettype);
 
 	protected:
 		std::unordered_map<fe::type::_32uint, std::function<void(SOCKET id)>>	actions{};

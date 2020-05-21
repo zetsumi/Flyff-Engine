@@ -8,7 +8,6 @@ void fe::HandlerMessage::onMsg(SOCKET id, fe::PacketStructure* ps)
 	fe::type::_32uint	length = 0;
 	fe::type::_32uint	packetType = 0;
 
-
 	FE_CONSOLELOG("****************");
 	packetBuilder.reset();
 	if (packetBuilder.setPacket(ps) == false)
@@ -16,13 +15,23 @@ void fe::HandlerMessage::onMsg(SOCKET id, fe::PacketStructure* ps)
 		FE_CONSOLELOG("fail on setPacket");
 		return;
 	}
+	packetBuilder.debug();
 
+	loadHeader(mark, length, packetType);
 
-	loadHeader(mark, length);
-	FE_CONSOLELOG("header {%#02x} length{%#010x}{%u}", mark, length, length);
-
-	packetType = packetBuilder.read<fe::type::_32uint>();
-	FE_CONSOLELOG("packet type{%#08x}", packetType);
+	SOCKET idSocket = transaction->getSocket()->getSocket();
+	unsigned int lenData = length - sizeof(fe::type::_32uint); // Taille moins sizeof() packettype
+	if (lenData > 0)
+	{
+		fe::PacketStructure* psData = transaction->receiver(idSocket, lenData);
+		packetBuilder.reset();
+		if (packetBuilder.setPacket(psData) == false)
+		{
+			FE_CONSOLELOG("fail on setPacket");
+			return;
+		}
+		packetBuilder.debug();
+	}
 
 	auto it = actions.find(packetType);
 	if (it != actions.end())
@@ -37,7 +46,7 @@ void fe::HandlerMessage::onMsg(SOCKET id, fe::PacketStructure* ps)
 void fe::HandlerMessage::onWelcome(SOCKET id)
 {
 	sessionID = packetBuilder.read<fe::type::_32uint>();
-	FE_CONSOLELOG("sessionID:{%u}", sessionID);
+	FE_CONSOLELOG("sessionID:{%u}{%#010x}", sessionID);
 	auto fct = std::bind(&HandlerMessage::processPing, this, id);
 	ping = std::thread(fct);
 	ping.detach();
@@ -54,7 +63,6 @@ void fe::HandlerMessage::onPing(SOCKET id)
 
 void fe::HandlerMessage::onError(SOCKET id)
 {
-	FE_CONSOLELOG("error");
 	fe::type::_32uint opcodeError = packetBuilder.read<fe::type::_32uint>();
 	FE_CONSOLELOG("OP CODE: %#010x", opcodeError);
 	sendError(id);
@@ -62,7 +70,6 @@ void fe::HandlerMessage::onError(SOCKET id)
 
 void fe::HandlerMessage::onErrorString(SOCKET id)
 {
-	FE_CONSOLELOG("error string");
 	const char* messageError = packetBuilder.readString();
 	if (messageError != nullptr)
 		FE_CONSOLELOG("Message Error: %s", messageError);

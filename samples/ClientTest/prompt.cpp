@@ -50,9 +50,10 @@ void		prompt(void)
 {
 	FE_LOG("BUILD[% s] ACCOUNT[% s] PASSWORD[% s]", TEST_DEFAULT_BUILD_VERSION, TEST_DEFAULT_ACCOUNT, TEST_DEFAULT_PASSWORD);
 
-	FE_PROMPT("press enter to connect certifier !");
+	FE_PROMPT("press enter to login!");
 	std::string line;
 	std::getline(std::cin, line);
+
 	certifier.sendCertify(_socketCert.getSocket(), TEST_DEFAULT_BUILD_VERSION, TEST_DEFAULT_ACCOUNT, TEST_DEFAULT_PASSWORD);
 
 	bool r = false;

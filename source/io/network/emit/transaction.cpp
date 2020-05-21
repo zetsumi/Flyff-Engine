@@ -21,6 +21,11 @@ void fe::Transaction::setLengthBuffer(unsigned int len)
 		lengthBuffer = len;
 }
 
+const fe::Socket const* fe::Transaction::getSocket(void) const
+{
+	return _socket;
+}
+
 bool fe::Transaction::isMode(MODE_TRANSACTION modeTransaction)
 {
 	return mode == modeTransaction;

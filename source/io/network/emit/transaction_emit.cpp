@@ -45,9 +45,7 @@ fe::PacketStructure* fe::Transaction::receiver(SOCKET idSocket, unsigned int buf
 
 	fe::PacketStructure* ps = new fe::PacketStructure();
 	if (ps == nullptr)
-	{
 		return nullptr;
-	}
 	ps->data = (unsigned char*)buffer;
 	ps->size = octects;
 	return ps;

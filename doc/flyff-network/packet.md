@@ -1,6 +1,16 @@
 # Packet Structure
 
 ## Structure d'un packet.
+
+### Recue
+| ID            |      OCTECT       |  DESCRIPTION          |
+|:----------    |:-------------:    |:------                |
+| HEADER MARK   |  1                | 0x5e, fixe            |
+| LENGTH        |  4                | taille                |
+| PACKETTYPE    |  4                | type du paquet        |
+| DATA          |  LENGTH - 4       | donnee du paquet      |
+
+### Envoie
 | ID            |      OCTECT       |  DESCRIPTION          |
 |:----------    |:-------------:    |:------                |
 | HEADER MARK   |  1                | 0x5e, fixe            |

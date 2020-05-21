@@ -38,6 +38,7 @@ namespace fe
 		[[nodiscard]] bool	setSocket(Socket* s);
 		[[noreturn]] void	setMode(MODE_TRANSACTION modeTransaction);
 		[[noreturn]] void	setLengthBuffer(unsigned int len);
+		[[nodiscard]] const Socket const* getSocket(void) const;
 		[[nodiscard]] bool	isMode(MODE_TRANSACTION modeTransaction);
 		[[nodiscard]] bool	run(std::function<void(SOCKET id, fe::PacketStructure* ps)> callback);
 
