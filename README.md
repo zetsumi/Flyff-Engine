@@ -17,8 +17,13 @@ Le code source et l'application elle-même sont destinés à être utilisés en 
 Projet permettant de chargé les fichier crééer par [Flyff-Script](https://github.com/zetsumi/Flyff-Scripts).<br>
 
 ***Flyff Network***
-/!\ Ce projet n'est pas affilié avec ***Eastrall*** /!\\.<br>
-Projet permettant de communiquer avec les serveurs flyffs v15 ou [Rhisis](https://github.com/Eastrall/Rhisis).<br>
+/!\ Ce projet n'est pas affilié avec ***Eastrall*** /!\<br>
+Projet permettant de communiquer avec les serveurs fly for fun v15 ou [Rhisis](https://github.com/Eastrall/Rhisis).<br>
+[Documentation](https://github.com/zetsumi/Flyff-Engine/tree/master/doc/flyff-network/README.md).<br>
+[Paquet](https://github.com/zetsumi/Flyff-Engine/tree/master/doc/flyff-network/packet.md).<br>
+[Snapshot](https://github.com/zetsumi/Flyff-Engine/tree/master/doc/flyff-network/snapshot.md).<br>
+[Certifier](https://github.com/zetsumi/Flyff-Engine/tree/master/doc/flyff-network/client_certifier_offi.md).<br>
+[LoginServer](https://github.com/zetsumi/Flyff-Engine/tree/master/doc/flyff-network/client_login_offi.md).<br>
 
 
 ## <img src="https://raw.githubusercontent.com/isocpp/logos/master/cpp_logo.png" width="40" height="40"> <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Windows_logo_-_2012.png" width="40" height="40"> <img src="https://fr.wikipedia.org/wiki/Fichier:Flyff_logo.svg" width="40" height="40">
