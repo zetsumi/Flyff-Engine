@@ -3,11 +3,15 @@
 #include <framework_fengine.h>
 #include <io/network/message/handler_message.hpp>
 
+#define	PARAMETERS_FUNCTION_SNAPSHOT SOCKET id, fe::type::_32uint objid
+
 namespace fe
 {
 	class API_DECLSPEC HandlerCache : public HandlerMessage
 	{
-		std::unordered_map<unsigned short, std::function<void(SOCKET id, fe::type::_32uint objid)>> snapshots;
+		std::unordered_map<unsigned short, std::function<void(PARAMETERS_FUNCTION_SNAPSHOT)>> snapshots;
+
+		[[noreturn]] void	initializeSnapshop(void);
 
 	public:
 		HandlerCache() = default;
@@ -28,9 +32,14 @@ namespace fe
 
 		// packet type
 		[[noreturn]] void	onSnapShot(SOCKET id);
-		[[noreturn]] void	onJoin(SOCKET id);
 
 		// snapshottype
-		[[noreturn]] void	onQueryPlayerData(SOCKET id, fe::type::_32uint);
+		[[noreturn]] void	onEnvironmentAll(PARAMETERS_FUNCTION_SNAPSHOT);
+		[[noreturn]] void	onWorldReadInfo(PARAMETERS_FUNCTION_SNAPSHOT);
+		[[noreturn]] void	onAddObj(PARAMETERS_FUNCTION_SNAPSHOT);
+
+		[[noreturn]] void	onQueryPlayerData(PARAMETERS_FUNCTION_SNAPSHOT);
+		[[noreturn]] void	onDestPos(PARAMETERS_FUNCTION_SNAPSHOT);
+		[[noreturn]] void	onMoverCorr(PARAMETERS_FUNCTION_SNAPSHOT);
 	};
 }

@@ -21,7 +21,7 @@ bool	handler_certifier(void)
 
 
 	network.setIP("127.0.0.1");
-	network.setPort(23000);
+	network.setPort(fe::portCertifier);
 	if (network.isValid() == false)
 		return false;
 

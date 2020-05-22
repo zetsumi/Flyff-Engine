@@ -10,6 +10,9 @@ bool	handler_certifier(void);
 bool	handler_cache(void);
 void	prompt(void);
 
+// Command tips
+void tip_fast_connect(void);
+
 // Commande Certifier
 void	cert_disconnect(void);
 void	certifier_connect(void);

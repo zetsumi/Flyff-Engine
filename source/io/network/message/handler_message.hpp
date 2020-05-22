@@ -12,6 +12,10 @@
 
 namespace fe
 {
+	constexpr unsigned int portCertifier = 23000;
+	constexpr unsigned int portLoginServer = 28000;
+	constexpr unsigned int portCacheServer = 5400;
+
 	class API_DECLSPEC HandlerMessage
 	{
 		[[noreturn]] void	loadHeader(fe::type::_uchar& mark, fe::type::_32uint& length, fe::type::_32uint& packettype);

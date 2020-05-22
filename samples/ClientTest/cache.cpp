@@ -20,7 +20,7 @@ bool	handler_cache(void)
 
 
 	network.setIP(login.getCacheServerAddr());
-	network.setPort(5400);
+	network.setPort(fe::portCacheServer);
 	if (network.isValid() == false)
 		return false;
 

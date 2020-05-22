@@ -1,5 +1,4 @@
 #include <pch_fnetwork.h>
-#include <io/network/message/snapshot_type.hpp>
 
 void fe::HandlerCache::addSnapShot(unsigned short type, fe::HandlerCache::callbackSnap action)
 {
@@ -15,16 +14,16 @@ void fe::HandlerCache::initialize(void)
 {
 	handlerType = HANDLER_PACKET_TYPE::CACHE;
 
-	ON_PACKETTYPE(PACKETTYPE_WELCOME, &fe::HandlerMessage::onWelcome);
-	ON_PACKETTYPE(PACKETTYPE_KEEP_ALIVE, &fe::HandlerMessage::onKeepAlive);
-	ON_PACKETTYPE(PACKETTYPE_PING, &fe::HandlerMessage::onPing);
-	ON_PACKETTYPE(PACKETTYPE_ERROR, &fe::HandlerMessage::onError);
-	ON_PACKETTYPE(PACKETTYPE_ERROR_STRING, &fe::HandlerMessage::onErrorString);
+	ON_PACKETTYPE(PACKETTYPE_WELCOME,		&fe::HandlerMessage::onWelcome);
+	ON_PACKETTYPE(PACKETTYPE_KEEP_ALIVE,	&fe::HandlerMessage::onKeepAlive);
+	ON_PACKETTYPE(PACKETTYPE_PING,			&fe::HandlerMessage::onPing);
+	ON_PACKETTYPE(PACKETTYPE_ERROR,			&fe::HandlerMessage::onError);
+	ON_PACKETTYPE(PACKETTYPE_ERROR_STRING,	&fe::HandlerMessage::onErrorString);
 
-	ON_PACKETTYPE(PACKETTYPE_JOIN, &fe::HandlerCache::onJoin);
-	ON_PACKETTYPE(PACKETTYPE_SNAPSHOT, &fe::HandlerCache::onSnapShot);
+	ON_PACKETTYPE(PACKETTYPE_JOIN,		&fe::HandlerCache::onSnapShot);
+	ON_PACKETTYPE(PACKETTYPE_SNAPSHOT,	&fe::HandlerCache::onSnapShot);
 
-	addSnapShot(SNAPSHOTTYPE_QUERY_PLAYER_DATA, &fe::HandlerCache::onQueryPlayerData);
+	initializeSnapshop();
 }
 
 void fe::HandlerCache::onSnapShot(SOCKET id)
@@ -43,14 +42,11 @@ void fe::HandlerCache::onSnapShot(SOCKET id)
 		FE_CONSOLELOG("objid{%#010x}{%u} snapshotType{%#04x}{%u}", objid, objid, snapshotType, snapshotType);
 		auto it = snapshots.find(snapshotType);
 		if (it == snapshots.end())
+		{
+			FE_CONSOLELOG("snapshotType{%#04x} unknow", snapshotType);
 			break;
+		}
 		it->second(id, objid);
 	}
 }
-
-void fe::HandlerCache::onJoin(SOCKET id)
-{
-	FE_CONSOLELOG("");
-}
-
 

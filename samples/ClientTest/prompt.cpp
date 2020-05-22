@@ -20,6 +20,9 @@ static void help(void);
 cmd_exe_1 listCommandeSimple[] = {
 	{"help", "h", help},
 
+	// tips
+	{"tip_fast_connect", "tfc", tip_fast_connect},
+
 	// certifier
 	{"cert_connect", "cc", certifier_connect},
 

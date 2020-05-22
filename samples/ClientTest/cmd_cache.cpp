@@ -24,6 +24,7 @@ void cache_connect(void)
 
 void	cache_join(void)
 {
+	FE_LOG("Sending Join Game");
 	cache.sendJoin(_socketCache.getSocket(),
 		TEST_DEFAULT_ID_WORLD,
 		TEST_DEFAULT_ID_PLAYER,

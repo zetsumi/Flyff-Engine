@@ -18,7 +18,7 @@ bool	handler_login(void)
 	fe::Network network;
 
 	network.setIP("127.0.0.1");
-	network.setPort(28000);
+	network.setPort(fe::portLoginServer);
 	if (network.isValid() == false)
 		return false;
 
