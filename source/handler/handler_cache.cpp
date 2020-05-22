@@ -1,5 +1,4 @@
 #include <pch_fnetwork.h>
-#include <io/network/message/snapshot_type.hpp>
 
 void fe::HandlerCache::addSnapShot(unsigned short type, fe::HandlerCache::callbackSnap action)
 {
@@ -24,11 +23,7 @@ void fe::HandlerCache::initialize(void)
 	ON_PACKETTYPE(PACKETTYPE_JOIN,		&fe::HandlerCache::onSnapShot);
 	ON_PACKETTYPE(PACKETTYPE_SNAPSHOT,	&fe::HandlerCache::onSnapShot);
 
-	addSnapShot(SNAPSHOTTYPE_ENVIRONMENTALL,		&fe::HandlerCache::onEnvironmentAll);
-	addSnapShot(SNAPSHOTTYPE_WORLD_READINFO,		&fe::HandlerCache::onWorldReadInfo);
-	addSnapShot(SNAPSHOTTYPE_QUERY_PLAYER_DATA,		&fe::HandlerCache::onQueryPlayerData);
-	addSnapShot(SNAPSHOTTYPE_DESTPOS,				&fe::HandlerCache::onDestPos);
-	addSnapShot(SNAPSHOTTYPE_MOVERCORR,				&fe::HandlerCache::onMoverCorr);
+	initializeSnapshop();
 }
 
 void fe::HandlerCache::onSnapShot(SOCKET id)
@@ -48,7 +43,7 @@ void fe::HandlerCache::onSnapShot(SOCKET id)
 		auto it = snapshots.find(snapshotType);
 		if (it == snapshots.end())
 		{
-			FE_CONSOLELOG("snapshotType{#04x} unknow", snapshotType);
+			FE_CONSOLELOG("snapshotType{%#04x} unknow", snapshotType);
 			break;
 		}
 		it->second(id, objid);

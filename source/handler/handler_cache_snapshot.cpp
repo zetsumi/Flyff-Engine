@@ -1,5 +1,15 @@
 #include <pch_fnetwork.h>
+#include <io/network/message/snapshot_type.hpp>
 #include <util/vector.hpp>
+
+void fe::HandlerCache::initializeSnapshop(void)
+{
+	addSnapShot(SNAPSHOTTYPE_ENVIRONMENTALL, &fe::HandlerCache::onEnvironmentAll);
+	addSnapShot(SNAPSHOTTYPE_WORLD_READINFO, &fe::HandlerCache::onWorldReadInfo);
+	addSnapShot(SNAPSHOTTYPE_QUERY_PLAYER_DATA, &fe::HandlerCache::onQueryPlayerData);
+	addSnapShot(SNAPSHOTTYPE_DESTPOS, &fe::HandlerCache::onDestPos);
+	addSnapShot(SNAPSHOTTYPE_MOVERCORR, &fe::HandlerCache::onMoverCorr);
+}
 
 void fe::HandlerCache::onEnvironmentAll(PARAMETERS_FUNCTION_SNAPSHOT)
 {
@@ -17,6 +27,14 @@ void fe::HandlerCache::onWorldReadInfo(PARAMETERS_FUNCTION_SNAPSHOT)
 
 	FE_CONSOLELOG("idWorld{%d}", idWorld);
 	FE_CONSOLELOG("pos(%f, %f, %f)", pos.x, pos.y, pos.z);
+}
+
+void fe::HandlerCache::onAddObj(PARAMETERS_FUNCTION_SNAPSHOT)
+{
+	fe::type::_32uint typeObj = packetBuilder.read<fe::type::_32uint>();
+	fe::type::_32uint indexObj = packetBuilder.read<fe::type::_32uint>();
+
+	// TODO : check GetCtrl
 }
 
 void fe::HandlerCache::onQueryPlayerData(PARAMETERS_FUNCTION_SNAPSHOT)

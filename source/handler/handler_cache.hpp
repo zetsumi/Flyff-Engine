@@ -11,6 +11,8 @@ namespace fe
 	{
 		std::unordered_map<unsigned short, std::function<void(PARAMETERS_FUNCTION_SNAPSHOT)>> snapshots;
 
+		[[noreturn]] void	initializeSnapshop(void);
+
 	public:
 		HandlerCache() = default;
 		virtual ~HandlerCache() = default;
@@ -34,6 +36,8 @@ namespace fe
 		// snapshottype
 		[[noreturn]] void	onEnvironmentAll(PARAMETERS_FUNCTION_SNAPSHOT);
 		[[noreturn]] void	onWorldReadInfo(PARAMETERS_FUNCTION_SNAPSHOT);
+		[[noreturn]] void	onAddObj(PARAMETERS_FUNCTION_SNAPSHOT);
+
 		[[noreturn]] void	onQueryPlayerData(PARAMETERS_FUNCTION_SNAPSHOT);
 		[[noreturn]] void	onDestPos(PARAMETERS_FUNCTION_SNAPSHOT);
 		[[noreturn]] void	onMoverCorr(PARAMETERS_FUNCTION_SNAPSHOT);
