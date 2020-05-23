@@ -1,6 +1,5 @@
 #include <pch_fnetwork.h>
 #include <io/network/message/snapshot_type.hpp>
-#include <util/vector.hpp>
 
 void fe::HandlerCache::initializeSnapshop(void)
 {
@@ -9,6 +8,7 @@ void fe::HandlerCache::initializeSnapshop(void)
 	addSnapShot(SNAPSHOTTYPE_QUERY_PLAYER_DATA, &fe::HandlerCache::onQueryPlayerData);
 	addSnapShot(SNAPSHOTTYPE_DESTPOS, &fe::HandlerCache::onDestPos);
 	addSnapShot(SNAPSHOTTYPE_MOVERCORR, &fe::HandlerCache::onMoverCorr);
+	addSnapShot(SNAPSHOTTYPE_GETPOS, &fe::HandlerCache::onGetPosition);
 }
 
 void fe::HandlerCache::onEnvironmentAll(PARAMETERS_FUNCTION_SNAPSHOT)
@@ -20,7 +20,7 @@ void fe::HandlerCache::onEnvironmentAll(PARAMETERS_FUNCTION_SNAPSHOT)
 void fe::HandlerCache::onWorldReadInfo(PARAMETERS_FUNCTION_SNAPSHOT)
 {
 	fe::type::_32uint idWorld = packetBuilder.read<fe::type::_32uint>();
-	fe::Vector3D<float> pos;
+	fe::Vector3D<float> pos{0, 0, 0};
 	pos.x = packetBuilder.read<float>();
 	pos.y = packetBuilder.read<float>();
 	pos.z = packetBuilder.read<float>();
@@ -101,4 +101,17 @@ void fe::HandlerCache::onMoverCorr(PARAMETERS_FUNCTION_SNAPSHOT)
 	FE_CONSOLELOG("motionOption{%u} ", motionOption);
 	FE_CONSOLELOG("tick{%d} ", tick);
 
+}
+
+void fe::HandlerCache::onGetPosition(PARAMETERS_FUNCTION_SNAPSHOT)
+{
+	fe::Vector3D<float> pos;
+	pos.x = packetBuilder.read<float>();
+	pos.y = packetBuilder.read<float>();
+	pos.z = packetBuilder.read<float>();
+	float angle = packetBuilder.read<float>();
+
+	FE_CONSOLELOG("pos(%f, %f, %f) angle{%f}",
+		pos.x, pos.y, pos.z,
+		angle);
 }

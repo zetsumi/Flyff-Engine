@@ -2,6 +2,7 @@
 
 #define SNAPSHOTTYPE_CHAT							(unsigned short)0x0001
 #define	SNAPSHOTTYPE_CREATESFXOBJ					(unsigned short)0x000f
+#define	SNAPSHOTTYPE_GETPOS							(unsigned short)0x001f
 #define SNAPSHOTTYPE_GAMERATE						(unsigned short)0x002e
 #define SNAPSHOTTYPE_SM_MODE_ALL					(unsigned short)0x003e
 #define SNAPSHOTTYPE_MONSTERPROP					(unsigned short)0x004e

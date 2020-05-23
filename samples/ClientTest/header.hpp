@@ -27,6 +27,8 @@ void	login_pre_join(void);
 // Commande CacheServer
 void	cache_connect(void);
 void	cache_join(void);
+void	cache_get_pos(void);
+void	cache_dest_pos(void);
 
 struct cmd_exe_1
 {

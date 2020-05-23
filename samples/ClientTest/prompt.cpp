@@ -35,6 +35,8 @@ cmd_exe_1 listCommandeSimple[] = {
 	// cache / proxy
 	{"proxy_connect", "pc", cache_connect},
 	{"proxy_join", "pj", cache_join},
+	{"proxy_get_pos", "pgp", cache_get_pos},
+	{"proxy_dest_pos", "pdp", cache_dest_pos},
 	{nullptr, nullptr}
 };
 

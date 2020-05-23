@@ -39,3 +39,21 @@ void	cache_join(void)
 		TEST_DEFAULT_PASSWORD
 	);
 }
+
+void	cache_get_pos(void)
+{
+	cache.sendGetPosition(_socketCache.getSocket(),
+		TEST_DEFAULT_ID_PLAYER
+	);
+}
+
+fe::Vector3D<float> dest{ 6959.27734, 100.000000, 3462.15723 };
+
+void	cache_dest_pos(void)
+{
+	dest.x += 3;
+	cache.sendDestinationPosition(_socketCache.getSocket(),
+		dest,
+		1
+	);
+}

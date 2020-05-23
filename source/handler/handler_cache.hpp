@@ -3,6 +3,7 @@
 #include <framework_fengine.h>
 #include <io/network/message/handler_message.hpp>
 
+
 #define	PARAMETERS_FUNCTION_SNAPSHOT SOCKET id, fe::type::_32uint objid
 
 namespace fe
@@ -26,6 +27,8 @@ namespace fe
 			fe::type::_32uint idOfMulti, fe::type::_uchar slot,
 			const char* playerName, const char* account, const char* password
 		);
+		[[noreturn]] void	sendGetPosition(SOCKET id, fe::type::_32uint idMover);
+		[[noreturn]] void	sendDestinationPosition(SOCKET id, const fe::Vector3D<float>& destination, fe::type::_uchar forward);
 
 		// global
 		[[noreturn]] void	initialize(void) override;
@@ -41,5 +44,7 @@ namespace fe
 		[[noreturn]] void	onQueryPlayerData(PARAMETERS_FUNCTION_SNAPSHOT);
 		[[noreturn]] void	onDestPos(PARAMETERS_FUNCTION_SNAPSHOT);
 		[[noreturn]] void	onMoverCorr(PARAMETERS_FUNCTION_SNAPSHOT);
+		[[noreturn]] void	onGetPosition(PARAMETERS_FUNCTION_SNAPSHOT);
+
 	};
 }

@@ -7,7 +7,7 @@ namespace fe
 {
 	class API_DECLSPEC Network
 	{
-		std::string		ip{};
+		std::string		ip{""};
 		unsigned int	port = 0;
 
 	public:
