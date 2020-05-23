@@ -88,7 +88,7 @@ void fe::HandlerCache::onMoverCorr(PARAMETERS_FUNCTION_SNAPSHOT)
 	fe::type::_32uint flag = packetBuilder.read<fe::type::_32uint>();
 	fe::type::_32uint motion = packetBuilder.read<fe::type::_32uint>();
 	fe::type::_32uint motionExtend = packetBuilder.read<fe::type::_32uint>();
-	fe::type::_32int loop = packetBuilder.read<fe::type::_32uint>();
+	fe::type::_32int loop = packetBuilder.read<fe::type::_32int>();
 	fe::type::_32uint motionOption = packetBuilder.read<fe::type::_32uint>();
 	fe::type::_int tick = packetBuilder.read<fe::type::_32uint>();
 
