@@ -49,6 +49,8 @@
     <ClInclude Include="source\crypto\crc32.hpp" />
     <ClInclude Include="source\framework_fengine.h" />
     <ClInclude Include="source\handler\cache\handler_cache.hpp" />
+    <ClInclude Include="source\handler\cache\packets_snap\packets_snap.hpp" />
+    <ClInclude Include="source\handler\cache\packets_type\packets_type.hpp" />
     <ClInclude Include="source\handler\certifier\handler_certifier.hpp" />
     <ClInclude Include="source\handler\certifier\packets\packets_serveur_list.hpp" />
     <ClInclude Include="source\handler\certifier\packets\packet_certifiers.hpp" />

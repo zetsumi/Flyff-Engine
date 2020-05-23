@@ -3,6 +3,8 @@
 #include <framework_fengine.h>
 #include <io/network/message/handler_message.hpp>
 #include <io/network/message/packet_message.hpp>
+#include <handler/cache/packets_type/packets_type.hpp>
+#include <handler/cache/packets_snap/packets_snap.hpp>
 
 
 #define	PARAMETERS_FUNCTION_SNAPSHOT SOCKET id, fe::type::_32uint objid

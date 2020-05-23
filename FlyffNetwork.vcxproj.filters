@@ -49,6 +49,12 @@
     <Filter Include="Source Files\handler\login\packets">
       <UniqueIdentifier>{e119b5ae-2cef-4e74-9406-d21d751ea678}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\handler\cache\packets_type">
+      <UniqueIdentifier>{0a2bdb6c-ad45-40d2-b00f-19e0d5a537ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\handler\cache\packets_snap">
+      <UniqueIdentifier>{0aa01104-cac0-4639-819a-4f4a534f31c7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\dllmain_fnetwork.cpp">
@@ -196,6 +202,12 @@
     </ClInclude>
     <ClInclude Include="source\handler\login\packets\packet_protect_login_cert.hpp">
       <Filter>Source Files\handler\login\packets</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\cache\packets_type\packets_type.hpp">
+      <Filter>Source Files\handler\cache\packets_type</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\cache\packets_snap\packets_snap.hpp">
+      <Filter>Source Files\handler\cache\packets_snap</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

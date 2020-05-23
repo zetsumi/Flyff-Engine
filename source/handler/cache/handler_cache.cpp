@@ -3,10 +3,7 @@
 void fe::HandlerCache::addSnapShot(unsigned short type, fe::HandlerCache::callbackSnap action)
 {
 	if (action != nullptr)
-	{
-		auto fct = std::bind(action, this, std::placeholders::_1, std::placeholders::_2);
-		snapshots[type] = fct;
-	}
+		snapshots[type] = std::bind(action, this, std::placeholders::_1, std::placeholders::_2);
 }
 
 
