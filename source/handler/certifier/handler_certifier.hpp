@@ -11,8 +11,6 @@ namespace fe
 {
 	class API_DECLSPEC HandlerCertifier : public HandlerMessage
 	{
-		fe::type::_32uint authKey = 0;
-
 		// recv
 		fe::PacketMessage* onServerList(SOCKET id);
 

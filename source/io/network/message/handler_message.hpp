@@ -25,15 +25,16 @@ namespace fe
 
 	protected:
 		std::unordered_map<fe::type::_32uint, std::function<fe::PacketMessage* (SOCKET id)>>	actions{};
-		std::thread	ping{};
-		Transaction*		transaction = nullptr;
-		fe::PacketBuilder	packetBuilder{};
-		fe::type::_32uint	sessionID = 0;
-		std::mutex			lockerSend;
-		fe::type::_32uint	dpid = 0xffffffff;
-		HANDLER_PACKET_TYPE	handlerType = HANDLER_PACKET_TYPE::UNKNOW;
-		std::queue<fe::PacketMessage*>	messages;
-		std::mutex						mtMessage;
+		std::thread						ping{};
+		Transaction*					transaction = nullptr;
+		fe::PacketBuilder				packetBuilder{};
+		fe::type::_32uint				sessionID = 0;
+		std::mutex						lockerSend;
+		fe::type::_32uint				dpid = 0xffffffff;
+		HANDLER_PACKET_TYPE				handlerType = HANDLER_PACKET_TYPE::UNKNOW;
+		std::queue<fe::PacketMessage*>	messages{};
+		std::mutex						mtMessage{};
+		fe::type::_32uint				authKey = 0;
 
 		// global
 		[[nodiscard]] bool	pushAction(fe::type::_32uint packetType, std::function<fe::PacketMessage* (SOCKET id)> action);

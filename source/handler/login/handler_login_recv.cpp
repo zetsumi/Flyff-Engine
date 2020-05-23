@@ -20,7 +20,7 @@ fe::PacketMessage* fe::HandlerLogin::onCacheAddr(SOCKET id)
 
 fe::PacketMessage* fe::HandlerLogin::onPlayerList(SOCKET id)
 {
-	fe::type::_32uint	authKey = packetBuilder.read<fe::type::_32uint>();
+	authKey = packetBuilder.read<fe::type::_32uint>();
 	fe::type::_32int	countPlayer = packetBuilder.read<fe::type::_32int>();
 	FE_CONSOLELOG("authKey{%u} countPlayer{%d}",
 		authKey, countPlayer
