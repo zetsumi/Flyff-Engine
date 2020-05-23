@@ -23,9 +23,11 @@
     <ClCompile Include="source\dllmain_fnetwork.cpp" />
     <ClCompile Include="source\handler\handler_cache.cpp" />
     <ClCompile Include="source\handler\handler_cache_emit.cpp" />
-    <ClCompile Include="source\handler\handler_cache_snapshot.cpp" />
+    <ClCompile Include="source\handler\handler_cache_recv.cpp" />
+    <ClCompile Include="source\handler\handler_cache_recv_snapshot.cpp" />
     <ClCompile Include="source\handler\handler_certifier.cpp" />
     <ClCompile Include="source\handler\handler_certifier_emiter.cpp" />
+    <ClCompile Include="source\handler\handler_certifier_recv.cpp" />
     <ClCompile Include="source\handler\handler_login.cpp" />
     <ClCompile Include="source\handler\handler_login_emit.cpp" />
     <ClCompile Include="source\io\network\emit\packet_builder.cpp" />
@@ -34,7 +36,7 @@
     <ClCompile Include="source\io\network\emit\transaction_emit.cpp" />
     <ClCompile Include="source\io\network\message\handler_message.cpp" />
     <ClCompile Include="source\io\network\message\handler_message_emit.cpp" />
-    <ClCompile Include="source\io\network\message\handler_message_receive.cpp" />
+    <ClCompile Include="source\io\network\message\handler_message_recv.cpp" />
     <ClCompile Include="source\io\network\network.cpp" />
     <ClCompile Include="source\io\network\socket_client.cpp" />
     <ClCompile Include="source\pch_fnetwork.cpp">
@@ -48,10 +50,12 @@
     <ClInclude Include="source\handler\handler_cache.hpp" />
     <ClInclude Include="source\handler\handler_certifier.hpp" />
     <ClInclude Include="source\handler\handler_login.hpp" />
+    <ClInclude Include="source\handler\handler_login_recv.cpp" />
     <ClInclude Include="source\io\network\emit\packet_builder.hpp" />
     <ClInclude Include="source\io\network\emit\packet_structure.hpp" />
     <ClInclude Include="source\io\network\emit\transaction.hpp" />
     <ClInclude Include="source\io\network\message\handler_message.hpp" />
+    <ClInclude Include="source\io\network\message\packet_message.hpp" />
     <ClInclude Include="source\io\network\message\packet_type.hpp" />
     <ClInclude Include="source\io\network\message\snapshot_type.hpp" />
     <ClInclude Include="source\io\network\network.hpp" />

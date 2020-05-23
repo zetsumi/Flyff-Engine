@@ -20,7 +20,7 @@ void fe::HandlerMessage::loadHeader(fe::type::_uchar& mark, fe::type::_32uint& l
 	FE_CONSOLELOG("header {%#02x} length{%#010x}{%u} packettype{%#08x}", mark, length, length, packettype);
 }
 
-bool fe::HandlerMessage::pushAction(fe::type::_32uint packetType, std::function<void(SOCKET id)> action)
+bool fe::HandlerMessage::pushAction(fe::type::_32uint packetType, std::function<const fe::PacketMessage* (SOCKET id)> action)
 {
 	if (action == nullptr)
 		return false;

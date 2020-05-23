@@ -5,6 +5,7 @@
 
 namespace fe
 {
+#pragma warning( disable : 4251 )
 	class API_DECLSPEC Network
 	{
 		std::string		ip{""};
@@ -23,4 +24,5 @@ namespace fe
 		const char* getIP(void) const { return ip.c_str(); }
 		unsigned int getPort(void) const { return port; }
 	};
+#pragma warning( default : 4251 )
 }

@@ -2,6 +2,7 @@
 
 #include <framework_fengine.h>
 #include <io/network/message/handler_message.hpp>
+#include <io/network/message/packet_message.hpp>
 
 
 #define	PARAMETERS_FUNCTION_SNAPSHOT SOCKET id, fe::type::_32uint objid
@@ -10,15 +11,27 @@ namespace fe
 {
 	class API_DECLSPEC HandlerCache : public HandlerMessage
 	{
-		std::unordered_map<unsigned short, std::function<void(PARAMETERS_FUNCTION_SNAPSHOT)>> snapshots;
+		std::unordered_map<unsigned short, std::function<const fe::PacketMessage* (PARAMETERS_FUNCTION_SNAPSHOT)>> snapshots;
 
 		[[noreturn]] void	initializeSnapshop(void);
+
+		// packet type
+		const fe::PacketMessage* onSnapShot(SOCKET id);
+
+		// snapshottype
+		const fe::PacketMessage* onEnvironmentAll(PARAMETERS_FUNCTION_SNAPSHOT);
+		const fe::PacketMessage* onWorldReadInfo(PARAMETERS_FUNCTION_SNAPSHOT);
+		const fe::PacketMessage* onAddObj(PARAMETERS_FUNCTION_SNAPSHOT);
+		const fe::PacketMessage* onQueryPlayerData(PARAMETERS_FUNCTION_SNAPSHOT);
+		const fe::PacketMessage* onDestPos(PARAMETERS_FUNCTION_SNAPSHOT);
+		const fe::PacketMessage* onMoverCorr(PARAMETERS_FUNCTION_SNAPSHOT);
+		const fe::PacketMessage* onGetPosition(PARAMETERS_FUNCTION_SNAPSHOT);
 
 	public:
 		HandlerCache() = default;
 		virtual ~HandlerCache() = default;
 
-		typedef void (HandlerCache::*callbackSnap)(SOCKET id, fe::type::_32uint objid);
+		typedef const fe::PacketMessage* (HandlerCache::*callbackSnap)(SOCKET id, fe::type::_32uint objid);
 		[[noreturn]] void addSnapShot(unsigned short, callbackSnap action);
 
 		// emit
@@ -32,19 +45,6 @@ namespace fe
 
 		// global
 		[[noreturn]] void	initialize(void) override;
-
-		// packet type
-		[[noreturn]] void	onSnapShot(SOCKET id);
-
-		// snapshottype
-		[[noreturn]] void	onEnvironmentAll(PARAMETERS_FUNCTION_SNAPSHOT);
-		[[noreturn]] void	onWorldReadInfo(PARAMETERS_FUNCTION_SNAPSHOT);
-		[[noreturn]] void	onAddObj(PARAMETERS_FUNCTION_SNAPSHOT);
-
-		[[noreturn]] void	onQueryPlayerData(PARAMETERS_FUNCTION_SNAPSHOT);
-		[[noreturn]] void	onDestPos(PARAMETERS_FUNCTION_SNAPSHOT);
-		[[noreturn]] void	onMoverCorr(PARAMETERS_FUNCTION_SNAPSHOT);
-		[[noreturn]] void	onGetPosition(PARAMETERS_FUNCTION_SNAPSHOT);
 
 	};
 }

@@ -1,6 +1,8 @@
 #pragma once
 
 #include <framework_fengine.h>
+#include <io/network/message/handler_message.hpp>
+#include <io/network/message/packet_message.hpp>
 
 namespace fe
 {
@@ -8,6 +10,13 @@ namespace fe
 	{
 		char* cacheServerAddr = nullptr;
 
+		// recv
+		const fe::PacketMessage* onQueryTickCount(SOCKET id);
+		const fe::PacketMessage* onCacheAddr(SOCKET id);
+		const fe::PacketMessage* onPlayerList(SOCKET id);
+		const fe::PacketMessage* onProtectNumPad(SOCKET id);
+		const fe::PacketMessage* onProtectLoginCert(SOCKET id);
+		const fe::PacketMessage* onPreJoin(SOCKET id);
 	public:
 		HandlerLogin() = default;
 		HandlerLogin(HandlerLogin&& h) = default;
@@ -16,7 +25,7 @@ namespace fe
 		~HandlerLogin() = default;
 
 		// global
-		[[noreturn]] virtual void	initialize(void);
+		[[noreturn]] void	initialize(void) override;
 		[[nodiscard]] const char* getCacheServerAddr(void) const;
 
 		// emit
@@ -24,16 +33,5 @@ namespace fe
 		[[noreturn]] void	sendGetListPlayer(SOCKET id, const char* protocolVersion, fe::type::_32uint authKey,
 												const char* account, const char* password, fe::type::_32uint idServer);
 		[[noreturn]] void	sendPreJoin(SOCKET id, const char* account, fe::type::_32uint idPlayer, const char* playerName, fe::type::_32int secretPIN);
-
-
-		// receiver
-		[[noreturn]] virtual void	onQueryTickCount(SOCKET id);
-		[[noreturn]] virtual void	onCacheAddr(SOCKET id);
-		[[noreturn]] virtual void	onPlayerList(SOCKET id);
-		[[noreturn]] virtual void	onProtectNumPad(SOCKET id);
-		[[noreturn]] virtual void	onProtectLoginCert(SOCKET id);
-		[[noreturn]] virtual void	onPreJoin(SOCKET id);
-
-
 	};
 }
