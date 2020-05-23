@@ -30,6 +30,7 @@
     <ClCompile Include="source\handler\handler_certifier_recv.cpp" />
     <ClCompile Include="source\handler\handler_login.cpp" />
     <ClCompile Include="source\handler\handler_login_emit.cpp" />
+    <ClCompile Include="source\handler\handler_login_recv.cpp" />
     <ClCompile Include="source\io\network\emit\packet_builder.cpp" />
     <ClCompile Include="source\io\network\emit\transaction.cpp" />
     <ClCompile Include="source\io\network\emit\transaction_client.cpp" />
@@ -50,7 +51,6 @@
     <ClInclude Include="source\handler\handler_cache.hpp" />
     <ClInclude Include="source\handler\handler_certifier.hpp" />
     <ClInclude Include="source\handler\handler_login.hpp" />
-    <ClInclude Include="source\handler\handler_login_recv.cpp" />
     <ClInclude Include="source\io\network\emit\packet_builder.hpp" />
     <ClInclude Include="source\io\network\emit\packet_structure.hpp" />
     <ClInclude Include="source\io\network\emit\transaction.hpp" />

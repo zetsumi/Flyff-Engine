@@ -108,6 +108,9 @@
     <ClCompile Include="source\handler\handler_cache_recv_snapshot.cpp">
       <Filter>Source Files\handler\cache</Filter>
     </ClCompile>
+    <ClCompile Include="source\handler\handler_login_recv.cpp">
+      <Filter>Source Files\handler\login</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\pch_fnetwork.h">
@@ -162,9 +165,6 @@
       <Filter>Source Files\handler\certifier</Filter>
     </ClInclude>
     <ClInclude Include="source\handler\handler_login.hpp">
-      <Filter>Source Files\handler\login</Filter>
-    </ClInclude>
-    <ClInclude Include="source\handler\handler_login_recv.cpp">
       <Filter>Source Files\handler\login</Filter>
     </ClInclude>
   </ItemGroup>
