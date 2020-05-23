@@ -57,6 +57,7 @@ fe::PacketMessage* fe::HandlerMessage::onWelcome(SOCKET id)
 {
 	sessionID = packetBuilder.read<fe::type::_32uint>();
 	FE_CONSOLELOG("sessionID:{%u}{%#010x}", sessionID);
+
 	auto fct = std::bind(&HandlerMessage::processPing, this, id);
 	ping = std::thread(fct);
 	ping.detach();

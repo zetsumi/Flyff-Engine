@@ -21,7 +21,6 @@ namespace fe
 
 	class API_DECLSPEC HandlerMessage
 	{
-
 		[[noreturn]] void	loadHeader(fe::type::_uchar& mark, fe::type::_32uint& length, fe::type::_32uint& packettype);
 
 	protected:
@@ -52,7 +51,8 @@ namespace fe
 
 		// global
 		[[noreturn]] virtual void	initialize(void) = 0;
-		[[noreturn]] void	setTransaction(Transaction* newTransaction);
+		[[noreturn]] void			setTransaction(Transaction* newTransaction);
+		[[noreturn]] void			killPing(void);
 
 		// emit
 		[[noreturn]] void	sendKeepAlive(SOCKET id);

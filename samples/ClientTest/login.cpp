@@ -38,6 +38,7 @@ bool	handler_login(void)
 	if (transLogin.run(onMsg) == false)
 		return false;
 	transLogin.wait();
+	login.killPing();
 	FE_CONSOLELOG("out");
 	return true;
 }

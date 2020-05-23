@@ -34,6 +34,12 @@ void login_disconnect(void)
 
 void login_get_list_player(void)
 {
+	FE_LOG("Build{%s} AuthKey{%u} Account{%s} Password{%s} IdServer{%u}",
+		TEST_DEFAULT_BUILD_VERSION,
+		certifier.getAuthKey(),
+		TEST_DEFAULT_ACCOUNT,
+		TEST_DEFAULT_PASSWORD,
+		TEST_DEFAULT_ID_SERVER);
 	login.sendGetListPlayer(_socketLog.getSocket(),
 		TEST_DEFAULT_BUILD_VERSION,
 		certifier.getAuthKey(),
