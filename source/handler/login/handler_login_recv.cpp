@@ -1,7 +1,7 @@
 #include <pch_fnetwork.h>
-#include <handler/handler_login.hpp>
+#include <handler/login/handler_login.hpp>
 
-const fe::PacketMessage* fe::HandlerLogin::onQueryTickCount(SOCKET id)
+fe::PacketMessage* fe::HandlerLogin::onQueryTickCount(SOCKET id)
 {
 	fe::type::_32int timer = packetBuilder.read<fe::type::_32uint>();
 	fe::type::_int tick = packetBuilder.read<fe::type::_int>();
@@ -11,14 +11,14 @@ const fe::PacketMessage* fe::HandlerLogin::onQueryTickCount(SOCKET id)
 	return nullptr;
 }
 
-const fe::PacketMessage* fe::HandlerLogin::onCacheAddr(SOCKET id)
+fe::PacketMessage* fe::HandlerLogin::onCacheAddr(SOCKET id)
 {
 	cacheServerAddr = const_cast<char*>(packetBuilder.readString());
 	FE_CONSOLELOG("cacheServerAddr:{%s}", cacheServerAddr);
 	return nullptr;
 }
 
-const fe::PacketMessage* fe::HandlerLogin::onPlayerList(SOCKET id)
+fe::PacketMessage* fe::HandlerLogin::onPlayerList(SOCKET id)
 {
 	fe::type::_32uint	authKey = packetBuilder.read<fe::type::_32uint>();
 	fe::type::_32int	countPlayer = packetBuilder.read<fe::type::_32int>();
@@ -135,14 +135,14 @@ const fe::PacketMessage* fe::HandlerLogin::onPlayerList(SOCKET id)
 	return nullptr;
 }
 
-const fe::PacketMessage* fe::HandlerLogin::onProtectNumPad(SOCKET id)
+fe::PacketMessage* fe::HandlerLogin::onProtectNumPad(SOCKET id)
 {
 	fe::type::_32uint idNumPad = packetBuilder.read<fe::type::_32uint>();
 	FE_CONSOLELOG("idNumPad {%u}", idNumPad);
 	return nullptr;
 }
 
-const fe::PacketMessage* fe::HandlerLogin::onProtectLoginCert(SOCKET id)
+fe::PacketMessage* fe::HandlerLogin::onProtectLoginCert(SOCKET id)
 {
 	fe::type::_32uint logged = packetBuilder.read<fe::type::_32uint>();
 	fe::type::_32uint idNumPad = packetBuilder.read<fe::type::_32uint>();
@@ -150,7 +150,7 @@ const fe::PacketMessage* fe::HandlerLogin::onProtectLoginCert(SOCKET id)
 	return nullptr;
 }
 
-const fe::PacketMessage* fe::HandlerLogin::onPreJoin(SOCKET id)
+fe::PacketMessage* fe::HandlerLogin::onPreJoin(SOCKET id)
 {
 	FE_CONSOLELOG("");
 	return nullptr;

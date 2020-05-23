@@ -78,37 +78,37 @@
     <ClCompile Include="source\io\network\message\handler_message_emit.cpp">
       <Filter>Source Files\io\network\message</Filter>
     </ClCompile>
-    <ClCompile Include="source\handler\handler_cache.cpp">
-      <Filter>Source Files\handler\cache</Filter>
-    </ClCompile>
-    <ClCompile Include="source\handler\handler_cache_emit.cpp">
-      <Filter>Source Files\handler\cache</Filter>
-    </ClCompile>
-    <ClCompile Include="source\handler\handler_certifier.cpp">
-      <Filter>Source Files\handler\certifier</Filter>
-    </ClCompile>
-    <ClCompile Include="source\handler\handler_certifier_emiter.cpp">
-      <Filter>Source Files\handler\certifier</Filter>
-    </ClCompile>
-    <ClCompile Include="source\handler\handler_login.cpp">
-      <Filter>Source Files\handler\login</Filter>
-    </ClCompile>
-    <ClCompile Include="source\handler\handler_login_emit.cpp">
-      <Filter>Source Files\handler\login</Filter>
-    </ClCompile>
-    <ClCompile Include="source\handler\handler_certifier_recv.cpp">
-      <Filter>Source Files\handler\certifier</Filter>
-    </ClCompile>
-    <ClCompile Include="source\handler\handler_cache_recv.cpp">
-      <Filter>Source Files\handler\cache</Filter>
-    </ClCompile>
     <ClCompile Include="source\io\network\message\handler_message_recv.cpp">
       <Filter>Source Files\io\network\message</Filter>
     </ClCompile>
-    <ClCompile Include="source\handler\handler_cache_recv_snapshot.cpp">
+    <ClCompile Include="source\handler\cache\handler_cache_emit.cpp">
       <Filter>Source Files\handler\cache</Filter>
     </ClCompile>
-    <ClCompile Include="source\handler\handler_login_recv.cpp">
+    <ClCompile Include="source\handler\cache\handler_cache_recv.cpp">
+      <Filter>Source Files\handler\cache</Filter>
+    </ClCompile>
+    <ClCompile Include="source\handler\cache\handler_cache_recv_snapshot.cpp">
+      <Filter>Source Files\handler\cache</Filter>
+    </ClCompile>
+    <ClCompile Include="source\handler\cache\handler_cache.cpp">
+      <Filter>Source Files\handler\cache</Filter>
+    </ClCompile>
+    <ClCompile Include="source\handler\certifier\handler_certifier_emiter.cpp">
+      <Filter>Source Files\handler\certifier</Filter>
+    </ClCompile>
+    <ClCompile Include="source\handler\certifier\handler_certifier_recv.cpp">
+      <Filter>Source Files\handler\certifier</Filter>
+    </ClCompile>
+    <ClCompile Include="source\handler\certifier\handler_certifier.cpp">
+      <Filter>Source Files\handler\certifier</Filter>
+    </ClCompile>
+    <ClCompile Include="source\handler\login\handler_login_recv.cpp">
+      <Filter>Source Files\handler\login</Filter>
+    </ClCompile>
+    <ClCompile Include="source\handler\login\handler_login.cpp">
+      <Filter>Source Files\handler\login</Filter>
+    </ClCompile>
+    <ClCompile Include="source\handler\login\handler_login_emit.cpp">
       <Filter>Source Files\handler\login</Filter>
     </ClCompile>
   </ItemGroup>
@@ -158,14 +158,17 @@
     <ClInclude Include="source\io\network\message\packet_message.hpp">
       <Filter>Source Files\io\network\message</Filter>
     </ClInclude>
-    <ClInclude Include="source\handler\handler_cache.hpp">
+    <ClInclude Include="source\handler\cache\handler_cache.hpp">
       <Filter>Source Files\handler\cache</Filter>
     </ClInclude>
-    <ClInclude Include="source\handler\handler_certifier.hpp">
+    <ClInclude Include="source\handler\certifier\handler_certifier.hpp">
       <Filter>Source Files\handler\certifier</Filter>
     </ClInclude>
-    <ClInclude Include="source\handler\handler_login.hpp">
+    <ClInclude Include="source\handler\login\handler_login.hpp">
       <Filter>Source Files\handler\login</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\certifier\packet_certifier.hpp">
+      <Filter>Source Files\handler\certifier</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

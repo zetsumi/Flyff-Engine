@@ -11,23 +11,23 @@ namespace fe
 {
 	class API_DECLSPEC HandlerCache : public HandlerMessage
 	{
-		typedef const fe::PacketMessage* (HandlerCache::* callbackSnap)(SOCKET id, fe::type::_32uint objid);
-		std::unordered_map<unsigned short, std::function<const fe::PacketMessage* (PARAMETERS_FUNCTION_SNAPSHOT)>> snapshots;
+		typedef fe::PacketMessage* (HandlerCache::* callbackSnap)(SOCKET id, fe::type::_32uint objid);
+		std::unordered_map<unsigned short, std::function<fe::PacketMessage* (PARAMETERS_FUNCTION_SNAPSHOT)>> snapshots;
 
 		[[noreturn]] void	initializeSnapshop(void);
 		[[noreturn]] void addSnapShot(unsigned short, callbackSnap action);
 
 		// packet type
-		const fe::PacketMessage* onSnapShot(SOCKET id);
+		fe::PacketMessage* onSnapShot(SOCKET id);
 
 		// snapshottype
-		const fe::PacketMessage* onEnvironmentAll(PARAMETERS_FUNCTION_SNAPSHOT);
-		const fe::PacketMessage* onWorldReadInfo(PARAMETERS_FUNCTION_SNAPSHOT);
-		const fe::PacketMessage* onAddObj(PARAMETERS_FUNCTION_SNAPSHOT);
-		const fe::PacketMessage* onQueryPlayerData(PARAMETERS_FUNCTION_SNAPSHOT);
-		const fe::PacketMessage* onDestPos(PARAMETERS_FUNCTION_SNAPSHOT);
-		const fe::PacketMessage* onMoverCorr(PARAMETERS_FUNCTION_SNAPSHOT);
-		const fe::PacketMessage* onGetPosition(PARAMETERS_FUNCTION_SNAPSHOT);
+		fe::PacketMessage* onEnvironmentAll(PARAMETERS_FUNCTION_SNAPSHOT);
+		fe::PacketMessage* onWorldReadInfo(PARAMETERS_FUNCTION_SNAPSHOT);
+		fe::PacketMessage* onAddObj(PARAMETERS_FUNCTION_SNAPSHOT);
+		fe::PacketMessage* onQueryPlayerData(PARAMETERS_FUNCTION_SNAPSHOT);
+		fe::PacketMessage* onDestPos(PARAMETERS_FUNCTION_SNAPSHOT);
+		fe::PacketMessage* onMoverCorr(PARAMETERS_FUNCTION_SNAPSHOT);
+		fe::PacketMessage* onGetPosition(PARAMETERS_FUNCTION_SNAPSHOT);
 
 	public:
 		HandlerCache() = default;

@@ -11,14 +11,14 @@ void fe::HandlerCache::initializeSnapshop(void)
 	addSnapShot(SNAPSHOTTYPE_GETPOS, &fe::HandlerCache::onGetPosition);
 }
 
-const fe::PacketMessage* fe::HandlerCache::onEnvironmentAll(PARAMETERS_FUNCTION_SNAPSHOT)
+fe::PacketMessage* fe::HandlerCache::onEnvironmentAll(PARAMETERS_FUNCTION_SNAPSHOT)
 {
 	fe::type::_32int season = packetBuilder.read<fe::type::_32int>();
 	FE_CONSOLELOG("season{%d}", season);
 	return nullptr;
 }
 
-const fe::PacketMessage* fe::HandlerCache::onWorldReadInfo(PARAMETERS_FUNCTION_SNAPSHOT)
+fe::PacketMessage* fe::HandlerCache::onWorldReadInfo(PARAMETERS_FUNCTION_SNAPSHOT)
 {
 	fe::type::_32uint idWorld = packetBuilder.read<fe::type::_32uint>();
 	fe::Vector3D<float> pos{0, 0, 0};
@@ -31,7 +31,7 @@ const fe::PacketMessage* fe::HandlerCache::onWorldReadInfo(PARAMETERS_FUNCTION_S
 	return nullptr;
 }
 
-const fe::PacketMessage* fe::HandlerCache::onAddObj(PARAMETERS_FUNCTION_SNAPSHOT)
+fe::PacketMessage* fe::HandlerCache::onAddObj(PARAMETERS_FUNCTION_SNAPSHOT)
 {
 	fe::type::_32uint typeObj = packetBuilder.read<fe::type::_32uint>();
 	fe::type::_32uint indexObj = packetBuilder.read<fe::type::_32uint>();
@@ -40,7 +40,7 @@ const fe::PacketMessage* fe::HandlerCache::onAddObj(PARAMETERS_FUNCTION_SNAPSHOT
 	return nullptr;
 }
 
-const fe::PacketMessage* fe::HandlerCache::onQueryPlayerData(PARAMETERS_FUNCTION_SNAPSHOT)
+fe::PacketMessage* fe::HandlerCache::onQueryPlayerData(PARAMETERS_FUNCTION_SNAPSHOT)
 {
 	fe::type::_32uint idPlayer = packetBuilder.read<fe::type::_32uint>();
 	const char* playerName = packetBuilder.readString();
@@ -59,7 +59,7 @@ const fe::PacketMessage* fe::HandlerCache::onQueryPlayerData(PARAMETERS_FUNCTION
 	return nullptr;
 }
 
-const fe::PacketMessage* fe::HandlerCache::onDestPos(PARAMETERS_FUNCTION_SNAPSHOT)
+fe::PacketMessage* fe::HandlerCache::onDestPos(PARAMETERS_FUNCTION_SNAPSHOT)
 {
 	float x = packetBuilder.read<float>();
 	float y = packetBuilder.read<float>();
@@ -73,7 +73,7 @@ const fe::PacketMessage* fe::HandlerCache::onDestPos(PARAMETERS_FUNCTION_SNAPSHO
 	return nullptr;
 }
 
-const fe::PacketMessage* fe::HandlerCache::onMoverCorr(PARAMETERS_FUNCTION_SNAPSHOT)
+fe::PacketMessage* fe::HandlerCache::onMoverCorr(PARAMETERS_FUNCTION_SNAPSHOT)
 {
 	fe::Vector3D<float> pos, delta;
 
@@ -108,7 +108,7 @@ const fe::PacketMessage* fe::HandlerCache::onMoverCorr(PARAMETERS_FUNCTION_SNAPS
 	return nullptr;
 }
 
-const fe::PacketMessage* fe::HandlerCache::onGetPosition(PARAMETERS_FUNCTION_SNAPSHOT)
+fe::PacketMessage* fe::HandlerCache::onGetPosition(PARAMETERS_FUNCTION_SNAPSHOT)
 {
 	fe::Vector3D<float> pos;
 	pos.x = packetBuilder.read<float>();

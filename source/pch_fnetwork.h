@@ -17,6 +17,6 @@
 #include <io/network/message/packet_message.hpp>
 #include <io/network/message/handler_message.hpp>
 
-#include <handler/handler_certifier.hpp>
-#include <handler/handler_login.hpp>
-#include <handler/handler_cache.hpp>
+#include <handler/certifier/handler_certifier.hpp>
+#include <handler/login/handler_login.hpp>
+#include <handler/cache/handler_cache.hpp>

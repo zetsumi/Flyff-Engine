@@ -21,16 +21,16 @@
   <ItemGroup>
     <ClCompile Include="source\crypto\crc32.cpp" />
     <ClCompile Include="source\dllmain_fnetwork.cpp" />
-    <ClCompile Include="source\handler\handler_cache.cpp" />
-    <ClCompile Include="source\handler\handler_cache_emit.cpp" />
-    <ClCompile Include="source\handler\handler_cache_recv.cpp" />
-    <ClCompile Include="source\handler\handler_cache_recv_snapshot.cpp" />
-    <ClCompile Include="source\handler\handler_certifier.cpp" />
-    <ClCompile Include="source\handler\handler_certifier_emiter.cpp" />
-    <ClCompile Include="source\handler\handler_certifier_recv.cpp" />
-    <ClCompile Include="source\handler\handler_login.cpp" />
-    <ClCompile Include="source\handler\handler_login_emit.cpp" />
-    <ClCompile Include="source\handler\handler_login_recv.cpp" />
+    <ClCompile Include="source\handler\cache\handler_cache.cpp" />
+    <ClCompile Include="source\handler\cache\handler_cache_emit.cpp" />
+    <ClCompile Include="source\handler\cache\handler_cache_recv.cpp" />
+    <ClCompile Include="source\handler\cache\handler_cache_recv_snapshot.cpp" />
+    <ClCompile Include="source\handler\certifier\handler_certifier.cpp" />
+    <ClCompile Include="source\handler\certifier\handler_certifier_emiter.cpp" />
+    <ClCompile Include="source\handler\certifier\handler_certifier_recv.cpp" />
+    <ClCompile Include="source\handler\login\handler_login.cpp" />
+    <ClCompile Include="source\handler\login\handler_login_emit.cpp" />
+    <ClCompile Include="source\handler\login\handler_login_recv.cpp" />
     <ClCompile Include="source\io\network\emit\packet_builder.cpp" />
     <ClCompile Include="source\io\network\emit\transaction.cpp" />
     <ClCompile Include="source\io\network\emit\transaction_client.cpp" />
@@ -48,9 +48,10 @@
   <ItemGroup>
     <ClInclude Include="source\crypto\crc32.hpp" />
     <ClInclude Include="source\framework_fengine.h" />
-    <ClInclude Include="source\handler\handler_cache.hpp" />
-    <ClInclude Include="source\handler\handler_certifier.hpp" />
-    <ClInclude Include="source\handler\handler_login.hpp" />
+    <ClInclude Include="source\handler\cache\handler_cache.hpp" />
+    <ClInclude Include="source\handler\certifier\handler_certifier.hpp" />
+    <ClInclude Include="source\handler\certifier\packet_certifier.hpp" />
+    <ClInclude Include="source\handler\login\handler_login.hpp" />
     <ClInclude Include="source\io\network\emit\packet_builder.hpp" />
     <ClInclude Include="source\io\network\emit\packet_structure.hpp" />
     <ClInclude Include="source\io\network\emit\transaction.hpp" />

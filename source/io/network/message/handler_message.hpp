@@ -25,7 +25,7 @@ namespace fe
 		[[noreturn]] void	loadHeader(fe::type::_uchar& mark, fe::type::_32uint& length, fe::type::_32uint& packettype);
 
 	protected:
-		std::unordered_map<fe::type::_32uint, std::function<const fe::PacketMessage* (SOCKET id)>>	actions{};
+		std::unordered_map<fe::type::_32uint, std::function<fe::PacketMessage* (SOCKET id)>>	actions{};
 		std::thread	ping{};
 		Transaction*		transaction = nullptr;
 		fe::PacketBuilder	packetBuilder{};
@@ -33,11 +33,11 @@ namespace fe
 		std::mutex			lockerSend;
 		fe::type::_32uint	dpid = 0xffffffff;
 		HANDLER_PACKET_TYPE	handlerType = HANDLER_PACKET_TYPE::UNKNOW;
-		std::queue<const fe::PacketMessage*>	messages;
+		std::queue<fe::PacketMessage*>	messages;
 		std::mutex						mtMessage;
 
 		// global
-		[[nodiscard]] bool	pushAction(fe::type::_32uint packetType, std::function<const fe::PacketMessage* (SOCKET id)> action);
+		[[nodiscard]] bool	pushAction(fe::type::_32uint packetType, std::function<fe::PacketMessage* (SOCKET id)> action);
 
 		// emit & receive
 		[[noreturn]] void	sendPing(SOCKET id);
@@ -60,12 +60,11 @@ namespace fe
 
 		// recv
 		void onMsg(SOCKET id, fe::PacketStructure* ps);
-		const fe::PacketMessage* onWelcome(SOCKET id);
-		const fe::PacketMessage* onKeepAlive(SOCKET id);
-		const fe::PacketMessage* onPing(SOCKET id);
-		const fe::PacketMessage* onError(SOCKET id);
-		const fe::PacketMessage* onErrorString(SOCKET id);
-
+		fe::PacketMessage* onWelcome(SOCKET id);
+		fe::PacketMessage* onKeepAlive(SOCKET id);
+		fe::PacketMessage* onPing(SOCKET id);
+		fe::PacketMessage* onError(SOCKET id);
+		fe::PacketMessage* onErrorString(SOCKET id);
 	};
 
 	typedef void	(*callbackOnMessage)(SOCKET id, fe::PacketStructure* ps);

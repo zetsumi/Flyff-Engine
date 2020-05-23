@@ -9,7 +9,10 @@ void fe::Transaction::loopReceive(SOCKET idClient)
 	{
 		fe::PacketStructure* ps = receiver(idClient);
 		if (ps == nullptr)
+		{
+			FE_CONSOLELOG("[%u] received null packet", mode);
 			break;
+		}
 		if (handlerMessageCallBack != nullptr)
 			handlerMessageCallBack(idClient, ps);
 	}

@@ -4,6 +4,7 @@
 #include <string>
 #include <io/network/message/handler_message.hpp>
 #include <io/network/message/packet_message.hpp>
+#include <handler/certifier/packet_certifier.hpp>
 
 
 namespace fe
@@ -13,7 +14,7 @@ namespace fe
 		fe::type::_32uint authKey = 0;
 
 		// recv
-		const fe::PacketMessage* onServerList(SOCKET id);
+		fe::PacketMessage* onServerList(SOCKET id);
 
 	public:
 		HandlerCertifier() = default;
