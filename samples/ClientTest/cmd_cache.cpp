@@ -25,7 +25,8 @@ void cache_connect(void)
 void	cache_join(void)
 {
 	FE_LOG("Sending Join Game");
-	cache.sendJoin(_socketCache.getSocket(),
+	cache.sendJoin(
+		_socketCache.getSocket(),
 		TEST_DEFAULT_ID_WORLD,
 		TEST_DEFAULT_ID_PLAYER,
 		certifier.getAuthKey(),
@@ -42,7 +43,8 @@ void	cache_join(void)
 
 void	cache_get_pos(void)
 {
-	cache.sendGetPosition(_socketCache.getSocket(),
+	cache.sendGetPosition(
+		_socketCache.getSocket(),
 		TEST_DEFAULT_ID_PLAYER
 	);
 }
@@ -52,7 +54,8 @@ fe::Vector3D<float> dest{ 6959.27734, 100.000000, 3462.15723 };
 void	cache_dest_pos(void)
 {
 	dest.x += 3;
-	cache.sendDestinationPosition(_socketCache.getSocket(),
+	cache.sendDestinationPosition(
+		_socketCache.getSocket(),
 		dest,
 		1
 	);

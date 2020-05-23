@@ -1,12 +1,8 @@
 #pragma once
 
-#include <pch_fnetwork.h>
-#include <io/network/message/packet_message.hpp>
-#include <io/network/emit/packet_builder.hpp>
-
 namespace fe
 {
-	struct PacketServerList
+	struct PacketServerList : public PacketMessage
 	{
 		fe::type::_32uint	authKey = 0;
 		fe::type::_uchar	accountFlag = 0;

@@ -43,6 +43,12 @@
     <Filter Include="Source Files\handler\certifier">
       <UniqueIdentifier>{61af2dd9-5806-4a12-bc45-63c759312c8a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\handler\certifier\packets">
+      <UniqueIdentifier>{9914346b-3370-42ef-8ff5-24eff9a25752}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\handler\login\packets">
+      <UniqueIdentifier>{e119b5ae-2cef-4e74-9406-d21d751ea678}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\dllmain_fnetwork.cpp">
@@ -167,8 +173,29 @@
     <ClInclude Include="source\handler\login\handler_login.hpp">
       <Filter>Source Files\handler\login</Filter>
     </ClInclude>
-    <ClInclude Include="source\handler\certifier\packet_certifier.hpp">
-      <Filter>Source Files\handler\certifier</Filter>
+    <ClInclude Include="source\handler\certifier\packets\packet_certifiers.hpp">
+      <Filter>Source Files\handler\certifier\packets</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\certifier\packets\packets_serveur_list.hpp">
+      <Filter>Source Files\handler\certifier\packets</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\login\packets\packet_logins.hpp">
+      <Filter>Source Files\handler\login\packets</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\login\packets\packet_query_tick.hpp">
+      <Filter>Source Files\handler\login\packets</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\login\packets\packet_cache_addr.hpp">
+      <Filter>Source Files\handler\login\packets</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\login\packets\packet_player_list.hpp">
+      <Filter>Source Files\handler\login\packets</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\login\packets\packet_protect_num_pad.hpp">
+      <Filter>Source Files\handler\login\packets</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\login\packets\packet_protect_login_cert.hpp">
+      <Filter>Source Files\handler\login\packets</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

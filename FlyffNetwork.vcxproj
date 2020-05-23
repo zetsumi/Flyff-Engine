@@ -50,8 +50,15 @@
     <ClInclude Include="source\framework_fengine.h" />
     <ClInclude Include="source\handler\cache\handler_cache.hpp" />
     <ClInclude Include="source\handler\certifier\handler_certifier.hpp" />
-    <ClInclude Include="source\handler\certifier\packet_certifier.hpp" />
+    <ClInclude Include="source\handler\certifier\packets\packets_serveur_list.hpp" />
+    <ClInclude Include="source\handler\certifier\packets\packet_certifiers.hpp" />
     <ClInclude Include="source\handler\login\handler_login.hpp" />
+    <ClInclude Include="source\handler\login\packets\packet_cache_addr.hpp" />
+    <ClInclude Include="source\handler\login\packets\packet_logins.hpp" />
+    <ClInclude Include="source\handler\login\packets\packet_player_list.hpp" />
+    <ClInclude Include="source\handler\login\packets\packet_protect_login_cert.hpp" />
+    <ClInclude Include="source\handler\login\packets\packet_protect_num_pad.hpp" />
+    <ClInclude Include="source\handler\login\packets\packet_query_tick.hpp" />
     <ClInclude Include="source\io\network\emit\packet_builder.hpp" />
     <ClInclude Include="source\io\network\emit\packet_structure.hpp" />
     <ClInclude Include="source\io\network\emit\transaction.hpp" />

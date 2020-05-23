@@ -7,5 +7,5 @@ fe::PacketMessage* fe::HandlerCertifier::onServerList(SOCKET id)
 	fe::PacketServerList* psl = new PacketServerList();
 	*psl << packetBuilder;
 	authKey = psl->authKey;
-	return nullptr;
+	return psl;
 }
