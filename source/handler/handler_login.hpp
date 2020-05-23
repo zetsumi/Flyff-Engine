@@ -17,6 +17,7 @@ namespace fe
 		const fe::PacketMessage* onProtectNumPad(SOCKET id);
 		const fe::PacketMessage* onProtectLoginCert(SOCKET id);
 		const fe::PacketMessage* onPreJoin(SOCKET id);
+
 	public:
 		HandlerLogin() = default;
 		HandlerLogin(HandlerLogin&& h) = default;

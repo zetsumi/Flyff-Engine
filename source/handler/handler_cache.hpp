@@ -11,9 +11,11 @@ namespace fe
 {
 	class API_DECLSPEC HandlerCache : public HandlerMessage
 	{
+		typedef const fe::PacketMessage* (HandlerCache::* callbackSnap)(SOCKET id, fe::type::_32uint objid);
 		std::unordered_map<unsigned short, std::function<const fe::PacketMessage* (PARAMETERS_FUNCTION_SNAPSHOT)>> snapshots;
 
 		[[noreturn]] void	initializeSnapshop(void);
+		[[noreturn]] void addSnapShot(unsigned short, callbackSnap action);
 
 		// packet type
 		const fe::PacketMessage* onSnapShot(SOCKET id);
@@ -31,8 +33,8 @@ namespace fe
 		HandlerCache() = default;
 		virtual ~HandlerCache() = default;
 
-		typedef const fe::PacketMessage* (HandlerCache::*callbackSnap)(SOCKET id, fe::type::_32uint objid);
-		[[noreturn]] void addSnapShot(unsigned short, callbackSnap action);
+		// global
+		[[noreturn]] void	initialize(void) override;
 
 		// emit
 		[[noreturn]] void	sendJoin(SOCKET id, fe::type::_32uint idWorld, fe::type::_32uint idPlayer, fe::type::_32uint authKey,
@@ -43,8 +45,6 @@ namespace fe
 		[[noreturn]] void	sendGetPosition(SOCKET id, fe::type::_32uint idMover);
 		[[noreturn]] void	sendDestinationPosition(SOCKET id, const fe::Vector3D<float>& destination, fe::type::_uchar forward);
 
-		// global
-		[[noreturn]] void	initialize(void) override;
 
 	};
 }

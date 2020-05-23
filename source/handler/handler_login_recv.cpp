@@ -1,7 +1,6 @@
 #include <pch_fnetwork.h>
 #include <handler/handler_login.hpp>
 
-
 const fe::PacketMessage* fe::HandlerLogin::onQueryTickCount(SOCKET id)
 {
 	fe::type::_32int timer = packetBuilder.read<fe::type::_32uint>();
