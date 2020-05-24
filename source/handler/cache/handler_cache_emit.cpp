@@ -1,4 +1,5 @@
 #include <pch_fnetwork.h>
+#include <io/network/message/snapshot_type.hpp>
 
 void fe::HandlerCache::sendJoin(SOCKET id, fe::type::_32uint idWorld, fe::type::_32uint idPlayer, fe::type::_32uint authKey,
 	fe::type::_32uint idParty, fe::type::_32uint idGuild, fe::type::_32uint idWar,
@@ -27,6 +28,45 @@ void fe::HandlerCache::sendJoin(SOCKET id, fe::type::_32uint idWorld, fe::type::
 	// skip list friend
 	pb.write<fe::type::_32uint>(0);
 	pb.write<fe::type::_32int>(0);
+
+	pb.writeHeader(sessionID, handlerType);
+	if (transaction->sender(pb) == false)
+		FE_CONSOLELOG("fail send");
+
+	lockerSend.unlock();
+}
+
+void fe::HandlerCache::sendGetPosition(SOCKET id, fe::type::_32uint idMover)
+{
+	lockerSend.lock();
+	fe::PacketBuilder pb;
+
+	pb.write<fe::type::_32uint>(PACKETTYPE_JOIN);
+
+	pb.write<fe::type::_32uint>(idMover);
+
+	pb.writeHeader(sessionID, handlerType);
+	if (transaction->sender(pb) == false)
+		FE_CONSOLELOG("fail send");
+
+	lockerSend.unlock();
+}
+
+void fe::HandlerCache::sendDestinationPosition(SOCKET id, const fe::Vector3D<float>& destination, fe::type::_uchar forward)
+{
+	lockerSend.lock();
+
+	fe::PacketBuilder pb;
+
+	pb.write<fe::type::_32uint>(PACKETTYPE_SNAPSHOT);
+
+	pb.write<fe::type::_uchar>(1);
+	pb.write<unsigned short>(SNAPSHOTTYPE_DESTPOS);
+
+	pb.write<float>(destination.x);
+	pb.write<float>(destination.y);
+	pb.write<float>(destination.z);
+	pb.write<fe::type::_uchar>(forward);
 
 	pb.writeHeader(sessionID, handlerType);
 	if (transaction->sender(pb) == false)

@@ -23,7 +23,7 @@ namespace fe
 		std::thread			main;
 		Socket* _socket = nullptr;
 		MODE_TRANSACTION	mode = MODE_TRANSACTION::MODE_UNKNOW;
-		std::function<void(SOCKET id, fe::PacketStructure* ps)>	handlerMessageCallBack = nullptr;
+		std::function<void (SOCKET id, fe::PacketStructure* ps)>	handlerMessageCallBack = nullptr;
 		unsigned int	lengthBuffer = DEFAULT_BUFFER_SIZE_RECEIVE;
 
 

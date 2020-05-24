@@ -10,6 +10,7 @@ void fe::HandlerMessage::processPing(SOCKET id)
 		std::this_thread::sleep_for(sec);
 		sendPing(id);
 	}
+	FE_CONSOLELOG("out");
 }
 
 void fe::HandlerMessage::loadHeader(fe::type::_uchar& mark, fe::type::_32uint& length, fe::type::_32uint& packettype)
@@ -20,7 +21,7 @@ void fe::HandlerMessage::loadHeader(fe::type::_uchar& mark, fe::type::_32uint& l
 	FE_CONSOLELOG("header {%#02x} length{%#010x}{%u} packettype{%#08x}", mark, length, length, packettype);
 }
 
-bool fe::HandlerMessage::pushAction(fe::type::_32uint packetType, std::function<void(SOCKET id)> action)
+bool fe::HandlerMessage::pushAction(fe::type::_32uint packetType, std::function<fe::PacketMessage* (SOCKET id)> action)
 {
 	if (action == nullptr)
 		return false;
@@ -28,3 +29,14 @@ bool fe::HandlerMessage::pushAction(fe::type::_32uint packetType, std::function<
 	return true;
 }
 
+void fe::HandlerMessage::setTransaction(Transaction* newTransaction)
+{
+	if (newTransaction != nullptr)
+		transaction = newTransaction;
+}
+
+void	fe::HandlerMessage::killPing(void)
+{
+	if (::TerminateThread(ping.native_handle(), 1) != 0)
+		FE_CONSOLELOG("can not terminate thread opcode{%u}", ::GetLastError());
+}

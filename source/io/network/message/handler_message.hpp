@@ -5,8 +5,11 @@
 #include <thread>
 #include <mutex>
 #include <unordered_map>
+#include <queue>
+
 #include <io/network/emit/packet_structure.hpp>
 #include <io/network/message/packet_type.hpp>
+#include <io/network/message/packet_message.hpp>
 #include <io/network/emit/transaction.hpp>
 
 
@@ -21,17 +24,20 @@ namespace fe
 		[[noreturn]] void	loadHeader(fe::type::_uchar& mark, fe::type::_32uint& length, fe::type::_32uint& packettype);
 
 	protected:
-		std::unordered_map<fe::type::_32uint, std::function<void(SOCKET id)>>	actions{};
-		std::thread	ping{};
-		Transaction*		transaction = nullptr;
-		fe::PacketBuilder	packetBuilder{};
-		fe::type::_32uint	sessionID = 0;
-		std::mutex			lockerSend;
-		fe::type::_32uint	dpid = 0xffffffff;
-		HANDLER_PACKET_TYPE	handlerType = HANDLER_PACKET_TYPE::UNKNOW;
+		std::unordered_map<fe::type::_32uint, std::function<fe::PacketMessage* (SOCKET id)>>	actions{};
+		std::thread						ping{};
+		Transaction*					transaction = nullptr;
+		fe::PacketBuilder				packetBuilder{};
+		fe::type::_32uint				sessionID = 0;
+		std::mutex						lockerSend;
+		fe::type::_32uint				dpid = 0xffffffff;
+		HANDLER_PACKET_TYPE				handlerType = HANDLER_PACKET_TYPE::UNKNOW;
+		std::queue<fe::PacketMessage*>	messages{};
+		std::mutex						mtMessage{};
+		fe::type::_32uint				authKey = 0;
 
 		// global
-		[[nodiscard]] bool	pushAction(fe::type::_32uint packetType, std::function<void(SOCKET id)> action);
+		[[nodiscard]] bool	pushAction(fe::type::_32uint packetType, std::function<fe::PacketMessage* (SOCKET id)> action);
 
 		// emit & receive
 		[[noreturn]] void	sendPing(SOCKET id);
@@ -44,19 +50,22 @@ namespace fe
 		HandlerMessage& operator=(const HandlerMessage& h) = default;
 		virtual ~HandlerMessage() = default;
 
-		[[noreturn]] void	setTransaction(Transaction* newTransaction);
+		// global
+		[[noreturn]] virtual void	initialize(void) = 0;
+		[[noreturn]] void			setTransaction(Transaction* newTransaction);
+		[[noreturn]] void			killPing(void);
 
+		// emit
 		[[noreturn]] void	sendKeepAlive(SOCKET id);
 		[[noreturn]] void	sendError(SOCKET id);
 
-		[[noreturn]] virtual void	initialize(void) = 0;
-		[[nodiscard]] void	onMsg(SOCKET id, fe::PacketStructure* ps);
-		[[noreturn]] void	onWelcome(SOCKET id);
-		[[noreturn]] void	onKeepAlive(SOCKET id);
-		[[noreturn]] void	onPing(SOCKET id);
-		[[noreturn]] void	onError(SOCKET id);
-		[[noreturn]] void	onErrorString(SOCKET id);
-
+		// recv
+		void onMsg(SOCKET id, fe::PacketStructure* ps);
+		fe::PacketMessage* onWelcome(SOCKET id);
+		fe::PacketMessage* onKeepAlive(SOCKET id);
+		fe::PacketMessage* onPing(SOCKET id);
+		fe::PacketMessage* onError(SOCKET id);
+		fe::PacketMessage* onErrorString(SOCKET id);
 	};
 
 	typedef void	(*callbackOnMessage)(SOCKET id, fe::PacketStructure* ps);

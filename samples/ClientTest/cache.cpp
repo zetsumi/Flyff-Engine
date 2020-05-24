@@ -18,8 +18,8 @@ bool	handler_cache(void)
 {
 	fe::Network network;
 
-
-	network.setIP(login.getCacheServerAddr());
+	const char* ipCacheServer = login.getCacheServerAddr();
+	network.setIP(ipCacheServer);
 	network.setPort(fe::portCacheServer);
 	if (network.isValid() == false)
 		return false;

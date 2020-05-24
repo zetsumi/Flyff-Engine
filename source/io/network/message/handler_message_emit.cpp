@@ -2,12 +2,6 @@
 #include <io/network/message/handler_message.hpp>
 
 
-void fe::HandlerMessage::setTransaction(Transaction* newTransaction)
-{
-	if (newTransaction != nullptr)
-		transaction = newTransaction;
-}
-
 void fe::HandlerMessage::sendKeepAlive(SOCKET id)
 {
 	lockerSend.lock();

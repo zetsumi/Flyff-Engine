@@ -34,6 +34,12 @@ void login_disconnect(void)
 
 void login_get_list_player(void)
 {
+	FE_LOG("GETLISTPLAYER : Build{%s} AuthKey{%u} Account{%s} Password{%s} IdServer{%u}",
+		TEST_DEFAULT_BUILD_VERSION,
+		certifier.getAuthKey(),
+		TEST_DEFAULT_ACCOUNT,
+		TEST_DEFAULT_PASSWORD,
+		TEST_DEFAULT_ID_SERVER);
 	login.sendGetListPlayer(_socketLog.getSocket(),
 		TEST_DEFAULT_BUILD_VERSION,
 		certifier.getAuthKey(),
@@ -44,6 +50,11 @@ void login_get_list_player(void)
 
 void	login_pre_join(void)
 {
+	FE_LOG("PREJOIN : Account{%s} IdPlayer{%u} PlayerName{%s}",
+		TEST_DEFAULT_ACCOUNT,
+		TEST_DEFAULT_ID_PLAYER,
+		TEST_DEFAULT_PLAYER_NAME
+	);
 	login.sendPreJoin(_socketLog.getSocket(),
 		TEST_DEFAULT_ACCOUNT,
 		TEST_DEFAULT_ID_PLAYER,
