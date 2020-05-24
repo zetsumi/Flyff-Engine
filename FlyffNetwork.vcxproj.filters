@@ -209,5 +209,26 @@
     <ClInclude Include="source\handler\cache\packets_snap\packets_snap.hpp">
       <Filter>Source Files\handler\cache\packets_snap</Filter>
     </ClInclude>
+    <ClInclude Include="source\handler\cache\packets_snap\packet_snap_world_read_info.hpp">
+      <Filter>Source Files\handler\cache\packets_snap</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\cache\packets_snap\packet_snap_environment_all.hpp">
+      <Filter>Source Files\handler\cache\packets_snap</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\cache\packets_snap\packet_snap_add_obj.hpp">
+      <Filter>Source Files\handler\cache\packets_snap</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\cache\packets_snap\packet_snap_query_player_data.hpp">
+      <Filter>Source Files\handler\cache\packets_snap</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\cache\packets_snap\packet_snap_dest_pos.hpp">
+      <Filter>Source Files\handler\cache\packets_snap</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\cache\packets_snap\packet_snap_mover_corr.hpp">
+      <Filter>Source Files\handler\cache\packets_snap</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\cache\packets_snap\packet_snap_get_position.hpp">
+      <Filter>Source Files\handler\cache\packets_snap</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -46,7 +46,5 @@ namespace fe
 		);
 		[[noreturn]] void	sendGetPosition(SOCKET id, fe::type::_32uint idMover);
 		[[noreturn]] void	sendDestinationPosition(SOCKET id, const fe::Vector3D<float>& destination, fe::type::_uchar forward);
-
-
 	};
 }

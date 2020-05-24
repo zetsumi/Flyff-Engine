@@ -3,9 +3,9 @@
 
 fe::PacketMessage* fe::HandlerLogin::onQueryTickCount(SOCKET id)
 {
-	fe::PacketQueryTick* pqt = new fe::PacketQueryTick();
-	*pqt << packetBuilder;
-	return pqt;
+	fe::PacketQueryTick* p = new fe::PacketQueryTick();
+	*p << packetBuilder;
+	return p;
 }
 
 fe::PacketMessage* fe::HandlerLogin::onCacheAddr(SOCKET id)
