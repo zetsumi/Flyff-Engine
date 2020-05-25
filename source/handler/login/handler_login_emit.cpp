@@ -3,7 +3,7 @@
 #include <ctime>
 
 
-void fe::HandlerLogin::sendQueryTickCount(SOCKET id)
+void fe::HandlerLogin::sendQueryTickCount(fe::type::_SOCKET id)
 {
 	lockerSend.lock();
 	fe::PacketBuilder pb;
@@ -19,7 +19,7 @@ void fe::HandlerLogin::sendQueryTickCount(SOCKET id)
 	lockerSend.unlock();
 }
 
-void fe::HandlerLogin::sendGetListPlayer(SOCKET id, const char* protocolVersion, fe::type::_32uint authKey,
+void fe::HandlerLogin::sendGetListPlayer(fe::type::_SOCKET id, const char* protocolVersion, fe::type::_32uint authKey,
 										const char* account, const char* password, fe::type::_32uint idServer)
 {
 	lockerSend.lock();
@@ -40,7 +40,7 @@ void fe::HandlerLogin::sendGetListPlayer(SOCKET id, const char* protocolVersion,
 	lockerSend.unlock();
 }
 
-void fe::HandlerLogin::sendPreJoin(SOCKET id, const char* account, fe::type::_32uint idPlayer, const char* playerName, fe::type::_32int secretPIN)
+void fe::HandlerLogin::sendPreJoin(fe::type::_SOCKET id, const char* account, fe::type::_32uint idPlayer, const char* playerName, fe::type::_32int secretPIN)
 {
 	lockerSend.lock();
 	fe::PacketBuilder pb;

@@ -3,7 +3,7 @@
 #include <handler/certifier/handler_certifier.hpp>
 
 
-void fe::HandlerCertifier::sendDisconnectAccount(SOCKET id, const char* account, const char* password)
+void fe::HandlerCertifier::sendDisconnectAccount(fe::type::_SOCKET id, const char* account, const char* password)
 {
 	lockerSend.lock();
 	fe::PacketBuilder pb;
@@ -19,7 +19,7 @@ void fe::HandlerCertifier::sendDisconnectAccount(SOCKET id, const char* account,
 	lockerSend.unlock();
 }
 
-void fe::HandlerCertifier::sendCertify(SOCKET id, const char* buildVersion, const char* account, const char* password)
+void fe::HandlerCertifier::sendCertify(fe::type::_SOCKET id, const char* buildVersion, const char* account, const char* password)
 {
 	lockerSend.lock();
 	fe::PacketBuilder pb;
@@ -37,7 +37,7 @@ void fe::HandlerCertifier::sendCertify(SOCKET id, const char* buildVersion, cons
 }
 
 
-void fe::HandlerCertifier::sendNewAccount(SOCKET id, const char* account, const char* password)
+void fe::HandlerCertifier::sendNewAccount(fe::type::_SOCKET id, const char* account, const char* password)
 {
 	lockerSend.lock();
 

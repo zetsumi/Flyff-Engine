@@ -2,7 +2,7 @@
 #include <handler/certifier/handler_certifier.hpp>
 
 
-fe::PacketMessage* fe::HandlerCertifier::onServerList(SOCKET id)
+fe::PacketMessage* fe::HandlerCertifier::onServerList(fe::type::_SOCKET id)
 {
 	fe::PacketServerList* psl = new PacketServerList();
 	*psl << packetBuilder;

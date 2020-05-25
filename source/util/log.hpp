@@ -1,6 +1,9 @@
 #pragma once
 
+#if defined(_WIN64)
 #include <Windows.h>
+#endif
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -47,14 +50,22 @@ namespace fe
 			if (endLine == true && consoleVS == true)
 				message.append("\n");
 
+#if defined(_WIN64)
 			if (consoleVS == true)
+			{
 				::OutputDebugStringA(message.c_str());
+			}
 			else
 			{
 				std::cout << message;
 				if (endLine == true)
 					std::cout << std::endl;
 			}
+#else
+			std::cout << message;
+			if (endLine == true)
+				std::cout << std::endl;
+#endif
 		}
 		catch (const std::exception&)
 		{
@@ -62,7 +73,7 @@ namespace fe
 	}
 }
 
-
+#if defined(_WIN64)
 #if defined(_DEBUG)
 #define FE_LOG(format, ...)			fe::_log(false, true, __FUNCTION__, __LINE__, format, __VA_ARGS__)
 #define FE_PROMPT(format, ...)		fe::_log(false, false, __FUNCTION__, __LINE__, format, __VA_ARGS__)
@@ -72,3 +83,16 @@ namespace fe
 #define FE_PROMPT(format, ...)		fe::_log(false, false, __FUNCTION__, __LINE__, format, __VA_ARGS__)
 #define FE_CONSOLELOG(format, ...)	fe::_log(true, true, __FUNCTION__, __LINE__, format, __VA_ARGS__)
 #endif //_DEBUG
+
+#elif defined(__APPLE__)
+#if defined(_DEBUG)
+#define FE_LOG(format, ...)			fe::_log(false, true, __FUNCTION__, __LINE__, format, __VA_ARGS__)
+#define FE_PROMPT(format, ...)		fe::_log(false, false, __FUNCTION__, __LINE__, format, __VA_ARGS__)
+#define FE_CONSOLELOG(format, ...)	fe::_log(true, true, __FUNCTION__, __LINE__, format, __VA_ARGS__)
+#else
+#define FE_LOG(format, ...)			fe::_log(false, true, __FUNCTION__, __LINE__, format, ##__VA_ARGS__)
+#define FE_PROMPT(format, ...)		fe::_log(false, false, __FUNCTION__, __LINE__, format, ##__VA_ARGS__)
+#define FE_CONSOLELOG(format, ...)	fe::_log(true, true, __FUNCTION__, __LINE__, format, ##__VA_ARGS__)
+#endif //_DEBUG
+
+#endif//_WIN64

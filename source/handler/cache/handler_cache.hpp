@@ -7,7 +7,7 @@
 #include <handler/cache/packets_snap/packets_snap.hpp>
 
 
-#define	PARAMETERS_FUNCTION_SNAPSHOT SOCKET id, fe::type::_32uint objid
+#define	PARAMETERS_FUNCTION_SNAPSHOT fe::type::_SOCKET id, fe::type::_32uint objid
 
 #pragma warning( disable: 4251 )
 namespace fe
@@ -22,7 +22,7 @@ namespace fe
 		[[noreturn]] void	addSnapShot(unsigned short, callbackSnap action);
 
 		// packet type
-		fe::PacketMessage* onSnapShot(SOCKET id);
+		fe::PacketMessage* onSnapShot(fe::type::_SOCKET id);
 
 		// snapshottype
 		[[nodiscard]] fe::PacketMessage* onEnvironmentAll(PARAMETERS_FUNCTION_SNAPSHOT);
@@ -41,13 +41,13 @@ namespace fe
 		[[noreturn]] void	initialize(void) override;
 
 		// emit
-		[[noreturn]] void	sendJoin(SOCKET id, fe::type::_32uint idWorld, fe::type::_32uint idPlayer, fe::type::_32uint authKey,
+		[[noreturn]] void	sendJoin(fe::type::_SOCKET id, fe::type::_32uint idWorld, fe::type::_32uint idPlayer, fe::type::_32uint authKey,
 			fe::type::_32uint idParty, fe::type::_32uint idGuild, fe::type::_32uint idWar,
 			fe::type::_32uint idOfMulti, fe::type::_uchar slot,
 			const char* playerName, const char* account, const char* password
 		);
-		[[noreturn]] void	sendGetPosition(SOCKET id, fe::type::_32uint idMover);
-		[[noreturn]] void	sendDestinationPosition(SOCKET id, const fe::Vector3D<float>& destination, fe::type::_uchar forward);
+		[[noreturn]] void	sendGetPosition(fe::type::_SOCKET id, fe::type::_32uint idMover);
+		[[noreturn]] void	sendDestinationPosition(fe::type::_SOCKET id, const fe::Vector3D<float>& destination, fe::type::_uchar forward);
 	};
 }
 #pragma warning( default : 4251 )

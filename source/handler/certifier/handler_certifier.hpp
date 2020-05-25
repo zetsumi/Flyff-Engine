@@ -12,7 +12,7 @@ namespace fe
 	class API_DECLSPEC HandlerCertifier : public HandlerMessage
 	{
 		// recv
-		[[nodiscard]] fe::PacketMessage* onServerList(SOCKET id);
+		[[nodiscard]] fe::PacketMessage* onServerList(fe::type::_SOCKET id);
 
 	public:
 		HandlerCertifier() = default;
@@ -26,8 +26,8 @@ namespace fe
 		inline constexpr fe::type::_32uint getAuthKey(void) const { return authKey; }
 
 		// emit
-		[[noreturn]] void	sendDisconnectAccount(SOCKET id, const char* account, const char* password);
-		[[noreturn]] void	sendCertify(SOCKET id, const char* buildVersion, const char* account, const char* password);
-		[[noreturn]] void	sendNewAccount(SOCKET id, const char* account, const char* password);
+		[[noreturn]] void	sendDisconnectAccount(fe::type::_SOCKET id, const char* account, const char* password);
+		[[noreturn]] void	sendCertify(fe::type::_SOCKET id, const char* buildVersion, const char* account, const char* password);
+		[[noreturn]] void	sendNewAccount(fe::type::_SOCKET id, const char* account, const char* password);
 	};
 }

@@ -2,23 +2,30 @@
 #include <io/network/emit/transaction.hpp>
 
 
-bool fe::Transaction::sender(SOCKET idSocket, unsigned int size, const char* data)
+bool fe::Transaction::sender(fe::type::_SOCKET idSocket, unsigned int size, const char* data)
 {
 	if (_socket == nullptr)
 		return false;
-#if defined(_WIN64) || defined(_WIN32)
-	int errorCode = ::send(idSocket, data, size, 0);
+	int errorCode = 0;
+#if defined(_WIN64)
+	errorCode = ::send(idSocket, data, size, 0);
 	if (errorCode == SOCKET_ERROR)
 	{
 		FE_CONSOLELOG("SOCKET ERROR with client<%u>", idSocket);
 		return false;
 	}
 #else
+	errorCode = ::write(idSocket, data, size);
+	if (errorCode <= 0)
+	{
+		FE_CONSOLELOG("SOCKET ERROR<%d> with client<%u>", errorCode, idSocket);
+		return false;
+	}
 #endif
 	return true;
 }
 
-bool fe::Transaction::sender(SOCKET idSocket, PacketBuilder& packet)
+bool fe::Transaction::sender(fe::type::_SOCKET idSocket, PacketBuilder& packet)
 {
 	if (_socket == nullptr)
 		return false;
@@ -27,22 +34,25 @@ bool fe::Transaction::sender(SOCKET idSocket, PacketBuilder& packet)
 
 bool fe::Transaction::sender(PacketBuilder& packet)
 {
-	SOCKET idSocket = _socket->getSocket();
+	fe::type::_SOCKET idSocket = _socket->getSocket();
 	return sender(idSocket, packet);
 }
 
-fe::PacketStructure* fe::Transaction::receiver(SOCKET idSocket)
+fe::PacketStructure* fe::Transaction::receiver(fe::type::_SOCKET idSocket)
 {
 	return receiver(idSocket, lengthBuffer);
 }
 
-fe::PacketStructure* fe::Transaction::receiver(SOCKET idSocket, unsigned int bufferSize)
+fe::PacketStructure* fe::Transaction::receiver(fe::type::_SOCKET idSocket, unsigned int bufferSize)
 {
 	char* buffer = new char[bufferSize];
-#if defined(_WIN64) || defined(_WIN32)
+	int octects = 0;
+#if defined(_WIN64)
 	ZeroMemory(buffer, sizeof(buffer));
-	int octects = ::recv(idSocket, buffer, bufferSize, 0);
-#else
+	octects = ::recv(idSocket, buffer, bufferSize, 0);
+#elif defined(__APPLE__)
+	memset(buffer, 0x00, bufferSize);
+	octects =  ::read(idSocket, buffer, bufferSize);
 #endif
 	if (octects <= 0)
 		return nullptr;

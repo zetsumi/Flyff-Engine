@@ -1,11 +1,16 @@
 #pragma once
 
-#if defined(FLYFFENGINE_EXPORTS) || defined(FLYFFNETWORK_EXPORTS) || defined(FLYFFRESSOURCE_EXPORTS)
-# define API_DECLSPEC __declspec(dllexport)
-# elif defined(FLYFFENGINE_IMPORT_COMPIL) || defined(FLYFFNETWORK_IMPORT_COMPIL) || defined(FLYFFRESSOURCE_IMPORT_COMPIL)
-#define API_DECLSPEC
+
+#if defined(_WIN64)
+#include <WinSock2.h>
+    #if defined(FLYFFENGINE_EXPORTS) || defined(FLYFFNETWORK_EXPORTS) || defined(FLYFFRESSOURCE_EXPORTS)
+    # define API_DECLSPEC __declspec(dllexport)
+    #else
+    # define API_DECLSPEC __declspec(dllimport)
+    #endif
 #else
-# define API_DECLSPEC __declspec(dllimport)
+#include <inttypes.h>
+# define API_DECLSPEC
 #endif
 
 // TODO : a definir directement dans la solution.
@@ -27,12 +32,14 @@ namespace fe
         typedef unsigned __int32    _32uint;
         typedef __int32             _32int;
         typedef unsigned char       _uchar;
-#else defined(_WIN32)
-        typedef unsigned __int64    _uint;
-        typedef __int64             _int;
-        typedef unsigned __int32    _32uint;
-        typedef __int32             _32int;
+        typedef SOCKET              _SOCKET;
+#elif defined(__APPLE__)
+        typedef uint64_t            _uint;
+        typedef int32_t             _int;
+        typedef uint32_t            _32uint;
+        typedef int32_t             _32int;
         typedef unsigned char       _uchar;
+        typedef int                 _SOCKET;
 #endif // _WIN64
     }
 }
