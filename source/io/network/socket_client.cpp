@@ -17,8 +17,6 @@ bool	fe::SocketClient::connect(const Network& network)
 	const char* port = stringPort.c_str();
 	const char* ip = network.getIP();
 
-#if defined(_WIN64)
-
 #if defined(_WIN64) || defined(_WIN32)
 	WSADATA	wsa;
 	errorCode = ::WSAStartup(MAKEWORD(2, 2), &wsa);
