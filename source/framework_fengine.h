@@ -9,6 +9,7 @@
 #define FLYFFENGINE_JSON_PICOJSON
 #define FLYFFENGINE_XML_PUGIXML
 
+#pragma warning( disable: 4251 )
 namespace fe
 {
     /**

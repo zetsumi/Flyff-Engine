@@ -40,3 +40,17 @@ void	fe::HandlerMessage::killPing(void)
 	if (::TerminateThread(ping.native_handle(), 1) != 0)
 		FE_CONSOLELOG("can not terminate thread opcode{%u}", ::GetLastError());
 }
+
+fe::PacketMessage* fe::HandlerMessage::getPacket(void)
+{
+	mtMessage.lock();
+	if (messages.size() == 0)
+	{
+		mtMessage.unlock();
+		return nullptr;
+	}
+	fe::PacketMessage* msg = messages.front();
+	messages.pop();
+	mtMessage.unlock();
+	return msg;
+}

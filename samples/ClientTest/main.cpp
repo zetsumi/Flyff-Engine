@@ -13,13 +13,38 @@ fe::HandlerLogin			login{};
 fe::HandlerCache			cache{};
 
 
+static void tgame(void)
+{
+	while (true)
+	{
+		auto msgCert = certifier.getPacket();
+		auto msgLogin = login.getPacket();
+		auto msgCache = cache.getPacket();
+
+		if (msgCert != nullptr)
+		{
+			FE_CONSOLELOG("Certifier : type{%u}{%#010x}", msgCert->type, msgCert->type);
+		}
+		if (msgLogin != nullptr)
+		{
+			FE_CONSOLELOG("Certifier : type{%u}{%#010x}", msgLogin->type, msgLogin->type);
+		}
+		if (msgCache != nullptr)
+		{
+			FE_CONSOLELOG("Certifier : type{%u}{%#010x}", msgCache->type, msgCache->type);
+		}
+		Sleep(300);
+	}
+}
 
 int main()
 {
 	std::thread tcert(handler_certifier);
 	std::thread	console(prompt);
+	std::thread game(tgame);
 
 	tcert.join();
 	console.join();
+	game.join();
 	return 0;
 }

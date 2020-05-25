@@ -12,7 +12,7 @@
 #include <io/network/message/packet_message.hpp>
 #include <io/network/emit/transaction.hpp>
 
-
+#pragma warning( disable: 4251 )
 namespace fe
 {
 	constexpr unsigned int portCertifier = 23000;
@@ -54,6 +54,7 @@ namespace fe
 		[[noreturn]] virtual void	initialize(void) = 0;
 		[[noreturn]] void			setTransaction(Transaction* newTransaction);
 		[[noreturn]] void			killPing(void);
+		[[nodiscard]] fe::PacketMessage* getPacket(void);
 
 		// emit
 		[[noreturn]] void	sendKeepAlive(SOCKET id);
@@ -71,6 +72,7 @@ namespace fe
 	typedef void	(*callbackOnMessage)(SOCKET id, fe::PacketStructure* ps);
 	typedef void	(HandlerMessage::*callbackHandlerMessage)(SOCKET id, fe::PacketStructure* ps);
 }
+#pragma warning( default : 4251 )
 
 #define	ON_PACKETTYPE(packettype, fct) \
 	if (pushAction(packettype, std::bind(fct, this, std::placeholders::_1)) == false) \

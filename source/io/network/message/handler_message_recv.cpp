@@ -37,7 +37,6 @@ void fe::HandlerMessage::onMsg(SOCKET id, fe::PacketStructure* ps)
 		fe::PacketMessage* msg = it->second(id);
 		if (msg != nullptr)
 		{
-			FE_CONSOLELOG("msg{%#010x}", msg->type);
 			msg->type = packetType;
 			mtMessage.lock();
 			messages.push(msg);

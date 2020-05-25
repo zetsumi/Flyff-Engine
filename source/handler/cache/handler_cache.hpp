@@ -9,6 +9,7 @@
 
 #define	PARAMETERS_FUNCTION_SNAPSHOT SOCKET id, fe::type::_32uint objid
 
+#pragma warning( disable: 4251 )
 namespace fe
 {
 	class API_DECLSPEC HandlerCache : public HandlerMessage
@@ -48,3 +49,4 @@ namespace fe
 		[[noreturn]] void	sendDestinationPosition(SOCKET id, const fe::Vector3D<float>& destination, fe::type::_uchar forward);
 	};
 }
+#pragma warning( default : 4251 )
