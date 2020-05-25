@@ -9,10 +9,13 @@ fe::SocketClient::~SocketClient()
 
 bool	fe::SocketClient::connect(const Network& network)
 {
-#if defined(_WIN64) || defined(_WIN32)
 	if (network.isValid() == false)
 		return false;
+	std::string stringPort = std::to_string(network.getPort());
+	const char* port = stringPort.c_str();
+	const char* ip = network.getIP();
 
+#if defined(_WIN64) || defined(_WIN32)
 	WSADATA	wsa;
 	int errorCode = ::WSAStartup(MAKEWORD(2, 2), &wsa);
 	if (errorCode != 0)
@@ -25,9 +28,6 @@ bool	fe::SocketClient::connect(const Network& network)
 	hints.ai_protocol = IPPROTO_TCP;
 
 	struct addrinfo* result = nullptr;
-	std::string stringPort = std::to_string(network.getPort());
-	const char* port = stringPort.c_str();
-	const char* ip = network.getIP();
 	errorCode = ::getaddrinfo(ip, port, &hints, &result);
 	if (errorCode != 0)
 	{
@@ -55,7 +55,6 @@ bool	fe::SocketClient::connect(const Network& network)
 		break;
 	}
 	::freeaddrinfo(result);
-
 	if (_socket == INVALID_SOCKET)
 		return false;
 #else
@@ -66,12 +65,16 @@ bool	fe::SocketClient::connect(const Network& network)
 
 void	fe::SocketClient::clean(void)
 {
+#if defined(_WIN64) || defined(_WIN32)
 	closesocket(_socket);
 	WSACleanup();
+#endif
 }
 
 void	fe::SocketClient::shutdown(void)
 {
+#if defined(_WIN64) || defined(_WIN32)
 	if (::shutdown(_socket, SD_SEND) == SOCKET_ERROR)
 		clean();
+#endif
 }

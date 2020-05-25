@@ -1,6 +1,19 @@
 #include <pch_fnetwork.h>
 #include <io/network/message/handler_message.hpp>
 
+fe::HandlerMessage::~HandlerMessage()
+{
+	mtMessage.lock();
+	while (messages.empty() == false)
+	{
+		auto msg = messages.front();
+		delete msg;
+		msg = nullptr;
+		messages.pop();
+	}
+	mtMessage.unlock();
+}
+
 
 void fe::HandlerMessage::processPing(SOCKET id)
 {
