@@ -158,9 +158,6 @@
     <ClInclude Include="source\io\file\reader_text.hpp">
       <Filter>Fichiers sources\io\file</Filter>
     </ClInclude>
-    <ClInclude Include="source\world\world.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="source\world\world.hpp">
       <Filter>Fichiers sources\world</Filter>
     </ClInclude>

@@ -62,7 +62,6 @@
     <ClInclude Include="source\util\vector.hpp" />
     <ClInclude Include="source\world\landscape.hpp" />
     <ClInclude Include="source\world\respawn.hpp" />
-    <ClInclude Include="source\world\world.h" />
     <ClInclude Include="source\world\world.hpp" />
     <ClInclude Include="source\world\world_manager.hpp" />
   </ItemGroup>

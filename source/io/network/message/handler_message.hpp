@@ -24,7 +24,9 @@ namespace fe
 		[[noreturn]] void	loadHeader(fe::type::_uchar& mark, fe::type::_32uint& length, fe::type::_32uint& packettype);
 
 	protected:
-		std::unordered_map<fe::type::_32uint, std::function<fe::PacketMessage* (SOCKET id)>>	actions{};
+		typedef  std::function<fe::PacketMessage* (SOCKET id)> callbackHandlerMesage;
+		std::unordered_map<fe::type::_32uint, callbackHandlerMesage>	actions{};
+
 		std::thread						ping{};
 		Transaction*					transaction = nullptr;
 		fe::PacketBuilder				packetBuilder{};
@@ -61,16 +63,13 @@ namespace fe
 		[[noreturn]] void	sendError(SOCKET id);
 
 		// recv
-		void onMsg(SOCKET id, fe::PacketStructure* ps);
-		fe::PacketMessage* onWelcome(SOCKET id);
-		fe::PacketMessage* onKeepAlive(SOCKET id);
-		fe::PacketMessage* onPing(SOCKET id);
-		fe::PacketMessage* onError(SOCKET id);
-		fe::PacketMessage* onErrorString(SOCKET id);
+		[[noreturn]] void onMsg(SOCKET id, fe::PacketStructure* ps);
+		[[nodiscard]] fe::PacketMessage* onWelcome(SOCKET id);
+		[[nodiscard]] fe::PacketMessage* onKeepAlive(SOCKET id);
+		[[nodiscard]] fe::PacketMessage* onPing(SOCKET id);
+		[[nodiscard]] fe::PacketMessage* onError(SOCKET id);
+		[[nodiscard]] fe::PacketMessage* onErrorString(SOCKET id);
 	};
-
-	typedef void	(*callbackOnMessage)(SOCKET id, fe::PacketStructure* ps);
-	typedef void	(HandlerMessage::*callbackHandlerMessage)(SOCKET id, fe::PacketStructure* ps);
 }
 #pragma warning( default : 4251 )
 

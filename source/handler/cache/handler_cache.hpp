@@ -14,7 +14,7 @@ namespace fe
 {
 	class API_DECLSPEC HandlerCache : public HandlerMessage
 	{
-		typedef fe::PacketMessage* (HandlerCache::* callbackSnap)(SOCKET id, fe::type::_32uint objid);
+		typedef fe::PacketMessage* (HandlerCache::* callbackSnap)(PARAMETERS_FUNCTION_SNAPSHOT);
 		std::unordered_map<unsigned short, std::function<fe::PacketMessage* (PARAMETERS_FUNCTION_SNAPSHOT)>> snapshots;
 
 		[[noreturn]] void	initializePacketType(void);
