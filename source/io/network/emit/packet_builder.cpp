@@ -76,7 +76,7 @@ void	fe::PacketBuilder::writeString(const char* var, fe::type::_32uint length)
 	if (packet->data != nullptr)
 	{
 #if defined(_WIN64)
-		::memcpy(packet->data + packet->size, length, var, length);
+		::memcpy_s(packet->data + packet->size, length, var, length);
 #elif defined(__APPLE__)
 		::memcpy(packet->data + packet->size, var, length);
 #endif
