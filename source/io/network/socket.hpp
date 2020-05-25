@@ -9,6 +9,7 @@
 #pragma comment(lib, "Mswsock.lib")
 #pragma comment(lib, "AdvApi32.lib")
 #elif defined(__APPLE__)
+#include <unistd.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <string.h> /* pour memset */
