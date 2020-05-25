@@ -21,14 +21,14 @@ namespace fe
 
 	class API_DECLSPEC Transaction
 	{
-		std::thread			main;
+		std::thread			main{};
 		Socket* _socket = nullptr;
 		MODE_TRANSACTION	mode = MODE_TRANSACTION::MODE_UNKNOW;
-		std::function<void (SOCKET id, fe::PacketStructure* ps)>	handlerMessageCallBack = nullptr;
+		std::function<void (fe::type::_SOCKET id, fe::PacketStructure* ps)>	handlerMessageCallBack = nullptr;
 		unsigned int	lengthBuffer = DEFAULT_BUFFER_SIZE_RECEIVE;
 
 
-		[[noreturn]] void	loopReceive(SOCKET idClient);
+		[[noreturn]] void	loopReceive(fe::type::_SOCKET idClient);
 		[[nodiscard]] bool	run(void);
 
 	public:
@@ -41,14 +41,14 @@ namespace fe
 		[[noreturn]] void	setLengthBuffer(unsigned int len);
 		[[nodiscard]] const Socket * const getSocket(void) const;
 		[[nodiscard]] bool	isMode(MODE_TRANSACTION modeTransaction);
-		[[nodiscard]] bool	run(std::function<void(SOCKET id, fe::PacketStructure* ps)> callback);
+		[[nodiscard]] bool	run(std::function<void(fe::type::_SOCKET id, fe::PacketStructure* ps)> callback);
 
 		// emiter
-		[[nodiscard]] bool	sender(SOCKET idSocket, unsigned int size, const char* data);
-		[[nodiscard]] bool	sender(SOCKET idSocket, PacketBuilder& packet);
+		[[nodiscard]] bool	sender(fe::type::_SOCKET idSocket, unsigned int size, const char* data);
+		[[nodiscard]] bool	sender(fe::type::_SOCKET idSocket, PacketBuilder& packet);
 		[[nodiscard]] bool	sender(PacketBuilder& packet);
-		[[nodiscard]] PacketStructure* receiver(SOCKET idSocket);
-		[[nodiscard]] PacketStructure* receiver(SOCKET idSocket, unsigned int bufferSize);
+		[[nodiscard]] PacketStructure* receiver(fe::type::_SOCKET idSocket);
+		[[nodiscard]] PacketStructure* receiver(fe::type::_SOCKET idSocket, unsigned int bufferSize);
 
 		// thread manager
 		[[noreturn]] void	wait(bool waiting = true);

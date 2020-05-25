@@ -1,7 +1,7 @@
 #include <pch_fnetwork.h>
 #include <io/network/message/snapshot_type.hpp>
 
-void fe::HandlerCache::sendJoin(SOCKET id, fe::type::_32uint idWorld, fe::type::_32uint idPlayer, fe::type::_32uint authKey,
+void fe::HandlerCache::sendJoin(fe::type::_SOCKET id, fe::type::_32uint idWorld, fe::type::_32uint idPlayer, fe::type::_32uint authKey,
 	fe::type::_32uint idParty, fe::type::_32uint idGuild, fe::type::_32uint idWar,
 	fe::type::_32uint idOfMulti, fe::type::_uchar slot,
 	const char* playerName, const char* account, const char* password
@@ -36,7 +36,7 @@ void fe::HandlerCache::sendJoin(SOCKET id, fe::type::_32uint idWorld, fe::type::
 	lockerSend.unlock();
 }
 
-void fe::HandlerCache::sendGetPosition(SOCKET id, fe::type::_32uint idMover)
+void fe::HandlerCache::sendGetPosition(fe::type::_SOCKET id, fe::type::_32uint idMover)
 {
 	lockerSend.lock();
 	fe::PacketBuilder pb;
@@ -52,7 +52,7 @@ void fe::HandlerCache::sendGetPosition(SOCKET id, fe::type::_32uint idMover)
 	lockerSend.unlock();
 }
 
-void fe::HandlerCache::sendDestinationPosition(SOCKET id, const fe::Vector3D<float>& destination, fe::type::_uchar forward)
+void fe::HandlerCache::sendDestinationPosition(fe::type::_SOCKET id, const fe::Vector3D<float>& destination, fe::type::_uchar forward)
 {
 	lockerSend.lock();
 

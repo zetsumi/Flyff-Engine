@@ -2,7 +2,7 @@
 #include <io/network/message/handler_message.hpp>
 
 
-void fe::HandlerMessage::onMsg(SOCKET id, fe::PacketStructure* ps)
+void fe::HandlerMessage::onMsg(fe::type::_SOCKET id, fe::PacketStructure* ps)
 {
 	fe::type::_uchar	mark = 0;
 	fe::type::_32uint	length = 0;
@@ -18,7 +18,7 @@ void fe::HandlerMessage::onMsg(SOCKET id, fe::PacketStructure* ps)
 
 	loadHeader(mark, length, packetType);
 
-	SOCKET idSocket = transaction->getSocket()->getSocket();
+	fe::type::_SOCKET idSocket = transaction->getSocket()->getSocket();
 	unsigned int lenData = length - sizeof(fe::type::_32uint); // Taille moins sizeof() packettype
 	if (lenData > 0)
 	{
@@ -52,7 +52,7 @@ void fe::HandlerMessage::onMsg(SOCKET id, fe::PacketStructure* ps)
 }
 
 
-fe::PacketMessage* fe::HandlerMessage::onWelcome(SOCKET id)
+fe::PacketMessage* fe::HandlerMessage::onWelcome(fe::type::_SOCKET id)
 {
 	sessionID = packetBuilder.read<fe::type::_32uint>();
 	FE_CONSOLELOG("sessionID:{%u}{%#010x}", sessionID);
@@ -63,18 +63,18 @@ fe::PacketMessage* fe::HandlerMessage::onWelcome(SOCKET id)
 	return nullptr;
 }
 
-fe::PacketMessage* fe::HandlerMessage::onKeepAlive(SOCKET id)
+fe::PacketMessage* fe::HandlerMessage::onKeepAlive(fe::type::_SOCKET id)
 {
 	sendKeepAlive(id);
 	return nullptr;
 }
 
-fe::PacketMessage* fe::HandlerMessage::onPing(SOCKET id)
+fe::PacketMessage* fe::HandlerMessage::onPing(fe::type::_SOCKET id)
 {
 	return nullptr;
 }
 
-fe::PacketMessage* fe::HandlerMessage::onError(SOCKET id)
+fe::PacketMessage* fe::HandlerMessage::onError(fe::type::_SOCKET id)
 {
 	fe::type::_32uint opcodeError = packetBuilder.read<fe::type::_32uint>();
 	FE_CONSOLELOG("OP CODE: %#010x", opcodeError);
@@ -82,7 +82,7 @@ fe::PacketMessage* fe::HandlerMessage::onError(SOCKET id)
 	return nullptr;
 }
 
-fe::PacketMessage* fe::HandlerMessage::onErrorString(SOCKET id)
+fe::PacketMessage* fe::HandlerMessage::onErrorString(fe::type::_SOCKET id)
 {
 	const char* messageError = packetBuilder.readString();
 	if (messageError != nullptr)

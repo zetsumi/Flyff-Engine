@@ -75,7 +75,11 @@ void	fe::PacketBuilder::writeString(const char* var, fe::type::_32uint length)
 	packet->data = reinterpret_cast<unsigned char*>(::realloc(packet->data, packet->size + length));
 	if (packet->data != nullptr)
 	{
+#if defined(_WIN64)
 		::memcpy_s(packet->data + packet->size, length, var, length);
+#elif defined(__APPLE__)
+		::memcpy(packet->data + packet->size, var, length);
+#endif
 		packet->size += length;
 	}
 }
@@ -85,7 +89,11 @@ const char* fe::PacketBuilder::readString(void)
 	fe::type::_32uint length = read<fe::type::_32uint>();
 	fe::type::_uchar* cur = packet->data + offset;
 	char* var = new char[length + 1]();
+#if defined(_WIN64)
 	::memcpy_s(var, length, cur, length);
+#elif defined(__APPLE__)
+	::memcpy(var, cur, length);
+#endif
 	var[length] = '\0';
 	offset += length;
 	return var;

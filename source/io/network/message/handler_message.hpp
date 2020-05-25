@@ -1,7 +1,9 @@
 #pragma once
 
 #include <framework_fengine.h>
+#if defined(_WIN64)
 #include <winsock.h>
+#endif
 #include <thread>
 #include <mutex>
 #include <unordered_map>
@@ -24,7 +26,7 @@ namespace fe
 		[[noreturn]] void	loadHeader(fe::type::_uchar& mark, fe::type::_32uint& length, fe::type::_32uint& packettype);
 
 	protected:
-		typedef  std::function<fe::PacketMessage* (SOCKET id)> callbackHandlerMesage;
+		typedef  std::function<fe::PacketMessage* (fe::type::_SOCKET id)> callbackHandlerMesage;
 		std::unordered_map<fe::type::_32uint, callbackHandlerMesage>	actions{};
 
 		std::thread						ping{};
@@ -39,11 +41,11 @@ namespace fe
 		fe::type::_32uint				authKey = 0;
 
 		// global
-		[[nodiscard]] bool	pushAction(fe::type::_32uint packetType, std::function<fe::PacketMessage* (SOCKET id)> action);
+		[[nodiscard]] bool	pushAction(fe::type::_32uint packetType, std::function<fe::PacketMessage* (fe::type::_SOCKET id)> action);
 
 		// emit & receive
-		[[noreturn]] void	sendPing(SOCKET id);
-		[[noreturn]] void	processPing(SOCKET id);
+		[[noreturn]] void	sendPing(fe::type::_SOCKET id);
+		[[noreturn]] void	processPing(fe::type::_SOCKET id);
 
 	public:
 		HandlerMessage() = default;
@@ -60,16 +62,16 @@ namespace fe
 		[[nodiscard]] fe::PacketMessage* getPacket(void);
 
 		// emit
-		[[noreturn]] void	sendKeepAlive(SOCKET id);
-		[[noreturn]] void	sendError(SOCKET id);
+		[[noreturn]] void	sendKeepAlive(fe::type::_SOCKET id);
+		[[noreturn]] void	sendError(fe::type::_SOCKET id);
 
 		// recv
-		[[noreturn]] void onMsg(SOCKET id, fe::PacketStructure* ps);
-		[[nodiscard]] fe::PacketMessage* onWelcome(SOCKET id);
-		[[nodiscard]] fe::PacketMessage* onKeepAlive(SOCKET id);
-		[[nodiscard]] fe::PacketMessage* onPing(SOCKET id);
-		[[nodiscard]] fe::PacketMessage* onError(SOCKET id);
-		[[nodiscard]] fe::PacketMessage* onErrorString(SOCKET id);
+		[[noreturn]] void onMsg(fe::type::_SOCKET id, fe::PacketStructure* ps);
+		[[nodiscard]] fe::PacketMessage* onWelcome(fe::type::_SOCKET id);
+		[[nodiscard]] fe::PacketMessage* onKeepAlive(fe::type::_SOCKET id);
+		[[nodiscard]] fe::PacketMessage* onPing(fe::type::_SOCKET id);
+		[[nodiscard]] fe::PacketMessage* onError(fe::type::_SOCKET id);
+		[[nodiscard]] fe::PacketMessage* onErrorString(fe::type::_SOCKET id);
 	};
 }
 #pragma warning( default : 4251 )

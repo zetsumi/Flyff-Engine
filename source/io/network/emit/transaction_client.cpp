@@ -3,7 +3,7 @@
 #include <io/network/emit/packet_structure.hpp>
 
 
-void fe::Transaction::loopReceive(SOCKET idClient)
+void fe::Transaction::loopReceive(fe::type::_SOCKET idClient)
 {
 	while (true)
 	{
@@ -22,8 +22,13 @@ bool fe::Transaction::run(void)
 {
 	if (_socket == nullptr)
 		return false;
+#if defined(_WIN64)
 	if (_socket->getSocket() == INVALID_SOCKET)
 		return false;
+#elif defined(__APPLE__)
+	if (_socket->getSocket() != 0)
+		return false;
+#endif
 	if (mode != MODE_TRANSACTION::MODE_CLIENT)
 		return false;
 	try
@@ -39,7 +44,7 @@ bool fe::Transaction::run(void)
 	return true;
 }
 
-bool fe::Transaction::run(std::function<void(SOCKET id, fe::PacketStructure* ps)> callback)
+bool fe::Transaction::run(std::function<void(fe::type::_SOCKET id, fe::PacketStructure* ps)> callback)
 {
 	if (callback == nullptr)
 		return false;

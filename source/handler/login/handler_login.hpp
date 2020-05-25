@@ -12,12 +12,12 @@ namespace fe
 		char* cacheServerAddr = nullptr;
 
 		// recv
-		[[nodiscard]] fe::PacketMessage* onQueryTickCount(SOCKET id);
-		[[nodiscard]] fe::PacketMessage* onCacheAddr(SOCKET id);
-		[[nodiscard]] fe::PacketMessage* onPlayerList(SOCKET id);
-		[[nodiscard]] fe::PacketMessage* onProtectNumPad(SOCKET id);
-		[[nodiscard]] fe::PacketMessage* onProtectLoginCert(SOCKET id);
-		[[nodiscard]] fe::PacketMessage* onPreJoin(SOCKET id);
+		[[nodiscard]] fe::PacketMessage* onQueryTickCount(fe::type::_SOCKET id);
+		[[nodiscard]] fe::PacketMessage* onCacheAddr(fe::type::_SOCKET id);
+		[[nodiscard]] fe::PacketMessage* onPlayerList(fe::type::_SOCKET id);
+		[[nodiscard]] fe::PacketMessage* onProtectNumPad(fe::type::_SOCKET id);
+		[[nodiscard]] fe::PacketMessage* onProtectLoginCert(fe::type::_SOCKET id);
+		[[nodiscard]] fe::PacketMessage* onPreJoin(fe::type::_SOCKET id);
 
 	public:
 		HandlerLogin() = default;
@@ -31,8 +31,8 @@ namespace fe
 		[[nodiscard]] const char* getCacheServerAddr(void) const;
 
 		// emit
-		[[noreturn]] void	sendQueryTickCount(SOCKET id);
-		[[noreturn]] void	sendGetListPlayer(SOCKET id, const char* protocolVersion, fe::type::_32uint authKey, const char* account, const char* password, fe::type::_32uint idServer);
-		[[noreturn]] void	sendPreJoin(SOCKET id, const char* account, fe::type::_32uint idPlayer, const char* playerName, fe::type::_32int secretPIN);
+		[[noreturn]] void	sendQueryTickCount(fe::type::_SOCKET id);
+		[[noreturn]] void	sendGetListPlayer(fe::type::_SOCKET id, const char* protocolVersion, fe::type::_32uint authKey, const char* account, const char* password, fe::type::_32uint idServer);
+		[[noreturn]] void	sendPreJoin(fe::type::_SOCKET id, const char* account, fe::type::_32uint idPlayer, const char* playerName, fe::type::_32int secretPIN);
 	};
 }
