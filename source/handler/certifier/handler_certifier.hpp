@@ -12,7 +12,7 @@ namespace fe
 	class API_DECLSPEC HandlerCertifier : public HandlerMessage
 	{
 		// recv
-		fe::PacketMessage* onServerList(SOCKET id);
+		[[nodiscard]] fe::PacketMessage* onServerList(SOCKET id);
 
 	public:
 		HandlerCertifier() = default;

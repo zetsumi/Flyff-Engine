@@ -17,20 +17,21 @@ namespace fe
 		typedef fe::PacketMessage* (HandlerCache::* callbackSnap)(SOCKET id, fe::type::_32uint objid);
 		std::unordered_map<unsigned short, std::function<fe::PacketMessage* (PARAMETERS_FUNCTION_SNAPSHOT)>> snapshots;
 
+		[[noreturn]] void	initializePacketType(void);
 		[[noreturn]] void	initializeSnapshop(void);
-		[[noreturn]] void addSnapShot(unsigned short, callbackSnap action);
+		[[noreturn]] void	addSnapShot(unsigned short, callbackSnap action);
 
 		// packet type
 		fe::PacketMessage* onSnapShot(SOCKET id);
 
 		// snapshottype
-		fe::PacketMessage* onEnvironmentAll(PARAMETERS_FUNCTION_SNAPSHOT);
-		fe::PacketMessage* onWorldReadInfo(PARAMETERS_FUNCTION_SNAPSHOT);
-		fe::PacketMessage* onAddObj(PARAMETERS_FUNCTION_SNAPSHOT);
-		fe::PacketMessage* onQueryPlayerData(PARAMETERS_FUNCTION_SNAPSHOT);
-		fe::PacketMessage* onDestPos(PARAMETERS_FUNCTION_SNAPSHOT);
-		fe::PacketMessage* onMoverCorr(PARAMETERS_FUNCTION_SNAPSHOT);
-		fe::PacketMessage* onGetPosition(PARAMETERS_FUNCTION_SNAPSHOT);
+		[[nodiscard]] fe::PacketMessage* onEnvironmentAll(PARAMETERS_FUNCTION_SNAPSHOT);
+		[[nodiscard]] fe::PacketMessage* onWorldReadInfo(PARAMETERS_FUNCTION_SNAPSHOT);
+		[[nodiscard]] fe::PacketMessage* onAddObj(PARAMETERS_FUNCTION_SNAPSHOT);
+		[[nodiscard]] fe::PacketMessage* onQueryPlayerData(PARAMETERS_FUNCTION_SNAPSHOT);
+		[[nodiscard]] fe::PacketMessage* onDestPos(PARAMETERS_FUNCTION_SNAPSHOT);
+		[[nodiscard]] fe::PacketMessage* onMoverCorr(PARAMETERS_FUNCTION_SNAPSHOT);
+		[[nodiscard]] fe::PacketMessage* onGetPosition(PARAMETERS_FUNCTION_SNAPSHOT);
 
 	public:
 		HandlerCache() = default;
