@@ -16,7 +16,10 @@ namespace fe
 	class API_DECLSPEC Socket
 	{
 	protected:
+#if defined(_WIN64) || defined(_WIN32)
 		SOCKET	_socket = INVALID_SOCKET;
+#else
+#endif 
 
 	public:
 		virtual ~Socket() {}

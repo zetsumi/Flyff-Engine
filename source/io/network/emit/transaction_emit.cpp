@@ -6,12 +6,15 @@ bool fe::Transaction::sender(SOCKET idSocket, unsigned int size, const char* dat
 {
 	if (_socket == nullptr)
 		return false;
+#if defined(_WIN64) || defined(_WIN32)
 	int errorCode = ::send(idSocket, data, size, 0);
 	if (errorCode == SOCKET_ERROR)
 	{
 		FE_CONSOLELOG("SOCKET ERROR with client<%u>", idSocket);
 		return false;
 	}
+#else
+#endif
 	return true;
 }
 
@@ -36,8 +39,11 @@ fe::PacketStructure* fe::Transaction::receiver(SOCKET idSocket)
 fe::PacketStructure* fe::Transaction::receiver(SOCKET idSocket, unsigned int bufferSize)
 {
 	char* buffer = new char[bufferSize];
+#if defined(_WIN64) || defined(_WIN32)
 	ZeroMemory(buffer, sizeof(buffer));
 	int octects = ::recv(idSocket, buffer, bufferSize, 0);
+#else
+#endif
 	if (octects <= 0)
 		return nullptr;
 	if (octects > static_cast<int>(bufferSize))

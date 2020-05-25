@@ -9,6 +9,7 @@ fe::SocketClient::~SocketClient()
 
 bool	fe::SocketClient::connect(const Network& network)
 {
+#if defined(_WIN64) || defined(_WIN32)
 	if (network.isValid() == false)
 		return false;
 
@@ -57,6 +58,8 @@ bool	fe::SocketClient::connect(const Network& network)
 
 	if (_socket == INVALID_SOCKET)
 		return false;
+#else
+#endif
 	return true;
 }
 
