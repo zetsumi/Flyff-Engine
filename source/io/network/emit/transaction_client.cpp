@@ -22,8 +22,13 @@ bool fe::Transaction::run(void)
 {
 	if (_socket == nullptr)
 		return false;
+#if defined(_WIN64)
 	if (_socket->getSocket() == INVALID_SOCKET)
 		return false;
+#elif defined(__APPLE__)
+	if (_socket->getSocket() != 0)
+		return false;
+#endif
 	if (mode != MODE_TRANSACTION::MODE_CLIENT)
 		return false;
 	try

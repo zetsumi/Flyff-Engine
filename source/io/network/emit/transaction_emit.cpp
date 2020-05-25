@@ -39,9 +39,10 @@ fe::PacketStructure* fe::Transaction::receiver(fe::type::_SOCKET idSocket)
 fe::PacketStructure* fe::Transaction::receiver(fe::type::_SOCKET idSocket, unsigned int bufferSize)
 {
 	char* buffer = new char[bufferSize];
+	int octects = 0;
 #if defined(_WIN64)
 	ZeroMemory(buffer, sizeof(buffer));
-	int octects = ::recv(idSocket, buffer, bufferSize, 0);
+	octects = ::recv(idSocket, buffer, bufferSize, 0);
 #else
 #endif
 	if (octects <= 0)
