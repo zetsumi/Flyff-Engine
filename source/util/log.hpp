@@ -1,6 +1,9 @@
 #pragma once
 
+#if defined(_WIN64)
 #include <Windows.h>
+#endif
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -47,14 +50,22 @@ namespace fe
 			if (endLine == true && consoleVS == true)
 				message.append("\n");
 
+#if defined(_WIN64)
 			if (consoleVS == true)
+			{
 				::OutputDebugStringA(message.c_str());
+			}
 			else
 			{
 				std::cout << message;
 				if (endLine == true)
 					std::cout << std::endl;
 			}
+#else
+			std::cout << message;
+			if (endLine == true)
+				std::cout << std::endl;
+#endif
 		}
 		catch (const std::exception&)
 		{

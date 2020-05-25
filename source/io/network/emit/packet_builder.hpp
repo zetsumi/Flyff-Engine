@@ -20,7 +20,7 @@ namespace fe
 
 	class API_DECLSPEC PacketBuilder
 	{
-		std::mutex	locker;
+		std::mutex	locker{};
 		unsigned int offset = 0;
 		PacketStructure* packet = new PacketStructure();
 

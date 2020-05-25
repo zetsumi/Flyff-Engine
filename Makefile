@@ -1,6 +1,3 @@
-
-SOURCES = main.cpp
-
 CC = g++
 RM = rm
 LIB_FN = libflyffnetwork.so 
@@ -9,10 +6,9 @@ LIB_FR = libflyffressource.so
 OBJS_TFN = $(SOURCE:.cpp:.o)
 
 ###### FLAGS CPP ######
-CXXFLAGS	+= -W -Wall -Wextra
+# CXXFLAGS	+= -W -Wall -Wextra
 CXXFLAGS	+= -pedantic -ansi -pipe
 CXXFLAGS	+= -O2
-CXXFLAGS	+= -fno-tree-loop-distribute-patterns
 ifeq ($(WO_DEBUG), 1)
 CXXFLAGS	+= -g3
 else
@@ -22,6 +18,7 @@ ifeq ($(WO_COPLIEN), 1)
 CXXFLAGS	+= -Weffc++
 endif
 CXXFLAGS	+= -fPIC
+CXXFLAGS	+= -std=gnu++1z
 
 ###### FLAGS INCLUDE SOURCE ######
 CXXFLAGS	+= -I ./source/

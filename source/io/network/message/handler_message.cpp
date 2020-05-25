@@ -37,7 +37,7 @@ void fe::HandlerMessage::setTransaction(Transaction* newTransaction)
 
 void	fe::HandlerMessage::killPing(void)
 {
-#if defined(_WIN64) || defined(_WIN32)
+#if defined(_WIN64)
 	if (::TerminateThread(ping.native_handle(), 1) != 0)
 		FE_CONSOLELOG("can not terminate thread opcode{%u}", ::GetLastError());
 #endif // _WIN64 || _WIN32

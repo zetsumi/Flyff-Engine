@@ -1,7 +1,9 @@
 #pragma once
 
 #include <framework_fengine.h>
+#if defined(_WIN64)
 #include <winsock.h>
+#endif
 #include <thread>
 #include <mutex>
 #include <unordered_map>
