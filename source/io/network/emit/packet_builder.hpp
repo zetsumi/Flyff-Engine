@@ -7,6 +7,7 @@
 
 #include <io/network/emit/packet_structure.hpp>
 
+#pragma warning( disable: 4251 )
 namespace fe
 {
 	enum class HANDLER_PACKET_TYPE : unsigned short
@@ -17,7 +18,6 @@ namespace fe
 		CACHE
 	};
 
-#pragma warning( disable : 4251 )
 	class API_DECLSPEC PacketBuilder
 	{
 		std::mutex	locker;
@@ -89,6 +89,5 @@ namespace fe
 			return var;
 		}
 	};
-#pragma warning( default : 4251 )
 }
-
+#pragma warning( default : 4251 )

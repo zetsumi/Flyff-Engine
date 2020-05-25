@@ -4,6 +4,7 @@
 
 namespace fe
 {
+#pragma warning( disable: 4251 )
 	struct API_DECLSPEC PacketMessage
 	{
 		fe::type::_32uint	type = 0;
@@ -15,4 +16,6 @@ namespace fe
 		PacketMessage(PacketMessage* pm) : PacketMessage(*pm) {};
 		PacketMessage& operator=(const PacketMessage& pm) = default;
 	};
+#pragma warning( default : 4251 )
+
 }

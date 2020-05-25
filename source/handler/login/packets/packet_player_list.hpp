@@ -181,7 +181,7 @@ namespace fe
 			for (fe::type::_32int i = 0; i < countPlayer; ++i)
 			{
 				slots[i] << packetBuilder;
-				countMessage << packetBuilder.read<fe::type::_32int>();
+				countMessage = packetBuilder.read<fe::type::_32int>();
 				for (fe::type::_32int i = 0; i < countMessage; ++i)
 				{
 					msgBox[i] << packetBuilder;

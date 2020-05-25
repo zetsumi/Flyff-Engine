@@ -20,8 +20,7 @@ fe::PacketMessage* fe::HandlerCache::onSnapShot(SOCKET id)
 			FE_CONSOLELOG("snapshotType{%#04x} unknow", snapshotType);
 			break;
 		}
-		it->second(id, objid);
+		return it->second(id, objid);
 	}
-
 	return nullptr;
 }

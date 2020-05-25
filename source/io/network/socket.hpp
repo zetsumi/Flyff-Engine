@@ -12,6 +12,7 @@
 
 namespace fe
 {
+#pragma warning( disable: 4251 )
 	class API_DECLSPEC Socket
 	{
 	protected:
@@ -23,5 +24,6 @@ namespace fe
 		virtual void	shutdown(void) = 0;
 		SOCKET	getSocket(void) const { return _socket; }
 	};
+#pragma warning( default : 4251 )
 }
 

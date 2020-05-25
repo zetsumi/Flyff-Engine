@@ -9,6 +9,7 @@
 
 #define	DEFAULT_BUFFER_SIZE_RECEIVE 1000
 
+#pragma warning( disable: 4251 )
 namespace fe
 {
 	enum class MODE_TRANSACTION : unsigned int
@@ -53,3 +54,5 @@ namespace fe
 		[[noreturn]] void	wait(bool waiting = true);
 	};
 }
+#pragma warning( default : 4251 )
+
