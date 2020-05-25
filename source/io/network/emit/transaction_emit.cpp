@@ -2,7 +2,7 @@
 #include <io/network/emit/transaction.hpp>
 
 
-bool fe::Transaction::sender(SOCKET idSocket, unsigned int size, const char* data)
+bool fe::Transaction::sender(fe::type::_SOCKET idSocket, unsigned int size, const char* data)
 {
 	if (_socket == nullptr)
 		return false;
@@ -10,7 +10,7 @@ bool fe::Transaction::sender(SOCKET idSocket, unsigned int size, const char* dat
 	int errorCode = ::send(idSocket, data, size, 0);
 	if (errorCode == SOCKET_ERROR)
 	{
-		FE_CONSOLELOG("SOCKET ERROR with client<%u>", idSocket);
+		FE_CONSOLELOG("fe::type::_SOCKET ERROR with client<%u>", idSocket);
 		return false;
 	}
 #else
@@ -18,7 +18,7 @@ bool fe::Transaction::sender(SOCKET idSocket, unsigned int size, const char* dat
 	return true;
 }
 
-bool fe::Transaction::sender(SOCKET idSocket, PacketBuilder& packet)
+bool fe::Transaction::sender(fe::type::_SOCKET idSocket, PacketBuilder& packet)
 {
 	if (_socket == nullptr)
 		return false;
@@ -27,16 +27,16 @@ bool fe::Transaction::sender(SOCKET idSocket, PacketBuilder& packet)
 
 bool fe::Transaction::sender(PacketBuilder& packet)
 {
-	SOCKET idSocket = _socket->getSocket();
+	fe::type::_SOCKET idSocket = _socket->getSocket();
 	return sender(idSocket, packet);
 }
 
-fe::PacketStructure* fe::Transaction::receiver(SOCKET idSocket)
+fe::PacketStructure* fe::Transaction::receiver(fe::type::_SOCKET idSocket)
 {
 	return receiver(idSocket, lengthBuffer);
 }
 
-fe::PacketStructure* fe::Transaction::receiver(SOCKET idSocket, unsigned int bufferSize)
+fe::PacketStructure* fe::Transaction::receiver(fe::type::_SOCKET idSocket, unsigned int bufferSize)
 {
 	char* buffer = new char[bufferSize];
 #if defined(_WIN64)

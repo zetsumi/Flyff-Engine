@@ -3,7 +3,7 @@
 #include <io/network/emit/packet_structure.hpp>
 
 
-void fe::Transaction::loopReceive(SOCKET idClient)
+void fe::Transaction::loopReceive(fe::type::_SOCKET idClient)
 {
 	while (true)
 	{
@@ -39,7 +39,7 @@ bool fe::Transaction::run(void)
 	return true;
 }
 
-bool fe::Transaction::run(std::function<void(SOCKET id, fe::PacketStructure* ps)> callback)
+bool fe::Transaction::run(std::function<void(fe::type::_SOCKET id, fe::PacketStructure* ps)> callback)
 {
 	if (callback == nullptr)
 		return false;

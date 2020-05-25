@@ -2,7 +2,7 @@
 #include <io/network/message/handler_message.hpp>
 
 
-void fe::HandlerMessage::processPing(SOCKET id)
+void fe::HandlerMessage::processPing(fe::type::_SOCKET id)
 {
 	std::chrono::seconds sec = std::chrono::seconds(30);
 	while (true)
@@ -21,7 +21,7 @@ void fe::HandlerMessage::loadHeader(fe::type::_uchar& mark, fe::type::_32uint& l
 	FE_CONSOLELOG("header {%#02x} length{%#010x}{%u} packettype{%#08x}", mark, length, length, packettype);
 }
 
-bool fe::HandlerMessage::pushAction(fe::type::_32uint packetType, std::function<fe::PacketMessage* (SOCKET id)> action)
+bool fe::HandlerMessage::pushAction(fe::type::_32uint packetType, std::function<fe::PacketMessage* (fe::type::_SOCKET id)> action)
 {
 	if (action == nullptr)
 		return false;

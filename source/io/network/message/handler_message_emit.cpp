@@ -2,7 +2,7 @@
 #include <io/network/message/handler_message.hpp>
 
 
-void fe::HandlerMessage::sendKeepAlive(SOCKET id)
+void fe::HandlerMessage::sendKeepAlive(fe::type::_SOCKET id)
 {
 	lockerSend.lock();
 	fe::PacketBuilder pb;
@@ -19,7 +19,7 @@ void fe::HandlerMessage::sendKeepAlive(SOCKET id)
 }
 
 
-void fe::HandlerMessage::sendError(SOCKET id)
+void fe::HandlerMessage::sendError(fe::type::_SOCKET id)
 {
 	lockerSend.lock();
 	fe::PacketBuilder pb;
@@ -35,7 +35,7 @@ void fe::HandlerMessage::sendError(SOCKET id)
 	lockerSend.unlock();
 }
 
-void fe::HandlerMessage::sendPing(SOCKET id)
+void fe::HandlerMessage::sendPing(fe::type::_SOCKET id)
 {
 	lockerSend.lock();
 	fe::PacketBuilder pb;

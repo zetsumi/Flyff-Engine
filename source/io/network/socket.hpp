@@ -19,7 +19,7 @@ namespace fe
 	{
 	protected:
 #if defined(_WIN64)
-		SOCKET	_socket = INVALID_SOCKET;
+		fe::type::_SOCKET	_socket = INVALID_SOCKET;
 #else
 #endif 
 
@@ -27,7 +27,7 @@ namespace fe
 		virtual ~Socket() {}
 		virtual void	clean(void) = 0;
 		virtual void	shutdown(void) = 0;
-		SOCKET	getSocket(void) const { return _socket; }
+		fe::type::_SOCKET	getSocket(void) const { return _socket; }
 	};
 }
 #pragma warning( default : 4251 )
