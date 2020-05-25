@@ -59,6 +59,7 @@ bool	fe::SocketClient::connect(const Network& network)
 	if (_socket == INVALID_SOCKET)
 		return false;
 #else
+	return false;
 #endif
 	return true;
 }
@@ -66,12 +67,18 @@ bool	fe::SocketClient::connect(const Network& network)
 
 void	fe::SocketClient::clean(void)
 {
+#if defined(_WIN64)
 	closesocket(_socket);
 	WSACleanup();
+#endif
 }
 
 void	fe::SocketClient::shutdown(void)
 {
+#if defined(_WIN64)
 	if (::shutdown(_socket, SD_SEND) == SOCKET_ERROR)
 		clean();
+#elif defined(__APPLE__)
+	clean();
+#endif
 }

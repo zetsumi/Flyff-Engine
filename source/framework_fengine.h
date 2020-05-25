@@ -39,6 +39,7 @@ namespace fe
         typedef uint32_t            _32uint;
         typedef int32_t             _32int;
         typedef unsigned char       _uchar;
+        typedef int                 _SOCKET;
 #endif // _WIN64
     }
 }

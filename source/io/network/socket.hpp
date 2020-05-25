@@ -8,6 +8,12 @@
 #pragma comment(lib, "Ws2_32.lib")
 #pragma comment(lib, "Mswsock.lib")
 #pragma comment(lib, "AdvApi32.lib")
+#elif defined(__APPLE__)
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <string.h> /* pour memset */
+#include <netinet/in.h> /* pour struct sockaddr_in */
+#include <arpa/inet.h> /* pour htons et inet_aton */
 #endif
 
 #include <io/network/network.hpp>
@@ -21,6 +27,7 @@ namespace fe
 #if defined(_WIN64)
 		fe::type::_SOCKET	_socket = INVALID_SOCKET;
 #else
+		fe::type::_SOCKET	_socket = 0;
 #endif 
 
 	public:

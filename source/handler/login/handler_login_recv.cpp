@@ -14,7 +14,11 @@ fe::PacketMessage* fe::HandlerLogin::onCacheAddr(fe::type::_SOCKET id)
 	*p << packetBuilder;
 	size_t len = strlen(p->cacheServerAddr);
 	cacheServerAddr = new char[len + 1];
-	memcpy_s(cacheServerAddr, len, p->cacheServerAddr, len);
+#if defined(_WIN64)
+	::memcpy_s(cacheServerAddr, len, p->cacheServerAddr, len);
+#elif defined(__APPLE__)
+	::memcpy(cacheServerAddr, p->cacheServerAddr, len);
+#endif
 	cacheServerAddr[len] = '\0';
 	return p;
 }

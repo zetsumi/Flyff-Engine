@@ -29,8 +29,13 @@ namespace fe
 		{
 			unsigned int length = packet->size + sizeof(T);
 			unsigned char* tmp = new unsigned char[length]();
+#if defined(_WIN64)
 			::memcpy_s(tmp, length, &val, sizeof(T));
 			::memcpy_s(tmp + sizeof(T), length, packet->data, packet->size);
+#elif defined(__APPLE__)
+			::memcpy(tmp, &val, sizeof(T));
+			::memcpy(tmp + sizeof(T), packet->data, packet->size);
+#endif
 			delete packet->data;
 			packet->data = nullptr;
 			packet->data = tmp;
@@ -66,14 +71,22 @@ namespace fe
 			if (packet->data == nullptr)
 			{
 				packet->data = new unsigned char[length]();
+#if defined(_WIN64)
 				::memcpy_s(packet->data, length, &var, length);
+#elif defined(__APPLE__)
+				::memcpy(packet->data, &var, length);
+#endif
 			}
 			else
 			{
 				packet->data = (unsigned char*)::realloc(packet->data, packet->size + length);
 				if (packet->data == nullptr)
 					return;
+#if defined(_WIN64)
 				::memcpy_s(packet->data + packet->size, length, &var, length);
+#elif defined(__APPLE__)
+				::memcpy(packet->data + packet->size, &var, length);
+#endif
 			}
 			packet->size += length;
 		}

@@ -74,8 +74,10 @@ SOURCE_FN = $(SOURCE_IO_NETWORK) \
 	$(SOURCE_HANDLER_CERTIFIER) \
 	$(SOURCE_HANDLER_CACHE) \
 
+###### FICHIER COMPILER ######
 OBJS_FN = $(SOURCE_FN:.cpp=.o)
 
+###### RULES ######
 all: libflyffnetwork
 
 libflyffnetwork: $(LIB_FN)
