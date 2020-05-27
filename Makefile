@@ -42,7 +42,7 @@ PHANDCT = $(PHAND)certifier/
 PHANDL = $(PHAND)login/
 
 ###### PATH SOURCE CLIENT TEST FLYFF NETWORK ######
-PCFN = source/samples/ClientTest/
+PCFN = samples/ClientTest/
 
 ###### SOURCE LIB FLYFF NETWORK ######
 SOURCE_IO_NETWORK = $(PION)network.cpp \
@@ -87,7 +87,7 @@ SOURCE_CFN = ${PCFN}main.cpp \
 	${PCFN}cmd_tips.cpp \
 	${PCFN}login.cpp \
 	${PCFN}cache.cpp \
-	${PCFN}certifer.cpp \
+	${PCFN}certifier.cpp
 
 ###### FICHIER COMPILER ######
 OBJS_FN = $(SOURCE_FN:.cpp=.o)
@@ -102,7 +102,7 @@ $(LIB_FN): $(OBJS_FN)
 
 clientfn: ${CLIENT_FN}
 ${CLIENT_FN}: ${OBJS_CFN}
-	${CC} -o ${CLIENT_FN} ${OBJS_CFN} -I./source/samples/ClientTest/ -L ${LIB_FN}
+	${CC} -o ${CLIENT_FN} ${OBJS_CFN} -I./samples/ClientTest/ -L./ -lflyffnetwork
 
 clean:
 	$(RM) $(LIB_FN)
