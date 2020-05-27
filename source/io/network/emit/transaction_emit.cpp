@@ -6,15 +6,14 @@ bool fe::Transaction::sender(fe::type::_SOCKET idSocket, unsigned int size, cons
 {
 	if (_socket == nullptr)
 		return false;
-	int errorCode = 0;
-	errorCode = ::send(idSocket, data, size, 0);
+	int errorCode = ::send(idSocket, data, size, 0);
 #if defined(_WIN64)
 	if (errorCode == SOCKET_ERROR)
 #elif defined(__APPLE__)
 	if (errorCode <= 0)
 #endif
 	{
-		FE_CONSOLELOG("SOCKET ERROR with client<%u>", idSocket);
+		FE_CONSOLELOG("SOCKET ERROR<%u> with client<%u>", errorCode, idSocket);
 		return false;
 	}
 	return true;
@@ -47,7 +46,7 @@ fe::PacketStructure* fe::Transaction::receiver(fe::type::_SOCKET idSocket, unsig
 #elif defined(__APPLE__)
 	memset(buffer, 0x00, bufferSize);
 #endif
-	octects =  ::read(idSocket, buffer, bufferSize);
+	octects =  ::recv(idSocket, buffer, bufferSize, 0);
 	if (octects <= 0)
 		return nullptr;
 	if (octects > static_cast<int>(bufferSize))
