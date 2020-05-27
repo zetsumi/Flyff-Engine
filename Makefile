@@ -1,7 +1,8 @@
 CC = g++
 RM = rm -rf
 LIB_FN = libflyffnetwork.so 
-LIB_FR = libflyffressource.so 
+LIB_FR = libflyffressource.so
+CLIENT_FN = client_fn.exe
 
 OBJS_TFN = $(SOURCE:.cpp:.o)
 
@@ -31,7 +32,7 @@ CXXFLAGS	+= -I ./source/handler/cache/packets_type/
 CXXFLAGS	+= -I ./source/handler/login/
 CXXFLAGS	+= -I ./source/util/
 
-###### PATH SOURCE ######
+###### PATH SOURCE LIB FLYFF NETWORK ######
 PION = source/io/network/
 PIONE = $(PION)emit/
 PIONM = $(PION)message/
@@ -40,7 +41,10 @@ PHANDCC = $(PHAND)cache/
 PHANDCT = $(PHAND)certifier/
 PHANDL = $(PHAND)login/
 
-###### SOURCE ######
+###### PATH SOURCE CLIENT TEST FLYFF NETWORK ######
+PCFN = samples/ClientTest/
+
+###### SOURCE LIB FLYFF NETWORK ######
 SOURCE_IO_NETWORK = $(PION)network.cpp \
 	$(PION)socket_client.cpp
 
@@ -74,21 +78,39 @@ SOURCE_FN = $(SOURCE_IO_NETWORK) \
 	$(SOURCE_HANDLER_CERTIFIER) \
 	$(SOURCE_HANDLER_CACHE) \
 
+###### SOURCE CLIENT TEST FLYFF NETWORK ######
+SOURCE_CFN = ${PCFN}main.cpp \
+	${PCFN}prompt.cpp \
+	${PCFN}cmd_login.cpp \
+	${PCFN}cmd_cache.cpp \
+	${PCFN}cmd_certifier.cpp \
+	${PCFN}cmd_tips.cpp \
+	${PCFN}login.cpp \
+	${PCFN}cache.cpp \
+	${PCFN}certifier.cpp
+
 ###### FICHIER COMPILER ######
 OBJS_FN = $(SOURCE_FN:.cpp=.o)
+OBJS_CFN = $(SOURCE_CFN:.cpp=.o)
 
 ###### RULES ######
-all: libflyffnetwork
+all: libflyffnetwork clientfn
 
 libflyffnetwork: $(LIB_FN)
 $(LIB_FN): $(OBJS_FN)
 	$(CC) -shared -o $(LIB_FN) $(OBJS_FN)
 
+clientfn: ${CLIENT_FN}
+${CLIENT_FN}: ${OBJS_CFN}
+	${CC} -o ${CLIENT_FN} ${OBJS_CFN} -I./samples/ClientTest/ -L./ -lflyffnetwork
+
 clean:
 	$(RM) $(LIB_FN)
+	$(RM) $(CLIENT_FN)
 
 fclean: clean
 	$(RM) $(OBJS_FN)
+	$(RM) $(OBJS_CFN)
 
 re: fclean all
 

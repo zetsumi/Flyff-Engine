@@ -33,7 +33,7 @@ static void tgame(void)
 		{
 			FE_CONSOLELOG("Certifier : type{%u}{%#010x}", msgCache->type, msgCache->type);
 		}
-		Sleep(300);
+		std::this_thread::sleep_for (std::chrono::milliseconds(300));
 	}
 }
 
