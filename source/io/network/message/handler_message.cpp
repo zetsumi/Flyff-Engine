@@ -42,6 +42,15 @@ bool fe::HandlerMessage::pushAction(fe::type::_32uint packetType, std::function<
 	return true;
 }
 
+void fe::HandlerMessage::initialize(void)
+{
+	ON_PACKETTYPE(PACKETTYPE_WELCOME, &fe::HandlerMessage::onWelcome);
+	ON_PACKETTYPE(PACKETTYPE_KEEP_ALIVE, &fe::HandlerMessage::onKeepAlive);
+	ON_PACKETTYPE(PACKETTYPE_PING, &fe::HandlerMessage::onPing);
+	ON_PACKETTYPE(PACKETTYPE_ERROR, &fe::HandlerMessage::onError);
+	ON_PACKETTYPE(PACKETTYPE_ERROR_STRING, &fe::HandlerMessage::onErrorString);
+}
+
 void fe::HandlerMessage::setTransaction(Transaction* newTransaction)
 {
 	if (newTransaction != nullptr)

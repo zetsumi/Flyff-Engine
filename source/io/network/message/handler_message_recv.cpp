@@ -17,6 +17,8 @@ void fe::HandlerMessage::onMsg(fe::type::_SOCKET id, fe::PacketStructure* ps)
 	}
 
 	loadHeader(mark, length, packetType);
+	delete ps;
+	ps = nullptr;
 
 	fe::type::_SOCKET idSocket = transaction->getSocket()->getSocket();
 	unsigned int lenData = length - sizeof(fe::type::_32uint); // Taille moins sizeof() packettype
@@ -29,6 +31,7 @@ void fe::HandlerMessage::onMsg(fe::type::_SOCKET id, fe::PacketStructure* ps)
 			FE_CONSOLELOG("fail on setPacket");
 			return;
 		}
+		delete psData;
 	}
 
 	auto it = actions.find(packetType);

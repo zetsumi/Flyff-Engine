@@ -14,25 +14,14 @@ namespace fe
 {
 	class API_DECLSPEC HandlerCache : public HandlerMessage
 	{
-		typedef fe::PacketMessage* (HandlerCache::* callbackSnap)(PARAMETERS_FUNCTION_SNAPSHOT);
-		std::unordered_map<unsigned short, std::function<fe::PacketMessage* (PARAMETERS_FUNCTION_SNAPSHOT)>> snapshots;
+		std::unordered_map<unsigned short, std::function<fe::snapshot::Snapshot* ()>>	snapshotPacket;
+
 
 		[[noreturn]] void	initializePacketType(void);
 		[[noreturn]] void	initializeSnapshop(void);
-		[[noreturn]] void	addSnapShot(unsigned short, callbackSnap action);
 
 		// packet type
 		fe::PacketMessage* onSnapShot(fe::type::_SOCKET id);
-
-		// snapshottype
-		[[nodiscard]] fe::PacketMessage* onEnvironmentAll(PARAMETERS_FUNCTION_SNAPSHOT);
-		[[nodiscard]] fe::PacketMessage* onWorldReadInfo(PARAMETERS_FUNCTION_SNAPSHOT);
-		[[nodiscard]] fe::PacketMessage* onAddObj(PARAMETERS_FUNCTION_SNAPSHOT);
-		[[nodiscard]] fe::PacketMessage* onQueryPlayerData(PARAMETERS_FUNCTION_SNAPSHOT);
-		[[nodiscard]] fe::PacketMessage* onDestPos(PARAMETERS_FUNCTION_SNAPSHOT);
-		[[nodiscard]] fe::PacketMessage* onMoverCorr(PARAMETERS_FUNCTION_SNAPSHOT);
-		[[nodiscard]] fe::PacketMessage* onGetPosition(PARAMETERS_FUNCTION_SNAPSHOT);
-
 	public:
 		HandlerCache() = default;
 		virtual ~HandlerCache() = default;

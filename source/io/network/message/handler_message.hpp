@@ -56,7 +56,7 @@ namespace fe
 
 
 		// global
-		[[noreturn]] virtual void	initialize(void) = 0;
+		[[noreturn]] virtual void	initialize(void);
 		[[noreturn]] void			setTransaction(Transaction* newTransaction);
 		[[noreturn]] void			killPing(void);
 		[[nodiscard]] fe::PacketMessage* getPacket(void);

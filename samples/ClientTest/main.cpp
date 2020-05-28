@@ -24,16 +24,34 @@ static void tgame(void)
 		if (msgCert != nullptr)
 		{
 			FE_CONSOLELOG("Certifier : type{%u}{%#010x}", msgCert->type, msgCert->type);
+			delete msgCert;
+			msgCert = nullptr;
 		}
 		if (msgLogin != nullptr)
 		{
-			FE_CONSOLELOG("Certifier : type{%u}{%#010x}", msgLogin->type, msgLogin->type);
+			FE_CONSOLELOG("Login : type{%u}{%#010x}", msgLogin->type, msgLogin->type);
+			delete msgLogin;
+			msgLogin = nullptr;
 		}
 		if (msgCache != nullptr)
 		{
-			FE_CONSOLELOG("Certifier : type{%u}{%#010x}", msgCache->type, msgCache->type);
+			FE_CONSOLELOG("Cache : type{%u}{%#010x}", msgCache->type, msgCache->type);
+			if (msgCache->type == PACKETTYPE_SNAPSHOT || msgCache->type == PACKETTYPE_JOIN)
+			{
+				fe::snapshot::SnapshotList* snapList = dynamic_cast<fe::snapshot::SnapshotList*>(msgCache);
+				for (unsigned short i = 0; i < snapList->count; ++i)
+				{
+					FE_CONSOLELOG("Cache Snapshot : count{%u} type{%#010x} objIdPlayer{%u} objid{%#u}",
+						i, snapList->type, snapList->snaps[i]->objIdPlayer, snapList->snaps[i]->objid);
+					delete snapList->snaps[i];
+					snapList->snaps[i] = nullptr;
+				}
+				delete[] snapList->snaps;
+			}
+			delete msgCache;
+			msgCache = nullptr;
 		}
-		std::this_thread::sleep_for (std::chrono::milliseconds(300));
+		std::this_thread::sleep_for(std::chrono::milliseconds(200));
 	}
 }
 

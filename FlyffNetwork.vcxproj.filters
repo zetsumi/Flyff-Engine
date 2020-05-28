@@ -96,9 +96,6 @@
     <ClCompile Include="source\handler\cache\handler_cache_recv.cpp">
       <Filter>Source Files\handler\cache</Filter>
     </ClCompile>
-    <ClCompile Include="source\handler\cache\handler_cache_recv_snapshot.cpp">
-      <Filter>Source Files\handler\cache</Filter>
-    </ClCompile>
     <ClCompile Include="source\handler\cache\handler_cache.cpp">
       <Filter>Source Files\handler\cache</Filter>
     </ClCompile>

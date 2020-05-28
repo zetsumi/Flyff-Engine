@@ -1,30 +1,28 @@
 #include <pch_fnetwork.h>
-
-void fe::HandlerCache::addSnapShot(unsigned short type, fe::HandlerCache::callbackSnap action)
-{
-	if (action != nullptr)
-		snapshots[type] = std::bind(action, this, std::placeholders::_1, std::placeholders::_2);
-}
-
-void fe::HandlerCache::initializePacketType(void)
-{
-	// global
-	ON_PACKETTYPE(PACKETTYPE_WELCOME, &fe::HandlerMessage::onWelcome);
-	ON_PACKETTYPE(PACKETTYPE_KEEP_ALIVE, &fe::HandlerMessage::onKeepAlive);
-	ON_PACKETTYPE(PACKETTYPE_PING, &fe::HandlerMessage::onPing);
-	ON_PACKETTYPE(PACKETTYPE_ERROR, &fe::HandlerMessage::onError);
-	ON_PACKETTYPE(PACKETTYPE_ERROR_STRING, &fe::HandlerMessage::onErrorString);
-
-	// specifique
-	ON_PACKETTYPE(PACKETTYPE_JOIN, &fe::HandlerCache::onSnapShot);
-	ON_PACKETTYPE(PACKETTYPE_SNAPSHOT, &fe::HandlerCache::onSnapShot);
-}
+#include <io/network/message/snapshot_type.hpp>
 
 void fe::HandlerCache::initialize(void)
 {
+	fe::HandlerMessage::initialize();
+
 	handlerType = HANDLER_PACKET_TYPE::CACHE;
 	initializePacketType();
 	initializeSnapshop();
 }
 
+void fe::HandlerCache::initializePacketType(void)
+{
+	ON_PACKETTYPE(PACKETTYPE_JOIN, &fe::HandlerCache::onSnapShot);
+	ON_PACKETTYPE(PACKETTYPE_SNAPSHOT, &fe::HandlerCache::onSnapShot);
+}
 
+void fe::HandlerCache::initializeSnapshop(void)
+{
+
+	this->snapshotPacket[SNAPSHOTTYPE_ENVIRONMENTALL] = std::bind(fe::snapshot::factory::environmentAll);
+	this->snapshotPacket[SNAPSHOTTYPE_WORLD_READINFO] = std::bind(fe::snapshot::factory::workReadInfo);
+	this->snapshotPacket[SNAPSHOTTYPE_QUERY_PLAYER_DATA] = std::bind(fe::snapshot::factory::queryPlayerData);
+	this->snapshotPacket[SNAPSHOTTYPE_DESTPOS] = std::bind(fe::snapshot::factory::destPos);
+	this->snapshotPacket[SNAPSHOTTYPE_MOVERCORR] = std::bind(fe::snapshot::factory::moverCorr);
+	this->snapshotPacket[SNAPSHOTTYPE_GETPOS] = std::bind(fe::snapshot::factory::getPosition);
+}

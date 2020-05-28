@@ -4,11 +4,6 @@ namespace fe
 {
 	struct PacketServerList : public PacketMessage
 	{
-		fe::type::_32uint	authKey = 0;
-		fe::type::_uchar	accountFlag = 0;
-		char* account = nullptr;
-		fe::type::_32uint	numberServer = 0;
-
 		struct ServerInfo
 		{
 			fe::type::_32uint parent = 0;
@@ -22,15 +17,30 @@ namespace fe
 
 			ServerInfo() = default;
 			~ServerInfo() = default;
+			inline ServerInfo operator<<(fe::PacketBuilder& pb)
+			{
+				parent = pb.read<fe::type::_32uint>();
+				id = pb.read<fe::type::_32uint>();
+				name = pb.readString();
+				addr = pb.readString();
+				unknow = pb.read<fe::type::_32uint>();
+				count = pb.read<fe::type::_32uint>();
+				enable = pb.read<fe::type::_32uint>();
+				max = pb.read<fe::type::_32uint>();
+				return *this;
+			}
 		};
-		ServerInfo* servers;
+
+		fe::type::_32uint	authKey = 0;
+		fe::type::_uchar	accountFlag = 0;
+		char*				account = nullptr;
+		fe::type::_32uint	numberServer = 0;
+		ServerInfo*			servers = nullptr;
 
 		PacketServerList() = default;
 		~PacketServerList() = default;
-		PacketServerList(const PacketServerList& ps) = default;
-		PacketServerList(PacketServerList&& ps) = default;
-		PacketServerList& operator=(const PacketServerList& ps) = default;
-		PacketServerList& operator<<(fe::PacketBuilder& pb)
+
+		inline PacketServerList& operator<<(fe::PacketBuilder& pb) override
 		{
 			authKey = pb.read<fe::type::_32uint>();
 			accountFlag = pb.read<fe::type::_uchar>();
@@ -39,16 +49,7 @@ namespace fe
 
 			servers = new ServerInfo[numberServer];
 			for (fe::type::_32uint i = 0; i < numberServer; ++i)
-			{
-				servers[i].parent = pb.read<fe::type::_32uint>();
-				servers[i].id = pb.read<fe::type::_32uint>();
-				servers[i].name = pb.readString();
-				servers[i].addr = pb.readString();
-				servers[i].unknow = pb.read<fe::type::_32uint>();
-				servers[i].count = pb.read<fe::type::_32uint>();
-				servers[i].enable = pb.read<fe::type::_32uint>();
-				servers[i].max = pb.read<fe::type::_32uint>();
-			}
+				servers[i] << pb;
 			return *this;
 		}
 
