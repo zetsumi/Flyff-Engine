@@ -12,17 +12,16 @@ void fe::HandlerCache::initialize(void)
 
 void fe::HandlerCache::initializePacketType(void)
 {
-	ON_PACKETTYPE(PACKETTYPE_JOIN, &fe::HandlerCache::onSnapShot);
-	ON_PACKETTYPE(PACKETTYPE_SNAPSHOT, &fe::HandlerCache::onSnapShot);
+	pushAction(PACKETTYPE_JOIN, std::bind(&fe::HandlerCache::onSnapShot, this));
+	pushAction(PACKETTYPE_SNAPSHOT, std::bind(&fe::HandlerCache::onSnapShot, this));
 }
 
 void fe::HandlerCache::initializeSnapshop(void)
 {
-
-	this->snapshotPacket[SNAPSHOTTYPE_ENVIRONMENTALL] = std::bind(fe::snapshot::factory::environmentAll);
-	this->snapshotPacket[SNAPSHOTTYPE_WORLD_READINFO] = std::bind(fe::snapshot::factory::workReadInfo);
-	this->snapshotPacket[SNAPSHOTTYPE_QUERY_PLAYER_DATA] = std::bind(fe::snapshot::factory::queryPlayerData);
-	this->snapshotPacket[SNAPSHOTTYPE_DESTPOS] = std::bind(fe::snapshot::factory::destPos);
-	this->snapshotPacket[SNAPSHOTTYPE_MOVERCORR] = std::bind(fe::snapshot::factory::moverCorr);
-	this->snapshotPacket[SNAPSHOTTYPE_GETPOS] = std::bind(fe::snapshot::factory::getPosition);
+	snapshotPacket[SNAPSHOTTYPE_ENVIRONMENTALL] = std::bind(fe::snapshot::factory::environmentAll);
+	snapshotPacket[SNAPSHOTTYPE_WORLD_READINFO] = std::bind(fe::snapshot::factory::workReadInfo);
+	snapshotPacket[SNAPSHOTTYPE_QUERY_PLAYER_DATA] = std::bind(fe::snapshot::factory::queryPlayerData);
+	snapshotPacket[SNAPSHOTTYPE_DESTPOS] = std::bind(fe::snapshot::factory::destPos);
+	snapshotPacket[SNAPSHOTTYPE_MOVERCORR] = std::bind(fe::snapshot::factory::moverCorr);
+	snapshotPacket[SNAPSHOTTYPE_GETPOS] = std::bind(fe::snapshot::factory::getPosition);
 }

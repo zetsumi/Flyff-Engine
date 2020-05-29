@@ -7,17 +7,18 @@ const char* fe::HandlerLogin::getCacheServerAddr(void) const
 	return cacheServerAddr;
 }
 
-
 void fe::HandlerLogin::initialize(void)
 {
 	fe::HandlerMessage::initialize();
 
 	handlerType = HANDLER_PACKET_TYPE::LOGIN;
 
-	ON_PACKETTYPE(PACKETTYPE_QUERYTICKCOUNT,		&fe::HandlerLogin::onQueryTickCount);
-	ON_PACKETTYPE(PACKETTYPE_CACHE_ADDR,			&fe::HandlerLogin::onCacheAddr);
-	ON_PACKETTYPE(PACKETTYPE_PLAYER_LIST,			&fe::HandlerLogin::onPlayerList);
-	ON_PACKETTYPE(PACKETTYPE_LOGIN_PROTECT_NUMPAD,	&fe::HandlerLogin::onProtectNumPad);
-	ON_PACKETTYPE(PACKETTYPE_LOGIN_PROTECT_CERT,	&fe::HandlerLogin::onProtectLoginCert);
-	ON_PACKETTYPE(PACKETTYPE_PRE_JOIN,				&fe::HandlerLogin::onPreJoin);
+	pushAction(PACKETTYPE_CACHE_ADDR, std::bind(&fe::HandlerLogin::onCacheAddr, this));
+
+	packetOperator[PACKETTYPE_QUERYTICKCOUNT] = std::bind(fe::packettype::queryTick);
+	packetOperator[PACKETTYPE_PLAYER_LIST] = std::bind(fe::packettype::playerList);
+	packetOperator[PACKETTYPE_LOGIN_PROTECT_NUMPAD] = std::bind(fe::packettype::protectNumPad);
+	packetOperator[PACKETTYPE_LOGIN_PROTECT_CERT] = std::bind(fe::packettype::protectLoginCert);
+	packetOperator[PACKETTYPE_PRE_JOIN] = std::bind(fe::packettype::preJoin);
+
 }

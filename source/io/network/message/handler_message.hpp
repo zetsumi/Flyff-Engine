@@ -26,8 +26,12 @@ namespace fe
 		[[noreturn]] void	loadHeader(fe::type::_uchar& mark, fe::type::_32uint& length, fe::type::_32uint& packettype);
 
 	protected:
-		typedef  std::function<fe::PacketMessage* (void)> callbackHandlerMesage;
-		std::unordered_map<fe::type::_32uint, callbackHandlerMesage>	actions{};
+		typedef	std::function<fe::PacketMessage* (void)>	callbackHandlerMesage;
+		typedef	std::function<fe::PacketMessage* (void)>		fctPacketOperator;
+		typedef std::unordered_map<fe::type::_32uint, callbackHandlerMesage>	mapAction;
+		typedef std::unordered_map<fe::type::_32uint, callbackHandlerMesage>	mapOperator;
+		mapAction	actions{};
+		mapOperator	packetOperator{};
 
 		std::thread						ping{};
 		Transaction*					transaction = nullptr;
@@ -41,7 +45,7 @@ namespace fe
 		fe::type::_32uint				authKey = 0;
 
 		// global
-		[[nodiscard]] bool	pushAction(fe::type::_32uint packetType, callbackHandlerMesage action);
+		bool	pushAction(fe::type::_32uint packetType, callbackHandlerMesage action);
 
 		// emit & receive
 		[[noreturn]] void	sendPing();
@@ -75,7 +79,3 @@ namespace fe
 	};
 }
 #pragma warning( default : 4251 )
-
-#define	ON_PACKETTYPE(packettype, fct) \
-	if (pushAction(packettype, std::bind(fct, this)) == false) \
-		FE_CONSOLELOG("fail add action on packet type [%u]", packettype);

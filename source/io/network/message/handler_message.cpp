@@ -13,6 +13,8 @@ fe::HandlerMessage::~HandlerMessage()
 		messages.pop();
 	}
 	mtMessage.unlock();
+
+	delete transaction;
 }
 
 
@@ -45,17 +47,19 @@ bool fe::HandlerMessage::pushAction(fe::type::_32uint packetType, callbackHandle
 
 void fe::HandlerMessage::initialize(void)
 {
-	ON_PACKETTYPE(PACKETTYPE_WELCOME, &fe::HandlerMessage::onWelcome);
-	ON_PACKETTYPE(PACKETTYPE_KEEP_ALIVE, &fe::HandlerMessage::onKeepAlive);
-	ON_PACKETTYPE(PACKETTYPE_PING, &fe::HandlerMessage::onPing);
-	ON_PACKETTYPE(PACKETTYPE_ERROR, &fe::HandlerMessage::onError);
-	ON_PACKETTYPE(PACKETTYPE_ERROR_STRING, &fe::HandlerMessage::onErrorString);
+	pushAction(PACKETTYPE_WELCOME, std::bind(&fe::HandlerMessage::onWelcome, this));
+	pushAction(PACKETTYPE_KEEP_ALIVE, std::bind(&fe::HandlerMessage::onKeepAlive, this));
+	pushAction(PACKETTYPE_PING, std::bind(&fe::HandlerMessage::onPing, this));
+	pushAction(PACKETTYPE_ERROR, std::bind(&fe::HandlerMessage::onError, this));
+	pushAction(PACKETTYPE_ERROR_STRING, std::bind(&fe::HandlerMessage::onErrorString, this));
 }
 
 void fe::HandlerMessage::setTransaction(Transaction* newTransaction)
 {
 	if (newTransaction != nullptr)
 		transaction = newTransaction;
+	else
+		FE_CONSOLELOG("newTransaction is null");
 }
 
 void	fe::HandlerMessage::killPing(void)
