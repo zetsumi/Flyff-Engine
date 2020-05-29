@@ -11,3 +11,14 @@
 #include <handler/login/packets/packet_protect_login_cert.hpp>
 
 
+namespace fe
+{
+	namespace packettype
+	{
+		[[nodiscard]] inline fe::PacketMessage* queryTick(void) { return new fe::PacketQueryTick(); }
+		[[nodiscard]] inline fe::PacketMessage* playerList(void) { return new fe::PacketListPlayer(); }
+		[[nodiscard]] inline fe::PacketMessage* protectNumPad(void) { return new fe::PacketProtectNumPad(); }
+		[[nodiscard]] inline fe::PacketMessage* protectLoginCert(void) { return new fe::PacketProtectLoginCert(); }
+		[[nodiscard]] inline fe::PacketMessage* preJoin(void) { return nullptr; }
+	}
+}

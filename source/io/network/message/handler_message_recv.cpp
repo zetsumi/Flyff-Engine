@@ -9,7 +9,9 @@ void fe::HandlerMessage::onMsg(fe::PacketStructure* ps)
 	fe::type::_32uint	packetType = 0;
 	fe::type::_SOCKET	idSocket = 0;
 	unsigned int		lenData = 0;
-	std::unordered_map<fe::type::_32uint, callbackHandlerMesage>::iterator itAction = actions.end();
+	fe::PacketMessage* msg = nullptr;
+	mapAction::iterator itAction = actions.end();
+	mapOperator::iterator itOperator = packetOperator.end();
 
 	FE_CONSOLELOG("****************");
 	packetBuilder.reset();
@@ -22,7 +24,7 @@ void fe::HandlerMessage::onMsg(fe::PacketStructure* ps)
 	loadHeader(mark, length, packetType);
 
 	idSocket = transaction->getSocket()->getSocket();
-	lenData = length - sizeof(fe::type::_32uint); // Taille moins sizeof() packettype
+	lenData = length - sizeof(packetType); // Taille moins sizeof() packettype
 	if (lenData > 0)
 	{
 		fe::PacketStructure* psData = transaction->receiver(idSocket, lenData);
@@ -37,21 +39,32 @@ void fe::HandlerMessage::onMsg(fe::PacketStructure* ps)
 	itAction = actions.find(packetType);
 	if (itAction != actions.end())
 	{
-		fe::PacketMessage* msg = itAction->second();
-		if (msg != nullptr)
-		{
-			msg->type = packetType;
-			mtMessage.lock();
-			messages.push(msg);
-			mtMessage.unlock();
-		}
-	}
-	else
-	{
-		FE_CONSOLELOG("packet type unknow<%#010x>", packetType);
+		FE_CONSOLELOG("action{%#010x}", packetType);
+		msg = itAction->second();
+		goto end;
 	}
 
+	itOperator = packetOperator.find(packetType);
+	if (itOperator != packetOperator.end())
+	{
+		FE_CONSOLELOG("operator{%#010x}", packetType);
+		msg = itOperator->second();
+		if (msg != nullptr)
+			*msg << packetBuilder;
+		goto end;
+	}
+
+	FE_CONSOLELOG("packet type unknow<%#010x>", packetType);
+
 end:
+	if (msg != nullptr)
+	{
+		FE_CONSOLELOG("push message");
+		msg->type = packetType;
+		mtMessage.lock();
+		messages.push(msg);
+		mtMessage.unlock();
+	}
 	packetBuilder.reset();
 	FE_CONSOLELOG("****************");
 }
