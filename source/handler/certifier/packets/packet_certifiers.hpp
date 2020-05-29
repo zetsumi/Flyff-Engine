@@ -5,11 +5,3 @@
 #include <io/network/emit/packet_builder.hpp>
 
 #include <handler/certifier/packets/packets_serveur_list.hpp>
-
-namespace fe
-{
-	namespace packettype
-	{
-		[[nodiscard]] inline fe::PacketMessage* serveurList(void) { return new fe::PacketServerList(); }
-	}
-}

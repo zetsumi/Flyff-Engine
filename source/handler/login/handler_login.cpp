@@ -13,7 +13,7 @@ void fe::HandlerLogin::initialize(void)
 
 	handlerType = HANDLER_PACKET_TYPE::LOGIN;
 
-	assert(pushAction(PACKETTYPE_CACHE_ADDR, std::bind(&fe::HandlerLogin::onCacheAddr, this)));
+	pushAction(PACKETTYPE_CACHE_ADDR, std::bind(&fe::HandlerLogin::onCacheAddr, this));
 
 	packetOperator[PACKETTYPE_QUERYTICKCOUNT] = std::bind(fe::packettype::queryTick);
 	packetOperator[PACKETTYPE_PLAYER_LIST] = std::bind(fe::packettype::playerList);

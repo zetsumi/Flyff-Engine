@@ -45,7 +45,7 @@ namespace fe
 		fe::type::_32uint				authKey = 0;
 
 		// global
-		[[nodiscard]] bool	pushAction(fe::type::_32uint packetType, callbackHandlerMesage action);
+		bool	pushAction(fe::type::_32uint packetType, callbackHandlerMesage action);
 
 		// emit & receive
 		[[noreturn]] void	sendPing();
