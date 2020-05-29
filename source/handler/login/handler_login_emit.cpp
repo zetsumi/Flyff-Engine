@@ -9,7 +9,7 @@ void fe::HandlerLogin::sendQueryTickCount(fe::type::_SOCKET id)
 	fe::PacketBuilder pb;
 
 	std::time_t	tm = std::time(nullptr);
-	pb.write<fe::type::_32uint>(PACKETTYPE_QUERYTICKCOUNT);
+	pb.write<fe::packet::PACKETTYPE>(fe::packet::PACKETTYPE::QUERYTICKCOUNT);
 	pb.write<fe::type::_32int>(static_cast<fe::type::_32uint>(tm));
 
 	pb.writeHeader(sessionID, handlerType);
@@ -26,7 +26,7 @@ void fe::HandlerLogin::sendGetListPlayer(fe::type::_SOCKET id, const char* proto
 	fe::PacketBuilder pb;
 
 	std::time_t	tm = std::time(nullptr);
-	pb.write<fe::type::_32uint>(PACKETTYPE_GETPLAYERLIST);
+	pb.write<fe::packet::PACKETTYPE>(fe::packet::PACKETTYPE::GETPLAYERLIST);
 	pb.writeString(protocolVersion);
 	pb.write<fe::type::_32uint>(authKey);
 	pb.writeString(account);
@@ -46,7 +46,7 @@ void fe::HandlerLogin::sendPreJoin(fe::type::_SOCKET id, const char* account, fe
 	fe::PacketBuilder pb;
 
 	std::time_t	tm = std::time(nullptr);
-	pb.write<fe::type::_32uint>(PACKETTYPE_PRE_JOIN);
+	pb.write<fe::packet::PACKETTYPE>(fe::packet::PACKETTYPE::PRE_JOIN);
 	pb.writeString(account);
 	pb.write<fe::type::_32uint>(idPlayer);
 	pb.writeString(playerName);

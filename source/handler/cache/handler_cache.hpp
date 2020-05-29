@@ -14,7 +14,7 @@ namespace fe
 {
 	class API_DECLSPEC HandlerCache : public HandlerMessage
 	{
-		std::unordered_map<unsigned short, std::function<fe::snapshot::Snapshot* (void)>>	snapshotPacket;
+		std::unordered_map<fe::snapshot::SNAPSHOTTYPE, std::function<fe::snapshot::Snapshot* (void)>>	snapshotPacket;
 
 		[[noreturn]] void	initializePacketType(void);
 		[[noreturn]] void	initializeSnapshop(void);

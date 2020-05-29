@@ -10,7 +10,7 @@ void fe::HandlerCache::sendJoin(fe::type::_SOCKET id, fe::type::_32uint idWorld,
 	lockerSend.lock();
 	fe::PacketBuilder pb;
 
-	pb.write<fe::type::_32uint>(PACKETTYPE_JOIN);
+	pb.write<fe::packet::PACKETTYPE>(fe::packet::PACKETTYPE::JOIN);
 
 	pb.write<fe::type::_32uint>(idWorld);
 	pb.write<fe::type::_32uint>(idPlayer);
@@ -41,7 +41,7 @@ void fe::HandlerCache::sendGetPosition(fe::type::_SOCKET id, fe::type::_32uint i
 	lockerSend.lock();
 	fe::PacketBuilder pb;
 
-	pb.write<fe::type::_32uint>(PACKETTYPE_JOIN);
+	pb.write<fe::packet::PACKETTYPE>(fe::packet::PACKETTYPE::QUERYGETPOS);
 
 	pb.write<fe::type::_32uint>(idMover);
 
@@ -58,10 +58,10 @@ void fe::HandlerCache::sendDestinationPosition(fe::type::_SOCKET id, const fe::V
 
 	fe::PacketBuilder pb;
 
-	pb.write<fe::type::_32uint>(PACKETTYPE_SNAPSHOT);
+	pb.write<fe::packet::PACKETTYPE>(fe::packet::PACKETTYPE::SNAPSHOT);
 
 	pb.write<fe::type::_uchar>(1);
-	pb.write<unsigned short>(SNAPSHOTTYPE_DESTPOS);
+	pb.write<unsigned short>(static_cast<unsigned short>(fe::snapshot::SNAPSHOTTYPE::DESTPOS));
 
 	pb.write<float>(destination.x);
 	pb.write<float>(destination.y);

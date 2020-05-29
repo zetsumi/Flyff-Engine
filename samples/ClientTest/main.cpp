@@ -36,7 +36,7 @@ static void tgame(void)
 		if (msgCache != nullptr)
 		{
 			FE_CONSOLELOG("Cache : type{%u}{%#010x}", msgCache->type, msgCache->type);
-			if (msgCache->type == PACKETTYPE_SNAPSHOT || msgCache->type == PACKETTYPE_JOIN)
+			if (msgCache->type == fe::packet::PACKETTYPE::SNAPSHOT || msgCache->type == fe::packet::PACKETTYPE::JOIN)
 			{
 				fe::snapshot::SnapshotList* snapList = dynamic_cast<fe::snapshot::SnapshotList*>(msgCache);
 				for (unsigned short i = 0; i < snapList->count; ++i)

@@ -8,5 +8,5 @@ void fe::HandlerCertifier::initialize(void)
 	handlerType = HANDLER_PACKET_TYPE::CERTIFIER;
 	fe::HandlerMessage::initialize();
 
-	pushAction(PACKETTYPE_SRVR_LIST, std::bind(&fe::HandlerCertifier::onServerList, this));
+	pushAction(fe::packet::PACKETTYPE::SRVR_LIST, std::bind(&fe::HandlerCertifier::onServerList, this));
 }

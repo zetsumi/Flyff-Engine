@@ -1,6 +1,6 @@
 #pragma once
 #include <framework_fengine.h>
-#include <assert.h>
+#include <io/network/message/packet_type.hpp>
 
 
 namespace fe
@@ -8,7 +8,7 @@ namespace fe
 #pragma warning( disable: 4251 )
 	struct API_DECLSPEC PacketMessage
 	{
-		fe::type::_32uint	type = 0;
+		fe::packet::PACKETTYPE	type = fe::packet::PACKETTYPE::MAX_ERROR;
 
 		PacketMessage(PacketMessage&& pm) = delete;
 		PacketMessage(const PacketMessage& pm) = delete;

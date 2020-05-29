@@ -29,15 +29,15 @@ void fe::HandlerMessage::processPing()
 	FE_CONSOLELOG("out");
 }
 
-void fe::HandlerMessage::loadHeader(fe::type::_uchar& mark, fe::type::_32uint& length, fe::type::_32uint& packettype)
+void fe::HandlerMessage::loadHeader(fe::type::_uchar& mark, fe::type::_32uint& length, fe::packet::PACKETTYPE& packettype)
 {
 	mark = packetBuilder.read<fe::type::_uchar>();
 	length = packetBuilder.read<fe::type::_32uint>();
-	packettype = packetBuilder.read<fe::type::_32uint>();
+	packettype = packetBuilder.read<fe::packet::PACKETTYPE>();
 	FE_CONSOLELOG("header {%#02x} length{%#010x}{%u} packettype{%#08x}", mark, length, length, packettype);
 }
 
-bool fe::HandlerMessage::pushAction(fe::type::_32uint packetType, callbackHandlerMesage action)
+bool fe::HandlerMessage::pushAction(fe::packet::PACKETTYPE packetType, callbackHandlerMesage action)
 {
 	if (action == nullptr)
 		return false;
@@ -47,11 +47,11 @@ bool fe::HandlerMessage::pushAction(fe::type::_32uint packetType, callbackHandle
 
 void fe::HandlerMessage::initialize(void)
 {
-	pushAction(PACKETTYPE_WELCOME, std::bind(&fe::HandlerMessage::onWelcome, this));
-	pushAction(PACKETTYPE_KEEP_ALIVE, std::bind(&fe::HandlerMessage::onKeepAlive, this));
-	pushAction(PACKETTYPE_PING, std::bind(&fe::HandlerMessage::onPing, this));
-	pushAction(PACKETTYPE_ERROR, std::bind(&fe::HandlerMessage::onError, this));
-	pushAction(PACKETTYPE_ERROR_STRING, std::bind(&fe::HandlerMessage::onErrorString, this));
+	pushAction(fe::packet::PACKETTYPE::WELCOME, std::bind(&fe::HandlerMessage::onWelcome, this));
+	pushAction(fe::packet::PACKETTYPE::KEEP_ALIVE, std::bind(&fe::HandlerMessage::onKeepAlive, this));
+	pushAction(fe::packet::PACKETTYPE::PING, std::bind(&fe::HandlerMessage::onPing, this));
+	pushAction(fe::packet::PACKETTYPE::PERROR, std::bind(&fe::HandlerMessage::onError, this));
+	pushAction(fe::packet::PACKETTYPE::ERROR_STRING, std::bind(&fe::HandlerMessage::onErrorString, this));
 }
 
 void fe::HandlerMessage::setTransaction(Transaction* newTransaction)

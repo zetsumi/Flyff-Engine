@@ -2,6 +2,7 @@
 
 #include <pch_fnetwork.h>
 #include <assert.h>
+#include <io/network/message/snapshot_type.hpp>
 #include <io/network/message/packet_message.hpp>
 #include <io/network/emit/packet_builder.hpp>
 
@@ -13,7 +14,7 @@ namespace fe
 		{
 			fe::type::_32uint objid = 0;
 			fe::type::_32uint objIdPlayer = 0;
-			unsigned short snapshotType = 0;
+			fe::snapshot::SNAPSHOTTYPE snapshotType = fe::snapshot::SNAPSHOTTYPE::MAX_ERROR;
 
 			Snapshot(Snapshot&&) = delete;
 			Snapshot& operator=(const Snapshot&) = delete;

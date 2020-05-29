@@ -4,14 +4,14 @@
 
 void fe::HandlerMessage::onMsg(fe::PacketStructure* ps)
 {
-	fe::type::_uchar	mark = 0;
-	fe::type::_32uint	length = 0;
-	fe::type::_32uint	packetType = 0;
-	fe::type::_SOCKET	idSocket = 0;
-	unsigned int		lenData = 0;
-	fe::PacketMessage* msg = nullptr;
-	mapAction::iterator itAction = actions.end();
-	mapOperator::iterator itOperator = packetOperator.end();
+	fe::packet::PACKETTYPE	packetType = fe::packet::PACKETTYPE::MAX_ERROR;
+	fe::type::_uchar		mark = 0;
+	fe::type::_32uint		length = 0;
+	fe::type::_SOCKET		idSocket = 0;
+	unsigned int			lenData = 0;
+	fe::PacketMessage*		msg = nullptr;
+	mapAction::iterator		itAction = actions.end();
+	mapOperator::iterator	itOperator = packetOperator.end();
 
 	FE_CONSOLELOG("****************");
 	packetBuilder.reset();

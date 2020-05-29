@@ -23,13 +23,13 @@ namespace fe
 
 	class API_DECLSPEC HandlerMessage
 	{
-		[[noreturn]] void	loadHeader(fe::type::_uchar& mark, fe::type::_32uint& length, fe::type::_32uint& packettype);
+		[[noreturn]] void	loadHeader(fe::type::_uchar& mark, fe::type::_32uint& length, fe::packet::PACKETTYPE& packettype);
 
 	protected:
 		typedef	std::function<fe::PacketMessage* (void)>	callbackHandlerMesage;
 		typedef	std::function<fe::PacketMessage* (void)>		fctPacketOperator;
-		typedef std::unordered_map<fe::type::_32uint, callbackHandlerMesage>	mapAction;
-		typedef std::unordered_map<fe::type::_32uint, callbackHandlerMesage>	mapOperator;
+		typedef std::unordered_map<fe::packet::PACKETTYPE, callbackHandlerMesage>	mapAction;
+		typedef std::unordered_map<fe::packet::PACKETTYPE, callbackHandlerMesage>	mapOperator;
 		mapAction	actions{};
 		mapOperator	packetOperator{};
 
@@ -45,7 +45,7 @@ namespace fe
 		fe::type::_32uint				authKey = 0;
 
 		// global
-		bool	pushAction(fe::type::_32uint packetType, callbackHandlerMesage action);
+		bool	pushAction(fe::packet::PACKETTYPE packetType, callbackHandlerMesage action);
 
 		// emit & receive
 		[[noreturn]] void	sendPing();

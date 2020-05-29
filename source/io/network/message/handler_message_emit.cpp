@@ -7,7 +7,7 @@ void fe::HandlerMessage::sendKeepAlive(void)
 	lockerSend.lock();
 	fe::PacketBuilder pb;
 
-	pb.write<fe::type::_32uint>(PACKETTYPE_KEEP_ALIVE);
+	pb.write<fe::packet::PACKETTYPE>(fe::packet::PACKETTYPE::KEEP_ALIVE);
 	if (handlerType == HANDLER_PACKET_TYPE::LOGIN || handlerType == HANDLER_PACKET_TYPE::CACHE)
 		pb.write<fe::type::_32uint>(dpid);
 
@@ -24,7 +24,7 @@ void fe::HandlerMessage::sendError(void)
 	lockerSend.lock();
 	fe::PacketBuilder pb;
 
-	pb.write<fe::type::_32uint>(PACKETTYPE_ERROR);
+	pb.write<fe::packet::PACKETTYPE>(fe::packet::PACKETTYPE::PERROR);
 	if (handlerType == HANDLER_PACKET_TYPE::LOGIN || handlerType == HANDLER_PACKET_TYPE::CACHE)
 		pb.write<fe::type::_32uint>(dpid);
 
@@ -40,7 +40,7 @@ void fe::HandlerMessage::sendPing()
 	lockerSend.lock();
 	fe::PacketBuilder pb;
 
-	pb.write<fe::type::_32uint>(PACKETTYPE_PING);
+	pb.write<fe::packet::PACKETTYPE>(fe::packet::PACKETTYPE::PING);
 	if (handlerType == HANDLER_PACKET_TYPE::LOGIN || handlerType == HANDLER_PACKET_TYPE::CACHE)
 		pb.write<fe::type::_32uint>(dpid);
 	pb.writeHeader(sessionID, handlerType);

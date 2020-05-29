@@ -1,4 +1,5 @@
 #include <pch_fnetwork.h>
+#include <io/network/message/snapshot_type.hpp>
 
 fe::PacketMessage* fe::HandlerCache::onSnapShot(void)
 {
@@ -14,13 +15,13 @@ fe::PacketMessage* fe::HandlerCache::onSnapShot(void)
 	for (unsigned short i = 0; i < count; ++i)
 		snapList->snaps[i] = nullptr;
 
-	unsigned short snapshotType = 0;
+	fe::snapshot::SNAPSHOTTYPE snapshotType = fe::snapshot::SNAPSHOTTYPE::MAX_ERROR;
 	for (unsigned short i = 0; i < count; ++i)
 	{
 		objid = packetBuilder.read<fe::type::_32uint>();
-		snapshotType = packetBuilder.read<unsigned short>();
-
+		snapshotType = packetBuilder.read<fe::snapshot::SNAPSHOTTYPE>();
 		FE_CONSOLELOG("objid{%#010x}{%u} snapshotType{%#04x}{%u}", objid, objid, snapshotType, snapshotType);
+
 		auto it = snapshotPacket.find(snapshotType);
 		if (it == snapshotPacket.end())
 		{

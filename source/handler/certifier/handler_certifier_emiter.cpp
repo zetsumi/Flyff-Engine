@@ -8,7 +8,7 @@ void fe::HandlerCertifier::sendDisconnectAccount(fe::type::_SOCKET id, const cha
 	lockerSend.lock();
 	fe::PacketBuilder pb;
 
-	pb.write<fe::type::_32uint>(PACKETTYPE_CLOSE_EXISTING_CONNECTION);
+	pb.write<fe::packet::PACKETTYPE>(fe::packet::PACKETTYPE::CLOSE_EXISTING_CONNECTION);
 	pb.writeString(account);
 	pb.writeString(password);
 
@@ -24,7 +24,7 @@ void fe::HandlerCertifier::sendCertify(fe::type::_SOCKET id, const char* buildVe
 	lockerSend.lock();
 	fe::PacketBuilder pb;
 
-	pb.write<fe::type::_32uint>(PACKETTYPE_CERTIFY);
+	pb.write<fe::packet::PACKETTYPE>(fe::packet::PACKETTYPE::CERTIFY);
 	pb.writeString(buildVersion);
 	pb.writeString(account);
 	pb.writeString(password);
@@ -42,7 +42,7 @@ void fe::HandlerCertifier::sendNewAccount(fe::type::_SOCKET id, const char* acco
 	lockerSend.lock();
 
 	fe::PacketBuilder pb;
-	pb.write<fe::type::_32uint>(PACKETTYPE_NEW_ACCOUNT);
+	pb.write<fe::packet::PACKETTYPE>(fe::packet::PACKETTYPE::NEW_ACCOUNT);
 	pb.writeString(account);
 	pb.writeString(password);
 
