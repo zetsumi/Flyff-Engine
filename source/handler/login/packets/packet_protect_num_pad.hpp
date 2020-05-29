@@ -8,7 +8,7 @@ namespace fe
 
 		PacketProtectNumPad() = default;
 		~PacketProtectNumPad() = default;
-		PacketProtectNumPad& operator<<(fe::PacketBuilder& pb)
+		inline PacketProtectNumPad& operator<<(fe::PacketBuilder& pb) override
 		{
 			idNumPad = pb.read<fe::type::_32uint>();
 			FE_CONSOLELOG("idNumPad {%u}", idNumPad);

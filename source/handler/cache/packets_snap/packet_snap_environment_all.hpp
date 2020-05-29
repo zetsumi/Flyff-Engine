@@ -2,17 +2,20 @@
 
 namespace fe
 {
-	struct SnapshotEnvironmentAll : public PacketMessage
+	namespace snapshot
 	{
-		fe::type::_32int season = 0;
-
-		SnapshotEnvironmentAll() = default;
-		~SnapshotEnvironmentAll() = default;
-		SnapshotEnvironmentAll& operator<<(fe::PacketBuilder& pb)
+		struct SnapshotEnvironmentAll : public Snapshot
 		{
-			season = pb.read<fe::type::_32uint>();
-			FE_CONSOLELOG("season{%d}", season);
-			return *this;
-		}
-	};
+			fe::type::_32int season = 0;
+
+			SnapshotEnvironmentAll() = default;
+			~SnapshotEnvironmentAll() = default;
+			inline SnapshotEnvironmentAll& operator<<(fe::PacketBuilder& pb) override
+			{
+				season = pb.read<fe::type::_32uint>();
+				FE_CONSOLELOG("season{%d}", season);
+				return *this;
+			}
+		};
+	}
 }

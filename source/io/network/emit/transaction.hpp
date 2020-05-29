@@ -24,7 +24,7 @@ namespace fe
 		std::thread			main{};
 		Socket* _socket = nullptr;
 		MODE_TRANSACTION	mode = MODE_TRANSACTION::MODE_UNKNOW;
-		std::function<void (fe::type::_SOCKET id, fe::PacketStructure* ps)>	handlerMessageCallBack = nullptr;
+		std::function<void (fe::PacketStructure* ps)>	handlerMessageCallBack = nullptr;
 		unsigned int	lengthBuffer = DEFAULT_BUFFER_SIZE_RECEIVE;
 
 
@@ -41,7 +41,7 @@ namespace fe
 		[[noreturn]] void	setLengthBuffer(unsigned int len);
 		[[nodiscard]] const Socket * const getSocket(void) const;
 		[[nodiscard]] bool	isMode(MODE_TRANSACTION modeTransaction);
-		[[nodiscard]] bool	run(std::function<void(fe::type::_SOCKET id, fe::PacketStructure* ps)> callback);
+		[[nodiscard]] bool	run(std::function<void(fe::PacketStructure* ps)> callback);
 
 		// emiter
 		[[nodiscard]] bool	sender(fe::type::_SOCKET idSocket, unsigned int size, const char* data);

@@ -35,7 +35,7 @@ bool	handler_cache(void)
 	cache.initialize();
 	cache.setTransaction(&transCache);
 
-	auto onMsg = std::bind(&fe::HandlerMessage::onMsg, &cache, std::placeholders::_1, std::placeholders::_2);
+	auto onMsg = std::bind(&fe::HandlerMessage::onMsg, &cache, std::placeholders::_1);
 	if (transCache.run(onMsg) == false)
 		return false;
 

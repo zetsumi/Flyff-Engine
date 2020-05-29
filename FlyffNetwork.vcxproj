@@ -24,7 +24,6 @@
     <ClCompile Include="source\handler\cache\handler_cache.cpp" />
     <ClCompile Include="source\handler\cache\handler_cache_emit.cpp" />
     <ClCompile Include="source\handler\cache\handler_cache_recv.cpp" />
-    <ClCompile Include="source\handler\cache\handler_cache_recv_snapshot.cpp" />
     <ClCompile Include="source\handler\certifier\handler_certifier.cpp" />
     <ClCompile Include="source\handler\certifier\handler_certifier_emiter.cpp" />
     <ClCompile Include="source\handler\certifier\handler_certifier_recv.cpp" />

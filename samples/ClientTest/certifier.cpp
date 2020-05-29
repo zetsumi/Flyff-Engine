@@ -38,7 +38,7 @@ bool	handler_certifier(void)
 	certifier.initialize();
 	certifier.setTransaction(&transCertifier);
 
-	auto onMsg = std::bind(&fe::HandlerMessage::onMsg, &certifier, std::placeholders::_1, std::placeholders::_2);
+	auto onMsg = std::bind(&fe::HandlerMessage::onMsg, &certifier, std::placeholders::_1);
 	if (transCertifier.run(onMsg) == false)
 		return false;
 

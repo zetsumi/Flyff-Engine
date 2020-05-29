@@ -12,12 +12,12 @@ namespace fe
 		char* cacheServerAddr = nullptr;
 
 		// recv
-		[[nodiscard]] fe::PacketMessage* onQueryTickCount(fe::type::_SOCKET id);
-		[[nodiscard]] fe::PacketMessage* onCacheAddr(fe::type::_SOCKET id);
-		[[nodiscard]] fe::PacketMessage* onPlayerList(fe::type::_SOCKET id);
-		[[nodiscard]] fe::PacketMessage* onProtectNumPad(fe::type::_SOCKET id);
-		[[nodiscard]] fe::PacketMessage* onProtectLoginCert(fe::type::_SOCKET id);
-		[[nodiscard]] fe::PacketMessage* onPreJoin(fe::type::_SOCKET id);
+		[[nodiscard]] fe::PacketMessage* onQueryTickCount(void);
+		[[nodiscard]] fe::PacketMessage* onCacheAddr(void);
+		[[nodiscard]] fe::PacketMessage* onPlayerList(void);
+		[[nodiscard]] fe::PacketMessage* onProtectNumPad(void);
+		[[nodiscard]] fe::PacketMessage* onProtectLoginCert(void);
+		[[nodiscard]] fe::PacketMessage* onPreJoin(void);
 
 	public:
 		HandlerLogin() = default;

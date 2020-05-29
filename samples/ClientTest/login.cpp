@@ -34,7 +34,7 @@ bool	handler_login(void)
 	login.initialize();
 	login.setTransaction(&transLogin);
 
-	auto onMsg = std::bind(&fe::HandlerMessage::onMsg, &login, std::placeholders::_1, std::placeholders::_2);
+	auto onMsg = std::bind(&fe::HandlerMessage::onMsg, &login, std::placeholders::_1);
 	if (transLogin.run(onMsg) == false)
 		return false;
 	transLogin.wait();

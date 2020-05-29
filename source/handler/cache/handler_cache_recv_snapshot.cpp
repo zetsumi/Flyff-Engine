@@ -1,15 +1,6 @@
 #include <pch_fnetwork.h>
 #include <io/network/message/snapshot_type.hpp>
 
-void fe::HandlerCache::initializeSnapshop(void)
-{
-	addSnapShot(SNAPSHOTTYPE_ENVIRONMENTALL, &fe::HandlerCache::onEnvironmentAll);
-	addSnapShot(SNAPSHOTTYPE_WORLD_READINFO, &fe::HandlerCache::onWorldReadInfo);
-	addSnapShot(SNAPSHOTTYPE_QUERY_PLAYER_DATA, &fe::HandlerCache::onQueryPlayerData);
-	addSnapShot(SNAPSHOTTYPE_DESTPOS, &fe::HandlerCache::onDestPos);
-	addSnapShot(SNAPSHOTTYPE_MOVERCORR, &fe::HandlerCache::onMoverCorr);
-	addSnapShot(SNAPSHOTTYPE_GETPOS, &fe::HandlerCache::onGetPosition);
-}
 
 fe::PacketMessage* fe::HandlerCache::onEnvironmentAll(PARAMETERS_FUNCTION_SNAPSHOT)
 {

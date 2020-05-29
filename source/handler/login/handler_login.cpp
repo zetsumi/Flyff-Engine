@@ -10,15 +10,9 @@ const char* fe::HandlerLogin::getCacheServerAddr(void) const
 
 void fe::HandlerLogin::initialize(void)
 {
+	fe::HandlerMessage::initialize();
+
 	handlerType = HANDLER_PACKET_TYPE::LOGIN;
-
-
-	ON_PACKETTYPE(PACKETTYPE_WELCOME,		&fe::HandlerMessage::onWelcome);
-	ON_PACKETTYPE(PACKETTYPE_KEEP_ALIVE,	&fe::HandlerMessage::onKeepAlive);
-	ON_PACKETTYPE(PACKETTYPE_PING,			&fe::HandlerMessage::onPing);
-	ON_PACKETTYPE(PACKETTYPE_ERROR,			&fe::HandlerMessage::onError);
-	ON_PACKETTYPE(PACKETTYPE_ERROR_STRING,	&fe::HandlerMessage::onErrorString);
-
 
 	ON_PACKETTYPE(PACKETTYPE_QUERYTICKCOUNT,		&fe::HandlerLogin::onQueryTickCount);
 	ON_PACKETTYPE(PACKETTYPE_CACHE_ADDR,			&fe::HandlerLogin::onCacheAddr);
