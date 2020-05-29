@@ -20,5 +20,4 @@ void fe::HandlerLogin::initialize(void)
 	packetOperator[PACKETTYPE_LOGIN_PROTECT_NUMPAD] = std::bind(fe::packettype::protectNumPad);
 	packetOperator[PACKETTYPE_LOGIN_PROTECT_CERT] = std::bind(fe::packettype::protectLoginCert);
 	packetOperator[PACKETTYPE_PRE_JOIN] = std::bind(fe::packettype::preJoin);
-
 }
