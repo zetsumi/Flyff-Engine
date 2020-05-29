@@ -32,6 +32,7 @@ namespace fe
         typedef unsigned __int32    _32uint;
         typedef __int32             _32int;
         typedef unsigned char       _uchar;
+        typedef unsigned short      _ushort;
         typedef SOCKET              _SOCKET;
 #elif defined(__APPLE__)
         typedef uint64_t            _uint;
