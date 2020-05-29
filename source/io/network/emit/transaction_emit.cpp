@@ -55,7 +55,7 @@ fe::PacketStructure* fe::Transaction::receiver(fe::type::_SOCKET idSocket, unsig
 	fe::PacketStructure* ps = new fe::PacketStructure();
 	if (ps == nullptr)
 		return nullptr;
-	ps->data = (unsigned char*)buffer;
+	ps->data = reinterpret_cast<unsigned char*>(buffer);
 	ps->size = octects;
 	return ps;
 }

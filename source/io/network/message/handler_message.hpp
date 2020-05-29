@@ -26,7 +26,7 @@ namespace fe
 		[[noreturn]] void	loadHeader(fe::type::_uchar& mark, fe::type::_32uint& length, fe::type::_32uint& packettype);
 
 	protected:
-		typedef  std::function<fe::PacketMessage* (fe::type::_SOCKET id)> callbackHandlerMesage;
+		typedef  std::function<fe::PacketMessage* (void)> callbackHandlerMesage;
 		std::unordered_map<fe::type::_32uint, callbackHandlerMesage>	actions{};
 
 		std::thread						ping{};
@@ -41,11 +41,11 @@ namespace fe
 		fe::type::_32uint				authKey = 0;
 
 		// global
-		[[nodiscard]] bool	pushAction(fe::type::_32uint packetType, std::function<fe::PacketMessage* (fe::type::_SOCKET id)> action);
+		[[nodiscard]] bool	pushAction(fe::type::_32uint packetType, callbackHandlerMesage action);
 
 		// emit & receive
-		[[noreturn]] void	sendPing(fe::type::_SOCKET id);
-		[[noreturn]] void	processPing(fe::type::_SOCKET id);
+		[[noreturn]] void	sendPing();
+		[[noreturn]] void	processPing();
 
 	public:
 		HandlerMessage() = default;
@@ -62,20 +62,20 @@ namespace fe
 		[[nodiscard]] fe::PacketMessage* getPacket(void);
 
 		// emit
-		[[noreturn]] void	sendKeepAlive(fe::type::_SOCKET id);
-		[[noreturn]] void	sendError(fe::type::_SOCKET id);
+		[[noreturn]] void	sendKeepAlive();
+		[[noreturn]] void	sendError();
 
 		// recv
-		[[noreturn]] void onMsg(fe::type::_SOCKET id, fe::PacketStructure* ps);
-		[[nodiscard]] fe::PacketMessage* onWelcome(fe::type::_SOCKET id);
-		[[nodiscard]] fe::PacketMessage* onKeepAlive(fe::type::_SOCKET id);
-		[[nodiscard]] fe::PacketMessage* onPing(fe::type::_SOCKET id);
-		[[nodiscard]] fe::PacketMessage* onError(fe::type::_SOCKET id);
-		[[nodiscard]] fe::PacketMessage* onErrorString(fe::type::_SOCKET id);
+		[[noreturn]] void onMsg(fe::PacketStructure* ps);
+		[[nodiscard]] fe::PacketMessage* onWelcome(void);
+		[[nodiscard]] fe::PacketMessage* onKeepAlive(void);
+		[[nodiscard]] fe::PacketMessage* onPing(void);
+		[[nodiscard]] fe::PacketMessage* onError(void);
+		[[nodiscard]] fe::PacketMessage* onErrorString(void);
 	};
 }
 #pragma warning( default : 4251 )
 
 #define	ON_PACKETTYPE(packettype, fct) \
-	if (pushAction(packettype, std::bind(fct, this, std::placeholders::_1)) == false) \
+	if (pushAction(packettype, std::bind(fct, this)) == false) \
 		FE_CONSOLELOG("fail add action on packet type [%u]", packettype);

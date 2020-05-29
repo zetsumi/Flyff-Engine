@@ -21,7 +21,7 @@ namespace fe
 		[[noreturn]] void	initializeSnapshop(void);
 
 		// packet type
-		fe::PacketMessage* onSnapShot(fe::type::_SOCKET id);
+		fe::PacketMessage* onSnapShot(void);
 	public:
 		HandlerCache() = default;
 		virtual ~HandlerCache() = default;

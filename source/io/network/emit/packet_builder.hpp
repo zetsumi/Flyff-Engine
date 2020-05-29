@@ -37,9 +37,7 @@ namespace fe
 			::memcpy(tmp + sizeof(T), packet->data, packet->size);
 #endif
 			delete packet->data;
-			packet->data = nullptr;
 			packet->data = tmp;
-
 			packet->size = length;
 		}
 

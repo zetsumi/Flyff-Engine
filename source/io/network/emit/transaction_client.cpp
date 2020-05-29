@@ -14,7 +14,7 @@ void fe::Transaction::loopReceive(fe::type::_SOCKET idClient)
 			break;
 		}
 		if (handlerMessageCallBack != nullptr)
-			handlerMessageCallBack(idClient, ps);
+			handlerMessageCallBack(ps);
 	}
 }
 
@@ -44,7 +44,7 @@ bool fe::Transaction::run(void)
 	return true;
 }
 
-bool fe::Transaction::run(std::function<void(fe::type::_SOCKET id, fe::PacketStructure* ps)> callback)
+bool fe::Transaction::run(std::function<void(fe::PacketStructure* ps)> callback)
 {
 	if (callback == nullptr)
 		return false;
