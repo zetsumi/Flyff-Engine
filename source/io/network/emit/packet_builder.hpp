@@ -99,6 +99,21 @@ namespace fe
 			offset += size;
 			return var;
 		}
+
+		template<typename T>
+		inline PacketBuilder& operator>>(T var)
+		{
+			var = pb.read<T>();
+			return *this;
+		}
+
+		template<typename T>
+		inline PacketBuilder& operator<<(T var)
+		{
+			var = pb.write<T>();
+			return *this;
+		}
+
 	};
 }
 #pragma warning( default : 4251 )
