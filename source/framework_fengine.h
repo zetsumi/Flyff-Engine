@@ -32,6 +32,7 @@ namespace fe
         typedef unsigned __int32    _32uint;
         typedef __int32             _32int;
         typedef unsigned char       _uchar;
+        typedef char                _char;
         typedef unsigned short      _ushort;
         typedef SOCKET              _SOCKET;
 #elif defined(__APPLE__)
@@ -40,7 +41,9 @@ namespace fe
         typedef uint32_t            _32uint;
         typedef int32_t             _32int;
         typedef unsigned char       _uchar;
+        typedef char                _char;
         typedef int                 _SOCKET;
+        typedef unsigned short      _ushort;
 #endif // _WIN64
     }
 }

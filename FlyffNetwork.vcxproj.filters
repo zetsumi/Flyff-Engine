@@ -55,6 +55,9 @@
     <Filter Include="Source Files\handler\cache\packets_snap">
       <UniqueIdentifier>{0aa01104-cac0-4639-819a-4f4a534f31c7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\handler\cache\serializer">
+      <UniqueIdentifier>{22225037-be99-4082-aef2-d1230dae6264}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\dllmain_fnetwork.cpp">
@@ -226,6 +229,18 @@
     </ClInclude>
     <ClInclude Include="source\handler\cache\packets_snap\packet_snap_get_position.hpp">
       <Filter>Source Files\handler\cache\packets_snap</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\cache\serializer\serialize_mover.hpp">
+      <Filter>Source Files\handler\cache\serializer</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\cache\serializer\serializes.hpp">
+      <Filter>Source Files\handler\cache\serializer</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\cache\serializer\serialize_mover_player.hpp">
+      <Filter>Source Files\handler\cache\serializer</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\cache\serializer\serialize_mover_npc.hpp">
+      <Filter>Source Files\handler\cache\serializer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

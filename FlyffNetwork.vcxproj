@@ -57,6 +57,10 @@
     <ClInclude Include="source\handler\cache\packets_snap\packet_snap_query_player_data.hpp" />
     <ClInclude Include="source\handler\cache\packets_snap\packet_snap_world_read_info.hpp" />
     <ClInclude Include="source\handler\cache\packets_type\packets_type.hpp" />
+    <ClInclude Include="source\handler\cache\serializer\serializes.hpp" />
+    <ClInclude Include="source\handler\cache\serializer\serialize_mover.hpp" />
+    <ClInclude Include="source\handler\cache\serializer\serialize_mover_npc.hpp" />
+    <ClInclude Include="source\handler\cache\serializer\serialize_mover_player.hpp" />
     <ClInclude Include="source\handler\certifier\handler_certifier.hpp" />
     <ClInclude Include="source\handler\certifier\packets\packets_serveur_list.hpp" />
     <ClInclude Include="source\handler\certifier\packets\packet_certifiers.hpp" />
