@@ -101,16 +101,16 @@ namespace fe
 		}
 
 		template<typename T>
-		inline PacketBuilder& operator>>(T var)
+		inline PacketBuilder& operator>>(T& var)
 		{
-			var = pb.read<T>();
+			var = read<T>();
 			return *this;
 		}
 
 		template<typename T>
-		inline PacketBuilder& operator<<(T var)
+		inline PacketBuilder& operator<<(T& var)
 		{
-			var = pb.write<T>();
+			var = write<T>();
 			return *this;
 		}
 

@@ -19,14 +19,11 @@ namespace fe
 			~ServerInfo() = default;
 			inline ServerInfo operator<<(fe::PacketBuilder& pb)
 			{
-				parent = pb.read<fe::type::_32uint>();
-				id = pb.read<fe::type::_32uint>();
+				pb >> parent >> id;
 				name = pb.readString();
 				addr = pb.readString();
-				unknow = pb.read<fe::type::_32uint>();
-				count = pb.read<fe::type::_32uint>();
-				enable = pb.read<fe::type::_32uint>();
-				max = pb.read<fe::type::_32uint>();
+				pb >> unknow >> count >> enable >> max;
+
 				return *this;
 			}
 		};
@@ -42,10 +39,9 @@ namespace fe
 
 		inline PacketServerList& operator<<(fe::PacketBuilder& pb) override
 		{
-			authKey = pb.read<fe::type::_32uint>();
-			accountFlag = pb.read<fe::type::_uchar>();
+			pb >> authKey >> accountFlag;
 			account = const_cast<char*>(pb.readString());
-			numberServer = pb.read<fe::type::_32uint>();
+			pb >> numberServer;
 
 			servers = new ServerInfo[numberServer];
 			for (fe::type::_32uint i = 0; i < numberServer; ++i)
