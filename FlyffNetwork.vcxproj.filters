@@ -263,5 +263,20 @@
     <ClInclude Include="source\handler\cache\packets_type\packet_system.hpp">
       <Filter>Source Files\handler\cache\packets_type</Filter>
     </ClInclude>
+    <ClInclude Include="source\handler\cache\packets_type\packet_caption.hpp">
+      <Filter>Source Files\handler\cache\packets_type</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\cache\packets_type\packet_defined_text.hpp">
+      <Filter>Source Files\handler\cache\packets_type</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\cache\packets_type\packet_get_clock.hpp">
+      <Filter>Source Files\handler\cache\packets_type</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\cache\packets_type\packet_game_rate.hpp">
+      <Filter>Source Files\handler\cache\packets_type</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\cache\packets_snap\packet_snap_state_machine_mode_all.hpp">
+      <Filter>Source Files\handler\cache\packets_snap</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -33,9 +33,15 @@ void fe::HandlerCache::initializePacketType(void)
 void fe::HandlerCache::initializeSnapshop(void)
 {
 	snapshotPacket[fe::snapshot::SNAPSHOTTYPE::ENVIRONMENTALL] = std::bind(fe::snapshot::factory::environmentAll);
+	//snapshotPacket[fe::snapshot::SNAPSHOTTYPE::ADD_OBJ] = std::bind(fe::snapshot::factory::addObj); // WIP
 	snapshotPacket[fe::snapshot::SNAPSHOTTYPE::WORLD_READINFO] = std::bind(fe::snapshot::factory::workReadInfo);
 	snapshotPacket[fe::snapshot::SNAPSHOTTYPE::QUERY_PLAYER_DATA] = std::bind(fe::snapshot::factory::queryPlayerData);
 	snapshotPacket[fe::snapshot::SNAPSHOTTYPE::DESTPOS] = std::bind(fe::snapshot::factory::destPos);
 	snapshotPacket[fe::snapshot::SNAPSHOTTYPE::MOVERCORR] = std::bind(fe::snapshot::factory::moverCorr);
 	snapshotPacket[fe::snapshot::SNAPSHOTTYPE::GETPOS] = std::bind(fe::snapshot::factory::getPosition);
+	snapshotPacket[fe::snapshot::SNAPSHOTTYPE::SM_MODE_ALL] = std::bind(fe::snapshot::factory::stateMachineModeAll);
+	snapshotPacket[fe::snapshot::SNAPSHOTTYPE::GAME_TIMER] = std::bind(fe::snapshot::factory::gameTimer);
+	snapshotPacket[fe::snapshot::SNAPSHOTTYPE::ALL_ACTION] = std::bind(fe::snapshot::factory::allAction);
+	snapshotPacket[fe::snapshot::SNAPSHOTTYPE::SECRET_ROOM_MNG_STATE] = std::bind(fe::snapshot::factory::secretRoomManagerState);
+	snapshotPacket[fe::snapshot::SNAPSHOTTYPE::CHAT] = std::bind(fe::snapshot::factory::chat);
 }
