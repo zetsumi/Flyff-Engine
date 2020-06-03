@@ -242,5 +242,26 @@
     <ClInclude Include="source\handler\cache\serializer\serialize_mover_npc.hpp">
       <Filter>Source Files\handler\cache\serializer</Filter>
     </ClInclude>
+    <ClInclude Include="source\handler\cache\packets_type\packet_replace.hpp">
+      <Filter>Source Files\handler\cache\packets_type</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\cache\packets_type\packet_say.hpp">
+      <Filter>Source Files\handler\cache\packets_type</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\cache\packets_type\packet_gm_say.hpp">
+      <Filter>Source Files\handler\cache\packets_type</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\cache\packets_type\packet_get_player_addr.hpp">
+      <Filter>Source Files\handler\cache\packets_type</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\cache\packets_type\packet_get_player_count.hpp">
+      <Filter>Source Files\handler\cache\packets_type</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\cache\packets_type\packet_get_core_player.hpp">
+      <Filter>Source Files\handler\cache\packets_type</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\cache\packets_type\packet_system.hpp">
+      <Filter>Source Files\handler\cache\packets_type</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
