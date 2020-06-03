@@ -2,23 +2,24 @@
 
 ## ![](https://img.icons8.com/color/24/000000/creative-commons--v1.png) License
 Le code source et l'application elle-même sont destinés à être utilisés en fonction de la pièce jointe [license](./LICENSE.md).<br>
-![](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)><br>
+![](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)>
+<br>
 
-/!\ Ce projet n'est pas affilié avec ***Gala Lab*** /!\\.
-
-> Designed by Zetsumi.</br>
+![](https://img.icons8.com/color/24/000000/error.png) Ce projet n'est pas affilié avec ***Gala Lab*** ![](https://img.icons8.com/color/24/000000/error.png)
+<br>
 
 ### Cibles
-`Windows 10`.<br>
+`Windows 10` et `MacOs`.<br>
 `Visual Studio 2019`.<br>
-`C++` >= `17`.<br>
+`C++` == `17`.<br>
 
 ***Flyff Ressource***
 Projet permettant de chargé les fichier crééer par [Flyff-Script](https://github.com/zetsumi/Flyff-Scripts).<br>
 
 ***Flyff Network***
-/!\ Ce projet n'est pas affilié avec ***Eastrall*** /!\<br>
 Projet permettant de communiquer avec les serveurs fly for fun v15 ou [Rhisis](https://github.com/Eastrall/Rhisis).<br>
+![](https://img.icons8.com/color/24/000000/error.png) Ce projet n'est pas affilié avec ***Eastrall*** ![](https://img.icons8.com/color/24/000000/error.png)
+<br>
 [Documentation](https://github.com/zetsumi/Flyff-Engine/tree/master/doc/flyff-network/README.md).<br>
 [Paquet](https://github.com/zetsumi/Flyff-Engine/tree/master/doc/flyff-network/packet.md).<br>
 [Snapshot](https://github.com/zetsumi/Flyff-Engine/tree/master/doc/flyff-network/snapshot.md).<br>
