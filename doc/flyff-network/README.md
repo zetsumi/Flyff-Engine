@@ -1,13 +1,14 @@
 # Flyff Network
-/!\ Ce projet n'est pas affilié avec ***Eastrall*** /!\<br>
 Projet permettant de communiquer avec les serveurs fly for fun v15 ou [Rhisis](https://github.com/Eastrall/Rhisis).<br>
-
-Flyff-Network est une bibliothèque dynamique écrie en C++ 17.<br>
-Elle permet d'effectuer la communication réseau entre un programme et les serveur flyf for fun v15.<br>
+![](https://img.icons8.com/color/24/000000/error.png) Ce projet n'est pas affilié avec ***Eastrall*** ![](https://img.icons8.com/color/24/000000/error.png)
+<br>
+`Flyff-Network` est une bibliothèque dynamique écrie en C++ 17.<br>
+Elle permet d'effectuer la communication réseau entre un programme et les serveurs flyf for fun v15.<br>
 
 # Structure
-La bibliothèque est séparé en 2 partie. `network` et `handler`.<br> `Network` permet d'effectuer des communication basique en regle particulière entre deux programme en TCP.<br>
-`Handler` extrait les données recue provenant d'un serveur fly for fun. Il connait la structure des paquets reçue et peut en envoyé.<br>
+La bibliothèque est séparé en 2 parties `network` et `handler`.<br>
+`Network` permet d'effectuer des communication basique en regle particulière entre deux programme en TCP.<br>
+`Handler` extrait les données recue provenant d'un serveur. Il connait la structure des paquets reçue et peut en envoyé.<br>
 <br>
 
 Network est composé des objets :
@@ -22,7 +23,9 @@ Ces objets permettent de recréer une communication entre deux programme en TCP.
 `fe::Network` stock uniquement les `adresse ip` et le `port`.<br>
 `fe::Socket` est une abstraction pour `SOCKET`.<br>
 `fe::Transaction` permet d'abstraire le méchanisme d'envoie et de reception des paquets.<br>
-Handler est un composant permettant de recevoir et d'envoyer des paquets au serveurs.
+<br>
+Handler est un composant permettant de recevoir et d'envoyer des paquets au serveurs.<br>
+Tout la logique d'extraction de la donnée est effectué dans Handler.<br>
 
 # Processus
 Effectuer le processus de `fe::Transaction` créer un thread permettant de recupérer les paquet en [asynchrone](https://eduscol.education.fr/numerique/dossier/archives/eformation/notion-de-temps/synchrone-asynchrone).<br>
