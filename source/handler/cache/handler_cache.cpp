@@ -25,6 +25,9 @@ void fe::HandlerCache::initializePacketType(void)
 	pushAction(fe::packet::PACKETTYPE::GET_CORE_PLAYER, std::bind(fe::packet::factory::getCorePlayer));
 	pushAction(fe::packet::PACKETTYPE::SYSTEM, std::bind(fe::packet::factory::system));
 	pushAction(fe::packet::PACKETTYPE::CAPTION, std::bind(fe::packet::factory::caption));
+	pushAction(fe::packet::PACKETTYPE::DEFINED_TEXT, std::bind(fe::packet::factory::definedText));
+	pushAction(fe::packet::PACKETTYPE::GET_CLOCK, std::bind(fe::packet::factory::getClock));
+	pushAction(fe::packet::PACKETTYPE::GAME_RATE, std::bind(fe::packet::factory::gameRate));
 }
 
 void fe::HandlerCache::initializeSnapshop(void)
