@@ -52,6 +52,12 @@ namespace fe
 #include <handler/cache/packets_snap/packet_snap_dest_pos.hpp>
 #include <handler/cache/packets_snap/packet_snap_mover_corr.hpp>
 #include <handler/cache/packets_snap/packet_snap_get_position.hpp>
+#include <handler/cache/packets_snap/packet_snap_state_machine_mode_all.hpp>
+#include <handler/cache/packets_snap/packet_snap_game_timer.hpp>
+#include <handler/cache/packets_snap/packet_snap_all_action.hpp>
+#include <handler/cache/packets_snap/packet_snap_secret_room_manager_state.hpp>
+#include <handler/cache/packets_snap/packet_snap_chat.hpp>
+
 
 namespace fe
 {
@@ -66,6 +72,11 @@ namespace fe
 			[[nodiscard]] inline fe::snapshot::Snapshot* destPos(void) { return new fe::snapshot::SnapshotDestPos(); }
 			[[nodiscard]] inline fe::snapshot::Snapshot* moverCorr(void) { return new fe::snapshot::SnapshotMoverCorr(); }
 			[[nodiscard]] inline fe::snapshot::Snapshot* getPosition(void) { return new fe::snapshot::SnapshotGetPosition(); }
+			[[nodiscard]] inline fe::snapshot::Snapshot* stateMachineModeAll(void) { return new fe::snapshot::SnapshotStateMachineModeAll(); }
+			[[nodiscard]] inline fe::snapshot::Snapshot* gameTimer(void) { return new fe::snapshot::SnapshotGameTimer(); }
+			[[nodiscard]] inline fe::snapshot::Snapshot* allAction(void) { return new fe::snapshot::SnapshotAllAction(); }
+			[[nodiscard]] inline fe::snapshot::Snapshot* secretRoomManagerState(void) { return new fe::snapshot::SnapshotSecretRoomManagerState(); }
+			[[nodiscard]] inline fe::snapshot::Snapshot* chat(void) { return new fe::snapshot::SnapshotChat(); }
 		}
 	}
 }
