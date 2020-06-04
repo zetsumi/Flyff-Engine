@@ -9,7 +9,9 @@ namespace fe
 		unsigned char* data = nullptr;
 
 		PacketStructure() = default;
-		~PacketStructure() = default;
+		inline ~PacketStructure()
+		{
+		}
 	};
 
 	[[nodiscard]] inline bool	isValid(PacketStructure* ps) { return ps != nullptr && ps->size > 0 && ps->data != nullptr; }

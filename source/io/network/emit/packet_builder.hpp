@@ -43,7 +43,8 @@ namespace fe
 
 	public:
 		PacketBuilder() = default;
-		~PacketBuilder() = default;
+		~PacketBuilder();
+
 
 		[[noreturn]] void					reset(void);
 		[[noreturn]] void					debug(void) const;

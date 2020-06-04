@@ -37,6 +37,12 @@ namespace fe
 
 				return *this;
 			}
+
+			void	release(void) override final
+			{
+				delete playerName;
+				playerName = nullptr;
+			}
 		};
 	}
 }

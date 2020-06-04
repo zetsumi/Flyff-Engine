@@ -23,6 +23,17 @@ namespace fe
 				message = pb.readString();
 				return *this;
 			}
+
+			void	release(void) override final
+			{
+				delete playerFrom;
+				delete playerTo;
+				delete message;
+				playerFrom = nullptr;
+				playerTo = nullptr;
+				message = nullptr;
+			}
+
 		};
 #pragma warning( default : 4251 )
 	}

@@ -21,18 +21,18 @@
 namespace fe
 {
     /**
-     * @brief Redifinition des types pour le mode 32 64 bits de flyff-engine
+     * @brief Redifinition des types pour le multi platform
      * 
      */
     namespace type
     {
 #if defined(_WIN64)
         typedef unsigned __int64    _uint;
-        typedef __int64             _int;
         typedef unsigned __int32    _32uint;
+        typedef __int64             _int;
         typedef __int32             _32int;
         typedef unsigned char       _uchar;
-        typedef char                _char;
+        //typedef char                _char;
         typedef short               _short;
         typedef unsigned short      _ushort;
         typedef SOCKET              _SOCKET;

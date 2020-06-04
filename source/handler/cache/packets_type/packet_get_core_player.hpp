@@ -24,6 +24,13 @@ namespace fe
 					playersName[i] = const_cast<char*>(pb.readString());
 				return *this;
 			}
+
+			void	release(void) override final
+			{
+				for (fe::type::_ushort i = 0; i < count; ++i)
+					delete playersName[i];
+				delete[] playersName;
+			}
 		};
 #pragma warning( default : 4251 )
 	}

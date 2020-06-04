@@ -24,12 +24,14 @@ static void tgame(void)
 		if (msgCert != nullptr)
 		{
 			FE_CONSOLELOG("Certifier : type{%u}{%#010x}", msgCert->type, msgCert->type);
+			msgCert->release();
 			delete msgCert;
 			msgCert = nullptr;
 		}
 		if (msgLogin != nullptr)
 		{
 			FE_CONSOLELOG("Login : type{%u}{%#010x}", msgLogin->type, msgLogin->type);
+			msgLogin->release();
 			delete msgLogin;
 			msgLogin = nullptr;
 		}
@@ -43,10 +45,8 @@ static void tgame(void)
 				{
 					FE_CONSOLELOG("Cache Snapshot : count{%u} type{%#010x} objIdPlayer{%u} objid{%#u}",
 						i, snapList->type, snapList->snaps[i]->objIdPlayer, snapList->snaps[i]->objid);
-					delete snapList->snaps[i];
-					snapList->snaps[i] = nullptr;
 				}
-				delete[] snapList->snaps;
+				msgCache->release();
 			}
 			delete msgCache;
 			msgCache = nullptr;
@@ -59,10 +59,10 @@ int main()
 {
 	std::thread tcert(handler_certifier);
 	std::thread	console(prompt);
-	std::thread game(tgame);
+	//std::thread game(tgame);
 
 	tcert.join();
 	console.join();
-	game.join();
+	//game.join();
 	return 0;
 }

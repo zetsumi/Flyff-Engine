@@ -39,7 +39,6 @@ void fe::HandlerMessage::onMsg(fe::PacketStructure* ps)
 	itAction = actions.find(packetType);
 	if (itAction != actions.end())
 	{
-		FE_CONSOLELOG("action{%#010x}", packetType);
 		msg = itAction->second();
 		goto end;
 	}
@@ -47,7 +46,6 @@ void fe::HandlerMessage::onMsg(fe::PacketStructure* ps)
 	itOperator = packetOperator.find(packetType);
 	if (itOperator != packetOperator.end())
 	{
-		FE_CONSOLELOG("operator{%#010x}", packetType);
 		msg = itOperator->second();
 		if (msg != nullptr)
 			*msg << packetBuilder;
@@ -59,7 +57,6 @@ void fe::HandlerMessage::onMsg(fe::PacketStructure* ps)
 end:
 	if (msg != nullptr)
 	{
-		FE_CONSOLELOG("push message");
 		msg->type = packetType;
 		mtMessage.lock();
 		messages.push(msg);

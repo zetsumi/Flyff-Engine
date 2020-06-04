@@ -69,6 +69,12 @@ namespace fe
 
 				return *this;
 			}
+
+			void	release(void)
+			{
+				delete name;
+				name = nullptr;
+			}
 		};
 	}
 }

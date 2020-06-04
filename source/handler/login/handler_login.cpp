@@ -2,6 +2,12 @@
 #include <handler/login/handler_login.hpp>
 
 
+fe::HandlerLogin::~HandlerLogin()
+{
+	delete cacheServerAddr;
+	cacheServerAddr = nullptr;
+}
+
 const char* fe::HandlerLogin::getCacheServerAddr(void) const
 {
 	return cacheServerAddr;

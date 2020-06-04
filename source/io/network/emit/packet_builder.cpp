@@ -3,6 +3,12 @@
 #include <io/network/emit/packet_builder.hpp>
 #include <crypto/crc32.hpp>
 
+fe::PacketBuilder::~PacketBuilder()
+{
+	delete packet;
+	packet = nullptr;
+}
+
 
 void fe::PacketBuilder::reset(void)
 {

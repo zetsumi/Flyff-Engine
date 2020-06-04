@@ -24,7 +24,7 @@ namespace fe
 		HandlerLogin(HandlerLogin&& h) = default;
 		HandlerLogin(const HandlerLogin& h) = default;
 		HandlerLogin& operator=(const HandlerLogin& h) = default;
-		~HandlerLogin() = default;
+		~HandlerLogin();
 
 		// global
 		[[noreturn]] void	initialize(void) override;

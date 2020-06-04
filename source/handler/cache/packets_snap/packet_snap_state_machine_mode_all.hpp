@@ -8,16 +8,14 @@ namespace fe
 		{
 			struct StateMachine
 			{
-				StateMachine() = default;
-				~StateMachine() = default;
 				fe::type::_32int	type = 0;
 				fe::type::_32uint	time = 0;
+				StateMachine() = default;
+				~StateMachine() = default;
 			};
 
 			fe::type::_short	count = 0;
 			StateMachine*		stateMachine = nullptr;
-
-
 
 			SnapshotStateMachineModeAll() = default;
 			~SnapshotStateMachineModeAll() = default;
@@ -33,6 +31,12 @@ namespace fe
 					stateMachine[i].time = pb.read<fe::type::_32uint>();
 				}
 				return *this;
+			}
+
+			void	release(void) override final
+			{
+				delete stateMachine;
+				stateMachine = nullptr;
 			}
 		};
 	}
