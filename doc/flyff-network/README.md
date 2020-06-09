@@ -28,54 +28,52 @@ Handler est un composant permettant de recevoir et d'envoyer des paquets au serv
 Tout la logique d'extraction de la donnée est effectué dans Handler.<br>
 
 # Processus
-Effectuer le processus de `fe::Transaction` créer un thread permettant de recupérer les paquet en [asynchrone](https://eduscol.education.fr/numerique/dossier/archives/eformation/notion-de-temps/synchrone-asynchrone).<br>
-Chaque paquet reçue est traité en [synchrone](https://eduscol.education.fr/numerique/dossier/archives/eformation/notion-de-temps/synchrone-asynchrone), la reception appel la `handlerCallBack` passé en paramètre à `e::Transaction::run`.<br>
-<br>
+Effectuer le processus de `fe::Transaction::run` créer un thread permettant de recupérer les paquets en [asynchrone](https://eduscol.education.fr/numerique/dossier/archives/eformation/notion-de-temps/synchrone-asynchrone).<br>
+Chaque paquet reçue est traité en [synchrone](https://eduscol.education.fr/numerique/dossier/archives/eformation/notion-de-temps/synchrone-asynchrone), la réception appel la `handlerCallBack` passé en paramètre à `fe::Transaction::run`.<br>
 
-Un `Handler` construction la liste de ces callbaks via `initialize`.<br>
+<br>
+Un `Handler` liste ces callbaks via `initialize`.<br>
 Le programme peut `attendre` ou non la fin thread au via `fe:Transaction::wait(true)`.<br>
+
 <br>
+Lorsqu'un `handler` reçoit le paquet ***PACKETTYPE_WELCOM*** un thread est automiquement créer, il permet de gérer le process ***PIGN***.<br>
 
-Lorsqu'un `handler` recoit le paquet ***PACKETTYPE_WELCOM*** un thread est automiquement créer, il permet de gérer le process ***PIGN***.<br>
-
-Exemple :
-`connect_server_custom.cpp`
-<br>
-
+___Exemple :___<br>
+file: `connect_server_custom.cpp`
 ```cpp
 bool connection_server(void)
 {
-	fe::Network network{};
+     fe::Network network{};
     fe::Socket _socket{};
     fe::Transaction trans{};
     fe::HandlerCustom custom{}; // Herite de fe::HandlerMessage
 
     // Set l'IP et le port utiliser.
-	_socket.setIP("127.0.0.1");
-	_socket.setPort(28000);
-	if (network.isValid() == false)
-		return false;
+     _socket.setIP("127.0.0.1");
+     _socket.setPort(28000);
+     if (network.isValid() == false)
+         return false;
 
     // Connection vers le serveur.
-	if (_socket.connect(network) == false)
-		return false;
+     if (_socket.connect(network) == false)
+         return false;
 
     // Initialisation de trans.
-	if (trans.setSocket(&_socket) == false)
-		return false;
-	trans.setMode(fe::MODE_TRANSACTION::MODE_CLIENT);
+    if (trans.setSocket(&_socket) == false)
+        return false;
+     trans.setMode(fe::MODE_TRANSACTION::MODE_CLIENT);
 
     // Initialisation du handler custom.
-	custom.initialize();
-	custom.setTransaction(&trans);
+    custom.initialize();
+    custom.setTransaction(&trans);
 
     // Lancement du processus de transaction du client.
     // Set la callback dans le cas de reception de paquets.
-	auto onMsg = std::bind(&fe::HandlerMessage::onMsg, &custom, std::placeholders::_1, std::placeholders::_2);
-	if (trans.run(onMsg) == false)
-		return false;
+    auto onMsg = std::bind(&fe::HandlerMessage::onMsg, &custom, std::placeholders::_1, std::placeholders::_2);
+    if (trans.run(onMsg) == false)
+        return false;
 
     // On attend que le thread se detruit.
-	trans.wait();
+    trans.wait();
 }
 ```

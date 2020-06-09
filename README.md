@@ -2,7 +2,7 @@
 
 ## ![](https://img.icons8.com/color/24/000000/creative-commons--v1.png) License
 Le code source et l'application elle-même sont destinés à être utilisés en fonction de la pièce jointe [license](./LICENSE.md).<br>
-![](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)>
+![](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)
 <br>
 
 ![](https://img.icons8.com/color/24/000000/error.png) Ce projet n'est pas affilié avec ***Gala Lab*** ![](https://img.icons8.com/color/24/000000/error.png)
