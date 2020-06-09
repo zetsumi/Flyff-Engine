@@ -7,7 +7,7 @@ Une fois que le `Client` a reçue la liste de joueurs via le `LoginSever` ***PAC
 
 ### Test de connection FLYFORFUN
 Le `Client` effectue un test de connection via `connect` puis `close` la socket.<br>
-Cela verifie uniquement que le serveur est ***en ligne***.<br>
+Cela vérifie uniquement que le serveur est ***en ligne***.<br>
 ```cpp
 TestNetLib(g_Neuz.m_lpCertifierAddr, PN_CERTIFIER);
 ```
@@ -29,11 +29,13 @@ Une fois que le joueur rentre un compte le `Client` se connect au `Certifier` et
 | BUILD VERSION |  string           | Le numero de build du serveur |
 | LOGIN         |  string           | Le nom de compte              |
 | PASSWORD      |  string           | Le mot de passe               |
+
 <br>
-> Attention le ***PASSWORD*** est un assemblage de `kikugalanet` + le mot de passe du joueur, le tout hash en ***MD5*** puis chiffré via ***CRC32***.<br>
+Attention le ***PASSWORD*** est un assemblage de `kikugalanet` + le mot de passe du joueur, le tout hash en ***MD5*** puis chiffré via ***CRC32***.<br>
 
 ### SERVEUR LISTE
 Une fois connecté le serveur envoie un paquet ***PACKETTYPE_SRVR_LIST*** contenant la liste des serveurs et channels.<br>
+
 | NAME          |      TYPE         |  DESCRIPTION                              |
 |:----------    |:-------------:    |:------                                    |
 | AUTH KEY      |  unsigned __int32 | La clef d'authentification                |
@@ -41,9 +43,13 @@ Une fois connecté le serveur envoie un paquet ***PACKETTYPE_SRVR_LIST*** conten
 | ACCOUNT       |  string           | Le compte du joueur                       |
 | NUMBER SERVER |  unsigned __int32 | Le total de serveur + channels            |
 | INFORMATION   |  structure        | Information sur les serveur et channels   |
+
 <br>
-> Enfin de recuperer les ***INFORMATION*** il faut boucler sur ***NUMBER SERVER***.<br>
+Afin de recuperer les ***INFORMATION*** il faut boucler sur ***NUMBER SERVER***.<br>
+
 ***INFORMATION*** struture :
+<br>
+
 | NAME          |      TYPE         |  DESCRIPTION                  |
 |:----------    |:-------------:    |:------                        |
 | PARENT        |  unsigned __int32 | identifiant du parent         |
