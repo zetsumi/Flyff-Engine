@@ -71,6 +71,10 @@ namespace fe
 #include <handler/cache/packets_snap/packet_snap_all_action.hpp>
 #include <handler/cache/packets_snap/packet_snap_secret_room_manager_state.hpp>
 #include <handler/cache/packets_snap/packet_snap_chat.hpp>
+#include <handler/cache/packets_snap/packet_snap_mover_moved.hpp>
+#include <handler/cache/packets_snap/packet_snap_mover_moved_2.hpp>
+#include <handler/cache/packets_snap/packet_snap_mover_behavior.hpp>
+#include <handler/cache/packets_snap/packet_snap_mover_behavior_2.hpp>
 
 
 namespace fe
@@ -91,6 +95,10 @@ namespace fe
 			[[nodiscard]] inline fe::snapshot::Snapshot* allAction() { return new fe::snapshot::SnapshotAllAction(); }
 			[[nodiscard]] inline fe::snapshot::Snapshot* secretRoomManagerState() { return new fe::snapshot::SnapshotSecretRoomManagerState(); }
 			[[nodiscard]] inline fe::snapshot::Snapshot* chat() { return new fe::snapshot::SnapshotChat(); }
+			[[nodiscard]] inline fe::snapshot::Snapshot* moverMoved() { return new fe::snapshot::SnapshotMoverMoved(); }
+			[[nodiscard]] inline fe::snapshot::Snapshot* moverMoved2() { return new fe::snapshot::SnapshotMoverMoved2(); }
+			[[nodiscard]] inline fe::snapshot::Snapshot* moverBehavior() { return new fe::snapshot::SnapshotMoverBehavior(); }
+			[[nodiscard]] inline fe::snapshot::Snapshot* moverBehavior2() { return new fe::snapshot::SnapshotMoverBehavior2(); }
 		}
 	}
 }

@@ -278,5 +278,17 @@
     <ClInclude Include="source\handler\cache\packets_snap\packet_snap_state_machine_mode_all.hpp">
       <Filter>Source Files\handler\cache\packets_snap</Filter>
     </ClInclude>
+    <ClInclude Include="source\handler\cache\packets_snap\packet_snap_mover_moved.hpp">
+      <Filter>Source Files\handler\cache\packets_snap</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\cache\packets_snap\packet_snap_mover_behavior.hpp">
+      <Filter>Source Files\handler\cache\packets_snap</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\cache\packets_snap\packet_snap_mover_moved_2.hpp">
+      <Filter>Source Files\handler\cache\packets_snap</Filter>
+    </ClInclude>
+    <ClInclude Include="source\handler\cache\packets_snap\packet_snap_mover_behavior_2.hpp">
+      <Filter>Source Files\handler\cache\packets_snap</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

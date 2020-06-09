@@ -44,4 +44,8 @@ void fe::HandlerCache::initializeSnapshop()
 	snapshotPacket[fe::snapshot::SNAPSHOTTYPE::ALL_ACTION] = std::bind(fe::snapshot::factory::allAction);
 	snapshotPacket[fe::snapshot::SNAPSHOTTYPE::SECRET_ROOM_MNG_STATE] = std::bind(fe::snapshot::factory::secretRoomManagerState);
 	snapshotPacket[fe::snapshot::SNAPSHOTTYPE::CHAT] = std::bind(fe::snapshot::factory::chat);
+	snapshotPacket[fe::snapshot::SNAPSHOTTYPE::MOVER_MOVED] = std::bind(fe::snapshot::factory::moverMoved);
+	snapshotPacket[fe::snapshot::SNAPSHOTTYPE::MOVER_MOVED_2] = std::bind(fe::snapshot::factory::moverMoved2);
+	snapshotPacket[fe::snapshot::SNAPSHOTTYPE::MOVER_BEHAVIOR] = std::bind(fe::snapshot::factory::moverBehavior);
+	snapshotPacket[fe::snapshot::SNAPSHOTTYPE::MOVER_BEHAVIOR_2] = std::bind(fe::snapshot::factory::moverBehavior2);
 }

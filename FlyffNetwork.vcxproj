@@ -53,7 +53,11 @@
     <ClInclude Include="source\handler\cache\packets_snap\packet_snap_dest_pos.hpp" />
     <ClInclude Include="source\handler\cache\packets_snap\packet_snap_environment_all.hpp" />
     <ClInclude Include="source\handler\cache\packets_snap\packet_snap_get_position.hpp" />
+    <ClInclude Include="source\handler\cache\packets_snap\packet_snap_mover_behavior.hpp" />
+    <ClInclude Include="source\handler\cache\packets_snap\packet_snap_mover_behavior_2.hpp" />
     <ClInclude Include="source\handler\cache\packets_snap\packet_snap_mover_corr.hpp" />
+    <ClInclude Include="source\handler\cache\packets_snap\packet_snap_mover_moved.hpp" />
+    <ClInclude Include="source\handler\cache\packets_snap\packet_snap_mover_moved_2.hpp" />
     <ClInclude Include="source\handler\cache\packets_snap\packet_snap_query_player_data.hpp" />
     <ClInclude Include="source\handler\cache\packets_snap\packet_snap_state_machine_mode_all.hpp" />
     <ClInclude Include="source\handler\cache\packets_snap\packet_snap_world_read_info.hpp" />
