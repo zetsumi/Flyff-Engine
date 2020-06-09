@@ -24,7 +24,7 @@ namespace fe
 		HandlerLogin() = default;
 		~HandlerLogin() = default;
 
-        [[noreturn]] void	initialize(void) override
+        void	initialize(void) override
         {
             fe::HandlerMessage::initialize();
         }
@@ -54,9 +54,9 @@ namespace fe
 	{
 		enum class PACKETTYPE : fe::type::_32uint
 		{
-            PACKETTYPE_TEST_CUSTOM = 0x123456
-        }
-    }
+			PACKETTYPE_TEST_CUSTOM = 0x123456
+		}
+    	}
 }
 ```
 <br>
@@ -81,8 +81,8 @@ namespace fe
 		~PacketCustom() = default;
 		inline PacketCustom& operator<<(fe::PacketBuilder& pb) override
 		{
-            var << pb;
-            var2 << pb;
+			var << pb;
+			var2 << pb;
 			FE_CONSOLELOG("var[%u] var2[%d]", var, var2);
 			return *this;
 		}
@@ -102,11 +102,11 @@ Si vous ajouter une factory pour ***cache*** ==> `source\handler\cache\packets_s
 ___Creation de la callback dans `HandlerCustom` :___
 Vous devez modifier la fonction `initailize` de votre classe `HandlerCustom`.<br>
 ```cpp
-        [[noreturn]] void	initialize(void) override
-        {
-            fe::HandlerMessage::initialize();
-	        packetOperator[fe::packet::PACKETTYPE::PACKETTYPE_TEST_CUSTOM] = std::bind(fe::packettype::packetCustom);
-        }
+void	initialize(void) override
+{
+    fe::HandlerMessage::initialize();
+    packetOperator[fe::packet::PACKETTYPE::PACKETTYPE_TEST_CUSTOM] = std::bind(fe::packettype::packetCustom);
+}
 ```
 Quand le client recevra le packettype `PACKETTYPE_TEST_CUSTOM` la fonction `fe::packettype::packetCustom` sera appeller puis la surcharge d'operator `<<`.<br>
 Ce mechanisme de callback est gerer directement par `Flyff-Network`.<br>
