@@ -70,7 +70,7 @@ namespace fe
 				return *this;
 			}
 
-			void	release(void)
+			void	release()
 			{
 				delete name;
 				name = nullptr;

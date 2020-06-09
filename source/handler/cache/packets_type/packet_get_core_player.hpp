@@ -25,7 +25,7 @@ namespace fe
 				return *this;
 			}
 
-			void	release(void) override final
+			void	release() override final
 			{
 				for (fe::type::_ushort i = 0; i < count; ++i)
 					delete playersName[i];

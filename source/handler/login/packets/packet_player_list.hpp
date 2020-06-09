@@ -190,7 +190,7 @@ namespace fe
 			return *this;
 		}
 
-		void	release(void) override final
+		void	release() override final
 		{
 			for (fe::type::_32int i = 0; i < countPlayer; ++i)
 			{

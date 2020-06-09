@@ -33,9 +33,9 @@ namespace fe
 
 	public:
 		virtual ~Socket() {}
-		virtual void	clean(void) = 0;
-		virtual void	shutdown(void) = 0;
-		fe::type::_SOCKET	getSocket(void) const { return _socket; }
+		virtual void	clean() = 0;
+		virtual void	shutdown() = 0;
+		fe::type::_SOCKET	getSocket() const { return _socket; }
 	};
 }
 #pragma warning( default : 4251 )

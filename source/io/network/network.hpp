@@ -17,12 +17,12 @@ namespace fe
 		Network(const Network& n) = default;
 		Network(Network* n) : Network(*n) {};
 
-		bool	isValid(void) const;
+		bool	isValid() const;
 		bool	setIP(const std::string& newIP);
 		bool	setIP(const char* newIP);
 		void	setPort(unsigned int newPort);
-		const char* getIP(void) const { return ip.c_str(); }
-		unsigned int getPort(void) const { return port; }
+		const char* getIP() const { return ip.c_str(); }
+		unsigned int getPort() const { return port; }
 	};
 #pragma warning( default : 4251 )
 }

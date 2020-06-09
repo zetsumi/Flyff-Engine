@@ -18,7 +18,7 @@ namespace fe
 		PacketMessage() = default;
 		virtual ~PacketMessage() = default;
 		virtual PacketMessage& operator<<(fe::PacketBuilder&) = 0;
-		virtual void release(void) {}
+		virtual void release() {}
 	};
 #pragma warning( default : 4251 )
 

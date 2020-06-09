@@ -1,7 +1,7 @@
 #include <pch_fnetwork.h>
 #include <io/network/message/snapshot_type.hpp>
 
-fe::PacketMessage* fe::HandlerCache::onSnapShot(void)
+fe::PacketMessage* fe::HandlerCache::onSnapShot()
 {
 	fe::type::_32uint objIdPlayer = packetBuilder.read<fe::type::_32uint>();
 	short count = packetBuilder.read<short>();

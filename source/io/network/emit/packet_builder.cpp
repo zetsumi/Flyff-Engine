@@ -10,14 +10,14 @@ fe::PacketBuilder::~PacketBuilder()
 }
 
 
-void fe::PacketBuilder::reset(void)
+void fe::PacketBuilder::reset()
 {
 	offset = 0;
 	delete packet;
 	packet = nullptr;
 }
 
-void	fe::PacketBuilder::debug(void) const
+void	fe::PacketBuilder::debug() const
 {
 	FE_CONSOLELOG("======DEBUG======");
 	FE_CONSOLELOG("size[%u]", packet->size);
@@ -26,7 +26,7 @@ void	fe::PacketBuilder::debug(void) const
 	FE_CONSOLELOG("======DEBUG======");
 }
 
-const unsigned char* fe::PacketBuilder::getData(void) const
+const unsigned char* fe::PacketBuilder::getData() const
 {
 	if (packet == nullptr)
 		return nullptr;
@@ -35,7 +35,7 @@ const unsigned char* fe::PacketBuilder::getData(void) const
 	return packet->data;
 }
 
-unsigned int fe::PacketBuilder::getSize(void) const
+unsigned int fe::PacketBuilder::getSize() const
 {
 	if (packet == nullptr)
 		return 0;
@@ -90,7 +90,7 @@ void	fe::PacketBuilder::writeString(const char* var, fe::type::_32uint length)
 	}
 }
 
-const char* fe::PacketBuilder::readString(void)
+const char* fe::PacketBuilder::readString()
 {
 	fe::type::_32uint length = read<fe::type::_32uint>();
 	fe::type::_uchar* cur = packet->data + offset;
@@ -105,7 +105,7 @@ const char* fe::PacketBuilder::readString(void)
 	return var;
 }
 
-unsigned int	fe::PacketBuilder::getOffset(void) const
+unsigned int	fe::PacketBuilder::getOffset() const
 {
 	return offset;
 }

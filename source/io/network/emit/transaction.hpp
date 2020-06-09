@@ -28,8 +28,8 @@ namespace fe
 		unsigned int	lengthBuffer = DEFAULT_BUFFER_SIZE_RECEIVE;
 
 
-		[[noreturn]] void	loopReceive(fe::type::_SOCKET idClient);
-		[[nodiscard]] bool	run(void);
+		void	loopReceive(fe::type::_SOCKET idClient);
+		[[nodiscard]] bool	run();
 
 	public:
 		Transaction() = default;
@@ -37,9 +37,9 @@ namespace fe
 
 		// global
 		[[nodiscard]] bool	setSocket(Socket* s);
-		[[noreturn]] void	setMode(MODE_TRANSACTION modeTransaction);
-		[[noreturn]] void	setLengthBuffer(unsigned int len);
-		[[nodiscard]] const Socket * const getSocket(void) const;
+		void	setMode(MODE_TRANSACTION modeTransaction);
+		void	setLengthBuffer(unsigned int len);
+		[[nodiscard]] const Socket * const getSocket() const;
 		[[nodiscard]] bool	isMode(MODE_TRANSACTION modeTransaction);
 		[[nodiscard]] bool	run(std::function<void(fe::PacketStructure* ps)> callback);
 
@@ -51,7 +51,7 @@ namespace fe
 		[[nodiscard]] PacketStructure* receiver(fe::type::_SOCKET idSocket, unsigned int bufferSize);
 
 		// thread manager
-		[[noreturn]] void	wait(bool waiting = true);
+		void	wait(bool waiting = true);
 	};
 }
 #pragma warning( default : 4251 )

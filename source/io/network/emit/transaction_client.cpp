@@ -20,7 +20,7 @@ void fe::Transaction::loopReceive(fe::type::_SOCKET idClient)
 	}
 }
 
-bool fe::Transaction::run(void)
+bool fe::Transaction::run()
 {
 	if (_socket == nullptr)
 		return false;

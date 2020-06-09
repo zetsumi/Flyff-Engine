@@ -80,7 +80,7 @@ bool	fe::SocketClient::connect(const Network& network)
 }
 
 
-void	fe::SocketClient::clean(void)
+void	fe::SocketClient::clean()
 {
 #if defined(_WIN64)
 	closesocket(_socket);
@@ -90,7 +90,7 @@ void	fe::SocketClient::clean(void)
 #endif
 }
 
-void	fe::SocketClient::shutdown(void)
+void	fe::SocketClient::shutdown()
 {
 #if defined(_WIN64)
 	if (::shutdown(_socket, SD_SEND) == SOCKET_ERROR)

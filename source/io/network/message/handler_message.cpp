@@ -45,7 +45,7 @@ bool fe::HandlerMessage::pushAction(fe::packet::PACKETTYPE packetType, callbackH
 	return true;
 }
 
-void fe::HandlerMessage::initialize(void)
+void fe::HandlerMessage::initialize()
 {
 	pushAction(fe::packet::PACKETTYPE::WELCOME, std::bind(&fe::HandlerMessage::onWelcome, this));
 	pushAction(fe::packet::PACKETTYPE::KEEP_ALIVE, std::bind(&fe::HandlerMessage::onKeepAlive, this));
@@ -62,7 +62,7 @@ void fe::HandlerMessage::setTransaction(Transaction* newTransaction)
 		FE_CONSOLELOG("newTransaction is null");
 }
 
-void	fe::HandlerMessage::killPing(void)
+void	fe::HandlerMessage::killPing()
 {
 #if defined(_WIN64)
 	if (::TerminateThread(ping.native_handle(), 1) != 0)
@@ -70,7 +70,7 @@ void	fe::HandlerMessage::killPing(void)
 #endif // _WIN64 || _WIN32
 }
 
-fe::PacketMessage* fe::HandlerMessage::getPacket(void)
+fe::PacketMessage* fe::HandlerMessage::getPacket()
 {
 	mtMessage.lock();
 	if (messages.size() == 0)

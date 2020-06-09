@@ -8,12 +8,12 @@ fe::HandlerLogin::~HandlerLogin()
 	cacheServerAddr = nullptr;
 }
 
-const char* fe::HandlerLogin::getCacheServerAddr(void) const
+const char* fe::HandlerLogin::getCacheServerAddr() const
 {
 	return cacheServerAddr;
 }
 
-void fe::HandlerLogin::initialize(void)
+void fe::HandlerLogin::initialize()
 {
 	fe::HandlerMessage::initialize();
 

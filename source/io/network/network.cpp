@@ -2,7 +2,7 @@
 #include "Network.hpp"
 
 
-bool fe::Network::isValid(void) const
+bool fe::Network::isValid() const
 {
 	if (ip.empty() == true)
 		return false;

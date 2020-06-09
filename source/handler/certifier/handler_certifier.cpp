@@ -2,7 +2,7 @@
 #include <handler/certifier/handler_certifier.hpp>
 
 
-void fe::HandlerCertifier::initialize(void)
+void fe::HandlerCertifier::initialize()
 {
 
 	handlerType = HANDLER_PACKET_TYPE::CERTIFIER;

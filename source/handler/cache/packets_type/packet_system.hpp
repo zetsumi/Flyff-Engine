@@ -20,7 +20,7 @@ namespace fe
 				return *this;
 			}
 
-			void	release(void) override final
+			void	release() override final
 			{
 				delete message;
 				message = nullptr;

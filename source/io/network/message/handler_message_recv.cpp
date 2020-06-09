@@ -67,7 +67,7 @@ end:
 }
 
 
-fe::PacketMessage* fe::HandlerMessage::onWelcome(void)
+fe::PacketMessage* fe::HandlerMessage::onWelcome()
 {
 	sessionID = packetBuilder.read<fe::type::_32uint>();
 	FE_CONSOLELOG("sessionID:{%u}{%#010x}", sessionID);
@@ -78,18 +78,18 @@ fe::PacketMessage* fe::HandlerMessage::onWelcome(void)
 	return nullptr;
 }
 
-fe::PacketMessage* fe::HandlerMessage::onKeepAlive(void)
+fe::PacketMessage* fe::HandlerMessage::onKeepAlive()
 {
 	sendKeepAlive();
 	return nullptr;
 }
 
-fe::PacketMessage* fe::HandlerMessage::onPing(void)
+fe::PacketMessage* fe::HandlerMessage::onPing()
 {
 	return nullptr;
 }
 
-fe::PacketMessage* fe::HandlerMessage::onError(void)
+fe::PacketMessage* fe::HandlerMessage::onError()
 {
 	fe::type::_32uint opcodeError = packetBuilder.read<fe::type::_32uint>();
 	FE_CONSOLELOG("OP CODE: %#010x", opcodeError);
@@ -97,7 +97,7 @@ fe::PacketMessage* fe::HandlerMessage::onError(void)
 	return nullptr;
 }
 
-fe::PacketMessage* fe::HandlerMessage::onErrorString(void)
+fe::PacketMessage* fe::HandlerMessage::onErrorString()
 {
 	const char* messageError = packetBuilder.readString();
 	if (messageError != nullptr)

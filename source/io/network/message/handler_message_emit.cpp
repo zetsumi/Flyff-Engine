@@ -2,7 +2,7 @@
 #include <io/network/message/handler_message.hpp>
 
 
-void fe::HandlerMessage::sendKeepAlive(void)
+void fe::HandlerMessage::sendKeepAlive()
 {
 	lockerSend.lock();
 	fe::PacketBuilder pb;
@@ -19,7 +19,7 @@ void fe::HandlerMessage::sendKeepAlive(void)
 }
 
 
-void fe::HandlerMessage::sendError(void)
+void fe::HandlerMessage::sendError()
 {
 	lockerSend.lock();
 	fe::PacketBuilder pb;

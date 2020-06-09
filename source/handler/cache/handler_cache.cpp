@@ -1,7 +1,7 @@
 #include <pch_fnetwork.h>
 #include <io/network/message/snapshot_type.hpp>
 
-void fe::HandlerCache::initialize(void)
+void fe::HandlerCache::initialize()
 {
 	fe::HandlerMessage::initialize();
 
@@ -10,7 +10,7 @@ void fe::HandlerCache::initialize(void)
 	initializeSnapshop();
 }
 
-void fe::HandlerCache::initializePacketType(void)
+void fe::HandlerCache::initializePacketType()
 {
 	// action
 	pushAction(fe::packet::PACKETTYPE::JOIN, std::bind(&fe::HandlerCache::onSnapShot, this));
@@ -30,7 +30,7 @@ void fe::HandlerCache::initializePacketType(void)
 	pushAction(fe::packet::PACKETTYPE::GAME_RATE, std::bind(fe::packet::factory::gameRate));
 }
 
-void fe::HandlerCache::initializeSnapshop(void)
+void fe::HandlerCache::initializeSnapshop()
 {
 	snapshotPacket[fe::snapshot::SNAPSHOTTYPE::ENVIRONMENTALL] = std::bind(fe::snapshot::factory::environmentAll);
 	//snapshotPacket[fe::snapshot::SNAPSHOTTYPE::ADD_OBJ] = std::bind(fe::snapshot::factory::addObj); // WIP

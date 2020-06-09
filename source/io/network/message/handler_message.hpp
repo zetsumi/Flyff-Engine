@@ -23,11 +23,11 @@ namespace fe
 
 	class API_DECLSPEC HandlerMessage
 	{
-		[[noreturn]] void	loadHeader(fe::type::_uchar& mark, fe::type::_32uint& length, fe::packet::PACKETTYPE& packettype);
+		void	loadHeader(fe::type::_uchar& mark, fe::type::_32uint& length, fe::packet::PACKETTYPE& packettype);
 
 	protected:
-		typedef	std::function<fe::PacketMessage* (void)>	callbackHandlerMesage;
-		typedef	std::function<fe::PacketMessage* (void)>		fctPacketOperator;
+		typedef	std::function<fe::PacketMessage* ()>	callbackHandlerMesage;
+		typedef	std::function<fe::PacketMessage* ()>		fctPacketOperator;
 		typedef std::unordered_map<fe::packet::PACKETTYPE, callbackHandlerMesage>	mapAction;
 		typedef std::unordered_map<fe::packet::PACKETTYPE, callbackHandlerMesage>	mapOperator;
 		mapAction	actions{};
@@ -48,8 +48,8 @@ namespace fe
 		bool	pushAction(fe::packet::PACKETTYPE packetType, callbackHandlerMesage action);
 
 		// emit & receive
-		[[noreturn]] void	sendPing();
-		[[noreturn]] void	processPing();
+		void	sendPing();
+		void	processPing();
 
 	public:
 		HandlerMessage() = default;
@@ -60,22 +60,22 @@ namespace fe
 
 
 		// global
-		[[noreturn]] virtual void	initialize(void);
-		[[noreturn]] void			setTransaction(Transaction* newTransaction);
-		[[noreturn]] void			killPing(void);
-		[[nodiscard]] fe::PacketMessage* getPacket(void);
+		virtual void	initialize();
+		void			setTransaction(Transaction* newTransaction);
+		void			killPing();
+		[[nodiscard]] fe::PacketMessage* getPacket();
 
 		// emit
-		[[noreturn]] void	sendKeepAlive();
-		[[noreturn]] void	sendError();
+		void	sendKeepAlive();
+		void	sendError();
 
 		// recv
-		[[noreturn]] void onMsg(fe::PacketStructure* ps);
-		[[nodiscard]] fe::PacketMessage* onWelcome(void);
-		[[nodiscard]] fe::PacketMessage* onKeepAlive(void);
-		[[nodiscard]] fe::PacketMessage* onPing(void);
-		[[nodiscard]] fe::PacketMessage* onError(void);
-		[[nodiscard]] fe::PacketMessage* onErrorString(void);
+		void onMsg(fe::PacketStructure* ps);
+		[[nodiscard]] fe::PacketMessage* onWelcome();
+		[[nodiscard]] fe::PacketMessage* onKeepAlive();
+		[[nodiscard]] fe::PacketMessage* onPing();
+		[[nodiscard]] fe::PacketMessage* onError();
+		[[nodiscard]] fe::PacketMessage* onErrorString();
 	};
 }
 #pragma warning( default : 4251 )

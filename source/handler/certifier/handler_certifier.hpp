@@ -12,7 +12,7 @@ namespace fe
 	class API_DECLSPEC HandlerCertifier : public HandlerMessage
 	{
 		// recv
-		[[nodiscard]] fe::PacketMessage* onServerList(void);
+		[[nodiscard]] fe::PacketMessage* onServerList();
 
 	public:
 		HandlerCertifier() = default;
@@ -22,12 +22,12 @@ namespace fe
 		~HandlerCertifier() = default;
 
 		// global
-		[[noreturn]] void	initialize(void) override;
-		inline constexpr fe::type::_32uint getAuthKey(void) const { return authKey; }
+		void	initialize() override;
+		inline constexpr fe::type::_32uint getAuthKey() const { return authKey; }
 
 		// emit
-		[[noreturn]] void	sendDisconnectAccount(fe::type::_SOCKET id, const char* account, const char* password);
-		[[noreturn]] void	sendCertify(fe::type::_SOCKET id, const char* buildVersion, const char* account, const char* password);
-		[[noreturn]] void	sendNewAccount(fe::type::_SOCKET id, const char* account, const char* password);
+		void	sendDisconnectAccount(fe::type::_SOCKET id, const char* account, const char* password);
+		void	sendCertify(fe::type::_SOCKET id, const char* buildVersion, const char* account, const char* password);
+		void	sendNewAccount(fe::type::_SOCKET id, const char* account, const char* password);
 	};
 }

@@ -46,16 +46,16 @@ namespace fe
 		~PacketBuilder();
 
 
-		[[noreturn]] void					reset(void);
-		[[noreturn]] void					debug(void) const;
-		[[nodiscard]] const unsigned char*	getData(void) const;
-		unsigned int						getSize(void) const;
+		void					reset();
+		void					debug() const;
+		const unsigned char*	getData() const;
+		unsigned int						getSize() const;
 		[[nodiscard]] bool					setPacket(PacketStructure* ps);
-		[[noreturn]] void					writeHeader(fe::type::_32uint sessionID, HANDLER_PACKET_TYPE handlerType);
-		[[noreturn]] void					writeString(const char* var);
-		[[noreturn]] void					writeString(const char* var, fe::type::_32uint length);
-		[[nodiscard]] const char*			readString(void);
-		unsigned int						getOffset(void) const;
+		void					writeHeader(fe::type::_32uint sessionID, HANDLER_PACKET_TYPE handlerType);
+		void					writeString(const char* var);
+		void					writeString(const char* var, fe::type::_32uint length);
+		[[nodiscard]] const char*			readString();
+		unsigned int						getOffset() const;
 
 		template<typename T>
 		inline void	write(T var)
@@ -91,7 +91,7 @@ namespace fe
 		}
 
 		template<typename T>
-		inline T	read(void)
+		inline T	read()
 		{
 			unsigned int size = sizeof(T);
 			T var;

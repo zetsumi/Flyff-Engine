@@ -12,8 +12,8 @@ namespace fe
 		~SocketClient();
 
 		bool	connect(const Network& network);
-		void	clean(void) override;
-		void	shutdown(void) override;
+		void	clean() override;
+		void	shutdown() override;
 	};
 }
 
