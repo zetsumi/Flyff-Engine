@@ -14,5 +14,11 @@ namespace fe
 			FE_CONSOLELOG("cacheServerAddr:{%s}", cacheServerAddr);
 			return *this;
 		}
+
+		void	release(void) override final
+		{
+			delete cacheServerAddr;
+			cacheServerAddr = nullptr;
+		}
 	};
 }

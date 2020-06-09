@@ -15,6 +15,8 @@ void fe::Transaction::loopReceive(fe::type::_SOCKET idClient)
 		}
 		if (handlerMessageCallBack != nullptr)
 			handlerMessageCallBack(ps);
+		else
+			delete ps;
 	}
 }
 

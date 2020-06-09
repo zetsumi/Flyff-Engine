@@ -11,8 +11,7 @@ namespace fe
 		{
 			fe::type::_32uint typeObj = 0;
 			fe::type::_32uint indexObj = 0;
-
-			fe::serialize::SerializeMover mover;
+			fe::serialize::SerializeMover mover{};
 
 			SnapshotAddObj() = default;
 			~SnapshotAddObj() = default;

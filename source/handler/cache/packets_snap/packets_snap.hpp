@@ -24,11 +24,13 @@ namespace fe
 			Snapshot() = default;
 			virtual ~Snapshot() = default;
 			virtual Snapshot& operator<<(fe::PacketBuilder&) = 0;
+
+			virtual void	release(void) {}
 		};
 
 		struct SnapshotList : public PacketMessage
 		{
-			unsigned short count = 0;
+			fe::type::_ushort count = 0;
 			Snapshot** snaps = nullptr;
 
 			SnapshotList(const SnapshotList&) = delete;
@@ -39,6 +41,18 @@ namespace fe
 			SnapshotList() = default;
 			~SnapshotList() = default;
 			SnapshotList& operator<<(fe::PacketBuilder&) { assert(false); return *this; }
+
+			void	release(void) override final
+			{
+				for (fe::type::_ushort i = 0; i < count; ++i)
+				{
+					snaps[i]->release();
+					delete snaps[i];
+					snaps[i] = nullptr;
+				}
+				delete[] snaps;
+				snaps = nullptr;
+			}
 
 		};
 	}

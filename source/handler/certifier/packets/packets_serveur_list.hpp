@@ -49,5 +49,20 @@ namespace fe
 			return *this;
 		}
 
+		void	release(void) override final
+		{
+			delete account;
+			account = nullptr;
+			for (fe::type::_32uint i = 0; i < numberServer; ++i)
+			{
+				delete servers[i].addr;
+				delete servers[i].name;
+				servers[i].addr = nullptr;
+				servers[i].name = nullptr;
+			}
+			delete[] servers;
+			servers = nullptr;
+		}
+
 	};
 }

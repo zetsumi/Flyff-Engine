@@ -56,7 +56,7 @@ namespace fe
 		HandlerMessage(HandlerMessage&& h) = default;
 		HandlerMessage(const HandlerMessage& h) = default;
 		HandlerMessage& operator=(const HandlerMessage& h) = default;
-		virtual ~HandlerMessage();
+		~HandlerMessage();
 
 
 		// global

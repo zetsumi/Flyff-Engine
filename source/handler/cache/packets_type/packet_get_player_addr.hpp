@@ -21,6 +21,14 @@ namespace fe
 				addr = pb.readString();
 				return *this;
 			}
+
+			void	release(void) override final
+			{
+				delete playerName;
+				delete addr;
+				playerName = nullptr;
+				addr = nullptr;
+			}
 		};
 #pragma warning( default : 4251 )
 	}

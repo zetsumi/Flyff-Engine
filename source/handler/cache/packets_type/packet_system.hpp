@@ -19,6 +19,12 @@ namespace fe
 				message = pb.readString();
 				return *this;
 			}
+
+			void	release(void) override final
+			{
+				delete message;
+				message = nullptr;
+			}
 		};
 #pragma warning( default : 4251 )
 	}

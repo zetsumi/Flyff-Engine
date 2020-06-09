@@ -13,8 +13,8 @@ fe::HandlerMessage::~HandlerMessage()
 		messages.pop();
 	}
 	mtMessage.unlock();
-
 	delete transaction;
+	transaction = nullptr;
 }
 
 

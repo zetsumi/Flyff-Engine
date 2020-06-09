@@ -187,8 +187,22 @@ namespace fe
 					msgBox[i] << packetBuilder;
 				}
 			}
-
 			return *this;
+		}
+
+		void	release(void) override final
+		{
+			for (fe::type::_32int i = 0; i < countPlayer; ++i)
+			{
+				delete slots[i].playerName;
+				slots[i].playerName = nullptr;
+				delete[] msgBox[i].msgFriend;
+				msgBox[i].msgFriend = nullptr;
+			}
+			delete[] slots;
+			slots = nullptr;
+			delete[] msgBox;
+			msgBox = nullptr;
 		}
 	};
 }

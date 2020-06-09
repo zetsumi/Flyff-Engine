@@ -7,7 +7,7 @@ namespace fe
 #pragma warning( disable: 4251 )
 		struct API_DECLSPEC PacketCaption : public fe::PacketMessage
 		{
-			fe::type::_32int	small = 0;
+			fe::type::_32int	smallCaption = 0;
 			fe::type::_32uint	worldId = 0;
 			const char* caption = nullptr;
 
@@ -18,9 +18,15 @@ namespace fe
 
 			PacketCaption& operator<<(fe::PacketBuilder& pb)
 			{
-				pb >> small >> worldId;
+				pb >> smallCaption >> worldId;
 				caption = pb.readString();
 				return *this;
+			}
+
+			void	release(void) override final
+			{
+				delete caption;
+				caption = nullptr;
 			}
 		};
 #pragma warning( default : 4251 )
