@@ -30,7 +30,6 @@ Une fois que le joueur rentre un compte le `Client` se connect au `Certifier` et
 | LOGIN         |  string           | Le nom de compte              |
 | PASSWORD      |  string           | Le mot de passe               |
 
-<br>
 Attention le ***PASSWORD*** est un assemblage de `kikugalanet` + le mot de passe du joueur, le tout hash en ***MD5*** puis chiffré via ***CRC32***.<br>
 
 ### SERVEUR LISTE
