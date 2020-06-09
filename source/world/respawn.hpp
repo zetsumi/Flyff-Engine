@@ -1,8 +1,8 @@
 #pragma once
 
-#include "framework_fengine.h"
-#include "util/vector.hpp"
-#include "util/rect.hpp"
+#include <framework_fengine.h>
+#include <util/vector.hpp>
+#include <util/rect.hpp>
 
 #pragma warning( disable : 4251 )
 namespace fe
@@ -36,7 +36,6 @@ namespace fe
         //self.nControl = int()
         //self.ctrlElement = CtrlElement()
 
-        ReSpawn(const ReSpawn* o) : ReSpawn(*o) {}
         ReSpawn() = default;
         ReSpawn(const ReSpawn&) = default;
         ReSpawn(ReSpawn&&) noexcept = default;

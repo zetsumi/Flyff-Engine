@@ -1,10 +1,11 @@
 #include <iostream>
 #include <ctime>
 
-#include "framework_fengine.h"
-#include "prop_item.hpp"
-#include "property_manager.hpp"
-#include "project/project_manager.hpp"
+#include <framework_fengine.h>
+#include <property/prop_item.hpp>
+#include <property/property_manager.hpp>
+#include <project/project_manager.hpp>
+#include <util/log.hpp>
 
 
 static fe::PropItem* createPropItem()
@@ -70,10 +71,10 @@ bool    propitem_load_from_file(fe::LOADER_MODE mode)
     if (project.loadHeader("../../ressource/json/header/header_world.json", fe::LOADER_MODE::JSON) == false)
         return false;
 
-    std::cout << "CHS_DARK : " << project.getHeader().get("CHS_DARK") << std::endl;
-    std::cout << "JOB_ALL : " << project.getHeader().get("JOB_ALL") << std::endl;
-    std::cout << "DEFINE_UNKNOW : " << project.getHeader().get("DEFINE_UNKNOW") << std::endl;
-    std::cout << "DST_ADJDEF : " << project.getHeader().get("DST_ADJDEF") << std::endl;
+    FE_CONSOLELOG("CHS_DARK : %s", project.getHeader().get("CHS_DARK"));
+    FE_CONSOLELOG("JOB_ALL : %s", project.getHeader().get("JOB_ALL"));
+    FE_CONSOLELOG("DEFINE_UNKNOW : %s", project.getHeader().get("DEFINE_UNKNOW"));
+    FE_CONSOLELOG("DST_ADJDEF : %s", project.getHeader().get("DST_ADJDEF"));
 
     std::string extension;
     switch (mode)

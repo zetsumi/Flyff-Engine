@@ -1,4 +1,4 @@
-#include "framework_fengine.h"
+#include <framework_fengine.h>
 
 #pragma warning( disable : 4251 )
 namespace fe
@@ -11,12 +11,10 @@ namespace fe
         unsigned int**  heightWater = nullptr;
         unsigned int**  waterTexture = nullptr;
 
-        LandScape(const LandScape* p) : LandScape(*p) {}
         LandScape() = default;
         LandScape(const LandScape&) = default;
-        LandScape(LandScape&&) noexcept = default;
-        LandScape& operator=(const LandScape&) = default;
-        LandScape& operator=(LandScape&&) = default;
+        LandScape(LandScape&&) = delete;
+        LandScape& operator=(const LandScape&) = delete;
         virtual ~LandScape() = default;
 	};
 }

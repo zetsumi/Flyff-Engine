@@ -1,10 +1,10 @@
 #include <iostream>
 #include <ctime>
 
-#include "framework_fengine.h"
-#include "prop_ctrl.hpp"
-#include "property_manager.hpp"
-#include "project/project_manager.hpp"
+#include <framework_fengine.h>
+#include <property/prop_karma.hpp>
+#include <property/property_manager.hpp>
+#include <project/project_manager.hpp>
 
 bool    propkarma_load_from_file(fe::LOADER_MODE mode)
 {

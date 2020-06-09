@@ -1,10 +1,11 @@
 #include <iostream>
 #include <ctime>
 
-#include "framework_fengine.h"
-#include "prop_skill.hpp"
-#include "property_manager.hpp"
-#include "project/project_manager.hpp"
+#include <framework_fengine.h>
+#include <property/prop_skill.hpp>
+#include <property/property_manager.hpp>
+#include <project/project_manager.hpp>
+#include <util/log.hpp>
 
 
 bool    propskill_load_from_file(fe::LOADER_MODE mode)
@@ -53,10 +54,7 @@ bool    propskill_load_from_file(fe::LOADER_MODE mode)
     fe::PropSkill* skill = project.getSkill(1);
     fe::PropSkill* skillCopy = project.createSkill(1);
 
-    std::cout << skill->name << std::endl;
-    std::cout << skillCopy->name << std::endl;
-    skillCopy->id = 124;
-    std::cout << skill->name << std::endl;
-    std::cout << skillCopy->name << std::endl;
+    FE_CONSOLELOG("Skill Name[%s]", skill->name.c_str());
+    FE_CONSOLELOG("skillCopy Name[%s]", skillCopy->name.c_str());
     return true;
 }

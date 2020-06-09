@@ -1,4 +1,4 @@
-#include "pch_fressource.h"
+#include <pch_fressource.h>
 
 BOOL APIENTRY DllMain( HMODULE hModule,
                        DWORD  ul_reason_for_call,

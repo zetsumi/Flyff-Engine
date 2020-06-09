@@ -5,11 +5,11 @@
 #include <string>
 #include <algorithm>
 
-#include "framework_fengine.h"
-#include "reader.hpp"
-#include "reader_header.hpp"
+#include <framework_fengine.h>
+#include <io/file/reader.hpp>
+#include <io/file/reader_header.hpp>
 #if defined(FLYFFENGINE_JSON_PICOJSON)
-#include "third_party/json/picojson.h"
+#include <third_party/json/picojson.h>
 #else
 #endif
 

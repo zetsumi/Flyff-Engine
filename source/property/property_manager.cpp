@@ -1,5 +1,5 @@
-#include "pch_fressource.h"
-#include "property_manager.hpp"
+#include <pch_fressource.h>
+#include <property/property_manager.hpp>
 
 fe::PropertyManager::PropertyManager() :
     properties()

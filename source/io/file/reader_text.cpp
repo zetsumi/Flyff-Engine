@@ -1,6 +1,6 @@
-#include "pch_fressource.h"
-#include "reader_text.hpp"
-#include "reader_json.hpp"
+#include <pch_fressource.h>
+#include <io/file/reader_text.hpp>
+#include <io/file/reader_json.hpp>
 
 bool fe::ReaderText::load(const std::string& fileName, LOADER_MODE mode, bool skillEmpty) noexcept
 {

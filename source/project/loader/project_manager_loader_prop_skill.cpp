@@ -1,8 +1,9 @@
-#include "pch_fressource.h"
-#include "project_manager.hpp"
-#include "reader_json.hpp"
-#include "reader_xml.hpp"
-#include "prop_skill.hpp"
+#include <pch_fressource.h>
+#include <project/project_manager.hpp>
+#include <io/file/reader_json.hpp>
+#include <io/file/reader_xml.hpp>
+#include <property/prop_skill.hpp>
+
 
 bool fe::ProjectManager::loadPropSkill(const std::string& fileName, LOADER_MODE mode) noexcept
 {

@@ -1,22 +1,22 @@
 #pragma once
 
-#include "framework_fengine.h"
+#include <framework_fengine.h>
 #include <vector>
 #include <list>
 
-#include "world.hpp"
+#include <world/world.hpp>
 
 namespace fe
 {
 	class WorldManager
 	{
-		std::vector<fe::World*>	worlds;
+		std::vector<fe::World*>	worlds{};
 
 	public:
-		WorldManager();
+		WorldManager() = default;
 		~WorldManager();
 
-		bool	load(const std::string& filename);
-		bool	loadWorld(const std::string& filename);
+		[[nodiscard]] bool	load(const std::string& filename);
+		[[nodiscard]] bool	loadWorld(const std::string& filename);
 	};
 }

@@ -264,7 +264,7 @@
       <PreprocessorDefinitions>_DEBUG;FLYFFENGINE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch_fressource.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>source/;source/property/;source/project/;source/io/file/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>source/;</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <EnableModules>true</EnableModules>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>

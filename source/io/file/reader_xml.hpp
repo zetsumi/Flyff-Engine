@@ -4,10 +4,10 @@
 #include <string>
 #include <utility>
 
-#include "framework_fengine.h"
-#include "reader.hpp"
+#include <framework_fengine.h>
+#include <io/file/reader.hpp>
 #if defined(FLYFFENGINE_XML_PUGIXML)
-#include "third_party/xml/pugixml.h"
+#include <third_party/xml/pugixml.h>
 #else
 #endif
 

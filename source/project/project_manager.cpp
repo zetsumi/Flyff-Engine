@@ -1,8 +1,7 @@
-#include "pch_fressource.h"
-#include "project_manager.hpp"
-#include "reader_json.hpp"
-#include "reader_xml.hpp"
-
+#include <pch_fressource.h>
+#include <project/project_manager.hpp>
+#include <io/file/reader_json.hpp>
+#include <io/file/reader_xml.hpp>
 
 
 fe::ProjectManager::ProjectManager() :
@@ -70,7 +69,6 @@ bool fe::ProjectManager::loadJson(const std::string& fileName) noexcept
         if (loadHeader(fullpath, fe::LOADER_MODE::JSON) == false)
             return false;
     }
-
 
     // load props
     fe::type::json::object& props = reader.get<fe::type::json::object>(root["props"]);

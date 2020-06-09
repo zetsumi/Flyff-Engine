@@ -1,8 +1,8 @@
-#include "pch_fressource.h"
-#include "project_manager.hpp"
-#include "reader_json.hpp"
-#include "reader_xml.hpp"
-#include "prop_item.hpp"
+#include <pch_fressource.h>
+#include <project/project_manager.hpp>
+#include <io/file/reader_json.hpp>
+#include <io/file/reader_xml.hpp>
+#include <property/prop_item.hpp>
 
 
 bool    fe::ProjectManager::loadPropItem(const std::string& fileName, LOADER_MODE mode) noexcept

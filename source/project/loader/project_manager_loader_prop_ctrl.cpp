@@ -1,8 +1,9 @@
-#include "pch_fressource.h"
-#include "project_manager.hpp"
-#include "reader_json.hpp"
-#include "reader_xml.hpp"
-#include "prop_ctrl.hpp"
+#include <pch_fressource.h>
+#include <project/project_manager.hpp>
+#include <io/file/reader_json.hpp>
+#include <io/file/reader_xml.hpp>
+#include <property/prop_ctrl.hpp>
+
 
 bool    fe::ProjectManager::loadPropCtrl(const std::string& fileName, LOADER_MODE mode) noexcept
 {

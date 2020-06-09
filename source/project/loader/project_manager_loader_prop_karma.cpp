@@ -1,8 +1,8 @@
-#include "pch_fressource.h"
-#include "project_manager.hpp"
-#include "reader_json.hpp"
-#include "reader_xml.hpp"
-#include "prop_karma.hpp"
+#include <pch_fressource.h>
+#include <project/project_manager.hpp>
+#include <io/file/reader_json.hpp>
+#include <io/file/reader_xml.hpp>
+#include <property/prop_karma.hpp>
 
 
 bool fe::ProjectManager::loadPropKarma(const std::string& fileName, LOADER_MODE mode) noexcept

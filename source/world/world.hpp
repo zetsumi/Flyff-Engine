@@ -1,6 +1,6 @@
 #pragma once
 
-#include "framework_fengine.h"
+#include <framework_fengine.h>
 #include <string>
 
 #pragma warning( disable : 4251 )
@@ -34,7 +34,6 @@ namespace fe
         //self.bgm = list()
         //self.pkmode = list()
 
-        World(const World* o) : World(*o){}
         World() = default;
         World(const World&) = default;
         World(World&&) noexcept = default;

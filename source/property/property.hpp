@@ -1,5 +1,7 @@
 #pragma once
-#include "framework_fengine.h"
+
+#include <framework_fengine.h>
+
 
 namespace fe
 {
@@ -24,15 +26,12 @@ namespace fe
      */
     struct API_DECLSPEC PropertyContainer
     {
-
-        PropertyContainer(const PropertyContainer* o) : PropertyContainer(*o)
-        {
-        }
         PropertyContainer() = default;
         PropertyContainer(const PropertyContainer&) = default;
         PropertyContainer(PropertyContainer&&) noexcept = default;
         PropertyContainer& operator=(const PropertyContainer&) = default;
         PropertyContainer& operator=(PropertyContainer&&) = default;
+        PropertyContainer(const PropertyContainer* o) : PropertyContainer(*o) {}
         virtual ~PropertyContainer() = default;
     };
 }

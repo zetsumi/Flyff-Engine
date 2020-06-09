@@ -3,8 +3,8 @@
 #include <algorithm>
 #include <unordered_map>
 
-#include "framework_fengine.h"
-#include "property.hpp"
+#include <framework_fengine.h>
+#include <property/property.hpp>
 
 #pragma warning( disable: 4251 )
 

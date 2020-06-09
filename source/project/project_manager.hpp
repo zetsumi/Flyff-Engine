@@ -1,16 +1,15 @@
 #pragma once
 
-#include "framework_fengine.h"
-#include "property_manager.hpp"
-#include "reader_header.hpp"
-#include "reader_text.hpp"
+#include <framework_fengine.h>
+#include <property/property_manager.hpp>
+#include <io/file/reader_header.hpp>
+#include <io/file/reader_text.hpp>
 
-#include "prop_item.hpp"
-#include "prop_ctrl.hpp"
-#include "prop_karma.hpp"
-#include "prop_mover.hpp"
-#include "prop_mover_ex.hpp"
-#include "prop_skill.hpp"
+#include <property/prop_ctrl.hpp>
+#include <property/prop_item.hpp>
+#include <property/prop_karma.hpp>
+#include <property/prop_mover.hpp>
+#include <property/prop_skill.hpp>
 
 
 namespace fe
@@ -224,7 +223,6 @@ namespace fe
 		{
 			return std::ref(text);
 		};
-
 
 		/**
 		 * @brief Get the Item object

@@ -1,12 +1,8 @@
-#include "pch_fressource.h"
-#include "world_manager.hpp"
-#include "reader_json.hpp"
-#include "reader_xml.hpp"
-
-fe::WorldManager::WorldManager() :
-	worlds()
-{
-}
+#include <pch_fressource.h>
+#include <world/world_manager.hpp>
+#include <io/file/reader_header.hpp>
+#include <io/file/reader_xml.hpp>
+#include <io/file/reader_json.hpp>
 
 fe::WorldManager::~WorldManager()
 {
@@ -27,6 +23,7 @@ bool fe::WorldManager::loadWorld(const std::string& filename)
 {
 	World* world = new World();
 	worlds.emplace_back(world);
+
 
 	fe::ReaderJson	reader;
 	if (reader.load(filename) == false)
