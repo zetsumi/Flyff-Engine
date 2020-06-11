@@ -32,7 +32,7 @@ namespace fe
         typedef __int64             _int;
         typedef __int32             _32int;
         typedef unsigned char       _uchar;
-        //typedef char                _char;
+        typedef char                _char;
         typedef short               _short;
         typedef unsigned short      _ushort;
         typedef SOCKET              _SOCKET;

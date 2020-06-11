@@ -62,6 +62,7 @@ namespace fe
          * @return false 
          */
         bool    loadFromXML(const std::string& fileName) noexcept;
+
     public:
         ReaderHeader(const ReaderHeader* o) : ReaderHeader(*o)
         {

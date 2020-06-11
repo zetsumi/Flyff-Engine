@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<packets>
+
+  <packet name='asdasda'>
+    <attr name='toto' type='int32'></attr>
+    <attr name='tata' type='int64'></attr>
+  </packet>
+
+  <packet name='dfgdfg'>
+    <attr name='pos' type='vector_f'></attr>
+    <attr name='tata' type='string'></attr>
+    <attr name='dasdasd' type='bool'></attr>
+  </packet>
+  
+  <packet name='dfgdfg'>
+    <attr name='tata' type='string'></attr>
+    <attr name='tata' type='ref' ref='dfgdfg'></attr>
+  </packet>
+
+</packets>

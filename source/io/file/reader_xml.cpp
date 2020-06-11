@@ -18,7 +18,7 @@ bool fe::ReaderXml::load(const std::string& fileName) noexcept
 	try
 	{
 		if (fileName.empty())
-        return false;
+			return false;
 
 		std::stringstream buffer;
 		std::ifstream stream(fileName);
