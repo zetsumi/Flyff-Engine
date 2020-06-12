@@ -16,7 +16,8 @@ namespace tools
 	{
 		OP_DECLAR,
 		OP_IN,
-		OP_OUT
+		OP_OUT,
+		OP_RELEASE
 	};
 
 	enum class TYPE_PACKET : unsigned short
@@ -34,7 +35,7 @@ namespace tools
 		[[nodiscard]] bool	loadPacket(const std::string& filename) noexcept;
 
 		void	writeOperator(const pugi::xml_node& node, TYPE_PACKET packetType, std::ofstream& file, TYPE_OPERATOR op);
-		void	writeConfig(const pugi::xml_node& node, TYPE_PACKET type);
+		void	writeConfig(const std::string& product, const pugi::xml_node& node, TYPE_PACKET type);
 
 	public:
 		XmlLoader() = default;

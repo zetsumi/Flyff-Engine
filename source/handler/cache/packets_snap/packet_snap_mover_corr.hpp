@@ -6,8 +6,8 @@ namespace fe
 	{
 		struct SnapshotMoverCorr : public Snapshot
 		{
-			fe::Vector3D<float>	pos{ 0, 0, 0 };
-			fe::Vector3D<float>	delta{ 0, 0, 0 };
+			fe::util::Vector3D<float>	pos{ 0, 0, 0 };
+			fe::util::Vector3D<float>	delta{ 0, 0, 0 };
 
 			fe::type::_32uint state = 0;
 			fe::type::_32uint flag = 0;

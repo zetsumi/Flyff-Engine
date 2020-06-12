@@ -16,7 +16,7 @@ namespace fe
 #pragma endregion
 #pragma region Info Joueur
 				char* playerName = nullptr;
-				fe::Vector3D<float>	pos{ 0, 0, 0 };
+				fe::util::Vector3D<float>	pos{ 0, 0, 0 };
 #pragma endregion
 #pragma region Idendifiant
 				fe::type::_32uint	idPlayer = 0;

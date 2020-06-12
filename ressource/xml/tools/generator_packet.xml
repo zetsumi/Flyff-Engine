@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project path="../../ressource/xml/tools/">
-  <packet filename="test.xml"/>
-  <packet filename="test2.xml"/>
+  <packet filename="certifier_packet.xml"/>
+  <packet filename="login_packet.xml"/>
+  <packet filename="cache_packet.xml"/>
 </project>

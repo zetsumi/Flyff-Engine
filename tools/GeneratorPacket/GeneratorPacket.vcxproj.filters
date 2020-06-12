@@ -39,7 +39,13 @@
     <Xml Include="..\..\ressource\xml\tools\generator_packet.xml">
       <Filter>Resource Files</Filter>
     </Xml>
-    <Xml Include="..\..\ressource\xml\tools\test.xml">
+    <Xml Include="..\..\ressource\xml\tools\login_packet.xml">
+      <Filter>Resource Files</Filter>
+    </Xml>
+    <Xml Include="..\..\ressource\xml\tools\certifier_packet.xml">
+      <Filter>Resource Files</Filter>
+    </Xml>
+    <Xml Include="..\..\ressource\xml\tools\cache_packet.xml">
       <Filter>Resource Files</Filter>
     </Xml>
   </ItemGroup>

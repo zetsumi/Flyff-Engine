@@ -6,8 +6,8 @@ namespace fe
 	{
 		struct SnapshotMoverBehavior2 : public Snapshot
 		{
-			fe::Vector3D<float>	pos{ 0.f, 0.f, 0.f };
-			fe::Vector3D<float>	delta{ 0.f, 0.f, 0.f };
+			fe::util::Vector3D<float>	pos{ 0.f, 0.f, 0.f };
+			fe::util::Vector3D<float>	delta{ 0.f, 0.f, 0.f };
 			float angle = 0.f;
 			float angleX = 0.f;
 			float accPower = 0.f;
