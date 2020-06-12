@@ -2,20 +2,24 @@
 
 namespace fe
 {
-	struct PacketQueryTick : public PacketMessage
+	namespace packet
 	{
-		fe::type::_32int timer = 0;
-		fe::type::_int tick = 0;
-
-		PacketQueryTick() = default;
-		~PacketQueryTick() = default;
-		inline PacketQueryTick& operator<<(fe::PacketBuilder& pb) override
+		struct PacketQueryTick : public PacketMessage
 		{
-			timer = pb.read<fe::type::_32uint>();
-			tick = pb.read<fe::type::_int>();
+			fe::type::_32int timer = 0;
+			fe::type::_int tick = 0;
 
-			FE_CONSOLELOG("TIME local[%u] server[%d]", timer, tick);
-			return *this;
-		}
-	};
+			PacketQueryTick() = default;
+			~PacketQueryTick() = default;
+			inline PacketQueryTick& operator<<(fe::PacketBuilder& pb) override
+			{
+				timer = pb.read<fe::type::_32uint>();
+				tick = pb.read<fe::type::_int>();
+
+				FE_CONSOLELOG("TIME local[%u] server[%d]", timer, tick);
+				return *this;
+			}
+
+		};
+	}
 }

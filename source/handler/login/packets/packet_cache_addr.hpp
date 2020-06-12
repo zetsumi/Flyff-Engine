@@ -2,23 +2,26 @@
 
 namespace fe
 {
-	struct PacketCacheAddr : public PacketMessage
+	namespace packet
 	{
-		char* cacheServerAddr = nullptr;
-
-		PacketCacheAddr() = default;
-		~PacketCacheAddr() = default;
-		PacketCacheAddr& operator<<(fe::PacketBuilder& pb)
+		struct PacketCacheAddr : public PacketMessage
 		{
-			cacheServerAddr = const_cast<char*>(pb.readString());
-			FE_CONSOLELOG("cacheServerAddr:{%s}", cacheServerAddr);
-			return *this;
-		}
+			char* cacheServerAddr = nullptr;
 
-		void	release() override final
-		{
-			delete cacheServerAddr;
-			cacheServerAddr = nullptr;
-		}
-	};
+			PacketCacheAddr() = default;
+			~PacketCacheAddr() = default;
+			PacketCacheAddr& operator<<(fe::PacketBuilder& pb)
+			{
+				cacheServerAddr = const_cast<char*>(pb.readString());
+				FE_CONSOLELOG("cacheServerAddr:{%s}", cacheServerAddr);
+				return *this;
+			}
+
+			void	release() override final
+			{
+				delete cacheServerAddr;
+				cacheServerAddr = nullptr;
+			}
+		};
+	}
 }

@@ -6,7 +6,7 @@ namespace fe
 	{
 		struct SnapshotDestPos : public Snapshot
 		{
-			fe::Vector3D<float>		pos{ 0,0,0 };
+			fe::Vector3D<float>	pos{ 0, 0, 0 };
 			fe::type::_uchar	forward = 0;
 
 			SnapshotDestPos() = default;

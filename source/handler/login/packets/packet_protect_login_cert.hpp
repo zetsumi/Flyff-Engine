@@ -2,19 +2,22 @@
 
 namespace fe
 {
-	struct PacketProtectLoginCert : public PacketMessage
+	namespace packet
 	{
-		fe::type::_32uint logged = 0;
-		fe::type::_32uint idNumPad = 0;
-
-		PacketProtectLoginCert() = default;
-		~PacketProtectLoginCert() = default;
-		inline PacketProtectLoginCert& operator<<(fe::PacketBuilder& pb) override
+		struct PacketProtectLoginCert : public PacketMessage
 		{
-			logged = pb.read<fe::type::_32uint>();
-			idNumPad = pb.read<fe::type::_32uint>();
-			FE_CONSOLELOG("logged:{%u} idNumPad:{%u}", logged, idNumPad);
-			return *this;
-		}
-	};
+			fe::type::_32uint logged = 0;
+			fe::type::_32uint idNumPad = 0;
+
+			PacketProtectLoginCert() = default;
+			~PacketProtectLoginCert() = default;
+			inline PacketProtectLoginCert& operator<<(fe::PacketBuilder& pb) override
+			{
+				logged = pb.read<fe::type::_32uint>();
+				idNumPad = pb.read<fe::type::_32uint>();
+				FE_CONSOLELOG("logged:{%u} idNumPad:{%u}", logged, idNumPad);
+				return *this;
+			}
+		};
+	}
 }
