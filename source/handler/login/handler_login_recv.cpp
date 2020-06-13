@@ -3,14 +3,14 @@
 
 fe::PacketMessage* fe::HandlerLogin::onQueryTickCount()
 {
-	fe::PacketQueryTick* p = new fe::PacketQueryTick();
+	fe::packet::PacketQueryTick* p = new fe::packet::PacketQueryTick();
 	*p << packetBuilder;
 	return p;
 }
 
 fe::PacketMessage* fe::HandlerLogin::onCacheAddr()
 {
-	fe::PacketCacheAddr* p = new fe::PacketCacheAddr();
+	fe::packet::PacketCacheAddr* p = new fe::packet::PacketCacheAddr();
 	*p << packetBuilder;
 	size_t len = strlen(p->cacheServerAddr);
 	cacheServerAddr = new char[len + 1];
@@ -25,7 +25,7 @@ fe::PacketMessage* fe::HandlerLogin::onCacheAddr()
 
 fe::PacketMessage* fe::HandlerLogin::onPlayerList()
 {
-	fe::PacketListPlayer* p = new fe::PacketListPlayer();
+	fe::packet::PacketListPlayer* p = new fe::packet::PacketListPlayer();
 	*p << packetBuilder;
 	authKey = p->authKey;
 	return p;
@@ -33,14 +33,14 @@ fe::PacketMessage* fe::HandlerLogin::onPlayerList()
 
 fe::PacketMessage* fe::HandlerLogin::onProtectNumPad()
 {
-	fe::PacketProtectNumPad* p = new fe::PacketProtectNumPad();
+	fe::packet::PacketProtectNumPad* p = new fe::packet::PacketProtectNumPad();
 	*p << packetBuilder;
 	return p;
 }
 
 fe::PacketMessage* fe::HandlerLogin::onProtectLoginCert()
 {
-	fe::PacketProtectLoginCert* p = new fe::PacketProtectLoginCert();
+	fe::packet::PacketProtectLoginCert* p = new fe::packet::PacketProtectLoginCert();
 	*p << packetBuilder;
 	return p;
 }

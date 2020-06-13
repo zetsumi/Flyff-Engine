@@ -9,7 +9,7 @@ namespace fe
 		{
 
 			fe::type::_32uint	worldId = 0;
-			fe::Vector3D<float>	pos{ 0, 0, 0 };
+			fe::util::Vector3D<float>	pos{ 0, 0, 0 };
 
 			PacketReplace() = default;
 			~PacketReplace() = default;

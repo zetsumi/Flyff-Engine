@@ -6,7 +6,7 @@ namespace fe
 	{
 		struct SnapshotGetPosition : public Snapshot
 		{
-			fe::Vector3D<float>		pos{ 0,0,0 };
+			fe::util::Vector3D<float>		pos{ 0,0,0 };
 			float					angle = 0;
 
 			SnapshotGetPosition() = default;

@@ -36,7 +36,7 @@ namespace fe
 			const char* playerName, const char* account, const char* password
 		);
 		void	sendGetPosition(fe::type::_SOCKET id, fe::type::_32uint idMover);
-		void	sendDestinationPosition(fe::type::_SOCKET id, const fe::Vector3D<float>& destination, fe::type::_uchar forward);
+		void	sendDestinationPosition(fe::type::_SOCKET id, const fe::util::Vector3D<float>& destination, fe::type::_uchar forward);
 	};
 }
 #pragma warning( default : 4251 )

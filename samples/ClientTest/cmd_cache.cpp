@@ -49,7 +49,7 @@ void	cache_get_pos(void)
 	);
 }
 
-fe::Vector3D<float> dest{ 6959.27734f, 100.000000f, 3462.15723f };
+fe::util::Vector3D<float> dest{ 6959.27734f, 100.000000f, 3462.15723f };
 
 void	cache_dest_pos(void)
 {

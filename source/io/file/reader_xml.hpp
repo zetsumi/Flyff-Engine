@@ -1,4 +1,6 @@
 #pragma once
+
+#include <iostream>
 #include <sstream>
 #include <fstream>
 #include <string>
@@ -11,8 +13,6 @@
 #else
 #endif
 
-#include <iostream>
-
 #pragma warning( disable : 4251 )
 
 namespace fe
@@ -24,15 +24,15 @@ namespace fe
      */
     namespace type
     {
-    namespace xml
-    {
-    #if defined(FLYFFENGINE_XML_PUGIXML)
-            typedef pugi::xml_document      document;
-            typedef pugi::xml_parse_result  result;
-            typedef pugi::xml_node          node;
-            typedef pugi::xml_attribute     attribute;
-    #else
-    #endif
+        namespace xml
+        {
+        #if defined(FLYFFENGINE_XML_PUGIXML)
+                typedef pugi::xml_document      document;
+                typedef pugi::xml_parse_result  result;
+                typedef pugi::xml_node          node;
+                typedef pugi::xml_attribute     attribute;
+        #else
+        #endif
         }
     }
 

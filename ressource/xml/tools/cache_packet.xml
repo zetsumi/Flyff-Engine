@@ -1,0 +1,285 @@
+<?xml version='1.0' encoding='utf-8'?>
+<packets product='cache'>
+
+  <!-- primitives types
+      typedef unsigned __int64    _uint;
+      typedef unsigned __int32    _32uint;
+      typedef __int64             _int;
+      typedef __int32             _32int;
+      typedef unsigned char       _uchar;
+      typedef char                _char;
+      typedef short               _short;
+      typedef unsigned short      _ushort;
+      typedef SOCKET              _SOCKET;
+  -->
+
+  <!-- overrided
+    vectorf ==> Vector<float>
+  -->
+
+  <!-- SANS ID VALUE -->
+  <packet filename='caption' name='Caption'>
+    <attr name='smallCaption' type='_32int'></attr>
+    <attr name='worldId' type='_32uint'></attr>
+    <attr name='caption' type='string'></attr>
+    <release>
+      <attr name='caption' type='string'></attr>
+    </release>
+  </packet>
+
+  <packet filename='defined_text' name='DefinedText'>
+    <attr name='textId' type='_32uint'></attr>
+    <attr name='textMessage' type='string'></attr>
+    <release>
+      <attr name='textMessage' type='string'></attr>
+    </release>
+  </packet>
+
+  <packet filename='game_rate' name='GameRate'>
+    <attr name='rate' type='float'></attr>
+    <attr name='flag' type='_uchar'></attr>
+  </packet>
+
+  <packet filename='get_clock' name='GetClock'>
+    <attr name='clockOfClient' type='_uchar'></attr>
+  </packet>
+
+  <packet filename='get_core_player' name='GetCorePlayer'>
+    <attr name='playersName_count' type='_uchar'></attr>
+    <attr name='playersName' type='string[]'></attr>
+    <release>
+      <attr name='playersName' type='string[]'></attr>
+    </release>
+  </packet>
+
+  <packet filename='guild_master_say' name='GuildMastersay'>
+    <attr name='playerFrom' type='string'></attr>
+    <attr name='playerTo' type='string'></attr>
+    <attr name='message' type='string'></attr>
+    <release>
+      <attr name='playerFrom' type='string'></attr>
+      <attr name='playerTo' type='string'></attr>
+      <attr name='message' type='string'></attr>
+    </release>
+  </packet>
+
+  <!-- LIST -->
+  <packet filename='set_player_name' name='SetPlayerName' id='SET_PLAYER_NAME' value='0x00000012'>
+    <attr name='idPlayer' type='_32uint'></attr>
+    <attr name='name' type='string'></attr>
+    <release>
+      <attr name='name' type='string'></attr>
+    </release>
+  </packet>
+
+  <packet filename='snoop' name='Snoop' id='SNOOP' value='0x00000023'>
+    <attr name='message' type='string'></attr>
+    <release>
+      <attr name='name' type='string'></attr>
+    </release>
+  </packet>
+
+  <packet filename='player_logout' name='PlayerLogout' id='PLAYER_LOGOUT' value='0x7000000b'>
+    <attr name='idPlayer' type='_32uint'></attr>
+  </packet>
+
+  <packet filename='quiz_notice' name='QuizNotice' id='QUIZ_NOTICE' value='0xff000002'>
+    <attr name='definedTextId' type='_32int'></attr>
+    <attr name='all' type='_int'></attr>
+    <attr name='channel' type='_32int'></attr>
+    <attr name='time' type='_32int'></attr>
+  </packet>
+
+  <packet filename='tag_result' name='TagResult' id='TAG_RESULT' value='0xf000b008'>
+    <attr name='result' type='_uchar'></attr>
+  </packet>
+
+  <packet filename='update_player_data' name='UpdatePlayerData' id='UPDATE_PLAYER_DATA' value='0xf000f808'>
+    <attr name='idPlayer' type='_32uint'></attr>
+    <attr name='name' type='string'></attr>
+    <release>
+      <attr name='name' type='string'></attr>
+    </release>
+  </packet>
+
+
+  <packet filename='block' name='Block' id='BLOCK' value='0xffffff5a'>
+    <attr name='gu' type='_uchar'></attr>
+    <attr name='name' type='string'></attr>
+    <release>
+      <attr name='name' type='string'></attr>      
+    </release>
+  </packet>
+
+  <packet filename='wanted_name' name='WantedName' id='WANTED_NAME' value='0x00ff00fd'>
+    <attr name='name' type='string'></attr>
+    <release>
+      <attr name='name' type='string'></attr>
+    </release>
+  </packet>
+
+  <!-- FRIEND -->
+  <packet filename='friend_join' name='FriendJoin' id='FRIEND_JOIN' value='0xffffff65'>
+    <attr name='idFriend' type='_32uint'></attr>
+    <attr name='state' type='_32uint'></attr>
+    <attr name='login' type='_32uint'></attr>
+  </packet>
+
+  <packet filename='friend_logout' name='FriendLogout' id='FRIEND_LOG_OUT' value='0xffffff66'>
+    <attr name='idFriend' type='_32uint'></attr>
+  </packet>
+
+  <packet filename='friend_no_intercept' name='FriendNoIntercept' id='FRIEND_NO_INTERCEPT' value='0xffffff69'>
+    <attr name='idFriend' type='_32uint'></attr>
+  </packet>
+
+  <packet filename='friend_intercept' name='FriendIntercept' id='FRIEND_NO_INTERCEPT' value='0xffffff69'>
+    <attr name='idPlayer' type='_32uint'></attr>
+    <attr name='idFriend' type='_32uint'></attr>
+  </packet>
+
+  <packet filename='friend_name_request' name='FriendNameRequest' id='FRIEND_NAME_REQUEST' value='0xffffff6b'>
+    <attr name='leader' type='_32uint'></attr>
+    <attr name='member' type='_32uint'></attr>
+    <attr name='leaderJob' type='_32int'></attr>
+    <attr name='leaderSex' type='_uchar'></attr>
+    <attr name='leaderName' type='string'></attr>
+    <release>
+      <attr name='leaderName' type='string'></attr>
+    </release>
+  </packet>
+
+  <packet filename='friend_not_found' name='FriendNotFound' id='FRIEND_NOT_FOUND' value='0xffffff6c'>
+    <attr name='name' type='string'></attr>
+    <release>
+      <attr name='name' type='string'></attr>
+    </release>
+  </packet>
+
+  <packet filename='friend_remove_state' name='FriendRemoveState' id='FRIEND_REMOVE_STATE' value='0xffffff6d'>
+    <attr name='name' type='_32uint'></attr>
+  </packet>
+
+  <!-- GUILD -->
+  <!-- A confirmer, sizeof(GUILD_MEMBER_INFO) -->
+  <packet filename='add_guild_member' name='AddGuildMember' id='ADD_GUILD_MEMBER' value='0xffffff33'>
+    <attr name='idPlayer' type='_32uint'></attr>
+    <attr name='multiNo' type='_uchar'></attr>
+    <attr name='idGuild' type='_32uint'></attr>
+    <attr name='playerName' type='string'></attr>
+    <release>
+      <attr name='playerName' type='string'></attr>
+    </release>
+  </packet>
+
+  <packet filename='remove_guild_member' name='RemoveGuildMember' id='REMOVE_GUILD_MEMBER' value='0xffffff34'>
+    <attr name='idPlayer' type='_32uint'></attr>
+    <attr name='idGuild' type='_32uint'></attr>
+  </packet>
+
+  <packet filename='guild_char' name='GuildCHat' id='GUILD_CHAR' value='0xffffff39'>
+    <attr name='objid' type='_32uint'></attr>
+    <attr name='playerName' type='string'></attr>
+    <attr name='message' type='string'></attr>
+    <release>
+      <attr name='playerName' type='string'></attr>
+      <attr name='message' type='string'></attr>
+    </release>
+  </packet>
+
+  <packet filename='guild_member_lvl' name='GuildMemberLvl' id='GUILD_MEMBER_LVL' value='0xffffff3a'>
+    <attr name='idPlayer' type='_32uint'></attr>
+    <attr name='memberLevel' type='_32int'></attr>
+  </packet>
+
+  <packet filename='guild_class' name='GuildClass' id='GUILD_CLASS' value='0xffffff74'>
+    <attr name='idPlayer' type='_32uint'></attr>
+    <attr name='guildClass' type='_32int'></attr>
+  </packet>
+
+  <packet filename='guild_nickname' name='GuildNickname' id='GUILD_NICKNAME' value='0xffffff75'>
+    <attr name='idPlayer' type='_32uint'></attr>
+    <attr name='nickname' type='string'></attr>
+    <release>
+      <attr name='nickname' type='string'></attr>
+    </release>
+  </packet>
+
+  <packet filename='guild_change_master' name='GuildChangeMaster' id='GUILD_CHANGE_MASTER' value='0xf000f000'>
+    <attr name='oldPlayerMasterId' type='_32uint'></attr>
+    <attr name='newPlayerMasterId' type='_32uint'></attr>
+  </packet>
+
+  <packet filename='guild_member_login' name='GuildMemberLogin' id='GUILD_MEMBER_LOGIN' value='0xf000b029'>
+    <attr name='login' type='_uchar'></attr>
+    <attr name='playerId' type='_32uint'></attr>
+    <attr name='multiNo' type='_32uint'></attr>
+  </packet>
+
+  <packet filename='guild_game_join' name='GuildGameJoin' id='GUILD_GAME_JOIN' value='0xf000b030'>
+    <attr name='maxLoginGuild' type='_32int'></attr>
+    <attr name='loginPlayerIdGuild' type='string'></attr>
+    <attr name='loginGuildMulti' type='string'></attr>
+    <release>
+      <attr name='loginPlayerIdGuild' type='string'></attr>
+      <attr name='loginGuildMulti' type='string'></attr>
+    </release>
+  </packet>
+
+  <packet filename='guild_set_name' name='GuildSetName' id='GUILD_SET_NAME' value='0xf000b032'>
+    <attr name='idGuild' type='_32uint'></attr>
+    <attr name='name' type='string'></attr>
+    <release>
+      <attr name='name' type='string'></attr>
+    </release>
+  </packet>
+
+  <packet filename='guild_error' name='GuildError' id='GUILD_ERROR' value='0xf000b035'>
+    <attr name='error' type='_32int'></attr>
+  </packet>
+
+  <packet filename='guild_error' name='GuildError' id='GUILD_ERROR' value='0xf000b035'>
+    <attr name='error' type='_32int'></attr>
+  </packet>
+
+  <packet filename='guild_declare_war' name='GuildDeclareWar' id='GUILD_DECLARE_WAR' value='0xf000b036'>
+    <attr name='idGuildDeclared' type='_32uint'></attr>
+    <attr name='guildMasterName' type='string'></attr>
+    <release>
+      <attr name='guildMasterName' type='string'></attr>
+    </release>
+  </packet>
+
+  <packet filename='guild_accpet_war' name='GuildAcceptWar' id='GUILD_ACCEPT_WAR' value='0xf000b037'>
+    <attr name='idWar' type='_32uint'></attr>
+    <attr name='idGuildDeclared' type='_32uint'></attr>
+    <attr name='idGuildAccpted' type='_32uint'></attr>
+  </packet>
+
+  <packet filename='guild_war_dead' name='GuildWarDead' id='GUILD_WAR_DEAD' value='0Xf000b045'>
+    <attr name='idWar' type='_32uint'></attr>
+    <attr name='namePlayerDie' type='string'></attr>
+    <attr name='isFromGuildDeclared' type='int'></attr>
+    <release>
+      <attr name='namePlayerDie' type='string'></attr>
+    </release>
+  </packet>
+
+  <packet filename='guild_war_end' name='GuildWarEnd' id='GUILD_WAR_END' value='0xf000b046'>
+    <attr name='idWar' type='_32uint'></attr>
+    <attr name='wptDeclared' type='_32int'></attr>
+    <attr name='wptAcpt' type='_32int'></attr>
+    <attr name='type' type='_32int'></attr>
+  </packet>
+
+  <packet filename='guild_war_surrender' name='GuildWarSurrender' id='GUILD_WAR_SURRENDER' value='0xf000b047'>
+    <attr name='idWar' type='_32uint'></attr>
+    <attr name='playerName' type='string'></attr>
+    <attr name='isGuildDeclared' type='_32int'></attr>
+    <release>
+      <attr name='playerName' type='string'></attr>
+    </release>
+  </packet>
+
+
+</packets>

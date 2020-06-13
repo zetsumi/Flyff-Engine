@@ -102,7 +102,7 @@ namespace fe
 		}
 
 		template<typename T>
-		inline PacketBuilder& operator>>(fe::Vector3D<T> v)
+		inline PacketBuilder& operator>>(fe::util::Vector3D<T> v)
 		{
 			v.x = read<T>();
 			v.y = read<T>();

@@ -52,7 +52,7 @@ void fe::HandlerCache::sendGetPosition(fe::type::_SOCKET id, fe::type::_32uint i
 	lockerSend.unlock();
 }
 
-void fe::HandlerCache::sendDestinationPosition(fe::type::_SOCKET id, const fe::Vector3D<float>& destination, fe::type::_uchar forward)
+void fe::HandlerCache::sendDestinationPosition(fe::type::_SOCKET id, const fe::util::Vector3D<float>& destination, fe::type::_uchar forward)
 {
 	lockerSend.lock();
 

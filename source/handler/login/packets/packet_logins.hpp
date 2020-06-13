@@ -15,10 +15,10 @@ namespace fe
 {
 	namespace packettype
 	{
-		[[nodiscard]] inline fe::PacketMessage* queryTick() { return new fe::PacketQueryTick(); }
-		[[nodiscard]] inline fe::PacketMessage* playerList() { return new fe::PacketListPlayer(); }
-		[[nodiscard]] inline fe::PacketMessage* protectNumPad() { return new fe::PacketProtectNumPad(); }
-		[[nodiscard]] inline fe::PacketMessage* protectLoginCert() { return new fe::PacketProtectLoginCert(); }
+		[[nodiscard]] inline fe::PacketMessage* queryTick() { return new fe::packet::PacketQueryTick(); }
+		[[nodiscard]] inline fe::PacketMessage* playerList() { return new fe::packet::PacketListPlayer(); }
+		[[nodiscard]] inline fe::PacketMessage* protectNumPad() { return new fe::packet::PacketProtectNumPad(); }
+		[[nodiscard]] inline fe::PacketMessage* protectLoginCert() { return new fe::packet::PacketProtectLoginCert(); }
 		[[nodiscard]] inline fe::PacketMessage* preJoin() { return nullptr; }
 	}
 }

@@ -13,6 +13,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FlyffNetwork", "FlyffNetwor
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ClientTest", "samples\ClientTest\ClientTest.vcxproj", "{EFABC4CB-14DC-480A-BC9E-310767982781}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{67B8E18A-62F4-47BB-8C14-8BD21B1FA8A8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GeneratorPacket", "tools\GeneratorPacket\GeneratorPacket.vcxproj", "{370B3DB3-2C95-432E-A534-424746BE7A5E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -53,6 +57,14 @@ Global
 		{EFABC4CB-14DC-480A-BC9E-310767982781}.Release|x64.Build.0 = Release|x64
 		{EFABC4CB-14DC-480A-BC9E-310767982781}.Release|x86.ActiveCfg = Release|Win32
 		{EFABC4CB-14DC-480A-BC9E-310767982781}.Release|x86.Build.0 = Release|Win32
+		{370B3DB3-2C95-432E-A534-424746BE7A5E}.Debug|x64.ActiveCfg = Debug|x64
+		{370B3DB3-2C95-432E-A534-424746BE7A5E}.Debug|x64.Build.0 = Debug|x64
+		{370B3DB3-2C95-432E-A534-424746BE7A5E}.Debug|x86.ActiveCfg = Debug|Win32
+		{370B3DB3-2C95-432E-A534-424746BE7A5E}.Debug|x86.Build.0 = Debug|Win32
+		{370B3DB3-2C95-432E-A534-424746BE7A5E}.Release|x64.ActiveCfg = Release|x64
+		{370B3DB3-2C95-432E-A534-424746BE7A5E}.Release|x64.Build.0 = Release|x64
+		{370B3DB3-2C95-432E-A534-424746BE7A5E}.Release|x86.ActiveCfg = Release|Win32
+		{370B3DB3-2C95-432E-A534-424746BE7A5E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +72,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{43CACF75-D7ED-4D75-AB01-A639AEE7656E} = {63911E02-15F7-481E-A2A5-04C68DFF801A}
 		{EFABC4CB-14DC-480A-BC9E-310767982781} = {63911E02-15F7-481E-A2A5-04C68DFF801A}
+		{370B3DB3-2C95-432E-A534-424746BE7A5E} = {67B8E18A-62F4-47BB-8C14-8BD21B1FA8A8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {07EEEF7A-DDF5-4FF1-9D35-21751AECA151}
