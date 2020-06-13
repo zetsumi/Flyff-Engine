@@ -37,5 +37,8 @@
     <attr name='timer' type='_32int'/>
     <attr name='tick' type='_int'/>
   </packet>
-  
+
+  <packet filename='one_hour_notify' name='OneHourNotify'>
+  </packet>
+
 </packets>
