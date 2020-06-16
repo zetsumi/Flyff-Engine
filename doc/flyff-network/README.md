@@ -30,13 +30,13 @@ Tout la logique d'extraction de la donnée est effectué dans Handler.<br>
 # Processus
 Effectuer le processus de `fe::Transaction::run` créer un thread permettant de recupérer les paquets en [asynchrone](https://eduscol.education.fr/numerique/dossier/archives/eformation/notion-de-temps/synchrone-asynchrone).<br>
 Chaque paquet reçue est traité en [synchrone](https://eduscol.education.fr/numerique/dossier/archives/eformation/notion-de-temps/synchrone-asynchrone), la réception appel la `handlerCallBack` passé en paramètre à `fe::Transaction::run`.<br>
-
 <br>
+
 Un `Handler` liste ces callbaks via `initialize`.<br>
-Le programme peut `attendre` ou non la fin thread au via `fe:Transaction::wait(true)`.<br>
-
+Le programme peut `attendre` ou non la fin thread via `fe:Transaction::wait(true)`.<br>
 <br>
-Lorsqu'un `handler` reçoit le paquet ***PACKETTYPE_WELCOM*** un thread est automiquement créer, il permet de gérer le process ***PIGN***.<br>
+
+Lorsqu'un `handler` reçoit le paquet ***PACKETTYPE_WELCOM*** un thread est automiquement créer, il permet de gérer l'évenement ***PIGN***.<br>
 
 ___Exemple :___<br>
 file: `connect_server_custom.cpp`
