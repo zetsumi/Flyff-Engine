@@ -10,7 +10,7 @@ namespace fe
 
 			SnapshotEnvironmentAll() = default;
 			~SnapshotEnvironmentAll() = default;
-			inline SnapshotEnvironmentAll& operator<<(fe::PacketBuilder& pb) override
+			SnapshotEnvironmentAll& operator<<(fe::PacketBuilder& pb) override
 			{
 				season = pb.read<fe::type::_32uint>();
 				FE_CONSOLELOG("season{%d}", season);

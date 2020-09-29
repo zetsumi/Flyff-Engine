@@ -78,7 +78,7 @@ namespace fe
 
 		PacketCustom() = default;
 		~PacketCustom() = default;
-		inline PacketCustom& operator<<(fe::PacketBuilder& pb) override
+		PacketCustom& operator<<(fe::PacketBuilder& pb) override
 		{
 			var << pb;
 			var2 << pb;
@@ -95,7 +95,7 @@ Si vous ajouter une factory pour ***certifier*** ==> `source\handler\certifier\p
 Si vous ajouter une factory pour ***cache*** ==> `source\handler\cache\packets_snap\packets_type.hpp.hpp`
 
 ```cpp
-[[nodiscard]] inline fe::PacketMessage* packetCustom(void) { return new fe::PacketCustom(); }
+[[nodiscard]] fe::PacketMessage* packetCustom(void) { return new fe::PacketCustom(); }
 ```
 
 ___Création de la callback dans `HandlerCustom` :___

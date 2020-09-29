@@ -36,7 +36,7 @@ namespace fe
          * @param key Nom de la clef stockant la valeur
          * @return const std::string 
          */
-        inline const std::string    get(const std::string& key) const noexcept
+        const std::string    get(const std::string& key) const noexcept
         {
             auto it = texts.find(key);
             if (it != texts.end())
@@ -50,7 +50,7 @@ namespace fe
          * @return true 
          * @return false 
          */
-        inline bool    has(const std::string& key) const noexcept
+        bool    has(const std::string& key) const noexcept
         {
             return texts.find(key) != texts.end() ? true : false;
         }

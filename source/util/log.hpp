@@ -12,7 +12,7 @@
 
 namespace fe
 {
-	inline static void _log(bool consoleVS, bool endLine, const char* functionName, unsigned int line, const char* format, ...)
+	static void _log(bool consoleVS, bool endLine, const char* functionName, unsigned int line, const char* format, ...)
 	{
 		try
 		{

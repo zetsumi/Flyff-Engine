@@ -19,7 +19,7 @@ namespace fe
 
 			SnapshotStateMachineModeAll() = default;
 			~SnapshotStateMachineModeAll() = default;
-			inline SnapshotStateMachineModeAll& operator<<(fe::PacketBuilder& pb) override
+			SnapshotStateMachineModeAll& operator<<(fe::PacketBuilder& pb) override
 			{
 				pb >> count;
 				if (count == 0)

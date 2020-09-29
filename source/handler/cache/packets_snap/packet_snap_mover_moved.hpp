@@ -20,7 +20,7 @@ namespace fe
 
 			SnapshotMoverMoved() = default;
 			~SnapshotMoverMoved() = default;
-			inline SnapshotMoverMoved& operator<<(fe::PacketBuilder& pb) override
+			SnapshotMoverMoved& operator<<(fe::PacketBuilder& pb) override
 			{
 				pos.x = pb.read<float>();
 				pos.y = pb.read<float>();

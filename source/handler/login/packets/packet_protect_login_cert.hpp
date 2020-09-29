@@ -11,7 +11,7 @@ namespace fe
 
 			PacketProtectLoginCert() = default;
 			~PacketProtectLoginCert() = default;
-			inline PacketProtectLoginCert& operator<<(fe::PacketBuilder& pb) override
+			PacketProtectLoginCert& operator<<(fe::PacketBuilder& pb) override
 			{
 				logged = pb.read<fe::type::_32uint>();
 				idNumPad = pb.read<fe::type::_32uint>();

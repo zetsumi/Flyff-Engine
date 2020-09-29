@@ -15,7 +15,7 @@ namespace fe
 
 			SnapshotAddObj() = default;
 			~SnapshotAddObj() = default;
-			inline SnapshotAddObj& operator<<(fe::PacketBuilder& pb) override
+			SnapshotAddObj& operator<<(fe::PacketBuilder& pb) override
 			{
 				fe::type::_32uint typeObj = pb.read<fe::type::_32uint>();
 				fe::type::_32uint indexObj = pb.read<fe::type::_32uint>();

@@ -28,7 +28,7 @@
 
 #define BEGIN_OPERATOR_IN(name)\
 	file << std::endl;\
-	file << "\t\t\t" << "inline " << name << "& operator<<(fe::PacketBuilder& pb) override final" << std::endl;\
+	file << "\t\t\t" << "" << name << "& operator<<(fe::PacketBuilder& pb) override final" << std::endl;\
 	file << "\t\t\t" << "{" << std::endl;
 
 #define END_OPERATOR_IN()\
@@ -37,7 +37,7 @@
 
 #define BEGIN_OPERATOR_OUT(name)\
 	file << std::endl;\
-	file << "\t\t\t" << "inline " << name << "& operator>>(fe::PacketBuilder& pb) override final" << std::endl;\
+	file << "\t\t\t" << "" << name << "& operator>>(fe::PacketBuilder& pb) override final" << std::endl;\
 	file << "\t\t\t" << "{" << std::endl;
 
 #define END_OPERATOR_OUT()\
@@ -46,7 +46,7 @@
 
 #define BEGIN_RELEASE()\
 	file << std::endl;\
-	file << "\t\t\t" << "inline void release() override final" << std::endl;\
+	file << "\t\t\t" << "void release() override final" << std::endl;\
 	file << "\t\t\t" << "{" << std::endl;
 
 #define END_RELEASE()\

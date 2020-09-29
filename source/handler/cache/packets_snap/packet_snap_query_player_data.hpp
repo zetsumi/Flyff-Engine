@@ -17,7 +17,7 @@ namespace fe
 
 			SnapshotQueryPlayerData() = default;
 			~SnapshotQueryPlayerData() = default;
-			inline SnapshotQueryPlayerData& operator<<(fe::PacketBuilder& pb) override
+			SnapshotQueryPlayerData& operator<<(fe::PacketBuilder& pb) override
 			{
 				fe::type::_32uint idPlayer = pb.read<fe::type::_32uint>();
 				const char* playerName = pb.readString();

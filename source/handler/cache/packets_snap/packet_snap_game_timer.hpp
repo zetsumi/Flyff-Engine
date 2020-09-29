@@ -10,7 +10,7 @@ namespace fe
 
 			SnapshotGameTimer() = default;
 			~SnapshotGameTimer() = default;
-			inline SnapshotGameTimer& operator<<(fe::PacketBuilder& pb) override
+			SnapshotGameTimer& operator<<(fe::PacketBuilder& pb) override
 			{
 				pb >> currentTime;
 				return *this;

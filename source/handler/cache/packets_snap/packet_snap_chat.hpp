@@ -10,7 +10,7 @@ namespace fe
 
 			SnapshotChat() = default;
 			~SnapshotChat() = default;
-			inline SnapshotChat& operator<<(fe::PacketBuilder& pb) override
+			SnapshotChat& operator<<(fe::PacketBuilder& pb) override
 			{
 				message = pb.readString();
 				return *this;

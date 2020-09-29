@@ -11,7 +11,7 @@ namespace fe
 
 			SnapshotDestPos() = default;
 			~SnapshotDestPos() = default;
-			inline SnapshotDestPos& operator<<(fe::PacketBuilder& pb) override
+			SnapshotDestPos& operator<<(fe::PacketBuilder& pb) override
 			{
 				pos.x = pb.read<float>();
 				pos.y = pb.read<float>();

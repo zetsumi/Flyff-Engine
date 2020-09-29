@@ -19,7 +19,7 @@ namespace fe
 
 				ServerInfo() = default;
 				~ServerInfo() = default;
-				inline ServerInfo operator<<(fe::PacketBuilder& pb)
+				ServerInfo operator<<(fe::PacketBuilder& pb)
 				{
 					pb >> parent >> id;
 					name = pb.readString();
@@ -39,7 +39,7 @@ namespace fe
 			PacketServerList() = default;
 			~PacketServerList() = default;
 
-			inline PacketServerList& operator<<(fe::PacketBuilder& pb) override
+			PacketServerList& operator<<(fe::PacketBuilder& pb) override
 			{
 				pb >> authKey >> accountFlag;
 				account = const_cast<char*>(pb.readString());

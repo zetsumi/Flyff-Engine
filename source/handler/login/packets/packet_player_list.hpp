@@ -50,7 +50,7 @@ namespace fe
 
 				SlotPlayer() = default;
 				~SlotPlayer() = default;
-				inline SlotPlayer& operator<<(fe::PacketBuilder& packetBuilder)
+				SlotPlayer& operator<<(fe::PacketBuilder& packetBuilder)
 				{
 #pragma region Information slot
 					slot = packetBuilder.read<fe::type::_32int>();
@@ -132,7 +132,7 @@ namespace fe
 
 					MessageFriend() = default;
 					~MessageFriend() = default;
-					inline MessageFriend& operator<<(fe::PacketBuilder& packetBuilder)
+					MessageFriend& operator<<(fe::PacketBuilder& packetBuilder)
 					{
 						idFriend = packetBuilder.read<fe::type::_32uint>();
 						val1 = packetBuilder.read<fe::type::_32uint>();
@@ -170,7 +170,7 @@ namespace fe
 
 			PacketListPlayer() = default;
 			~PacketListPlayer() = default;
-			inline PacketListPlayer& operator<<(fe::PacketBuilder& packetBuilder) override
+			PacketListPlayer& operator<<(fe::PacketBuilder& packetBuilder) override
 			{
 				authKey = packetBuilder.read<fe::type::_32uint>();
 				countPlayer = packetBuilder.read<fe::type::_32int>();

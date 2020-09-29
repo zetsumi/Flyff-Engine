@@ -25,7 +25,7 @@ namespace fe
 		PacketStructure* packet = new PacketStructure();
 
 		template<typename T>
-		inline void writeFront(T val)
+		void writeFront(T val)
 		{
 			unsigned int length = packet->size + sizeof(T);
 			unsigned char* tmp = new unsigned char[length]();
@@ -58,14 +58,14 @@ namespace fe
 		unsigned int						getOffset() const;
 
 		template<typename T>
-		inline void	write(T var)
+		void	write(T var)
 		{
 			unsigned int length = sizeof(T);
 			write<T>(var, length);
 		}
 
 		template<typename T>
-		inline void	write(T var, unsigned int length)
+		void	write(T var, unsigned int length)
 		{
 			if (packet->data == nullptr)
 			{
@@ -91,7 +91,7 @@ namespace fe
 		}
 
 		template<typename T>
-		inline T	read()
+		T	read()
 		{
 			unsigned int size = sizeof(T);
 			T var;
@@ -102,7 +102,7 @@ namespace fe
 		}
 
 		template<typename T>
-		inline PacketBuilder& operator>>(fe::util::Vector3D<T> v)
+		PacketBuilder& operator>>(fe::util::Vector3D<T> v)
 		{
 			v.x = read<T>();
 			v.y = read<T>();
@@ -111,14 +111,14 @@ namespace fe
 		}
 
 		template<typename T>
-		inline PacketBuilder& operator>>(T& var)
+		PacketBuilder& operator>>(T& var)
 		{
 			var = read<T>();
 			return *this;
 		}
 
 		template<typename T>
-		inline PacketBuilder& operator<<(T& var)
+		PacketBuilder& operator<<(T& var)
 		{
 			var = write<T>();
 			return *this;

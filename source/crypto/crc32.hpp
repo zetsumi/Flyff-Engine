@@ -18,7 +18,7 @@ namespace fe
 	//	return T2(a) & (b - 1);
 	//}
 
-	//inline bool IsAlignedOn(const void* p, unsigned int alignment)
+	//bool IsAlignedOn(const void* p, unsigned int alignment)
 	//{
 	//	return IsPowerOf2(alignment) ? ModPowerOf2((unsigned int)p, alignment) == 0 : (unsigned int)p % alignment == 0;
 	//}

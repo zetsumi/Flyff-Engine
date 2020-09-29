@@ -11,7 +11,7 @@ namespace fe
 
 			SnapshotWorldReadInfo() = default;
 			~SnapshotWorldReadInfo() = default;
-			inline SnapshotWorldReadInfo& operator<<(fe::PacketBuilder& pb) override
+			SnapshotWorldReadInfo& operator<<(fe::PacketBuilder& pb) override
 			{
 				idWorld = pb.read<fe::type::_32uint>();
 				pos.x = pb.read<float>();

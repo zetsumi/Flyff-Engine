@@ -11,7 +11,7 @@ namespace fe
 
 			SnapshotSecretRoomManagerState() = default;
 			~SnapshotSecretRoomManagerState() = default;
-			inline SnapshotSecretRoomManagerState& operator<<(fe::PacketBuilder& pb) override
+			SnapshotSecretRoomManagerState& operator<<(fe::PacketBuilder& pb) override
 			{
 				pb >> state >> time;
 				return *this;

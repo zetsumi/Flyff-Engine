@@ -24,7 +24,7 @@ namespace fe
 
 			SnapshotMoverBehavior2() = default;
 			~SnapshotMoverBehavior2() = default;
-			inline SnapshotMoverBehavior2& operator<<(fe::PacketBuilder& pb) override
+			SnapshotMoverBehavior2& operator<<(fe::PacketBuilder& pb) override
 			{
 				pos.x = pb.read<float>();
 				pos.y = pb.read<float>();

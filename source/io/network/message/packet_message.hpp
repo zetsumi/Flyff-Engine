@@ -12,7 +12,7 @@ namespace fe
 
 		PacketMessage(PacketMessage&& pm) = delete;
 		PacketMessage(const PacketMessage& pm) = delete;
-		inline PacketMessage(PacketMessage* pm) = delete;
+		PacketMessage(PacketMessage* pm) = delete;
 		PacketMessage& operator=(const PacketMessage& pm) = delete;
 
 		PacketMessage() = default;

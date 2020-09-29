@@ -11,7 +11,7 @@ namespace fe
 
 			SnapshotGetPosition() = default;
 			~SnapshotGetPosition() = default;
-			inline SnapshotGetPosition& operator<<(fe::PacketBuilder& pb) override
+			SnapshotGetPosition& operator<<(fe::PacketBuilder& pb) override
 			{
 				pos.x = pb.read<float>();
 				pos.y = pb.read<float>();

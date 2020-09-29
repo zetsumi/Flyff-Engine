@@ -11,7 +11,7 @@ namespace fe
 
 			SnapshotAllAction() = default;
 			~SnapshotAllAction() = default;
-			inline SnapshotAllAction& operator<<(fe::PacketBuilder& pb) override
+			SnapshotAllAction& operator<<(fe::PacketBuilder& pb) override
 			{
 				pb >> isAllAction >> isCharacter;
 				return *this;

@@ -11,7 +11,7 @@ namespace fe
 
 			PacketQueryTick() = default;
 			~PacketQueryTick() = default;
-			inline PacketQueryTick& operator<<(fe::PacketBuilder& pb) override
+			PacketQueryTick& operator<<(fe::PacketBuilder& pb) override
 			{
 				timer = pb.read<fe::type::_32uint>();
 				tick = pb.read<fe::type::_int>();

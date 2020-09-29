@@ -210,7 +210,7 @@ namespace fe
 		 * 
 		 * @return const ReaderHeader& 
 		 */
-		inline const ReaderHeader& getHeader() const noexcept
+		const ReaderHeader& getHeader() const noexcept
 		{
 			return std::ref(header);
 		};
@@ -219,7 +219,7 @@ namespace fe
 		 * 
 		 * @return const ReaderText&
 		 */
-		inline const ReaderText& getText() const noexcept
+		const ReaderText& getText() const noexcept
 		{
 			return std::ref(text);
 		};
@@ -230,7 +230,7 @@ namespace fe
 		 * @param id 
 		 * @return PropItem* 
 		 */
-		inline PropItem* getItem(fe::type::_uint id) noexcept
+		PropItem* getItem(fe::type::_uint id) noexcept
 		{
 			return dynamic_cast<PropItem*>(propitem.get(id));
 		};
@@ -240,7 +240,7 @@ namespace fe
 		 * @param id 
 		 * @return PropSkill* 
 		 */
-		inline PropSkill* getSkill(fe::type::_uint id) noexcept
+		PropSkill* getSkill(fe::type::_uint id) noexcept
 		{
 			return dynamic_cast<PropSkill*>(propskill.get(id));
 		};
@@ -250,7 +250,7 @@ namespace fe
 		 * @param id 
 		 * @return PropCtrl* 
 		 */
-		inline PropCtrl* getCtrl(fe::type::_uint id) noexcept
+		PropCtrl* getCtrl(fe::type::_uint id) noexcept
 		{
 			return dynamic_cast<PropCtrl*>(propctrl.get(id));
 		};
@@ -260,7 +260,7 @@ namespace fe
 		 * @param id 
 		 * @return PropKarma* 
 		 */
-		inline PropKarma* getKarma(fe::type::_uint id) noexcept
+		PropKarma* getKarma(fe::type::_uint id) noexcept
 		{
 			return dynamic_cast<PropKarma*>(propkarma.get(id));
 		};
@@ -270,7 +270,7 @@ namespace fe
 		 * @param id 
 		 * @return PropMover* 
 		 */
-		inline PropMover* getMover(fe::type::_uint id) noexcept
+		PropMover* getMover(fe::type::_uint id) noexcept
 		{
 			return dynamic_cast<PropMover*>(propmover.get(id));
 		};
@@ -280,7 +280,7 @@ namespace fe
 		 * @param id 
 		 * @return PropSkill* 
 		 */
-		inline PropSkill* getSkillTroupe(fe::type::_uint id) noexcept
+		PropSkill* getSkillTroupe(fe::type::_uint id) noexcept
 		{
 			return dynamic_cast<PropSkill*>(propskilltroupe.get(id));
 		};
@@ -295,7 +295,7 @@ namespace fe
 		 * @param id 
 		 * @return PropItem* 
 		 */
-		inline PropItem* createItem(fe::type::_uint id) noexcept
+		PropItem* createItem(fe::type::_uint id) noexcept
 		{
 			PropItem* src = getItem(id);
 			if (src == nullptr)
@@ -309,7 +309,7 @@ namespace fe
 		 * @param id 
 		 * @return PropSkill* 
 		 */
-		inline PropSkill* createSkill(fe::type::_uint id) noexcept
+		PropSkill* createSkill(fe::type::_uint id) noexcept
 		{
 			PropSkill* src = getSkill(id);
 			if (src == nullptr)
@@ -323,7 +323,7 @@ namespace fe
 		 * @param id 
 		 * @return PropCtrl* 
 		 */
-		inline PropCtrl* createCtrl(fe::type::_uint id) noexcept
+		PropCtrl* createCtrl(fe::type::_uint id) noexcept
 		{
 			PropCtrl* src = getCtrl(id);
 			if (src == nullptr)
@@ -337,7 +337,7 @@ namespace fe
 		 * @param id 
 		 * @return PropKarma* 
 		 */
-		inline PropKarma* createKarma(fe::type::_uint id) noexcept
+		PropKarma* createKarma(fe::type::_uint id) noexcept
 		{
 			PropKarma* src = getKarma(id);
 			if (src == nullptr)
@@ -351,7 +351,7 @@ namespace fe
 		 * @param id 
 		 * @return PropMover* 
 		 */
-		inline PropMover* createMover(fe::type::_uint id) noexcept
+		PropMover* createMover(fe::type::_uint id) noexcept
 		{
 			PropMover* src = getMover(id);
 			if (src == nullptr)
@@ -365,7 +365,7 @@ namespace fe
 		 * @param id 
 		 * @return PropSkill* 
 		 */
-		inline PropSkill* createSkillTroupe(fe::type::_uint id) noexcept
+		PropSkill* createSkillTroupe(fe::type::_uint id) noexcept
 		{
 			PropSkill* src = getSkillTroupe(id);
 			if (src == nullptr)
