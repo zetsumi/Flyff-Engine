@@ -31,18 +31,30 @@ namespace tools
 
 	class XmlLoader final
 	{
-		[[nodiscard]] bool	load(pugi::xml_document& doc, const std::string& filename) noexcept;
-		[[nodiscard]] bool	loadPacket(const std::string& filename) noexcept;
+		[[nodiscard]] bool	load(
+			pugi::xml_document& doc,
+			std::string const& filename) noexcept;
+		[[nodiscard]] bool	loadPacket(
+			std::string const& filename,
+			std::string const& outdir) noexcept;
 
-		void	writeOperator(const pugi::xml_node& node, TYPE_PACKET packetType, std::ofstream& file, TYPE_OPERATOR op);
-		void	writeConfig(const std::string& product, const pugi::xml_node& node, TYPE_PACKET type);
+		void writeOperator(
+			pugi::xml_node const& node,
+			TYPE_PACKET packetType,
+			std::ofstream& file,
+			TYPE_OPERATOR op);
+		void writeConfig(
+			std::string const& outdir,
+			std::string const& product,
+			pugi::xml_node const& node,
+			TYPE_PACKET type);
 
 	public:
 		XmlLoader() = default;
-		XmlLoader(const XmlLoader&) = delete;
+		XmlLoader(XmlLoader const&) = delete;
 		XmlLoader(XmlLoader&&) = delete;
 		~XmlLoader() = default;
 
-		[[nodiscard]] bool	loadProject(const std::string & filename) noexcept;
+		[[nodiscard]] bool	loadProject(std::string const& filename) noexcept;
 	};
 }

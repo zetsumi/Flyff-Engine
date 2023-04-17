@@ -1,10 +1,19 @@
 #include <pch_fnetwork.h>
 #include <io/network/message/snapshot_type.hpp>
 
-void fe::HandlerCache::sendJoin(fe::type::_SOCKET id, std::uint32_t idWorld, std::uint32_t idPlayer, std::uint32_t authKey,
-	std::uint32_t idParty, std::uint32_t idGuild, std::uint32_t idWar,
-	std::uint32_t idOfMulti, std::uint8_t slot,
-	const char* playerName, const char* account, const char* password
+void fe::HandlerCache::sendJoin(
+	fe::type::_SOCKET id,
+	std::uint32_t idWorld,
+	std::uint32_t idPlayer,
+	std::uint32_t authKey,
+	std::uint32_t idParty,
+	std::uint32_t idGuild,
+	std::uint32_t idWar,
+	std::uint32_t idOfMulti,
+	std::uint8_t slot,
+	char const* playerName,
+	char const* account,
+	char const* password
 )
 {
 	lockerSend.lock();
