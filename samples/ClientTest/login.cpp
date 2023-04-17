@@ -25,7 +25,7 @@ bool	handler_login(void)
 	if (transLogin.setSocket(&_socketLog) == false)
 		return false;
 	transLogin.setMode(fe::MODE_TRANSACTION::MODE_CLIENT);
-	unsigned int headerLength = sizeof(fe::type::_uchar) + sizeof(fe::type::_32uint) + sizeof(fe::type::_32uint);
+	unsigned int headerLength = sizeof(std::uint8_t) + sizeof(std::uint32_t) + sizeof(std::uint32_t);
 	transLogin.setLengthBuffer(headerLength);
 
 	if (_socketLog.connect(network) == false)

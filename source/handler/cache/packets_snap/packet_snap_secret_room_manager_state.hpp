@@ -6,8 +6,8 @@ namespace fe
 	{
 		struct SnapshotSecretRoomManagerState : public Snapshot
 		{
-			fe::type::_32int	state = 0;
-			fe::type::_32uint	time = 0;
+			std::int32_t	state = 0;
+			std::int32_t	time = 0;
 
 			SnapshotSecretRoomManagerState() = default;
 			~SnapshotSecretRoomManagerState() = default;

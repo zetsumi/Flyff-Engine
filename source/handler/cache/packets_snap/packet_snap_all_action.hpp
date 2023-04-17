@@ -6,8 +6,8 @@ namespace fe
 	{
 		struct SnapshotAllAction : public Snapshot
 		{
-			fe::type::_32int	isAllAction = false;
-			fe::type::_32int	isCharacter = false;
+			std::int32_t	isAllAction = false;
+			std::int32_t	isCharacter = false;
 
 			SnapshotAllAction() = default;
 			~SnapshotAllAction() = default;

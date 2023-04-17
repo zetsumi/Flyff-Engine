@@ -9,13 +9,13 @@ namespace fe
 			fe::util::Vector3D<float>	pos{ 0, 0, 0 };
 			fe::util::Vector3D<float>	delta{ 0, 0, 0 };
 
-			fe::type::_32uint state = 0;
-			fe::type::_32uint flag = 0;
-			fe::type::_32uint motion = 0;
-			fe::type::_32uint motionExtend = 0;
-			fe::type::_32int loop = 0;
-			fe::type::_32uint motionOption = 0;
-			fe::type::_int tick = 0;
+			std::uint32_t state = 0;
+			std::uint32_t flag = 0;
+			std::uint32_t motion = 0;
+			std::uint32_t motionExtend = 0;
+			std::int32_t loop = 0;
+			std::uint32_t motionOption = 0;
+			std::int64_t tick = 0;
 
 			SnapshotMoverCorr() = default;
 			~SnapshotMoverCorr() = default;
@@ -29,13 +29,13 @@ namespace fe
 				delta.y = pb.read<float>();
 				delta.z = pb.read<float>();
 
-				fe::type::_32uint state = pb.read<fe::type::_32uint>();
-				fe::type::_32uint flag = pb.read<fe::type::_32uint>();
-				fe::type::_32uint motion = pb.read<fe::type::_32uint>();
-				fe::type::_32uint motionExtend = pb.read<fe::type::_32uint>();
-				fe::type::_32int loop = pb.read<fe::type::_32int>();
-				fe::type::_32uint motionOption = pb.read<fe::type::_32uint>();
-				fe::type::_int tick = pb.read<fe::type::_32uint>();
+				std::uint32_t state = pb.read<std::uint32_t>();
+				std::uint32_t flag = pb.read<std::uint32_t>();
+				std::uint32_t motion = pb.read<std::uint32_t>();
+				std::uint32_t motionExtend = pb.read<std::uint32_t>();
+				std::int32_t loop = pb.read<std::int32_t>();
+				std::uint32_t motionOption = pb.read<std::uint32_t>();
+				std::int64_t tick = pb.read<std::uint32_t>();
 
 				return *this;
 			}

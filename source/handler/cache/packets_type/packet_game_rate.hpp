@@ -8,7 +8,7 @@ namespace fe
 		struct API_DECLSPEC PacketGameRate : public fe::PacketMessage
 		{
 			float				rate = 0.f;
-			fe::type::_uchar	flag = 0;
+			std::uint8_t	flag = 0;
 
 			PacketGameRate() = default;
 			~PacketGameRate() = default;

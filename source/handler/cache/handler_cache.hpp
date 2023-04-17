@@ -8,7 +8,7 @@
 #include <handler/cache/packets_snap/packets_snap.hpp>
 
 
-#define	PARAMETERS_FUNCTION_SNAPSHOT fe::type::_SOCKET id, fe::type::_32uint objid
+#define	PARAMETERS_FUNCTION_SNAPSHOT fe::type::_SOCKET id, std::uint32_t objid
 
 #pragma warning( disable: 4251 )
 namespace fe
@@ -30,13 +30,13 @@ namespace fe
 		void	initialize() override;
 
 		// emit
-		void	sendJoin(fe::type::_SOCKET id, fe::type::_32uint idWorld, fe::type::_32uint idPlayer, fe::type::_32uint authKey,
-			fe::type::_32uint idParty, fe::type::_32uint idGuild, fe::type::_32uint idWar,
-			fe::type::_32uint idOfMulti, fe::type::_uchar slot,
+		void	sendJoin(fe::type::_SOCKET id, std::uint32_t idWorld, std::uint32_t idPlayer, std::uint32_t authKey,
+			std::uint32_t idParty, std::uint32_t idGuild, std::uint32_t idWar,
+			std::uint32_t idOfMulti, std::uint8_t slot,
 			const char* playerName, const char* account, const char* password
 		);
-		void	sendGetPosition(fe::type::_SOCKET id, fe::type::_32uint idMover);
-		void	sendDestinationPosition(fe::type::_SOCKET id, const fe::util::Vector3D<float>& destination, fe::type::_uchar forward);
+		void	sendGetPosition(fe::type::_SOCKET id, std::uint32_t idMover);
+		void	sendDestinationPosition(fe::type::_SOCKET id, const fe::util::Vector3D<float>& destination, std::uint8_t forward);
 	};
 }
 #pragma warning( default : 4251 )

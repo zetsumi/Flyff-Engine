@@ -7,7 +7,7 @@ namespace fe
 #pragma warning( disable: 4251 )
 		struct API_DECLSPEC PacketGetClock : public fe::PacketMessage
 		{
-			fe::type::_uchar	clockOfClient = 0;
+			std::uint8_t	clockOfClient = 0;
 
 			PacketGetClock() = default;
 			~PacketGetClock() = default;

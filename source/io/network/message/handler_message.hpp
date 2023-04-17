@@ -23,7 +23,7 @@ namespace fe
 
 	class API_DECLSPEC HandlerMessage
 	{
-		void	loadHeader(fe::type::_uchar& mark, fe::type::_32uint& length, fe::packet::PACKETTYPE& packettype);
+		void	loadHeader(std::uint8_t& mark, std::uint32_t& length, fe::packet::PACKETTYPE& packettype);
 
 	protected:
 		typedef	std::function<fe::PacketMessage* ()>	callbackHandlerMesage;
@@ -36,13 +36,13 @@ namespace fe
 		std::thread						ping{};
 		Transaction*					transaction = nullptr;
 		fe::PacketBuilder				packetBuilder{};
-		fe::type::_32uint				sessionID = 0;
+		std::uint32_t				sessionID = 0;
 		std::mutex						lockerSend;
-		fe::type::_32uint				dpid = 0xffffffff;
+		std::uint32_t				dpid = 0xffffffff;
 		HANDLER_PACKET_TYPE				handlerType = HANDLER_PACKET_TYPE::UNKNOW;
 		std::queue<fe::PacketMessage*>	messages{};
 		std::mutex						mtMessage{};
-		fe::type::_32uint				authKey = 0;
+		std::uint32_t				authKey = 0;
 
 		// global
 		bool	pushAction(fe::packet::PACKETTYPE packetType, callbackHandlerMesage action);

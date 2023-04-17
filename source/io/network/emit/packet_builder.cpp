@@ -21,7 +21,7 @@ void	fe::PacketBuilder::debug() const
 {
 	FE_CONSOLELOG("======DEBUG======");
 	FE_CONSOLELOG("size[%u]", packet->size);
-	for (fe::type::_32uint i = 0; i < packet->size; ++i)
+	for (std::uint32_t i = 0; i < packet->size; ++i)
 		FE_CONSOLELOG("data[%u]: decimal:{%d} hexa:{0x{%#02x}}", i, packet->data[i], packet->data[i]);
 	FE_CONSOLELOG("======DEBUG======");
 }
@@ -42,22 +42,22 @@ unsigned int fe::PacketBuilder::getSize() const
 	return packet->size;
 }
 
-void fe::PacketBuilder::writeHeader(fe::type::_32uint sessionID, HANDLER_PACKET_TYPE handlerType)
+void fe::PacketBuilder::writeHeader(std::uint32_t sessionID, HANDLER_PACKET_TYPE handlerType)
 {
-	fe::type::_uchar mark = 0x5e;
-	fe::type::_32uint length = packet->size;
+	std::uint8_t mark = 0x5e;
+	std::uint32_t length = packet->size;
 
 	if (handlerType == HANDLER_PACKET_TYPE::LOGIN || handlerType == HANDLER_PACKET_TYPE::CACHE)
 	{
-		writeFront<fe::type::_32uint>(0xffffffff);
+		writeFront<std::uint32_t>(0xffffffff);
 		length = packet->size;
 	}
 
 	// session ID
-	writeFront<fe::type::_32uint>(sessionID);
-	writeFront<fe::type::_32uint>(length);
-	writeFront<fe::type::_32uint>(sessionID);
-	writeFront<fe::type::_uchar>(mark);
+	writeFront<std::uint32_t>(sessionID);
+	writeFront<std::uint32_t>(length);
+	writeFront<std::uint32_t>(sessionID);
+	writeFront<std::uint8_t>(mark);
 }
 
 bool	fe::PacketBuilder::setPacket(PacketStructure* ps)
@@ -72,10 +72,10 @@ bool	fe::PacketBuilder::setPacket(PacketStructure* ps)
 void	fe::PacketBuilder::writeString(const char* var)
 {
 	size_t length = ::strlen(var);
-	writeString(var, static_cast<fe::type::_32uint>(length));
+	writeString(var, static_cast<std::uint32_t>(length));
 }
 
-void	fe::PacketBuilder::writeString(const char* var, fe::type::_32uint length)
+void	fe::PacketBuilder::writeString(const char* var, std::uint32_t length)
 {
 	write<unsigned int>(length);
 	packet->data = reinterpret_cast<unsigned char*>(::realloc(packet->data, packet->size + length));
@@ -92,8 +92,8 @@ void	fe::PacketBuilder::writeString(const char* var, fe::type::_32uint length)
 
 const char* fe::PacketBuilder::readString()
 {
-	fe::type::_32uint length = read<fe::type::_32uint>();
-	fe::type::_uchar* cur = packet->data + offset;
+	std::uint32_t length = read<std::uint32_t>();
+	std::uint8_t* cur = packet->data + offset;
 	char* var = new char[length + 1]();
 #if defined(_WIN64)
 	::memcpy_s(var, length, cur, length);

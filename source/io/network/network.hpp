@@ -8,8 +8,8 @@ namespace fe
 #pragma warning( disable : 4251 )
 	class API_DECLSPEC Network
 	{
-		std::string		ip{""};
-		unsigned int	port = 0;
+		std::string		ip;
+		unsigned int	port{ 0u };
 
 	public:
 		Network() = default;

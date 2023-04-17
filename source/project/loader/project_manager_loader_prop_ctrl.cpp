@@ -36,13 +36,13 @@ bool fe::ProjectManager::loadPropCtrlJson(const std::string& fileName) noexcept
         fe::type::json::object& item = reader.get<fe::type::json::object>(it.second);
         fe::PropCtrl* prop = new fe::PropCtrl();
 
-        prop->id = reader.getNumber<fe::type::_uint>(item["dwID"]);
+        prop->id = reader.getNumber<std::uint64_t>(item["dwID"]);
         prop->name = reader.get<std::string>(item["szName"]);
-        prop->ctrlKind1 = reader.getNumber<fe::type::_uint>(item["dwCtrlKind1"]);
-        prop->ctrlKind2 = reader.getNumber<fe::type::_uint>(item["dwCtrlKind2"]);
-        prop->ctrlKind3 = reader.getNumber<fe::type::_uint>(item["dwCtrlKind3"]);
-        prop->sfxCtrl = reader.getNumber<fe::type::_uint>(item["dwSfxCtrl"]);
-        prop->soundDamage = reader.getNumber<fe::type::_uint>(item["dwSndDamage"]);
+        prop->ctrlKind1 = reader.getNumber<std::uint64_t>(item["dwCtrlKind1"]);
+        prop->ctrlKind2 = reader.getNumber<std::uint64_t>(item["dwCtrlKind2"]);
+        prop->ctrlKind3 = reader.getNumber<std::uint64_t>(item["dwCtrlKind3"]);
+        prop->sfxCtrl = reader.getNumber<std::uint64_t>(item["dwSfxCtrl"]);
+        prop->soundDamage = reader.getNumber<std::uint64_t>(item["dwSndDamage"]);
         prop->comment = reader.get<std::string>(item["szComment"]);
         
         propctrl.push(prop->id, prop);
@@ -65,13 +65,13 @@ bool fe::ProjectManager::loadPropCtrlXml(const std::string& fileName) noexcept
         for (fe::type::xml::node& ctrl : group)
         {
             fe::PropCtrl* prop = new fe::PropCtrl();
-            prop->id = reader.getNumber<type::_uint>(ctrl, "dwID");
+            prop->id = reader.getNumber<std::uint64_t>(ctrl, "dwID");
             prop->name = reader.getString(ctrl, "szName");
-            prop->ctrlKind1 = reader.getNumber<type::_uint>(ctrl, "dwCtrlKind1");
-            prop->ctrlKind2 = reader.getNumber<type::_uint>(ctrl, "dwCtrlKind2");
-            prop->ctrlKind3 = reader.getNumber<type::_uint>(ctrl, "dwCtrlKind3");
-            prop->sfxCtrl = reader.getNumber<type::_uint>(ctrl, "dwSfxCtrl");
-            prop->soundDamage = reader.getNumber<type::_uint>(ctrl, "dwSndDamage");
+            prop->ctrlKind1 = reader.getNumber<std::uint64_t>(ctrl, "dwCtrlKind1");
+            prop->ctrlKind2 = reader.getNumber<std::uint64_t>(ctrl, "dwCtrlKind2");
+            prop->ctrlKind3 = reader.getNumber<std::uint64_t>(ctrl, "dwCtrlKind3");
+            prop->sfxCtrl = reader.getNumber<std::uint64_t>(ctrl, "dwSfxCtrl");
+            prop->soundDamage = reader.getNumber<std::uint64_t>(ctrl, "dwSndDamage");
             prop->comment = reader.getString(ctrl, "szComment");
 
             propctrl.push(prop->id, prop);

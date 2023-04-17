@@ -8,13 +8,13 @@ namespace fe
 		{
 			struct StateMachine
 			{
-				fe::type::_32int	type = 0;
-				fe::type::_32uint	time = 0;
+				std::int32_t	type = 0;
+				std::uint32_t	time = 0;
 				StateMachine() = default;
 				~StateMachine() = default;
 			};
 
-			fe::type::_short	count = 0;
+			short	count = 0;
 			StateMachine*		stateMachine = nullptr;
 
 			SnapshotStateMachineModeAll() = default;
@@ -27,8 +27,8 @@ namespace fe
 				stateMachine = new StateMachine[count];
 				for (auto i = 0; i < count; ++i)
 				{
-					stateMachine[i].type = pb.read<fe::type::_32int>();
-					stateMachine[i].time = pb.read<fe::type::_32uint>();
+					stateMachine[i].type = pb.read<std::int32_t>();
+					stateMachine[i].time = pb.read<std::uint32_t>();
 				}
 				return *this;
 			}
