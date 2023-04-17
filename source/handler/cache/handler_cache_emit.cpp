@@ -13,7 +13,7 @@ void fe::HandlerCache::sendJoin(
 	std::uint8_t slot,
 	char const* playerName,
 	char const* account,
-	char const* password
+    char const* password
 )
 {
 	lockerSend.lock();
