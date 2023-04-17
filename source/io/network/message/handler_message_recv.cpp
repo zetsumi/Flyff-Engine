@@ -5,8 +5,8 @@
 void fe::HandlerMessage::onMsg(fe::PacketStructure* ps)
 {
 	fe::packet::PACKETTYPE	packetType = fe::packet::PACKETTYPE::MAX_ERROR;
-	std::uint8_t		mark = 0;
-	std::uint32_t		length = 0;
+	std::uint8_t			mark = 0;
+	std::uint32_t			length = 0;
 	fe::type::_SOCKET		idSocket = 0;
 	unsigned int			lenData = 0;
 	fe::PacketMessage*		msg = nullptr;

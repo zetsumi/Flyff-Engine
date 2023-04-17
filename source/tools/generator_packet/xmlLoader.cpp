@@ -140,7 +140,7 @@
 	file << "\t\t\t\t" << name << " >> pb;" << std::endl;\
 
 #define RELEASE_VAR(type, name)\
-	if (type.compare("simple") == 0)\
+	if (type.compare("ptr") == 0)\
 	{\
 		file << "\t\t\t\t" << "delete " << name << ";" << std::endl;\
 		file << "\t\t\t\t" << name << " = nullptr;" << std::endl;\

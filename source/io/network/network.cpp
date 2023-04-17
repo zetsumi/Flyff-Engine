@@ -11,6 +11,7 @@ bool fe::Network::isValid() const
 	return true;
 }
 
+
 bool fe::Network::setIP(const std::string& newIP)
 {
 	if (newIP.empty() == true)
@@ -19,6 +20,7 @@ bool fe::Network::setIP(const std::string& newIP)
 	return true;
 }
 
+
 bool fe::Network::setIP(const char* newIP)
 {
 	if (newIP == nullptr)
@@ -26,6 +28,7 @@ bool fe::Network::setIP(const char* newIP)
 	ip = newIP;
 	return true;
 }
+
 
 void fe::Network::setPort(unsigned int newPort)
 {

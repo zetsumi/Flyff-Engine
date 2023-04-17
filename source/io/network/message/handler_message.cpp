@@ -29,6 +29,7 @@ void fe::HandlerMessage::processPing()
 	FE_CONSOLELOG("out");
 }
 
+
 void fe::HandlerMessage::loadHeader(std::uint8_t& mark, std::uint32_t& length, fe::packet::PACKETTYPE& packettype)
 {
 	mark = packetBuilder.read<std::uint8_t>();
@@ -37,6 +38,7 @@ void fe::HandlerMessage::loadHeader(std::uint8_t& mark, std::uint32_t& length, f
 	FE_CONSOLELOG("header {%#02x} length{%#010x}{%u} packettype{%#08x}", mark, length, length, packettype);
 }
 
+
 bool fe::HandlerMessage::pushAction(fe::packet::PACKETTYPE packetType, callbackHandlerMesage action)
 {
 	if (action == nullptr)
@@ -44,6 +46,7 @@ bool fe::HandlerMessage::pushAction(fe::packet::PACKETTYPE packetType, callbackH
 	actions[packetType] = action;
 	return true;
 }
+
 
 void fe::HandlerMessage::initialize()
 {
@@ -54,6 +57,7 @@ void fe::HandlerMessage::initialize()
 	pushAction(fe::packet::PACKETTYPE::ERROR_STRING, std::bind(&fe::HandlerMessage::onErrorString, this));
 }
 
+
 void fe::HandlerMessage::setTransaction(Transaction* newTransaction)
 {
 	if (newTransaction != nullptr)
@@ -62,6 +66,7 @@ void fe::HandlerMessage::setTransaction(Transaction* newTransaction)
 		FE_CONSOLELOG("newTransaction is null");
 }
 
+
 void	fe::HandlerMessage::killPing()
 {
 #if defined(_WIN64)
@@ -69,6 +74,7 @@ void	fe::HandlerMessage::killPing()
 		FE_CONSOLELOG("can not terminate thread opcode{%u}", ::GetLastError());
 #endif // _WIN64 || _WIN32
 }
+
 
 fe::PacketMessage* fe::HandlerMessage::getPacket()
 {

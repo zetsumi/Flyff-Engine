@@ -48,13 +48,21 @@ fe::PacketStructure* fe::Transaction::receiver(fe::type::_SOCKET idSocket, unsig
 #endif
 	octects =  ::recv(idSocket, buffer, bufferSize, 0);
 	if (octects <= 0)
+	{
+		delete buffer;
 		return nullptr;
+	}
 	if (octects > static_cast<int>(bufferSize))
+    {
+		delete buffer;
 		return nullptr;
+	}
 
-	fe::PacketStructure* ps = new fe::PacketStructure();
+	auto* ps{ new fe::PacketStructure() };
 	if (ps == nullptr)
+	{
 		return nullptr;
+	}
 	ps->data = reinterpret_cast<unsigned char*>(buffer);
 	ps->size = octects;
 	return ps;
