@@ -14,7 +14,7 @@ namespace fe
 		}
 	};
 
-	[[nodiscard]] bool	isValid(PacketStructure* ps) { return ps != nullptr && ps->size > 0 && ps->data != nullptr; }
-	[[nodiscard]] bool	isInValid(PacketStructure* ps) { return !isValid(ps); }
+    [[nodiscard]] inline bool	isValid(PacketStructure* ps) { return ps != nullptr && ps->size > 0 && ps->data != nullptr; }
+    [[nodiscard]] inline bool	isInValid(PacketStructure* ps) { return !isValid(ps); }
 }
 #pragma warning( default : 4251 )

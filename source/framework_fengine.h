@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstdint>
+
 
 #if defined(_WIN64)
 #include <WinSock2.h>
@@ -27,25 +29,9 @@ namespace fe
     namespace type
     {
 #if defined(_WIN64)
-        typedef unsigned __int64    _uint;
-        typedef unsigned __int32    _32uint;
-        typedef __int64             _int;
-        typedef __int32             _32int;
-        typedef unsigned char       _uchar;
-        typedef char                _char;
-        typedef short               _short;
-        typedef unsigned short      _ushort;
         typedef SOCKET              _SOCKET;
 #elif defined(__APPLE__)
-        typedef uint64_t            _uint;
-        typedef int32_t             _int;
-        typedef uint32_t            _32uint;
-        typedef int32_t             _32int;
-        typedef unsigned char       _uchar;
-        typedef char                _char;
         typedef int                 _SOCKET;
-        typedef short      _short;
-        typedef unsigned short      _ushort;
 #endif // _WIN64
     }
 }

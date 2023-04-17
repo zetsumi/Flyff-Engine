@@ -7,7 +7,7 @@ namespace fe
 		struct SnapshotDestPos : public Snapshot
 		{
 			fe::util::Vector3D<float>	pos{ 0, 0, 0 };
-			fe::type::_uchar	forward = 0;
+			std::uint8_t	forward = 0;
 
 			SnapshotDestPos() = default;
 			~SnapshotDestPos() = default;
@@ -16,7 +16,7 @@ namespace fe
 				pos.x = pb.read<float>();
 				pos.y = pb.read<float>();
 				pos.z = pb.read<float>();
-				forward = pb.read<fe::type::_uchar>();
+				forward = pb.read<std::uint8_t>();
 				return *this;
 			}
 		};

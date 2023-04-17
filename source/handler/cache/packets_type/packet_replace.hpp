@@ -8,7 +8,7 @@ namespace fe
 		struct API_DECLSPEC PacketReplace : public fe::PacketMessage
 		{
 
-			fe::type::_32uint	worldId = 0;
+			std::uint32_t	worldId = 0;
 			fe::util::Vector3D<float>	pos{ 0, 0, 0 };
 
 			PacketReplace() = default;

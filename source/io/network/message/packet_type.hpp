@@ -4,7 +4,7 @@ namespace fe
 {
 	namespace packet
 	{
-		enum class PACKETTYPE : fe::type::_32uint
+		enum class PACKETTYPE : std::uint32_t
 		{
 			WELCOME = 0x00000000,
 			QUERYTICKCOUNT = 0x0000000b,

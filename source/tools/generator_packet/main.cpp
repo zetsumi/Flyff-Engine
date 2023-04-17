@@ -4,8 +4,11 @@
 
 int main()
 {
-	tools::XmlLoader	loader;
+	tools::XmlLoader loader;
 
-	loader.loadProject("../../ressource/xml/tools/generator_packet.xml");
+	if (false == loader.loadProject("packets/generator_packet.xml"))
+	{
+		return 1;
+	}
 	return 0;
 }

@@ -20,7 +20,7 @@ namespace fe
      */
     class API_DECLSPEC ReaderHeader
     {
-        std::unordered_map<std::string, fe::type::_uint>    defines = {};
+        std::unordered_map<std::string, std::uint64_t>    defines = {};
 
         /**
          * @brief Verifie la chaîne de caractère est bien un format HEADER.
@@ -93,9 +93,9 @@ namespace fe
          * @brief Retourne la valeur correspond au id du define donné
          * 
          * @param id L'id unique du header recherché. Si la valeur n'est pas trouvé retourne 0
-         * @return fe::type::_uint 
+         * @return std::uint64_t 
          */
-        fe::type::_uint     get(const std::string& id) const noexcept;
+        std::uint64_t     get(const std::string& id) const noexcept;
         /**
          * @brief Permet de vérifier si la clef/id du define est stocké
          * 

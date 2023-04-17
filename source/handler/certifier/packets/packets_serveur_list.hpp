@@ -8,14 +8,14 @@ namespace fe
 		{
 			struct ServerInfo
 			{
-				fe::type::_32uint parent = 0;
-				fe::type::_32uint id = 0;
+				std::uint32_t parent = 0;
+				std::uint32_t id = 0;
 				const char* name = nullptr;
 				const char* addr = nullptr;
-				fe::type::_32uint unknow = 0;
-				fe::type::_32uint count = 0;
-				fe::type::_32uint enable = 0;
-				fe::type::_32uint max = 0;
+				std::uint32_t unknow = 0;
+				std::uint32_t count = 0;
+				std::uint32_t enable = 0;
+				std::uint32_t max = 0;
 
 				ServerInfo() = default;
 				~ServerInfo() = default;
@@ -30,10 +30,10 @@ namespace fe
 				}
 			};
 
-			fe::type::_32uint	authKey = 0;
-			fe::type::_uchar	accountFlag = 0;
+			std::uint32_t	authKey = 0;
+			std::uint8_t	accountFlag = 0;
 			char* account = nullptr;
-			fe::type::_32uint	numberServer = 0;
+			std::uint32_t	numberServer = 0;
 			ServerInfo* servers = nullptr;
 
 			PacketServerList() = default;
@@ -46,7 +46,7 @@ namespace fe
 				pb >> numberServer;
 
 				servers = new ServerInfo[numberServer];
-				for (fe::type::_32uint i = 0; i < numberServer; ++i)
+				for (std::uint32_t i = 0; i < numberServer; ++i)
 					servers[i] << pb;
 				return *this;
 			}
@@ -55,7 +55,7 @@ namespace fe
 			{
 				delete account;
 				account = nullptr;
-				for (fe::type::_32uint i = 0; i < numberServer; ++i)
+				for (std::uint32_t i = 0; i < numberServer; ++i)
 				{
 					delete servers[i].addr;
 					delete servers[i].name;

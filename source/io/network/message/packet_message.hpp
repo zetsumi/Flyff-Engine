@@ -1,4 +1,5 @@
 #pragma once
+
 #include <framework_fengine.h>
 #include <io/network/message/packet_type.hpp>
 

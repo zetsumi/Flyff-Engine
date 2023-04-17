@@ -7,7 +7,7 @@ namespace fe
 #pragma warning( disable: 4251 )
 		struct API_DECLSPEC PacketGetPlayerCount : public fe::PacketMessage
 		{
-			fe::type::_ushort	count = 0;
+			unsigned short	count = 0;
 
 			PacketGetPlayerCount() = default;
 			~PacketGetPlayerCount() = default;

@@ -1,6 +1,6 @@
 #include <framework_fengine.h>
 
-#pragma warning( disable : 4251 )
+
 namespace fe
 {
 	struct LandScape

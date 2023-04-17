@@ -5,6 +5,7 @@
 
 #pragma warning( disable : 4251 )
 
+
 namespace fe
 {
     /*
@@ -14,12 +15,12 @@ namespace fe
 	{
         std::string title = "";
         std::string directory = "";
-        unsigned int    id = 0;
-        unsigned  int   MPU = 4;
-        unsigned int    width = 0;
-        unsigned int    height = 0;
-        bool    indoor = false;
-        bool    fly = false;
+        unsigned int id = 0;
+        unsigned int MPU = 4;
+        unsigned int width = 0;
+        unsigned int height = 0;
+        bool         indoor = false;
+        bool         fly = false;
 
         // Parameters missing !
         //self.ambient = str() #hexa

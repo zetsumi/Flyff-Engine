@@ -6,6 +6,7 @@
 
 #pragma warning( disable : 4251 )
 
+
 namespace fe
 {
     /**
@@ -15,14 +16,14 @@ namespace fe
      */
     struct API_DECLSPEC PropCtrl : PropertyContainer
     {
-        fe::type::_uint     id = 0;
-        std::string         name = "";
-        fe::type::_uint     ctrlKind1 = 0;
-        fe::type::_uint     ctrlKind2 = 0;
-        fe::type::_uint     ctrlKind3 = 0;
-        fe::type::_uint     sfxCtrl = 0;
-        fe::type::_uint     soundDamage = 0;
-        std::string         comment = "";
+        std::uint64_t  id = { 0ull };
+        std::string    name{};
+        std::uint64_t  ctrlKind1{ 0ull };
+        std::uint64_t  ctrlKind2{ 0ull };
+        std::uint64_t  ctrlKind3{ 0ull };
+        std::uint64_t  sfxCtrl{ 0ull };
+        std::uint64_t  soundDamage{ 0ull };
+        std::string    comment{};
 
         PropCtrl(const PropCtrl* o) : PropCtrl(*o) {}
         PropCtrl() = default;

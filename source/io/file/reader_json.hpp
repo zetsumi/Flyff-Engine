@@ -13,7 +13,7 @@
 #else
 #endif
 
-#pragma warning( disable : 4251 )
+
 namespace fe
 {
     /**
@@ -130,9 +130,9 @@ namespace fe
                     return static_cast<T>(std::stoll(str.c_str(), nullptr, 16));
                 if (header.has(str) == true)
                     return static_cast<T>(header.get(str));
-                if (std::is_same<type::_int, T>::value)
+                if (std::is_same<std::int64_t, T>::value)
                     return static_cast<T>(std::atoll(str.c_str()));
-                if (std::is_same<type::_uint, T>::value)
+                if (std::is_same<std::uint64_t, T>::value)
                     return static_cast<T>(std::stoll(str.c_str(), nullptr, 10));
             }
             return static_cast<T>(container.get<double>());

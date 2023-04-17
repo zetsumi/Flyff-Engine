@@ -18,7 +18,7 @@ bool propkarma_load_from_file(fe::LOADER_MODE mode);
 
 int main()
 {
-    std::srand(static_cast<fe::type::_32uint>(std::time(nullptr)));
+    std::srand(static_cast<std::uint32_t>(std::time(nullptr)));
 
     sample_project();
     //load_text_json();

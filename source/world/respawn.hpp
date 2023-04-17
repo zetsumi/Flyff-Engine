@@ -4,7 +4,7 @@
 #include <util/vector.hpp>
 #include <util/rect.hpp>
 
-#pragma warning( disable : 4251 )
+
 namespace fe
 {
     /*

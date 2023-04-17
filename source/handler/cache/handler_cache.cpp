@@ -1,6 +1,7 @@
 #include <pch_fnetwork.h>
 #include <io/network/message/snapshot_type.hpp>
 
+
 void fe::HandlerCache::initialize()
 {
 	fe::HandlerMessage::initialize();

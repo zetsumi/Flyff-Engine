@@ -12,14 +12,14 @@ namespace fe
 			float angleX = 0.f;
 			float accPower = 0.f;
 			float turnAngle = 0.f;
-			fe::type::_32uint	state = 0;
-			fe::type::_32uint	stateFlag = 0;
-			fe::type::_32uint	motion = 0;
-			fe::type::_32int	motionExtend = 0;
-			fe::type::_32int	loop = 0;
-			fe::type::_32uint	motionOption = 0;
-			fe::type::_int		tickCount = 0;
-			fe::type::_uchar	frame = 0;
+			std::uint32_t	state = 0;
+			std::uint32_t	stateFlag = 0;
+			std::uint32_t	motion = 0;
+			std::int32_t	motionExtend = 0;
+			std::int32_t	loop = 0;
+			std::uint32_t	motionOption = 0;
+			std::int64_t		tickCount = 0;
+			std::uint8_t	frame = 0;
 
 
 			SnapshotMoverMoved2() = default;

@@ -6,15 +6,15 @@ namespace fe
 	{
 		struct PacketQueryTick : public PacketMessage
 		{
-			fe::type::_32int timer = 0;
-			fe::type::_int tick = 0;
+			std::int32_t timer = 0;
+			std::int64_t tick = 0;
 
 			PacketQueryTick() = default;
 			~PacketQueryTick() = default;
 			PacketQueryTick& operator<<(fe::PacketBuilder& pb) override
 			{
-				timer = pb.read<fe::type::_32uint>();
-				tick = pb.read<fe::type::_int>();
+				timer = pb.read<std::uint32_t>();
+				tick = pb.read<std::int64_t>();
 
 				FE_CONSOLELOG("TIME local[%u] server[%d]", timer, tick);
 				return *this;
