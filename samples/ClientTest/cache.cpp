@@ -29,7 +29,7 @@ bool	handler_cache(void)
     if (transCache.setSocket(&_socketCache) == false)
         return false;
     transCache.setMode(fe::MODE_TRANSACTION::MODE_CLIENT);
-    unsigned int headerLength = sizeof(uint8_t) + sizeof(uint32_t) + sizeof(uint32_t);
+    uint32_t headerLength = sizeof(uint8_t) + sizeof(uint32_t) + sizeof(uint32_t);
     transCache.setLengthBuffer(headerLength);
 
     cache.initialize();

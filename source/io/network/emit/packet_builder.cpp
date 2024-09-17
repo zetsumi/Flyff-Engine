@@ -35,7 +35,7 @@ const unsigned char* fe::PacketBuilder::getData() const
     return packet->data;
 }
 
-unsigned int fe::PacketBuilder::getSize() const
+uint32_t fe::PacketBuilder::getSize() const
 {
     if (packet == nullptr)
         return 0;
@@ -77,7 +77,7 @@ void	fe::PacketBuilder::writeString(const char* var)
 
 void	fe::PacketBuilder::writeString(const char* var, uint32_t length)
 {
-    write<unsigned int>(length);
+    write<uint32_t>(length);
     packet->data = reinterpret_cast<unsigned char*>(::realloc(packet->data, packet->size + length));
     if (packet->data != nullptr)
     {
@@ -105,7 +105,7 @@ const char* fe::PacketBuilder::readString()
     return var;
 }
 
-unsigned int	fe::PacketBuilder::getOffset() const
+uint32_t	fe::PacketBuilder::getOffset() const
 {
     return offset;
 }

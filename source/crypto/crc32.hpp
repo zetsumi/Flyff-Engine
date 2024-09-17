@@ -2,7 +2,7 @@
 
 namespace fe
 {
-    typedef unsigned int word32;
+    typedef uint32_t word32;
     typedef unsigned char byte;
     constexpr word32 CRC32_NEGL = 0xffffffffL;
 
@@ -18,13 +18,13 @@ namespace fe
     //	return T2(a) & (b - 1);
     //}
 
-    //bool IsAlignedOn(const void* p, unsigned int alignment)
+    //bool IsAlignedOn(const void* p, uint32_t alignment)
     //{
-    //	return IsPowerOf2(alignment) ? ModPowerOf2((unsigned int)p, alignment) == 0 : (unsigned int)p % alignment == 0;
+    //	return IsPowerOf2(alignment) ? ModPowerOf2((uint32_t)p, alignment) == 0 : (uint32_t)p % alignment == 0;
     //}
 
     //template <class T>
-    //inline unsigned int GetAlignment(T* dummy = NULL)
+    //inline uint32_t GetAlignment(T* dummy = NULL)
     //{
     //	return __alignof(T);
     //}
@@ -35,7 +35,7 @@ namespace fe
     //	return IsAlignedOn(p, GetAlignment<T>());
     //}
 
-    void encryptCrc32(const fe::byte* s, unsigned int n);
+    void encryptCrc32(const fe::byte* s, uint32_t n);
 }
 
 #define CRC32_INDEX(c) (c & 0xff)

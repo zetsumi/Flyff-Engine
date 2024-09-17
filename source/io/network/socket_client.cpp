@@ -12,7 +12,7 @@ bool	fe::SocketClient::connect(const Network& network)
     if (network.isValid() == false)
         return false;
     int errorCode = 0;
-    unsigned int nport = network.getPort();
+    uint32_t nport = network.getPort();
     std::string stringPort = std::to_string(nport);
     const char* port = stringPort.c_str();
     const char* ip = network.getIP();

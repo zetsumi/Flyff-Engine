@@ -17,9 +17,9 @@
 #pragma warning( disable: 4251 )
 namespace fe
 {
-    constexpr unsigned int portCertifier = 23000;
-    constexpr unsigned int portLoginServer = 28000;
-    constexpr unsigned int portCacheServer = 5400;
+    constexpr uint32_t portCertifier = 23000;
+    constexpr uint32_t portLoginServer = 28000;
+    constexpr uint32_t portCacheServer = 5400;
 
     class API_DECLSPEC HandlerMessage
     {

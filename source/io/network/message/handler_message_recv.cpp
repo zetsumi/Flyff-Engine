@@ -8,7 +8,7 @@ void fe::HandlerMessage::onMsg(fe::PacketStructure* ps)
     uint8_t		mark = 0;
     uint32_t		length = 0;
     fe::type::_SOCKET		idSocket = 0;
-    unsigned int			lenData = 0;
+    uint32_t			lenData = 0;
     fe::PacketMessage*		msg = nullptr;
     mapAction::iterator		itAction = actions.end();
     mapOperator::iterator	itOperator = packetOperator.end();

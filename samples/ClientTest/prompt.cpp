@@ -43,7 +43,7 @@ cmd_exe_1 listCommandeSimple[] = {
 void	help(void)
 {
     FE_LOG("Liste des commandes :");
-    unsigned int i = 0;
+    uint32_t i = 0;
     while (listCommandeSimple[i].command != nullptr)
     {
         FE_LOG("\t%s | %s", listCommandeSimple[i].command, listCommandeSimple[i].shortcut);
@@ -62,7 +62,7 @@ void		prompt(void)
     certifier.sendCertify(_socketCert.getSocket(), TEST_DEFAULT_BUILD_VERSION, TEST_DEFAULT_ACCOUNT, TEST_DEFAULT_PASSWORD);
 
     bool r = false;
-    unsigned int i = 0;
+    uint32_t i = 0;
     FE_PROMPT("");
     while (std::getline(std::cin, line))
     {

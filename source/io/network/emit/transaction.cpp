@@ -15,7 +15,7 @@ void fe::Transaction::setMode(MODE_TRANSACTION modeTransaction)
     mode = modeTransaction;
 }
 
-void fe::Transaction::setLengthBuffer(unsigned int len)
+void fe::Transaction::setLengthBuffer(uint32_t len)
 {
     if (len > 0)
         lengthBuffer = len;

@@ -15,10 +15,10 @@ namespace fe
     {
         std::string title = "";
         std::string directory = "";
-        unsigned int id = 0;
-        unsigned int MPU = 4;
-        unsigned int width = 0;
-        unsigned int height = 0;
+        uint32_t id = 0;
+        uint32_t MPU = 4;
+        uint32_t width = 0;
+        uint32_t height = 0;
         bool         indoor = false;
         bool         fly = false;
 

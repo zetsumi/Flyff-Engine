@@ -5,7 +5,7 @@ namespace fe
 {
     struct API_DECLSPEC  PacketStructure
     {
-        unsigned int size = 0;
+        uint32_t size = 0;
         unsigned char* data = nullptr;
 
         PacketStructure() = default;

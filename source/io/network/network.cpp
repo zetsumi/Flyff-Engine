@@ -27,7 +27,7 @@ bool fe::Network::setIP(const char* newIP)
     return true;
 }
 
-void fe::Network::setPort(unsigned int newPort)
+void fe::Network::setPort(uint32_t newPort)
 {
     port = newPort;
 }

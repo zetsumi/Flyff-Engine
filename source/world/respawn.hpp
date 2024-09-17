@@ -13,12 +13,12 @@ namespace fe
     struct API_DECLSPEC	ReSpawn
     {
         // missing parameters !
-        unsigned int type = 0;
-        unsigned int id = 0;
+        uint32_t type = 0;
+        uint32_t id = 0;
         Vector3D<float> pos = {0.f, 0.f, 0.f};
         //self.nMaxcb = int()
         //self.ncb = int(0)
-        unsigned int time = 0;
+        uint32_t time = 0;
         //self.nMaxAttackNum = int()
         //self.nActiveAttackNum = int(0)
         //self.fY = int(0)

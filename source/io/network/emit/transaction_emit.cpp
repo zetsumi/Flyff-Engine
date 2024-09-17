@@ -2,7 +2,7 @@
 #include <io/network/emit/transaction.hpp>
 
 
-bool fe::Transaction::sender(fe::type::_SOCKET idSocket, unsigned int size, const char* data)
+bool fe::Transaction::sender(fe::type::_SOCKET idSocket, uint32_t size, const char* data)
 {
     if (_socket == nullptr)
         return false;
@@ -37,7 +37,7 @@ fe::PacketStructure* fe::Transaction::receiver(fe::type::_SOCKET idSocket)
     return receiver(idSocket, lengthBuffer);
 }
 
-fe::PacketStructure* fe::Transaction::receiver(fe::type::_SOCKET idSocket, unsigned int bufferSize)
+fe::PacketStructure* fe::Transaction::receiver(fe::type::_SOCKET idSocket, uint32_t bufferSize)
 {
     char* buffer = new char[bufferSize];
     int octects = 0;

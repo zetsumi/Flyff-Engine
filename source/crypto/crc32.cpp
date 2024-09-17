@@ -59,7 +59,7 @@ constexpr fe::word32 m_tab[] = {
 };
 
 
-//void fe::encryptCrc32(const fe::byte* s, unsigned int n)
+//void fe::encryptCrc32(const fe::byte* s, uint32_t n)
 //{
 //	fe::word32 crc = m_crc;
 //

@@ -9,7 +9,7 @@ namespace fe
     class API_DECLSPEC Network
     {
         std::string		ip;
-        unsigned int	port{ 0u };
+        uint32_t	port{ 0u };
 
     public:
         Network() = default;
@@ -20,9 +20,9 @@ namespace fe
         bool	isValid() const;
         bool	setIP(const std::string& newIP);
         bool	setIP(const char* newIP);
-        void	setPort(unsigned int newPort);
+        void	setPort(uint32_t newPort);
         const char* getIP() const { return ip.c_str(); }
-        unsigned int getPort() const { return port; }
+        uint32_t getPort() const { return port; }
     };
 #pragma warning( default : 4251 )
 }

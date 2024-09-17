@@ -21,13 +21,13 @@ namespace fe
     class API_DECLSPEC PacketBuilder
     {
         std::mutex	locker{};
-        unsigned int offset = 0;
+        uint32_t offset = 0;
         PacketStructure* packet = new PacketStructure();
 
         template<typename T>
         void writeFront(T val)
         {
-            unsigned int length = packet->size + sizeof(T);
+            uint32_t length = packet->size + sizeof(T);
             unsigned char* tmp = new unsigned char[length]();
 #if defined(_WIN64)
             ::memcpy_s(tmp, length, &val, sizeof(T));
@@ -49,23 +49,23 @@ namespace fe
         void					reset();
         void					debug() const;
         const unsigned char*	getData() const;
-        unsigned int						getSize() const;
+        uint32_t						getSize() const;
         [[nodiscard]] bool					setPacket(PacketStructure* ps);
         void					writeHeader(uint32_t sessionID, HANDLER_PACKET_TYPE handlerType);
         void					writeString(const char* var);
         void					writeString(const char* var, uint32_t length);
         [[nodiscard]] const char*			readString();
-        unsigned int						getOffset() const;
+        uint32_t						getOffset() const;
 
         template<typename T>
         void	write(T var)
         {
-            unsigned int length = sizeof(T);
+            uint32_t length = sizeof(T);
             write<T>(var, length);
         }
 
         template<typename T>
-        void	write(T var, unsigned int length)
+        void	write(T var, uint32_t length)
         {
             if (packet->data == nullptr)
             {
@@ -93,7 +93,7 @@ namespace fe
         template<typename T>
         T	read()
         {
-            unsigned int size = sizeof(T);
+            uint32_t size = sizeof(T);
             T var;
             unsigned char* cur = packet->data + offset;
             ::memcpy(&var, cur, size);
