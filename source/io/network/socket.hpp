@@ -22,20 +22,20 @@
 #pragma warning( disable: 4251 )
 namespace fe
 {
-	class API_DECLSPEC Socket
-	{
-	protected:
+    class API_DECLSPEC Socket
+    {
+    protected:
 #if defined(_WIN64)
-		fe::type::_SOCKET	_socket = INVALID_SOCKET;
+        fe::type::_SOCKET	_socket = INVALID_SOCKET;
 #else
-		fe::type::_SOCKET	_socket = 0;
+        fe::type::_SOCKET	_socket = 0;
 #endif 
 
-	public:
-		virtual ~Socket() {}
-		virtual void	clean() = 0;
-		virtual void	shutdown() = 0;
-		fe::type::_SOCKET	getSocket() const { return _socket; }
-	};
+    public:
+        virtual ~Socket() {}
+        virtual void	clean() = 0;
+        virtual void	shutdown() = 0;
+        fe::type::_SOCKET	getSocket() const { return _socket; }
+    };
 }
 #pragma warning( default : 4251 )

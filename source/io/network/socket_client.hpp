@@ -5,15 +5,15 @@
 
 namespace fe
 {
-	class API_DECLSPEC SocketClient : public fe::Socket
-	{
-	public:
-		SocketClient() = default;
-		~SocketClient();
+    class API_DECLSPEC SocketClient : public fe::Socket
+    {
+    public:
+        SocketClient() = default;
+        ~SocketClient();
 
-		bool	connect(const Network& network);
-		void	clean() override;
-		void	shutdown() override;
-	};
+        bool	connect(const Network& network);
+        void	clean() override;
+        void	shutdown() override;
+    };
 }
 

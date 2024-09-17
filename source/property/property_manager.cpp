@@ -8,7 +8,7 @@ fe::PropertyManager::PropertyManager() :
 
 fe::PropertyManager::~PropertyManager()
 {
-    auto purge = [](std::pair<std::uint64_t, fe::PropertyContainer*>&& it)
+    auto purge = [](std::pair<uint64_t, fe::PropertyContainer*>&& it)
     {
         if (it.second != nullptr)
         {
@@ -20,7 +20,7 @@ fe::PropertyManager::~PropertyManager()
     properties.clear();
 }
 
-void fe::PropertyManager::push(std::uint64_t id, fe::PropertyContainer* prop) noexcept
+void fe::PropertyManager::push(uint64_t id, fe::PropertyContainer* prop) noexcept
 {
     if (prop == nullptr)
         return;
@@ -35,7 +35,7 @@ void fe::PropertyManager::push(std::uint64_t id, fe::PropertyContainer* prop) no
     }
 }
 
-fe::PropertyContainer* fe::PropertyManager::get(std::uint64_t id) noexcept
+fe::PropertyContainer* fe::PropertyManager::get(uint64_t id) noexcept
 {
     auto it = properties.find(id);
     if (it == properties.end())
@@ -43,7 +43,7 @@ fe::PropertyContainer* fe::PropertyManager::get(std::uint64_t id) noexcept
     return it->second;
 }
 
-void fe::PropertyManager::remove(std::uint64_t id) noexcept
+void fe::PropertyManager::remove(uint64_t id) noexcept
 {
     auto prop = get(id);
     if (prop)

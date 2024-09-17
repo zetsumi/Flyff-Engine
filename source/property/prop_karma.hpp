@@ -17,23 +17,23 @@ namespace fe
      */
     struct API_DECLSPEC PropKarma : PropertyContainer
     {
-        std::int64_t  id = 0;
+        int64_t  id = 0;
         std::string     name = "";
-        std::int64_t  karmaPoint = 0;
-        std::uint64_t grade = 0;
-        std::uint64_t color = 0;
-        std::uint64_t karmaRecoverPoint = 0;
-        std::uint64_t discountRate = 0;
-        std::uint64_t sellPenaltyRate = 0;
-        std::uint64_t guardReaction = 0;
-        std::int64_t  subtractExpRate = 0;
-        std::int64_t  dropGoldPercent = 0;
-        std::int64_t  dropItem = 0;
-        std::int64_t  dropPercent = 0;
-        std::uint64_t karmaRecoverNum = 0;
-        std::uint64_t statLimitTime = 0;
-        std::uint64_t statLimitNum = 0;
-        std::uint64_t statLimitRate = 0;
+        int64_t  karmaPoint = 0;
+        uint64_t grade = 0;
+        uint64_t color = 0;
+        uint64_t karmaRecoverPoint = 0;
+        uint64_t discountRate = 0;
+        uint64_t sellPenaltyRate = 0;
+        uint64_t guardReaction = 0;
+        int64_t  subtractExpRate = 0;
+        int64_t  dropGoldPercent = 0;
+        int64_t  dropItem = 0;
+        int64_t  dropPercent = 0;
+        uint64_t karmaRecoverNum = 0;
+        uint64_t statLimitTime = 0;
+        uint64_t statLimitNum = 0;
+        uint64_t statLimitRate = 0;
         std::string     comment = "";
 
         PropKarma(const PropKarma* o) : PropKarma(*o)

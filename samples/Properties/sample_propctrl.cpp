@@ -20,7 +20,7 @@ void    propctrl_without_project()
     fe::PropertyManager managerItems;
 
 
-    std::vector<unsigned __int64> listIdItems;
+    std::vector<uint64_t> listIdItems;
     for (uint64_t i = 0; i < 10; ++i)
     {
         auto p = create<fe::PropCtrl>();

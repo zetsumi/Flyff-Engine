@@ -2,27 +2,27 @@
 
 namespace fe
 {
-	namespace packet
-	{
+    namespace packet
+    {
 #pragma warning( disable: 4251 )
-		struct API_DECLSPEC PacketReplace : public fe::PacketMessage
-		{
+        struct API_DECLSPEC PacketReplace : public fe::PacketMessage
+        {
 
-			std::uint32_t	worldId = 0;
-			fe::util::Vector3D<float>	pos{ 0, 0, 0 };
+            uint32_t	worldId = 0;
+            fe::util::Vector3D<float>	pos{ 0, 0, 0 };
 
-			PacketReplace() = default;
-			~PacketReplace() = default;
-			PacketReplace(const PacketReplace&) = delete;
-			PacketReplace(PacketReplace&&) = delete;
+            PacketReplace() = default;
+            ~PacketReplace() = default;
+            PacketReplace(const PacketReplace&) = delete;
+            PacketReplace(PacketReplace&&) = delete;
 
-			PacketReplace& operator<<(fe::PacketBuilder& pb)
-			{
-				pb >> worldId;
-				pb >> pos;
-				return *this;
-			}
-		};
+            PacketReplace& operator<<(fe::PacketBuilder& pb)
+            {
+                pb >> worldId;
+                pb >> pos;
+                return *this;
+            }
+        };
 #pragma warning( default : 4251 )
-	}
+    }
 }

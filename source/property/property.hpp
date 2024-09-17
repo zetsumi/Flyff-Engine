@@ -9,7 +9,7 @@ namespace fe
      * @brief Enumeration des éléments d'une arme
      * 
      */
-    enum class PROP_ITEM_ELEMENT : std::uint64_t
+    enum class PROP_ITEM_ELEMENT : uint64_t
     {
         NO_PROP = 0,
         FIRE,

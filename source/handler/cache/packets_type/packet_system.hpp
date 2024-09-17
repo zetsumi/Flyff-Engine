@@ -2,30 +2,30 @@
 
 namespace fe
 {
-	namespace packet
-	{
+    namespace packet
+    {
 #pragma warning( disable: 4251 )
-		struct API_DECLSPEC PacketSystem : public fe::PacketMessage
-		{
-			const char* message = nullptr;
+        struct API_DECLSPEC PacketSystem : public fe::PacketMessage
+        {
+            const char* message = nullptr;
 
-			PacketSystem() = default;
-			~PacketSystem() = default;
-			PacketSystem(const PacketSystem&) = delete;
-			PacketSystem(PacketSystem&&) = delete;
+            PacketSystem() = default;
+            ~PacketSystem() = default;
+            PacketSystem(const PacketSystem&) = delete;
+            PacketSystem(PacketSystem&&) = delete;
 
-			PacketSystem& operator<<(fe::PacketBuilder& pb)
-			{
-				message = pb.readString();
-				return *this;
-			}
+            PacketSystem& operator<<(fe::PacketBuilder& pb)
+            {
+                message = pb.readString();
+                return *this;
+            }
 
-			void	release() override final
-			{
-				delete message;
-				message = nullptr;
-			}
-		};
+            void	release() override final
+            {
+                delete message;
+                message = nullptr;
+            }
+        };
 #pragma warning( default : 4251 )
-	}
+    }
 }

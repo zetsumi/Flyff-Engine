@@ -4,17 +4,17 @@
 
 namespace fe
 {
-	namespace serialize
-	{
-		struct SerializeMoverNPC
-		{
-			SerializeMoverNPC() = default;
-			~SerializeMoverNPC() = default;
+    namespace serialize
+    {
+        struct SerializeMoverNPC
+        {
+            SerializeMoverNPC() = default;
+            ~SerializeMoverNPC() = default;
 
-			SerializeMoverNPC& operator<<(fe::PacketBuilder& pb)
-			{
-				return *this;
-			}
-		};
-	}
+            SerializeMoverNPC& operator<<(fe::PacketBuilder& pb)
+            {
+                return *this;
+            }
+        };
+    }
 }

@@ -16,12 +16,12 @@ extern fe::HandlerCache			cache;
 
 void	certifier_connect(void)
 {
-	FE_LOG("connecting Certifier");
-	std::thread tcert(handler_certifier);
-	tcert.detach();
+    FE_LOG("connecting Certifier");
+    std::thread tcert(handler_certifier);
+    tcert.detach();
 }
 
 void	cert_disconnect(void)
 {
-	// TODO :
+    // TODO :
 }
