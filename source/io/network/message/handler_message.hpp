@@ -33,16 +33,16 @@ namespace fe
         mapAction	actions{};
         mapOperator	packetOperator{};
 
-        std::thread						ping{};
-        Transaction*					transaction = nullptr;
-        fe::PacketBuilder				packetBuilder{};
-        uint32_t				sessionID = 0;
-        std::mutex						lockerSend;
-        uint32_t				dpid = 0xffffffff;
-        HANDLER_PACKET_TYPE				handlerType = HANDLER_PACKET_TYPE::UNKNOW;
-        std::queue<fe::PacketMessage*>	messages{};
-        std::mutex						mtMessage{};
-        uint32_t				authKey = 0;
+        std::thread ping{};
+        Transaction*                    transaction = nullptr;
+        fe::PacketBuilder               packetBuilder{};
+        uint32_t                         sessionID = 0;
+        std::mutex                      lockerSend;
+        uint32_t                        dpid = 0xffffffff;
+        HANDLER_PACKET_TYPE             handlerType = HANDLER_PACKET_TYPE::UNKNOW;
+        std::queue<fe::PacketMessage*>  messages{};
+        std::mutex                      mtMessage{};
+        uint32_t                        authKey = 0;
 
         // global
         bool	pushAction(fe::packet::PACKETTYPE packetType, callbackHandlerMesage action);
