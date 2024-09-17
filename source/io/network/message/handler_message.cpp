@@ -50,7 +50,7 @@ void fe::HandlerMessage::initialize()
     pushAction(fe::packet::PACKETTYPE::WELCOME, std::bind(&fe::HandlerMessage::onWelcome, this));
     pushAction(fe::packet::PACKETTYPE::KEEP_ALIVE, std::bind(&fe::HandlerMessage::onKeepAlive, this));
     pushAction(fe::packet::PACKETTYPE::PING, std::bind(&fe::HandlerMessage::onPing, this));
-    pushAction(fe::packet::PACKETTYPE::PERROR, std::bind(&fe::HandlerMessage::onError, this));
+    pushAction(fe::packet::PACKETTYPE::PCK_ERROR, std::bind(&fe::HandlerMessage::onError, this));
     pushAction(fe::packet::PACKETTYPE::ERROR_STRING, std::bind(&fe::HandlerMessage::onErrorString, this));
 }
 

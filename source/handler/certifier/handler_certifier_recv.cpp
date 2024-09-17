@@ -4,8 +4,8 @@
 
 fe::PacketMessage* fe::HandlerCertifier::onServerList()
 {
-	fe::packet::PacketServerList* psl = new fe::packet::PacketServerList();
-	*psl << packetBuilder;
-	authKey = psl->authKey;
-	return psl;
+    fe::packet::PacketServerList* psl = new fe::packet::PacketServerList();
+    *psl << packetBuilder;
+    authKey = psl->authKey;
+    return psl;
 }
