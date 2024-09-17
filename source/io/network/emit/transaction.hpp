@@ -12,47 +12,47 @@
 #pragma warning( disable: 4251 )
 namespace fe
 {
-	enum class MODE_TRANSACTION : unsigned int
-	{
-		MODE_UNKNOW,
-		MODE_SERVER,
-		MODE_CLIENT
-	};
+    enum class MODE_TRANSACTION : unsigned int
+    {
+        MODE_UNKNOW,
+        MODE_SERVER,
+        MODE_CLIENT
+    };
 
-	class API_DECLSPEC Transaction
-	{
-		std::thread			main{};
-		Socket* _socket = nullptr;
-		MODE_TRANSACTION	mode = MODE_TRANSACTION::MODE_UNKNOW;
-		std::function<void (fe::PacketStructure* ps)>	handlerMessageCallBack = nullptr;
-		unsigned int	lengthBuffer = DEFAULT_BUFFER_SIZE_RECEIVE;
+    class API_DECLSPEC Transaction
+    {
+        std::thread			main{};
+        Socket* _socket = nullptr;
+        MODE_TRANSACTION	mode = MODE_TRANSACTION::MODE_UNKNOW;
+        std::function<void (fe::PacketStructure* ps)>	handlerMessageCallBack = nullptr;
+        unsigned int	lengthBuffer = DEFAULT_BUFFER_SIZE_RECEIVE;
 
 
-		void	loopReceive(fe::type::_SOCKET idClient);
-		[[nodiscard]] bool	run();
+        void	loopReceive(fe::type::_SOCKET idClient);
+        [[nodiscard]] bool	run();
 
-	public:
-		Transaction() = default;
-		~Transaction() = default;
+    public:
+        Transaction() = default;
+        ~Transaction() = default;
 
-		// global
-		[[nodiscard]] bool	setSocket(Socket* s);
-		void	setMode(MODE_TRANSACTION modeTransaction);
-		void	setLengthBuffer(unsigned int len);
-		[[nodiscard]] const Socket * const getSocket() const;
-		[[nodiscard]] bool	isMode(MODE_TRANSACTION modeTransaction);
-		[[nodiscard]] bool	run(std::function<void(fe::PacketStructure* ps)> callback);
+        // global
+        [[nodiscard]] bool	setSocket(Socket* s);
+        void	setMode(MODE_TRANSACTION modeTransaction);
+        void	setLengthBuffer(unsigned int len);
+        [[nodiscard]] const Socket * const getSocket() const;
+        [[nodiscard]] bool	isMode(MODE_TRANSACTION modeTransaction);
+        [[nodiscard]] bool	run(std::function<void(fe::PacketStructure* ps)> callback);
 
-		// emiter
-		[[nodiscard]] bool	sender(fe::type::_SOCKET idSocket, unsigned int size, const char* data);
-		[[nodiscard]] bool	sender(fe::type::_SOCKET idSocket, PacketBuilder& packet);
-		[[nodiscard]] bool	sender(PacketBuilder& packet);
-		[[nodiscard]] PacketStructure* receiver(fe::type::_SOCKET idSocket);
-		[[nodiscard]] PacketStructure* receiver(fe::type::_SOCKET idSocket, unsigned int bufferSize);
+        // emiter
+        [[nodiscard]] bool	sender(fe::type::_SOCKET idSocket, unsigned int size, const char* data);
+        [[nodiscard]] bool	sender(fe::type::_SOCKET idSocket, PacketBuilder& packet);
+        [[nodiscard]] bool	sender(PacketBuilder& packet);
+        [[nodiscard]] PacketStructure* receiver(fe::type::_SOCKET idSocket);
+        [[nodiscard]] PacketStructure* receiver(fe::type::_SOCKET idSocket, unsigned int bufferSize);
 
-		// thread manager
-		void	wait(bool waiting = true);
-	};
+        // thread manager
+        void	wait(bool waiting = true);
+    };
 }
 #pragma warning( default : 4251 )
 

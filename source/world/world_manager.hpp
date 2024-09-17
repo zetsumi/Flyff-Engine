@@ -8,15 +8,15 @@
 
 namespace fe
 {
-	class WorldManager
-	{
-		std::vector<fe::World*>	worlds{};
+    class WorldManager
+    {
+        std::vector<fe::World*>	worlds{};
 
-	public:
-		WorldManager() = default;
-		~WorldManager();
+    public:
+        WorldManager() = default;
+        ~WorldManager();
 
-		[[nodiscard]] bool	load(const std::string& filename);
-		[[nodiscard]] bool	loadWorld(const std::string& filename);
-	};
+        [[nodiscard]] bool	load(const std::string& filename);
+        [[nodiscard]] bool	loadWorld(const std::string& filename);
+    };
 }

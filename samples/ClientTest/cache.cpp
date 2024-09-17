@@ -16,30 +16,30 @@ extern fe::HandlerCache			cache;
 
 bool	handler_cache(void)
 {
-	fe::Network network;
+    fe::Network network;
 
-	const char* ipCacheServer = login.getCacheServerAddr();
-	network.setIP(ipCacheServer);
-	network.setPort(fe::portCacheServer);
-	if (network.isValid() == false)
-		return false;
+    const char* ipCacheServer = login.getCacheServerAddr();
+    network.setIP(ipCacheServer);
+    network.setPort(fe::portCacheServer);
+    if (network.isValid() == false)
+        return false;
 
-	if (_socketCache.connect(network) == false)
-		return false;
-	if (transCache.setSocket(&_socketCache) == false)
-		return false;
-	transCache.setMode(fe::MODE_TRANSACTION::MODE_CLIENT);
-	unsigned int headerLength = sizeof(uint8_t) + sizeof(uint32_t) + sizeof(uint32_t);
-	transCache.setLengthBuffer(headerLength);
+    if (_socketCache.connect(network) == false)
+        return false;
+    if (transCache.setSocket(&_socketCache) == false)
+        return false;
+    transCache.setMode(fe::MODE_TRANSACTION::MODE_CLIENT);
+    unsigned int headerLength = sizeof(uint8_t) + sizeof(uint32_t) + sizeof(uint32_t);
+    transCache.setLengthBuffer(headerLength);
 
-	cache.initialize();
-	cache.setTransaction(&transCache);
+    cache.initialize();
+    cache.setTransaction(&transCache);
 
-	auto onMsg = std::bind(&fe::HandlerMessage::onMsg, &cache, std::placeholders::_1);
-	if (transCache.run(onMsg) == false)
-		return false;
+    auto onMsg = std::bind(&fe::HandlerMessage::onMsg, &cache, std::placeholders::_1);
+    if (transCache.run(onMsg) == false)
+        return false;
 
-	transCache.wait();
-	FE_CONSOLELOG("out");
-	return true;
+    transCache.wait();
+    FE_CONSOLELOG("out");
+    return true;
 }

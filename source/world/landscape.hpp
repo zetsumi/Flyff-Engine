@@ -3,8 +3,8 @@
 
 namespace fe
 {
-	struct LandScape
-	{
+    struct LandScape
+    {
         unsigned int    width = 0;
         unsigned int    height = 0;
         unsigned int**  heightTerrain = nullptr;
@@ -16,6 +16,6 @@ namespace fe
         LandScape(LandScape&&) = delete;
         LandScape& operator=(const LandScape&) = delete;
         virtual ~LandScape() = default;
-	};
+    };
 }
 #pragma warning( default : 4251 )

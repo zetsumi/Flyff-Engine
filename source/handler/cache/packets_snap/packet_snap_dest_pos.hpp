@@ -2,23 +2,23 @@
 
 namespace fe
 {
-	namespace snapshot
-	{
-		struct SnapshotDestPos : public Snapshot
-		{
-			fe::util::Vector3D<float>	pos{ 0, 0, 0 };
-			uint8_t	forward = 0;
+    namespace snapshot
+    {
+        struct SnapshotDestPos : public Snapshot
+        {
+            fe::util::Vector3D<float>	pos{ 0, 0, 0 };
+            uint8_t	forward = 0;
 
-			SnapshotDestPos() = default;
-			~SnapshotDestPos() = default;
-			SnapshotDestPos& operator<<(fe::PacketBuilder& pb) override
-			{
-				pos.x = pb.read<float>();
-				pos.y = pb.read<float>();
-				pos.z = pb.read<float>();
-				forward = pb.read<uint8_t>();
-				return *this;
-			}
-		};
-	}
+            SnapshotDestPos() = default;
+            ~SnapshotDestPos() = default;
+            SnapshotDestPos& operator<<(fe::PacketBuilder& pb) override
+            {
+                pos.x = pb.read<float>();
+                pos.y = pb.read<float>();
+                pos.z = pb.read<float>();
+                forward = pb.read<uint8_t>();
+                return *this;
+            }
+        };
+    }
 }

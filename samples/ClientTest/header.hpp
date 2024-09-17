@@ -41,7 +41,7 @@ void	cache_dest_pos(void);
 
 struct cmd_exe_1
 {
-	const char* command;
-	const char* shortcut;
-	void	(*process)(void);
+    const char* command;
+    const char* shortcut;
+    void	(*process)(void);
 };

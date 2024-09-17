@@ -8,54 +8,54 @@
 
 namespace fe
 {
-	namespace snapshot
-	{
-		struct Snapshot
-		{
-			uint32_t objid = 0;
-			uint32_t objIdPlayer = 0;
-			fe::snapshot::SNAPSHOTTYPE snapshotType = fe::snapshot::SNAPSHOTTYPE::MAX_ERROR;
+    namespace snapshot
+    {
+        struct Snapshot
+        {
+            uint32_t objid = 0;
+            uint32_t objIdPlayer = 0;
+            fe::snapshot::SNAPSHOTTYPE snapshotType = fe::snapshot::SNAPSHOTTYPE::MAX_ERROR;
 
-			Snapshot(Snapshot&&) = delete;
-			Snapshot& operator=(const Snapshot&) = delete;
-			Snapshot(const Snapshot&) = delete;
-			Snapshot(Snapshot* s) = delete;
+            Snapshot(Snapshot&&) = delete;
+            Snapshot& operator=(const Snapshot&) = delete;
+            Snapshot(const Snapshot&) = delete;
+            Snapshot(Snapshot* s) = delete;
 
-			Snapshot() = default;
-			virtual ~Snapshot() = default;
-			virtual Snapshot& operator<<(fe::PacketBuilder&) = 0;
+            Snapshot() = default;
+            virtual ~Snapshot() = default;
+            virtual Snapshot& operator<<(fe::PacketBuilder&) = 0;
 
-			virtual void	release() {}
-		};
+            virtual void	release() {}
+        };
 
-		struct SnapshotList : public PacketMessage
-		{
-			unsigned short count = 0;
-			Snapshot** snaps = nullptr;
+        struct SnapshotList : public PacketMessage
+        {
+            unsigned short count = 0;
+            Snapshot** snaps = nullptr;
 
-			SnapshotList(const SnapshotList&) = delete;
-			SnapshotList(SnapshotList&&) = delete;
-			SnapshotList(SnapshotList*) = delete;
-			SnapshotList& operator=(const SnapshotList) = delete;
+            SnapshotList(const SnapshotList&) = delete;
+            SnapshotList(SnapshotList&&) = delete;
+            SnapshotList(SnapshotList*) = delete;
+            SnapshotList& operator=(const SnapshotList) = delete;
 
-			SnapshotList() = default;
-			~SnapshotList() = default;
-			SnapshotList& operator<<(fe::PacketBuilder&) { assert(false); return *this; }
+            SnapshotList() = default;
+            ~SnapshotList() = default;
+            SnapshotList& operator<<(fe::PacketBuilder&) { assert(false); return *this; }
 
-			void	release() override final
-			{
-				for (unsigned short i = 0; i < count; ++i)
-				{
-					snaps[i]->release();
-					delete snaps[i];
-					snaps[i] = nullptr;
-				}
-				delete[] snaps;
-				snaps = nullptr;
-			}
+            void	release() override final
+            {
+                for (unsigned short i = 0; i < count; ++i)
+                {
+                    snaps[i]->release();
+                    delete snaps[i];
+                    snaps[i] = nullptr;
+                }
+                delete[] snaps;
+                snaps = nullptr;
+            }
 
-		};
-	}
+        };
+    }
 
 }
 
@@ -79,26 +79,26 @@ namespace fe
 
 namespace fe
 {
-	namespace snapshot
-	{
-		namespace factory
-		{
-			[[nodiscard]] inline fe::snapshot::Snapshot* workReadInfo() { return new fe::snapshot::SnapshotWorldReadInfo(); }
-			[[nodiscard]] inline fe::snapshot::Snapshot* environmentAll() { return new fe::snapshot::SnapshotEnvironmentAll(); }
-			[[nodiscard]] inline fe::snapshot::Snapshot* addObj() { return new fe::snapshot::SnapshotAddObj(); }
-			[[nodiscard]] inline fe::snapshot::Snapshot* queryPlayerData() { return new fe::snapshot::SnapshotQueryPlayerData(); }
-			[[nodiscard]] inline fe::snapshot::Snapshot* destPos() { return new fe::snapshot::SnapshotDestPos(); }
-			[[nodiscard]] inline fe::snapshot::Snapshot* moverCorr() { return new fe::snapshot::SnapshotMoverCorr(); }
-			[[nodiscard]] inline fe::snapshot::Snapshot* getPosition() { return new fe::snapshot::SnapshotGetPosition(); }
-			[[nodiscard]] inline fe::snapshot::Snapshot* stateMachineModeAll() { return new fe::snapshot::SnapshotStateMachineModeAll(); }
-			[[nodiscard]] inline fe::snapshot::Snapshot* gameTimer() { return new fe::snapshot::SnapshotGameTimer(); }
-			[[nodiscard]] inline fe::snapshot::Snapshot* allAction() { return new fe::snapshot::SnapshotAllAction(); }
-			[[nodiscard]] inline fe::snapshot::Snapshot* secretRoomManagerState() { return new fe::snapshot::SnapshotSecretRoomManagerState(); }
-			[[nodiscard]] inline fe::snapshot::Snapshot* chat() { return new fe::snapshot::SnapshotChat(); }
-			[[nodiscard]] inline fe::snapshot::Snapshot* moverMoved() { return new fe::snapshot::SnapshotMoverMoved(); }
-			[[nodiscard]] inline fe::snapshot::Snapshot* moverMoved2() { return new fe::snapshot::SnapshotMoverMoved2(); }
-			[[nodiscard]] inline fe::snapshot::Snapshot* moverBehavior() { return new fe::snapshot::SnapshotMoverBehavior(); }
-			[[nodiscard]] inline fe::snapshot::Snapshot* moverBehavior2() { return new fe::snapshot::SnapshotMoverBehavior2(); }
-		}
-	}
+    namespace snapshot
+    {
+        namespace factory
+        {
+            [[nodiscard]] inline fe::snapshot::Snapshot* workReadInfo() { return new fe::snapshot::SnapshotWorldReadInfo(); }
+            [[nodiscard]] inline fe::snapshot::Snapshot* environmentAll() { return new fe::snapshot::SnapshotEnvironmentAll(); }
+            [[nodiscard]] inline fe::snapshot::Snapshot* addObj() { return new fe::snapshot::SnapshotAddObj(); }
+            [[nodiscard]] inline fe::snapshot::Snapshot* queryPlayerData() { return new fe::snapshot::SnapshotQueryPlayerData(); }
+            [[nodiscard]] inline fe::snapshot::Snapshot* destPos() { return new fe::snapshot::SnapshotDestPos(); }
+            [[nodiscard]] inline fe::snapshot::Snapshot* moverCorr() { return new fe::snapshot::SnapshotMoverCorr(); }
+            [[nodiscard]] inline fe::snapshot::Snapshot* getPosition() { return new fe::snapshot::SnapshotGetPosition(); }
+            [[nodiscard]] inline fe::snapshot::Snapshot* stateMachineModeAll() { return new fe::snapshot::SnapshotStateMachineModeAll(); }
+            [[nodiscard]] inline fe::snapshot::Snapshot* gameTimer() { return new fe::snapshot::SnapshotGameTimer(); }
+            [[nodiscard]] inline fe::snapshot::Snapshot* allAction() { return new fe::snapshot::SnapshotAllAction(); }
+            [[nodiscard]] inline fe::snapshot::Snapshot* secretRoomManagerState() { return new fe::snapshot::SnapshotSecretRoomManagerState(); }
+            [[nodiscard]] inline fe::snapshot::Snapshot* chat() { return new fe::snapshot::SnapshotChat(); }
+            [[nodiscard]] inline fe::snapshot::Snapshot* moverMoved() { return new fe::snapshot::SnapshotMoverMoved(); }
+            [[nodiscard]] inline fe::snapshot::Snapshot* moverMoved2() { return new fe::snapshot::SnapshotMoverMoved2(); }
+            [[nodiscard]] inline fe::snapshot::Snapshot* moverBehavior() { return new fe::snapshot::SnapshotMoverBehavior(); }
+            [[nodiscard]] inline fe::snapshot::Snapshot* moverBehavior2() { return new fe::snapshot::SnapshotMoverBehavior2(); }
+        }
+    }
 }

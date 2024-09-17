@@ -4,48 +4,48 @@
 
 void fe::HandlerMessage::sendKeepAlive()
 {
-	lockerSend.lock();
-	fe::PacketBuilder pb;
+    lockerSend.lock();
+    fe::PacketBuilder pb;
 
-	pb.write<fe::packet::PACKETTYPE>(fe::packet::PACKETTYPE::KEEP_ALIVE);
-	if (handlerType == HANDLER_PACKET_TYPE::LOGIN || handlerType == HANDLER_PACKET_TYPE::CACHE)
-		pb.write<uint32_t>(dpid);
+    pb.write<fe::packet::PACKETTYPE>(fe::packet::PACKETTYPE::KEEP_ALIVE);
+    if (handlerType == HANDLER_PACKET_TYPE::LOGIN || handlerType == HANDLER_PACKET_TYPE::CACHE)
+        pb.write<uint32_t>(dpid);
 
-	pb.writeHeader(sessionID, handlerType);
-	if (transaction->sender(pb) == false)
-		FE_CONSOLELOG("fail send");
+    pb.writeHeader(sessionID, handlerType);
+    if (transaction->sender(pb) == false)
+        FE_CONSOLELOG("fail send");
 
-	lockerSend.unlock();
+    lockerSend.unlock();
 }
 
 
 void fe::HandlerMessage::sendError()
 {
-	lockerSend.lock();
-	fe::PacketBuilder pb;
+    lockerSend.lock();
+    fe::PacketBuilder pb;
 
-	pb.write<fe::packet::PACKETTYPE>(fe::packet::PACKETTYPE::PERROR);
-	if (handlerType == HANDLER_PACKET_TYPE::LOGIN || handlerType == HANDLER_PACKET_TYPE::CACHE)
-		pb.write<uint32_t>(dpid);
+    pb.write<fe::packet::PACKETTYPE>(fe::packet::PACKETTYPE::PERROR);
+    if (handlerType == HANDLER_PACKET_TYPE::LOGIN || handlerType == HANDLER_PACKET_TYPE::CACHE)
+        pb.write<uint32_t>(dpid);
 
-	pb.writeHeader(sessionID, handlerType);
-	if (transaction->sender(pb) == false)
-		FE_CONSOLELOG("fail send");
+    pb.writeHeader(sessionID, handlerType);
+    if (transaction->sender(pb) == false)
+        FE_CONSOLELOG("fail send");
 
-	lockerSend.unlock();
+    lockerSend.unlock();
 }
 
 void fe::HandlerMessage::sendPing()
 {
-	lockerSend.lock();
-	fe::PacketBuilder pb;
+    lockerSend.lock();
+    fe::PacketBuilder pb;
 
-	pb.write<fe::packet::PACKETTYPE>(fe::packet::PACKETTYPE::PING);
-	if (handlerType == HANDLER_PACKET_TYPE::LOGIN || handlerType == HANDLER_PACKET_TYPE::CACHE)
-		pb.write<uint32_t>(dpid);
-	pb.writeHeader(sessionID, handlerType);
-	if (transaction->sender(pb) == false)
-		FE_CONSOLELOG("fail send");
+    pb.write<fe::packet::PACKETTYPE>(fe::packet::PACKETTYPE::PING);
+    if (handlerType == HANDLER_PACKET_TYPE::LOGIN || handlerType == HANDLER_PACKET_TYPE::CACHE)
+        pb.write<uint32_t>(dpid);
+    pb.writeHeader(sessionID, handlerType);
+    if (transaction->sender(pb) == false)
+        FE_CONSOLELOG("fail send");
 
-	lockerSend.unlock();
+    lockerSend.unlock();
 }

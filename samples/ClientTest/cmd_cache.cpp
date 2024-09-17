@@ -17,46 +17,46 @@ extern fe::HandlerCache			cache;
 
 void cache_connect(void)
 {
-	FE_LOG("connecting CacheServer");
-	std::thread tproxy(handler_cache);
-	tproxy.detach();
+    FE_LOG("connecting CacheServer");
+    std::thread tproxy(handler_cache);
+    tproxy.detach();
 }
 
 void	cache_join(void)
 {
-	FE_LOG("Sending Join Game");
-	cache.sendJoin(
-		_socketCache.getSocket(),
-		TEST_DEFAULT_ID_WORLD,
-		TEST_DEFAULT_ID_PLAYER,
-		certifier.getAuthKey(),
-		0,
-		0,
-		0,
-		1,
-		0,
-		TEST_DEFAULT_PLAYER_NAME,
-		TEST_DEFAULT_ACCOUNT,
-		TEST_DEFAULT_PASSWORD
-	);
+    FE_LOG("Sending Join Game");
+    cache.sendJoin(
+        _socketCache.getSocket(),
+        TEST_DEFAULT_ID_WORLD,
+        TEST_DEFAULT_ID_PLAYER,
+        certifier.getAuthKey(),
+        0,
+        0,
+        0,
+        1,
+        0,
+        TEST_DEFAULT_PLAYER_NAME,
+        TEST_DEFAULT_ACCOUNT,
+        TEST_DEFAULT_PASSWORD
+    );
 }
 
 void	cache_get_pos(void)
 {
-	cache.sendGetPosition(
-		_socketCache.getSocket(),
-		TEST_DEFAULT_ID_PLAYER
-	);
+    cache.sendGetPosition(
+        _socketCache.getSocket(),
+        TEST_DEFAULT_ID_PLAYER
+    );
 }
 
 fe::util::Vector3D<float> dest{ 6959.27734f, 100.000000f, 3462.15723f };
 
 void	cache_dest_pos(void)
 {
-	dest.x += 3;
-	cache.sendDestinationPosition(
-		_socketCache.getSocket(),
-		dest,
-		1
-	);
+    dest.x += 3;
+    cache.sendDestinationPosition(
+        _socketCache.getSocket(),
+        dest,
+        1
+    );
 }

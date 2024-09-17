@@ -10,8 +10,8 @@ namespace fe
     /*
     ** @brief structure representant les respawn d'un monstre dans le monde World
     */
-	struct API_DECLSPEC	ReSpawn
-	{
+    struct API_DECLSPEC	ReSpawn
+    {
         // missing parameters !
         unsigned int type = 0;
         unsigned int id = 0;
@@ -42,6 +42,6 @@ namespace fe
         ReSpawn& operator=(const ReSpawn&) = default;
         ReSpawn& operator=(ReSpawn&&) = default;
         virtual ~ReSpawn() = default;
-	};
+    };
 }
 #pragma warning( default : 4251 )

@@ -11,8 +11,8 @@ namespace fe
     /*
     ** @brief structure representant un monde
     */
-	struct API_DECLSPEC World
-	{
+    struct API_DECLSPEC World
+    {
         std::string title = "";
         std::string directory = "";
         unsigned int id = 0;
@@ -41,6 +41,6 @@ namespace fe
         World& operator=(const World&) = default;
         World& operator=(World&&) = default;
         virtual ~World() = default;
-	};
+    };
 }
 #pragma warning( default : 4251 )
