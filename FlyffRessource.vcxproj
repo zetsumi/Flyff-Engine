@@ -265,7 +265,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch_fressource.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>source/;</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <EnableModules>true</EnableModules>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
