@@ -14,6 +14,7 @@
 #include <io/network/message/packet_message.hpp>
 #include <io/network/emit/transaction.hpp>
 
+
 #pragma warning( disable: 4251 )
 namespace fe
 {
@@ -26,12 +27,13 @@ namespace fe
         void	loadHeader(uint8_t& mark, uint32_t& length, fe::packet::PACKETTYPE& packettype);
 
     protected:
-        typedef	std::function<fe::PacketMessage* ()>	callbackHandlerMesage;
-        typedef	std::function<fe::PacketMessage* ()>		fctPacketOperator;
-        typedef std::unordered_map<fe::packet::PACKETTYPE, callbackHandlerMesage>	mapAction;
-        typedef std::unordered_map<fe::packet::PACKETTYPE, callbackHandlerMesage>	mapOperator;
-        mapAction	actions{};
-        mapOperator	packetOperator{};
+        using callbackHandlerMesage = std::function<fe::PacketMessage* ()>;
+        using fctPacketOperator = std::function<fe::PacketMessage* ()>;
+        using mapAction = std::unordered_map<fe::packet::PACKETTYPE, callbackHandlerMesage>;
+        using mapOperator = std::unordered_map<fe::packet::PACKETTYPE, callbackHandlerMesage>;
+
+        mapAction   actions{};
+        mapOperator packetOperator{};
 
         std::thread ping{};
         Transaction*                    transaction = nullptr;
@@ -45,11 +47,11 @@ namespace fe
         uint32_t                        authKey = 0;
 
         // global
-        bool	pushAction(fe::packet::PACKETTYPE packetType, callbackHandlerMesage action);
+        bool pushAction(fe::packet::PACKETTYPE packetType, callbackHandlerMesage action);
 
         // emit & receive
-        void	sendPing();
-        void	processPing();
+        void sendPing();
+        void processPing();
 
     public:
         HandlerMessage() = default;
@@ -58,16 +60,15 @@ namespace fe
         HandlerMessage& operator=(const HandlerMessage& h) = default;
         ~HandlerMessage();
 
-
         // global
-        virtual void	initialize();
-        void			setTransaction(Transaction* newTransaction);
-        void			killPing();
+        virtual void initialize();
+        void         setTransaction(Transaction* newTransaction);
+        void         killPing();
         [[nodiscard]] fe::PacketMessage* getPacket();
 
         // emit
-        void	sendKeepAlive();
-        void	sendError();
+        void sendKeepAlive();
+        void sendError();
 
         // recv
         void onMsg(fe::PacketStructure* ps);

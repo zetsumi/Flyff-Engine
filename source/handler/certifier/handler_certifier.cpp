@@ -5,9 +5,9 @@
 void fe::HandlerCertifier::initialize()
 {
 
-	handlerType = HANDLER_PACKET_TYPE::CERTIFIER;
-	fe::HandlerMessage::initialize();
+    handlerType = HANDLER_PACKET_TYPE::CERTIFIER;
+    fe::HandlerMessage::initialize();
 
-	pushAction(fe::packet::PACKETTYPE::SRVR_LIST, std::bind(&fe::HandlerCertifier::onServerList, this));
+    pushAction(fe::packet::PACKETTYPE::SRVR_LIST, std::bind(&fe::HandlerCertifier::onServerList, this));
 
 }

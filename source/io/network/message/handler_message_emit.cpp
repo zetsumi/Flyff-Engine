@@ -24,7 +24,7 @@ void fe::HandlerMessage::sendError()
     lockerSend.lock();
     fe::PacketBuilder pb;
 
-    pb.write<fe::packet::PACKETTYPE>(fe::packet::PACKETTYPE::PERROR);
+    pb.write<fe::packet::PACKETTYPE>(fe::packet::PACKETTYPE::PCK_ERROR);
     if (handlerType == HANDLER_PACKET_TYPE::LOGIN || handlerType == HANDLER_PACKET_TYPE::CACHE)
         pb.write<uint32_t>(dpid);
 
