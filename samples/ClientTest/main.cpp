@@ -1,19 +1,19 @@
-#include "./header.hpp"
+#include <header.hpp>
 
-fe::Transaction			transCertifier{};
-fe::Transaction			transLogin{};
-fe::Transaction			transCache{};
+fe::Transaction transCertifier{};
+fe::Transaction transLogin{};
+fe::Transaction transCache{};
 
-fe::SocketClient			_socketCert{};
-fe::SocketClient			_socketLog{};
-fe::SocketClient			_socketCache{};
+fe::SocketClient _socketCert{};
+fe::SocketClient _socketLog{};
+fe::SocketClient _socketCache{};
 
-fe::HandlerCertifier		certifier{};
-fe::HandlerLogin			login{};
-fe::HandlerCache			cache{};
+fe::HandlerCertifier certifier{};
+fe::HandlerLogin     login{};
+fe::HandlerCache     cache{};
 
 
-static void tgame(void)
+static void tgame()
 {
     while (true)
     {
@@ -59,10 +59,10 @@ int main()
 {
     std::thread tcert(handler_certifier);
     std::thread	console(prompt);
-    //std::thread game(tgame);
+    std::thread game(tgame);
 
     tcert.join();
     console.join();
-    //game.join();
+    game.join();
     return 0;
 }

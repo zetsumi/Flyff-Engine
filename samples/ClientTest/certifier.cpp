@@ -15,34 +15,43 @@ extern fe::HandlerCache         cache;
 
 
 
-bool	handler_certifier(void)
+bool handler_certifier()
 {
     fe::Network network;
 
-
     network.setIP("127.0.0.1");
     network.setPort(fe::portCertifier);
-    if (network.isValid() == false)
-        return false;
 
+    if (network.isValid() == false)
+    {
+        return false;
+    }
 
     if (_socketCert.connect(network) == false)
+    {
         return false;
+    }
 
     if (transCertifier.setSocket(&_socketCert) == false)
+    {
         return false;
+    }
+
     transCertifier.setMode(fe::MODE_TRANSACTION::MODE_CLIENT);
-    uint32_t headerLength = sizeof(uint8_t) + sizeof(uint32_t) + sizeof(uint32_t);
+    uint32_t const headerLength{ sizeof(uint8_t) + sizeof(uint32_t) + sizeof(uint32_t) };
     transCertifier.setLengthBuffer(headerLength);
 
     certifier.initialize();
     certifier.setTransaction(&transCertifier);
 
-    auto onMsg = std::bind(&fe::HandlerMessage::onMsg, &certifier, std::placeholders::_1);
+    auto onMsg{ std::bind(&fe::HandlerMessage::onMsg, &certifier, std::placeholders::_1) };
     if (transCertifier.run(onMsg) == false)
+    {
         return false;
+    }
 
     transCertifier.wait();
     FE_CONSOLELOG("out");
+
     return true;
 }

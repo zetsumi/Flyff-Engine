@@ -15,7 +15,7 @@ extern fe::HandlerCache			cache;
 
 
 
-static void help(void);
+static void help();
 
 cmd_exe_1 listCommandeSimple[] = {
     {"help", "h", help},
@@ -40,7 +40,8 @@ cmd_exe_1 listCommandeSimple[] = {
     {nullptr, nullptr}
 };
 
-void	help(void)
+
+void help()
 {
     FE_LOG("Liste des commandes :");
     uint32_t i = 0;
@@ -51,7 +52,8 @@ void	help(void)
     }
 }
 
-void		prompt(void)
+
+void prompt()
 {
     FE_LOG("BUILD[% s] ACCOUNT[% s] PASSWORD[% s]", TEST_DEFAULT_BUILD_VERSION, TEST_DEFAULT_ACCOUNT, TEST_DEFAULT_PASSWORD);
 
@@ -61,14 +63,15 @@ void		prompt(void)
 
     certifier.sendCertify(_socketCert.getSocket(), TEST_DEFAULT_BUILD_VERSION, TEST_DEFAULT_ACCOUNT, TEST_DEFAULT_PASSWORD);
 
-    bool r = false;
-    uint32_t i = 0;
+    bool r{ false };
+    uint32_t i{ 0u };
     FE_PROMPT("");
     while (std::getline(std::cin, line))
     {
         while (listCommandeSimple[i].command != nullptr)
         {
-            if (line.compare(listCommandeSimple[i].command) == 0 || line.compare(listCommandeSimple[i].shortcut) == 0)
+            if (   line.compare(listCommandeSimple[i].command) == 0
+                || line.compare(listCommandeSimple[i].shortcut) == 0)
             {
                 listCommandeSimple[i].process();
                 r = true;

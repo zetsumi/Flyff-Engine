@@ -14,14 +14,14 @@ extern fe::HandlerCache			cache;
 
 
 
-void	certifier_connect(void)
+void	certifier_connect()
 {
     FE_LOG("connecting Certifier");
     std::thread tcert(handler_certifier);
     tcert.detach();
 }
 
-void	cert_disconnect(void)
+void	cert_disconnect()
 {
     // TODO :
 }

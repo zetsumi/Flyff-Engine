@@ -13,7 +13,7 @@ extern fe::HandlerCertifier		certifier;
 extern fe::HandlerLogin			login;
 extern fe::HandlerCache			cache;
 
-void tip_fast_connect(void)
+void tip_fast_connect()
 {
     login_connect();
     std::this_thread::sleep_for (std::chrono::milliseconds(200));

@@ -14,7 +14,7 @@ extern fe::HandlerLogin			login;
 extern fe::HandlerCache			cache;
 
 
-bool	handler_cache(void)
+bool	handler_cache()
 {
     fe::Network network;
 

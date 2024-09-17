@@ -15,24 +15,24 @@ extern fe::HandlerCache			cache;
 
 
 
-void	login_connect(void)
+void	login_connect()
 {
     FE_LOG("connecting LoginServer");
     std::thread tlogin(handler_login);
     tlogin.detach();
 }
 
-void	login_query_tick_count(void)
+void	login_query_tick_count()
 {
     login.sendQueryTickCount(_socketLog.getSocket());
 }
 
-void login_disconnect(void)
+void login_disconnect()
 {
     // TODO :
 }
 
-void login_get_list_player(void)
+void login_get_list_player()
 {
     FE_LOG("GETLISTPLAYER : Build{%s} AuthKey{%u} Account{%s} Password{%s} IdServer{%u}",
         TEST_DEFAULT_BUILD_VERSION,
@@ -48,7 +48,7 @@ void login_get_list_player(void)
         TEST_DEFAULT_ID_SERVER);
 }
 
-void	login_pre_join(void)
+void	login_pre_join()
 {
     FE_LOG("PREJOIN : Account{%s} IdPlayer{%u} PlayerName{%s}",
         TEST_DEFAULT_ACCOUNT,

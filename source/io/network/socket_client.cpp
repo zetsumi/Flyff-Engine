@@ -7,10 +7,13 @@ fe::SocketClient::~SocketClient()
     clean();
 }
 
-bool	fe::SocketClient::connect(const Network& network)
+bool fe::SocketClient::connect(const Network& network)
 {
     if (network.isValid() == false)
+    {
         return false;
+    }
+
     int errorCode = 0;
     uint32_t nport = network.getPort();
     std::string stringPort = std::to_string(nport);
@@ -37,8 +40,7 @@ bool	fe::SocketClient::connect(const Network& network)
         return false;
     }
 
-    struct addrinfo* ptr;
-    for ( ptr = result; ptr != NULL; ptr = ptr->ai_next)
+    for (struct addrinfo* ptr{ result }; ptr != nullptr; ptr = ptr->ai_next)
     {
         _socket = ::socket(ptr->ai_family, ptr->ai_socktype, ptr->ai_protocol);
         if (_socket == INVALID_SOCKET)
@@ -56,9 +58,13 @@ bool	fe::SocketClient::connect(const Network& network)
         }
         break;
     }
+
     ::freeaddrinfo(result);
+
     if (_socket == INVALID_SOCKET)
+    {
         return false;
+    }
 #else
     struct sockaddr_in in;
     socklen_t len;
@@ -76,6 +82,7 @@ bool	fe::SocketClient::connect(const Network& network)
         return false;
     }
 #endif
+
     return true;
 }
 

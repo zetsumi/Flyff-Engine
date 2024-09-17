@@ -15,14 +15,14 @@ extern fe::HandlerCache			cache;
 
 
 
-void cache_connect(void)
+void cache_connect()
 {
     FE_LOG("connecting CacheServer");
     std::thread tproxy(handler_cache);
     tproxy.detach();
 }
 
-void	cache_join(void)
+void	cache_join()
 {
     FE_LOG("Sending Join Game");
     cache.sendJoin(
@@ -41,7 +41,7 @@ void	cache_join(void)
     );
 }
 
-void	cache_get_pos(void)
+void	cache_get_pos()
 {
     cache.sendGetPosition(
         _socketCache.getSocket(),
@@ -51,7 +51,7 @@ void	cache_get_pos(void)
 
 fe::util::Vector3D<float> dest{ 6959.27734f, 100.000000f, 3462.15723f };
 
-void	cache_dest_pos(void)
+void	cache_dest_pos()
 {
     dest.x += 3;
     cache.sendDestinationPosition(
