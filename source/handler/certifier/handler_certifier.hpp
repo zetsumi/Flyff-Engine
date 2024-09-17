@@ -23,7 +23,7 @@ namespace fe
 
 		// global
 		void	initialize() override;
-		constexpr std::uint32_t getAuthKey() const { return authKey; }
+		constexpr uint32_t getAuthKey() const { return authKey; }
 
 		// emit
 		void	sendDisconnectAccount(fe::type::_SOCKET id, const char* account, const char* password);

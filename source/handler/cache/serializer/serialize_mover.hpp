@@ -12,12 +12,12 @@ namespace fe
 		{
 
 			unsigned short		motion = 0;
-			std::uint8_t	player = 0;
-			std::int32_t	hitPoint = 0;
-			std::uint32_t	forceState = 0;
-			std::uint32_t	stateFlag = 0;
-			std::uint8_t	belliGerence = 0;
-			std::uint32_t	sfxId = 0;
+			uint8_t	player = 0;
+			int32_t	hitPoint = 0;
+			uint32_t	forceState = 0;
+			uint32_t	stateFlag = 0;
+			uint8_t	belliGerence = 0;
+			uint32_t	sfxId = 0;
 
 			fe::serialize::SerializeMoverPlayer	moverPlayer{};
 			fe::serialize::SerializeMoverNPC	moverNPC{};
@@ -28,12 +28,12 @@ namespace fe
 			SerializeMover& operator<<(fe::PacketBuilder& pb)
 			{
 				motion = pb.read<unsigned char>();
-				player = pb.read<std::uint8_t>();
-				hitPoint = pb.read<std::int32_t>();
-				forceState = pb.read<std::uint32_t>();
-				stateFlag = pb.read<std::uint32_t>();
-				belliGerence = pb.read<std::uint8_t>();
-				sfxId = pb.read<std::uint32_t>();
+				player = pb.read<uint8_t>();
+				hitPoint = pb.read<int32_t>();
+				forceState = pb.read<uint32_t>();
+				stateFlag = pb.read<uint32_t>();
+				belliGerence = pb.read<uint8_t>();
+				sfxId = pb.read<uint32_t>();
 
 				if (player == 1)
 					moverPlayer << pb;

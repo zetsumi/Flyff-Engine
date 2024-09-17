@@ -32,7 +32,7 @@ namespace fe
 
 		// emit
 		void	sendQueryTickCount(fe::type::_SOCKET id);
-		void	sendGetListPlayer(fe::type::_SOCKET id, const char* protocolVersion, std::uint32_t authKey, const char* account, const char* password, std::uint32_t idServer);
-		void	sendPreJoin(fe::type::_SOCKET id, const char* account, std::uint32_t idPlayer, const char* playerName, std::int32_t secretPIN);
+		void	sendGetListPlayer(fe::type::_SOCKET id, const char* protocolVersion, uint32_t authKey, const char* account, const char* password, uint32_t idServer);
+		void	sendPreJoin(fe::type::_SOCKET id, const char* account, uint32_t idPlayer, const char* playerName, int32_t secretPIN);
 	};
 }

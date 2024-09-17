@@ -16,13 +16,13 @@ namespace fe
      */
     struct API_DECLSPEC PropCtrl : PropertyContainer
     {
-        std::uint64_t  id = { 0ull };
+        uint64_t  id = { 0ull };
         std::string    name{};
-        std::uint64_t  ctrlKind1{ 0ull };
-        std::uint64_t  ctrlKind2{ 0ull };
-        std::uint64_t  ctrlKind3{ 0ull };
-        std::uint64_t  sfxCtrl{ 0ull };
-        std::uint64_t  soundDamage{ 0ull };
+        uint64_t  ctrlKind1{ 0ull };
+        uint64_t  ctrlKind2{ 0ull };
+        uint64_t  ctrlKind3{ 0ull };
+        uint64_t  sfxCtrl{ 0ull };
+        uint64_t  soundDamage{ 0ull };
         std::string    comment{};
 
         PropCtrl(const PropCtrl* o) : PropCtrl(*o) {}

@@ -122,7 +122,7 @@
 	else if (type.compare("string[]") == 0)\
 	{\
 			file << "\t\t\t\t" << name << " = new char* [" << name << "_count" << "]();" << std::endl; \
-			file << "\t\t\t\t" << "for (std::uint32_t i = 0; i <" << name << "_count; ++i)" << std::endl;\
+			file << "\t\t\t\t" << "for (uint32_t i = 0; i <" << name << "_count; ++i)" << std::endl;\
 			file << "\t\t\t\t\t" << "pb.writeString(" << name << "[i])"  << std::endl;\
 	}\
 	else\

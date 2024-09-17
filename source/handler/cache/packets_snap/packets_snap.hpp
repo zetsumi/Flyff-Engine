@@ -12,8 +12,8 @@ namespace fe
 	{
 		struct Snapshot
 		{
-			std::uint32_t objid = 0;
-			std::uint32_t objIdPlayer = 0;
+			uint32_t objid = 0;
+			uint32_t objIdPlayer = 0;
 			fe::snapshot::SNAPSHOTTYPE snapshotType = fe::snapshot::SNAPSHOTTYPE::MAX_ERROR;
 
 			Snapshot(Snapshot&&) = delete;

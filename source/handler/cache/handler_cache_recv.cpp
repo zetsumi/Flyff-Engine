@@ -3,10 +3,10 @@
 
 fe::PacketMessage* fe::HandlerCache::onSnapShot()
 {
-	std::uint32_t objIdPlayer = packetBuilder.read<std::uint32_t>();
+	uint32_t objIdPlayer = packetBuilder.read<uint32_t>();
 	short count = packetBuilder.read<short>();
 
-	std::uint32_t objid = 0;
+	uint32_t objid = 0;
 	FE_CONSOLELOG("objIdPlayer{%#010x}{%u} count{%u}", objIdPlayer, objIdPlayer, count);
 
 	// Initialise le tableau de snapshot
@@ -18,7 +18,7 @@ fe::PacketMessage* fe::HandlerCache::onSnapShot()
 	fe::snapshot::SNAPSHOTTYPE snapshotType = fe::snapshot::SNAPSHOTTYPE::MAX_ERROR;
 	for (unsigned short i = 0; i < count; ++i)
 	{
-		objid = packetBuilder.read<std::uint32_t>();
+		objid = packetBuilder.read<uint32_t>();
 		snapshotType = packetBuilder.read<fe::snapshot::SNAPSHOTTYPE>();
 		FE_CONSOLELOG("objid{%#010x}{%u} snapshotType{%#04x}{%u}", objid, objid, snapshotType, snapshotType);
 

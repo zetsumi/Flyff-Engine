@@ -5,8 +5,8 @@
 void fe::HandlerMessage::onMsg(fe::PacketStructure* ps)
 {
 	fe::packet::PACKETTYPE	packetType = fe::packet::PACKETTYPE::MAX_ERROR;
-	std::uint8_t		mark = 0;
-	std::uint32_t		length = 0;
+	uint8_t		mark = 0;
+	uint32_t		length = 0;
 	fe::type::_SOCKET		idSocket = 0;
 	unsigned int			lenData = 0;
 	fe::PacketMessage*		msg = nullptr;
@@ -69,7 +69,7 @@ end:
 
 fe::PacketMessage* fe::HandlerMessage::onWelcome()
 {
-	sessionID = packetBuilder.read<std::uint32_t>();
+	sessionID = packetBuilder.read<uint32_t>();
 	FE_CONSOLELOG("sessionID:{%u}{%#010x}", sessionID);
 
 	auto fct = std::bind(&HandlerMessage::processPing, this);
@@ -91,7 +91,7 @@ fe::PacketMessage* fe::HandlerMessage::onPing()
 
 fe::PacketMessage* fe::HandlerMessage::onError()
 {
-	std::uint32_t opcodeError = packetBuilder.read<std::uint32_t>();
+	uint32_t opcodeError = packetBuilder.read<uint32_t>();
 	FE_CONSOLELOG("OP CODE: %#010x", opcodeError);
 	sendError();
 	return nullptr;

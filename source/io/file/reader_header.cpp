@@ -73,13 +73,13 @@ bool fe::ReaderHeader::loadFromHeaderHPP(const std::string& fileName) noexcept
             if (segments.size() < 3)
                 continue;
             std::istringstream sid(segments[2].c_str());
-            std::uint64_t uid;
+            uint64_t uid;
             sid >> uid;
             segments[1].erase(std::remove(segments[1].begin(), segments[1].end(), ' '), segments[1].end());
             segments[1].erase(std::remove(segments[1].begin(), segments[1].end(), '\t'), segments[1].end());
             if (segments[1].size() == 0)
                 continue;
-            defines[segments[1].c_str()] = static_cast<std::uint64_t>(uid);
+            defines[segments[1].c_str()] = static_cast<uint64_t>(uid);
         }
         fd.close();
     }
@@ -119,11 +119,11 @@ bool fe::ReaderHeader::loadFromJSON(const std::string& fileName) noexcept
     for (auto& it : data)
     {
         const std::string& key = it.first;
-        std::uint64_t value;
+        uint64_t value;
         try
         {
-            // converstion en std::uint64_t si la valeur d'origine n'est pas une string
-            value  = static_cast<std::uint64_t>(it.second.get<double>());
+            // converstion en uint64_t si la valeur d'origine n'est pas une string
+            value  = static_cast<uint64_t>(it.second.get<double>());
         }
         catch (const std::exception&)
         {
@@ -154,7 +154,7 @@ bool fe::ReaderHeader::loadFromXML(const std::string& fileName) noexcept
     return true;
 }
 
-std::uint64_t    fe::ReaderHeader::get(const std::string& id) const noexcept
+uint64_t    fe::ReaderHeader::get(const std::string& id) const noexcept
 {
     auto it = defines.find(id);
     if (it != defines.end())

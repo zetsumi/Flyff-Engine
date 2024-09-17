@@ -6,14 +6,14 @@ namespace fe
 	{
 		struct SnapshotWorldReadInfo : public Snapshot
 		{
-			std::uint32_t idWorld = 0;
+			uint32_t idWorld = 0;
 			fe::util::Vector3D<float> pos{ 0, 0, 0 };
 
 			SnapshotWorldReadInfo() = default;
 			~SnapshotWorldReadInfo() = default;
 			SnapshotWorldReadInfo& operator<<(fe::PacketBuilder& pb) override
 			{
-				idWorld = pb.read<std::uint32_t>();
+				idWorld = pb.read<uint32_t>();
 				pos.x = pb.read<float>();
 				pos.y = pb.read<float>();
 				pos.z = pb.read<float>();

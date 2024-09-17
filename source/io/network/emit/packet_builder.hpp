@@ -51,9 +51,9 @@ namespace fe
 		const unsigned char*	getData() const;
 		unsigned int						getSize() const;
 		[[nodiscard]] bool					setPacket(PacketStructure* ps);
-		void					writeHeader(std::uint32_t sessionID, HANDLER_PACKET_TYPE handlerType);
+		void					writeHeader(uint32_t sessionID, HANDLER_PACKET_TYPE handlerType);
 		void					writeString(const char* var);
-		void					writeString(const char* var, std::uint32_t length);
+		void					writeString(const char* var, uint32_t length);
 		[[nodiscard]] const char*			readString();
 		unsigned int						getOffset() const;
 

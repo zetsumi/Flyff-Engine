@@ -7,8 +7,8 @@ namespace fe
 #pragma warning( disable: 4251 )
 		struct API_DECLSPEC PacketCaption : public fe::PacketMessage
 		{
-			std::int32_t	smallCaption = 0;
-			std::uint32_t	worldId = 0;
+			int32_t	smallCaption = 0;
+			uint32_t	worldId = 0;
 			const char* caption = nullptr;
 
 			PacketCaption() = default;

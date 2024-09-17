@@ -29,10 +29,10 @@ void fe::HandlerMessage::processPing()
 	FE_CONSOLELOG("out");
 }
 
-void fe::HandlerMessage::loadHeader(std::uint8_t& mark, std::uint32_t& length, fe::packet::PACKETTYPE& packettype)
+void fe::HandlerMessage::loadHeader(uint8_t& mark, uint32_t& length, fe::packet::PACKETTYPE& packettype)
 {
-	mark = packetBuilder.read<std::uint8_t>();
-	length = packetBuilder.read<std::uint32_t>();
+	mark = packetBuilder.read<uint8_t>();
+	length = packetBuilder.read<uint32_t>();
 	packettype = packetBuilder.read<fe::packet::PACKETTYPE>();
 	FE_CONSOLELOG("header {%#02x} length{%#010x}{%u} packettype{%#08x}", mark, length, length, packettype);
 }

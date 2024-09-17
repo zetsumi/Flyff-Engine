@@ -9,13 +9,13 @@ namespace fe
 			fe::util::Vector3D<float>	pos{ 0.f, 0.f, 0.f };
 			fe::util::Vector3D<float>	delta{ 0.f, 0.f, 0.f };
 			float angle = 0.f;
-			std::uint32_t	state = 0;
-			std::uint32_t	stateFlag = 0;
-			std::uint32_t	motion = 0;
-			std::int32_t	motionExtend = 0;
-			std::int32_t	loop = 0;
-			std::uint32_t	motionOption = 0;
-			std::int64_t	tickCount = 0;
+			uint32_t	state = 0;
+			uint32_t	stateFlag = 0;
+			uint32_t	motion = 0;
+			int32_t	motionExtend = 0;
+			int32_t	loop = 0;
+			uint32_t	motionOption = 0;
+			int64_t	tickCount = 0;
 
 			SnapshotMoverBehavior() = default;
 			~SnapshotMoverBehavior() = default;

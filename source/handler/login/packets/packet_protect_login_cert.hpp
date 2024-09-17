@@ -6,15 +6,15 @@ namespace fe
 	{
 		struct PacketProtectLoginCert : public PacketMessage
 		{
-			std::uint32_t logged = 0;
-			std::uint32_t idNumPad = 0;
+			uint32_t logged = 0;
+			uint32_t idNumPad = 0;
 
 			PacketProtectLoginCert() = default;
 			~PacketProtectLoginCert() = default;
 			PacketProtectLoginCert& operator<<(fe::PacketBuilder& pb) override
 			{
-				logged = pb.read<std::uint32_t>();
-				idNumPad = pb.read<std::uint32_t>();
+				logged = pb.read<uint32_t>();
+				idNumPad = pb.read<uint32_t>();
 				FE_CONSOLELOG("logged:{%u} idNumPad:{%u}", logged, idNumPad);
 				return *this;
 			}

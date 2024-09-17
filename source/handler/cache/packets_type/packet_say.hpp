@@ -11,9 +11,9 @@ namespace fe
 			const char* playerFrom = nullptr;
 			const char* playerTo = nullptr;
 			const char* message = nullptr;
-			std::uint32_t	idFrom = 0;
-			std::uint32_t	idTo = 0;
-			std::int32_t	search = 0;
+			uint32_t	idFrom = 0;
+			uint32_t	idTo = 0;
+			int32_t	search = 0;
 
 			PacketSay() = default;
 			~PacketSay() = default;

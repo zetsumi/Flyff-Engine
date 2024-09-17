@@ -18,7 +18,7 @@ namespace fe
      */
     class API_DECLSPEC PropertyManager
     {
-        std::unordered_map<std::uint64_t, fe::PropertyContainer*>    properties;
+        std::unordered_map<uint64_t, fe::PropertyContainer*>    properties;
     public:
 
         PropertyManager();
@@ -31,7 +31,7 @@ namespace fe
          * @param id ID correspond à la propriété, cette ID permet de recupérer plus tard d'information sur la structure stocké.
          * @param prop Pointeur representant la structure de donnée à stocker. Le pointeur ne doit pas etre nullptr.
          */
-        void    push(std::uint64_t id, fe::PropertyContainer* prop) noexcept;
+        void    push(uint64_t id, fe::PropertyContainer* prop) noexcept;
         /**
          * @brief Permet de recupérer une structure de propriété stocké précedement via son ID unique
          * 
@@ -39,7 +39,7 @@ namespace fe
          * @return fe::PropertyContainer* Si l'id est contenue le pointeur sur fe::PropertyContainer corespond aux propriété stocker sera retourner.
          * Si l'id n'est pas contenue nullptr sera retourné.
          */
-        fe::PropertyContainer*  get(std::uint64_t id) noexcept;
+        fe::PropertyContainer*  get(uint64_t id) noexcept;
         /**
          * @brief Permet de recupérer une structure de propriété stocké précedement via son ID unique.
          * Le type de la propriété est dynamique.
@@ -49,7 +49,7 @@ namespace fe
          * @return C Type de l'object propriété rechargé
          */
         template<class C>
-        C get(std::uint64_t id) noexcept
+        C get(uint64_t id) noexcept
         {
             auto val = get(id);
             if (val != nullptr)
@@ -63,7 +63,7 @@ namespace fe
          * 
          * @param id ID unique représentant la propriété qui doit etre supprimer du manager
          */
-        void    remove(std::uint64_t id) noexcept;
+        void    remove(uint64_t id) noexcept;
     };
 }
 

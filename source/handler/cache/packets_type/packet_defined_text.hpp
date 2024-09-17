@@ -7,7 +7,7 @@ namespace fe
 #pragma warning( disable: 4251 )
 		struct API_DECLSPEC PacketDefinedText : public fe::PacketMessage
 		{
-			std::uint32_t	textId = 0;
+			uint32_t	textId = 0;
 			const char* textMessage = nullptr;
 
 			PacketDefinedText() = default;

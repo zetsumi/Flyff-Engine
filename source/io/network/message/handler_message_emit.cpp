@@ -9,7 +9,7 @@ void fe::HandlerMessage::sendKeepAlive()
 
 	pb.write<fe::packet::PACKETTYPE>(fe::packet::PACKETTYPE::KEEP_ALIVE);
 	if (handlerType == HANDLER_PACKET_TYPE::LOGIN || handlerType == HANDLER_PACKET_TYPE::CACHE)
-		pb.write<std::uint32_t>(dpid);
+		pb.write<uint32_t>(dpid);
 
 	pb.writeHeader(sessionID, handlerType);
 	if (transaction->sender(pb) == false)
@@ -26,7 +26,7 @@ void fe::HandlerMessage::sendError()
 
 	pb.write<fe::packet::PACKETTYPE>(fe::packet::PACKETTYPE::PERROR);
 	if (handlerType == HANDLER_PACKET_TYPE::LOGIN || handlerType == HANDLER_PACKET_TYPE::CACHE)
-		pb.write<std::uint32_t>(dpid);
+		pb.write<uint32_t>(dpid);
 
 	pb.writeHeader(sessionID, handlerType);
 	if (transaction->sender(pb) == false)
@@ -42,7 +42,7 @@ void fe::HandlerMessage::sendPing()
 
 	pb.write<fe::packet::PACKETTYPE>(fe::packet::PACKETTYPE::PING);
 	if (handlerType == HANDLER_PACKET_TYPE::LOGIN || handlerType == HANDLER_PACKET_TYPE::CACHE)
-		pb.write<std::uint32_t>(dpid);
+		pb.write<uint32_t>(dpid);
 	pb.writeHeader(sessionID, handlerType);
 	if (transaction->sender(pb) == false)
 		FE_CONSOLELOG("fail send");

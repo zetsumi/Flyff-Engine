@@ -230,7 +230,7 @@ namespace fe
 		 * @param id 
 		 * @return PropItem* 
 		 */
-		PropItem* getItem(std::uint64_t id) noexcept
+		PropItem* getItem(uint64_t id) noexcept
 		{
 			return dynamic_cast<PropItem*>(propitem.get(id));
 		};
@@ -240,7 +240,7 @@ namespace fe
 		 * @param id 
 		 * @return PropSkill* 
 		 */
-		PropSkill* getSkill(std::uint64_t id) noexcept
+		PropSkill* getSkill(uint64_t id) noexcept
 		{
 			return dynamic_cast<PropSkill*>(propskill.get(id));
 		};
@@ -250,7 +250,7 @@ namespace fe
 		 * @param id 
 		 * @return PropCtrl* 
 		 */
-		PropCtrl* getCtrl(std::uint64_t id) noexcept
+		PropCtrl* getCtrl(uint64_t id) noexcept
 		{
 			return dynamic_cast<PropCtrl*>(propctrl.get(id));
 		};
@@ -260,7 +260,7 @@ namespace fe
 		 * @param id 
 		 * @return PropKarma* 
 		 */
-		PropKarma* getKarma(std::uint64_t id) noexcept
+		PropKarma* getKarma(uint64_t id) noexcept
 		{
 			return dynamic_cast<PropKarma*>(propkarma.get(id));
 		};
@@ -270,7 +270,7 @@ namespace fe
 		 * @param id 
 		 * @return PropMover* 
 		 */
-		PropMover* getMover(std::uint64_t id) noexcept
+		PropMover* getMover(uint64_t id) noexcept
 		{
 			return dynamic_cast<PropMover*>(propmover.get(id));
 		};
@@ -280,7 +280,7 @@ namespace fe
 		 * @param id 
 		 * @return PropSkill* 
 		 */
-		PropSkill* getSkillTroupe(std::uint64_t id) noexcept
+		PropSkill* getSkillTroupe(uint64_t id) noexcept
 		{
 			return dynamic_cast<PropSkill*>(propskilltroupe.get(id));
 		};
@@ -295,7 +295,7 @@ namespace fe
 		 * @param id 
 		 * @return PropItem* 
 		 */
-		PropItem* createItem(std::uint64_t id) noexcept
+		PropItem* createItem(uint64_t id) noexcept
 		{
 			PropItem* src = getItem(id);
 			if (src == nullptr)
@@ -309,7 +309,7 @@ namespace fe
 		 * @param id 
 		 * @return PropSkill* 
 		 */
-		PropSkill* createSkill(std::uint64_t id) noexcept
+		PropSkill* createSkill(uint64_t id) noexcept
 		{
 			PropSkill* src = getSkill(id);
 			if (src == nullptr)
@@ -323,7 +323,7 @@ namespace fe
 		 * @param id 
 		 * @return PropCtrl* 
 		 */
-		PropCtrl* createCtrl(std::uint64_t id) noexcept
+		PropCtrl* createCtrl(uint64_t id) noexcept
 		{
 			PropCtrl* src = getCtrl(id);
 			if (src == nullptr)
@@ -337,7 +337,7 @@ namespace fe
 		 * @param id 
 		 * @return PropKarma* 
 		 */
-		PropKarma* createKarma(std::uint64_t id) noexcept
+		PropKarma* createKarma(uint64_t id) noexcept
 		{
 			PropKarma* src = getKarma(id);
 			if (src == nullptr)
@@ -351,7 +351,7 @@ namespace fe
 		 * @param id 
 		 * @return PropMover* 
 		 */
-		PropMover* createMover(std::uint64_t id) noexcept
+		PropMover* createMover(uint64_t id) noexcept
 		{
 			PropMover* src = getMover(id);
 			if (src == nullptr)
@@ -365,7 +365,7 @@ namespace fe
 		 * @param id 
 		 * @return PropSkill* 
 		 */
-		PropSkill* createSkillTroupe(std::uint64_t id) noexcept
+		PropSkill* createSkillTroupe(uint64_t id) noexcept
 		{
 			PropSkill* src = getSkillTroupe(id);
 			if (src == nullptr)
